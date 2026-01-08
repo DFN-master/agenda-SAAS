@@ -1,0 +1,74 @@
+# Docker Compose file for Agenda-Sys
+
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: agenda_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: agenda_user
+      POSTGRES_PASSWORD: agenda_pass
+      POSTGRES_DB: agenda_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: agenda_redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: agenda_backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://agenda_user:agenda_pass@postgres:5432/agenda_db
+      REDIS_URL: redis://redis:6379
+      EMAIL_HOST: smtp.example.com
+      EMAIL_PORT: "587"
+      EMAIL_USER: user@example.com
+      EMAIL_PASS: password
+      EMAIL_FROM: "Agenda <no-reply@agenda.com>"
+      OPENAI_API_KEY: your_openai_key
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "3000:3000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: agenda_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    container_name: agenda_ai_service
+    restart: unless-stopped
+    environment:
+      OPENAI_API_KEY: your_openai_key
+    depends_on:
+      - backend
+    ports:
+      - "5000:5000"
+
+volumes:
+  postgres_data:
+  redis_data:

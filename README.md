@@ -1,51 +1,53 @@
-# Agenda-Sys
+## Painel de Usuário
 
-Agenda-Sys é um sistema SaaS inteligente para gerenciamento de agendas, integrações com WhatsApp e email, e automação de tarefas com IA. Ele é projetado para atender empresas que precisam de uma solução eficiente para comunicação e organização.
+O painel de usuário oferece as seguintes seções:
 
-## Funcionalidades
+* **Dashboard** – Visão geral do uso do sistema.
+* **Integrações** – Gerencie conexões de WhatsApp, Email e outras.
+* **Planos** – Visualize e altere seu plano de assinatura.
+* **Relatórios** – Acesse relatórios detalhados.
+* **Workflow** – Configure fluxos de atendimento.
+* **Configurações** – Gerencie preferências e conta.
+* **Admin Integrations** – Permite que o administrador da empresa crie e gerencie conexões de WhatsApp, Email e outras integrações.
 
-- **Integração com WhatsApp**: Gerencie mensagens e conexões usando o WhatsMeow.
-- **Integração com Email**: Envio e recebimento de emails com suporte a SMTP, IMAP e POP.
-- **Automação com IA**: Resuma emails e automatize respostas usando OpenAI.
-- **Gerenciamento de Planos**: Controle limites de conexões e acessos por meio de planos de assinatura.
-- **Painel de Super Admin**: Gerencie empresas, planos e integrações.
-
-## Tecnologias Utilizadas
-
-### Backend
-- **Node.js** com **TypeScript**
-- **Sequelize** para ORM e migrações
-- **Express** para API
-- **Nodemailer** para envio de emails
-- **WhatsMeow** para integração com WhatsApp
-
-### Frontend
-- **React** com **Vite**
-
-### Microserviços
-- **Python** para automação de emails com OpenAI
-
-## Estrutura do Projeto
+## Estrutura de Arquivos
 
 ```
-Agenda-Sys/
-├── backend/                # Backend em Node.js
-│   ├── src/
-│   │   ├── models/        # Modelos Sequelize
-│   │   ├── migrations/    # Migrações do banco de dados
-│   │   ├── seeders/       # Seeders para dados iniciais
-│   │   ├── services/      # Serviços (WhatsApp, Email, etc.)
-│   │   └── index.ts       # Ponto de entrada do backend
-│   └── package.json       # Configuração do backend
-├── frontend/               # Frontend em React
-│   ├── src/
-│   │   ├── pages/         # Páginas React
-│   │   ├── App.jsx        # Componente principal
-│   │   └── main.jsx       # Ponto de entrada do frontend
-│   └── package.json       # Configuração do frontend
-├── ai-service/             # Microserviço de IA
-│   └── email_summary.py    # Script Python para automação de emails
-└── README.md               # Documentação do projeto
+frontend/src/
+├── components/
+│   ├── Dashboard.jsx
+│   ├── Integrations/
+│   │   ├── WhatsAppIntegration.jsx
+│   │   ├── EmailIntegration.jsx
+│   │   └── AdminIntegrations.jsx
+│   ├── Plans.jsx
+│   ├── Reports.jsx
+│   ├── Settings.jsx
+│   └── Workflow/Workflow.jsx
+├── pages/
+│   ├── UserPanel.jsx
+│   └── Login.jsx
+├── App.jsx
+└── main.jsx
+```
+
+## Como Contribuir
+
+Contribuições são bem‑vindas! Siga os passos abaixo:
+
+1. Fork o repositório.
+2. Crie uma branch com a sua feature: `git checkout -b feature/nome-da-feature`.
+3. Commit suas alterações: `git commit -m "Adiciona nova feature"`.
+4. Push para a branch: `git push origin feature/nome-da-feature`.
+5. Abra um Pull Request.
+
+## Licença
+
+MIT License.
+
+---
+
+Para mais detalhes, consulte a documentação completa no repositório.
 ```
 
 ## Configuração
