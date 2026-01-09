@@ -32,6 +32,7 @@ function Login() {
         id: data.id,
         email: data.email,
         role: data.role,
+        Companies: data.Companies || [],
       }));
       window.location.href = '/dashboard';
     } catch (err) {

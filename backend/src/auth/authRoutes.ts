@@ -71,4 +71,16 @@ router.post('/login', async (req: LoginRequest, res: Response) => {
     res.json(response);
   } catch (error) {
     console.error('Login error:', error);
-    res.status(500).json({ message: 'Internal server error'
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+/**
+ * POST /api/auth/logout
+ * Simple logout endpoint
+ */
+router.post('/logout', (req: Request, res: Response) => {
+  res.json({ message: 'Logout successful' });
+});
+
+export default router;

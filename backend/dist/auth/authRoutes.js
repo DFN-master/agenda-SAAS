@@ -29,8 +29,15 @@ router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }
         // Get User model
         const User = models_1.sequelize.models.User;
-        // Find user by email
-        const user = yield User.findOne({ where: { email } });
+        const Company = models_1.sequelize.models.Company;
+        // Find user by email with companies
+        const user = yield User.findOne({
+            where: { email },
+            include: [{
+                    model: Company,
+                    through: { attributes: [] }
+                }]
+        });
         if (!user) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
@@ -45,6 +52,7 @@ router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* 
             id: user.dataValues.id,
             email: user.dataValues.email,
             role: user.dataValues.role,
+            Companies: user.dataValues.Companies || [],
             token,
             message: 'Login successful',
         };
