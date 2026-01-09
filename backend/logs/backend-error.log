@@ -21535,3 +21535,881 @@
 2026-01-09 15:52:57 -03:00:   sql: `SELECT "User"."id", "User"."email", "User"."role", "User"."created_at", "User"."updated_at", "Companies"."id" AS "Companies.id", "Companies"."name" AS "Companies.name" FROM "users" AS "User" LEFT OUTER JOIN ( "company_users" AS "Companies->company_users" INNER JOIN "companies" AS "Companies" ON "Companies"."id" = "Companies->company_users"."company_id") ON "User"."id" = "Companies->company_users"."user_id" WHERE "User"."id" = 'c038fd21-5860-4b17-b172-5f34790dadf2';`,
 2026-01-09 15:52:57 -03:00:   parameters: {}
 2026-01-09 15:52:57 -03:00: }
+2026-01-09 18:26:18 -03:00: [AI] IA generation failed Error
+2026-01-09 18:26:18 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 18:26:18 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 18:26:18 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:26:18 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-09 18:26:18 -03:00:     at async AiConversationMessage.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-09 18:26:18 -03:00:     at async AiConversationMessage.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-09 18:26:18 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 18:26:18 -03:00:   parent: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:26:18 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:26:18 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:26:18 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:26:18 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:26:18 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:26:18 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:26:18 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:26:18 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:26:18 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:26:18 -03:00:     length: 156,
+2026-01-09 18:26:18 -03:00:     severity: 'ERROR',
+2026-01-09 18:26:18 -03:00:     code: '22P02',
+2026-01-09 18:26:18 -03:00:     detail: undefined,
+2026-01-09 18:26:18 -03:00:     hint: undefined,
+2026-01-09 18:26:18 -03:00:     position: undefined,
+2026-01-09 18:26:18 -03:00:     internalPosition: undefined,
+2026-01-09 18:26:18 -03:00:     internalQuery: undefined,
+2026-01-09 18:26:18 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:26:18 -03:00:     schema: undefined,
+2026-01-09 18:26:18 -03:00:     table: undefined,
+2026-01-09 18:26:18 -03:00:     column: undefined,
+2026-01-09 18:26:18 -03:00:     dataType: undefined,
+2026-01-09 18:26:18 -03:00:     constraint: undefined,
+2026-01-09 18:26:18 -03:00:     file: 'numutils.c',
+2026-01-09 18:26:18 -03:00:     line: '232',
+2026-01-09 18:26:18 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:26:18 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:26:18 -03:00:     parameters: [
+2026-01-09 18:26:18 -03:00:       '535598f5-fb14-404a-855b-8719265cc5aa',
+2026-01-09 18:26:18 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:26:18 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:26:18 -03:00:       'conn_1767993884804',
+2026-01-09 18:26:18 -03:00:       '+130713219239978',
+2026-01-09 18:26:18 -03:00:       'received',
+2026-01-09 18:26:18 -03:00:       'Teste',
+2026-01-09 18:26:18 -03:00:       '{"intent":"account"}',
+2026-01-09 18:26:18 -03:00:       '2026-01-09 21:26:18.818 +00:00'
+2026-01-09 18:26:18 -03:00:     ]
+2026-01-09 18:26:18 -03:00:   },
+2026-01-09 18:26:18 -03:00:   original: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:26:18 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:26:18 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:26:18 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:26:18 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:26:18 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:26:18 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:26:18 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:26:18 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:26:18 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:26:18 -03:00:     length: 156,
+2026-01-09 18:26:18 -03:00:     severity: 'ERROR',
+2026-01-09 18:26:18 -03:00:     code: '22P02',
+2026-01-09 18:26:18 -03:00:     detail: undefined,
+2026-01-09 18:26:18 -03:00:     hint: undefined,
+2026-01-09 18:26:18 -03:00:     position: undefined,
+2026-01-09 18:26:18 -03:00:     internalPosition: undefined,
+2026-01-09 18:26:18 -03:00:     internalQuery: undefined,
+2026-01-09 18:26:18 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:26:18 -03:00:     schema: undefined,
+2026-01-09 18:26:18 -03:00:     table: undefined,
+2026-01-09 18:26:18 -03:00:     column: undefined,
+2026-01-09 18:26:18 -03:00:     dataType: undefined,
+2026-01-09 18:26:18 -03:00:     constraint: undefined,
+2026-01-09 18:26:18 -03:00:     file: 'numutils.c',
+2026-01-09 18:26:18 -03:00:     line: '232',
+2026-01-09 18:26:18 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:26:18 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:26:18 -03:00:     parameters: [
+2026-01-09 18:26:18 -03:00:       '535598f5-fb14-404a-855b-8719265cc5aa',
+2026-01-09 18:26:18 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:26:18 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:26:18 -03:00:       'conn_1767993884804',
+2026-01-09 18:26:18 -03:00:       '+130713219239978',
+2026-01-09 18:26:18 -03:00:       'received',
+2026-01-09 18:26:18 -03:00:       'Teste',
+2026-01-09 18:26:18 -03:00:       '{"intent":"account"}',
+2026-01-09 18:26:18 -03:00:       '2026-01-09 21:26:18.818 +00:00'
+2026-01-09 18:26:18 -03:00:     ]
+2026-01-09 18:26:18 -03:00:   },
+2026-01-09 18:26:18 -03:00:   sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:26:18 -03:00:   parameters: [
+2026-01-09 18:26:18 -03:00:     '535598f5-fb14-404a-855b-8719265cc5aa',
+2026-01-09 18:26:18 -03:00:     '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:26:18 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:26:18 -03:00:     'conn_1767993884804',
+2026-01-09 18:26:18 -03:00:     '+130713219239978',
+2026-01-09 18:26:18 -03:00:     'received',
+2026-01-09 18:26:18 -03:00:     'Teste',
+2026-01-09 18:26:18 -03:00:     '{"intent":"account"}',
+2026-01-09 18:26:18 -03:00:     '2026-01-09 21:26:18.818 +00:00'
+2026-01-09 18:26:18 -03:00:   ]
+2026-01-09 18:26:18 -03:00: }
+2026-01-09 18:31:40 -03:00: [AI] IA generation failed Error
+2026-01-09 18:31:40 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 18:31:40 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 18:31:40 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:31:40 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-09 18:31:40 -03:00:     at async AiConversationMessage.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-09 18:31:40 -03:00:     at async AiConversationMessage.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-09 18:31:40 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 18:31:40 -03:00:   parent: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:31:40 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:31:40 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:31:40 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:31:40 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:31:40 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:31:40 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:31:40 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:31:40 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:31:40 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:31:40 -03:00:     length: 156,
+2026-01-09 18:31:40 -03:00:     severity: 'ERROR',
+2026-01-09 18:31:40 -03:00:     code: '22P02',
+2026-01-09 18:31:40 -03:00:     detail: undefined,
+2026-01-09 18:31:40 -03:00:     hint: undefined,
+2026-01-09 18:31:40 -03:00:     position: undefined,
+2026-01-09 18:31:40 -03:00:     internalPosition: undefined,
+2026-01-09 18:31:40 -03:00:     internalQuery: undefined,
+2026-01-09 18:31:40 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:31:40 -03:00:     schema: undefined,
+2026-01-09 18:31:40 -03:00:     table: undefined,
+2026-01-09 18:31:40 -03:00:     column: undefined,
+2026-01-09 18:31:40 -03:00:     dataType: undefined,
+2026-01-09 18:31:40 -03:00:     constraint: undefined,
+2026-01-09 18:31:40 -03:00:     file: 'numutils.c',
+2026-01-09 18:31:40 -03:00:     line: '232',
+2026-01-09 18:31:40 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:31:40 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:31:40 -03:00:     parameters: [
+2026-01-09 18:31:40 -03:00:       'b2e25602-4be7-4567-929b-5e2a9e20bad1',
+2026-01-09 18:31:40 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:31:40 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:31:40 -03:00:       'conn_1767993884804',
+2026-01-09 18:31:40 -03:00:       '+130713219239978',
+2026-01-09 18:31:40 -03:00:       'received',
+2026-01-09 18:31:40 -03:00:       'Teste',
+2026-01-09 18:31:40 -03:00:       '{"intent":"account"}',
+2026-01-09 18:31:40 -03:00:       '2026-01-09 21:31:40.269 +00:00'
+2026-01-09 18:31:40 -03:00:     ]
+2026-01-09 18:31:40 -03:00:   },
+2026-01-09 18:31:40 -03:00:   original: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:31:40 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:31:40 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:31:40 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:31:40 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:31:40 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:31:40 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:31:40 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:31:40 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:31:40 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:31:40 -03:00:     length: 156,
+2026-01-09 18:31:40 -03:00:     severity: 'ERROR',
+2026-01-09 18:31:40 -03:00:     code: '22P02',
+2026-01-09 18:31:40 -03:00:     detail: undefined,
+2026-01-09 18:31:40 -03:00:     hint: undefined,
+2026-01-09 18:31:40 -03:00:     position: undefined,
+2026-01-09 18:31:40 -03:00:     internalPosition: undefined,
+2026-01-09 18:31:40 -03:00:     internalQuery: undefined,
+2026-01-09 18:31:40 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:31:40 -03:00:     schema: undefined,
+2026-01-09 18:31:40 -03:00:     table: undefined,
+2026-01-09 18:31:40 -03:00:     column: undefined,
+2026-01-09 18:31:40 -03:00:     dataType: undefined,
+2026-01-09 18:31:40 -03:00:     constraint: undefined,
+2026-01-09 18:31:40 -03:00:     file: 'numutils.c',
+2026-01-09 18:31:40 -03:00:     line: '232',
+2026-01-09 18:31:40 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:31:40 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:31:40 -03:00:     parameters: [
+2026-01-09 18:31:40 -03:00:       'b2e25602-4be7-4567-929b-5e2a9e20bad1',
+2026-01-09 18:31:40 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:31:40 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:31:40 -03:00:       'conn_1767993884804',
+2026-01-09 18:31:40 -03:00:       '+130713219239978',
+2026-01-09 18:31:40 -03:00:       'received',
+2026-01-09 18:31:40 -03:00:       'Teste',
+2026-01-09 18:31:40 -03:00:       '{"intent":"account"}',
+2026-01-09 18:31:40 -03:00:       '2026-01-09 21:31:40.269 +00:00'
+2026-01-09 18:31:40 -03:00:     ]
+2026-01-09 18:31:40 -03:00:   },
+2026-01-09 18:31:40 -03:00:   sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:31:40 -03:00:   parameters: [
+2026-01-09 18:31:40 -03:00:     'b2e25602-4be7-4567-929b-5e2a9e20bad1',
+2026-01-09 18:31:40 -03:00:     '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:31:40 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:31:40 -03:00:     'conn_1767993884804',
+2026-01-09 18:31:40 -03:00:     '+130713219239978',
+2026-01-09 18:31:40 -03:00:     'received',
+2026-01-09 18:31:40 -03:00:     'Teste',
+2026-01-09 18:31:40 -03:00:     '{"intent":"account"}',
+2026-01-09 18:31:40 -03:00:     '2026-01-09 21:31:40.269 +00:00'
+2026-01-09 18:31:40 -03:00:   ]
+2026-01-09 18:31:40 -03:00: }
+2026-01-09 18:33:21 -03:00: [AI] IA generation failed Error
+2026-01-09 18:33:21 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 18:33:21 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 18:33:21 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:33:21 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-09 18:33:21 -03:00:     at async AiConversationMessage.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-09 18:33:21 -03:00:     at async AiConversationMessage.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-09 18:33:21 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 18:33:21 -03:00:   parent: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:33:21 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:33:21 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:33:21 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:33:21 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:33:21 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:33:21 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:33:21 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:33:21 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:33:21 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:33:21 -03:00:     length: 156,
+2026-01-09 18:33:21 -03:00:     severity: 'ERROR',
+2026-01-09 18:33:21 -03:00:     code: '22P02',
+2026-01-09 18:33:21 -03:00:     detail: undefined,
+2026-01-09 18:33:21 -03:00:     hint: undefined,
+2026-01-09 18:33:21 -03:00:     position: undefined,
+2026-01-09 18:33:21 -03:00:     internalPosition: undefined,
+2026-01-09 18:33:21 -03:00:     internalQuery: undefined,
+2026-01-09 18:33:21 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:33:21 -03:00:     schema: undefined,
+2026-01-09 18:33:21 -03:00:     table: undefined,
+2026-01-09 18:33:21 -03:00:     column: undefined,
+2026-01-09 18:33:21 -03:00:     dataType: undefined,
+2026-01-09 18:33:21 -03:00:     constraint: undefined,
+2026-01-09 18:33:21 -03:00:     file: 'numutils.c',
+2026-01-09 18:33:21 -03:00:     line: '232',
+2026-01-09 18:33:21 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:33:21 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:21 -03:00:     parameters: [
+2026-01-09 18:33:21 -03:00:       '372b9e4b-f49a-4cb6-9fb6-86b0484df68f',
+2026-01-09 18:33:21 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:21 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:21 -03:00:       'conn_1767993884804',
+2026-01-09 18:33:21 -03:00:       '+130713219239978',
+2026-01-09 18:33:21 -03:00:       'received',
+2026-01-09 18:33:21 -03:00:       'Teste',
+2026-01-09 18:33:21 -03:00:       '{"intent":"account"}',
+2026-01-09 18:33:21 -03:00:       '2026-01-09 21:33:21.801 +00:00'
+2026-01-09 18:33:21 -03:00:     ]
+2026-01-09 18:33:21 -03:00:   },
+2026-01-09 18:33:21 -03:00:   original: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:33:21 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:33:21 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:33:21 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:33:21 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:33:21 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:33:21 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:33:21 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:33:21 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:33:21 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:33:21 -03:00:     length: 156,
+2026-01-09 18:33:21 -03:00:     severity: 'ERROR',
+2026-01-09 18:33:21 -03:00:     code: '22P02',
+2026-01-09 18:33:21 -03:00:     detail: undefined,
+2026-01-09 18:33:21 -03:00:     hint: undefined,
+2026-01-09 18:33:21 -03:00:     position: undefined,
+2026-01-09 18:33:21 -03:00:     internalPosition: undefined,
+2026-01-09 18:33:21 -03:00:     internalQuery: undefined,
+2026-01-09 18:33:21 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:33:21 -03:00:     schema: undefined,
+2026-01-09 18:33:21 -03:00:     table: undefined,
+2026-01-09 18:33:21 -03:00:     column: undefined,
+2026-01-09 18:33:21 -03:00:     dataType: undefined,
+2026-01-09 18:33:21 -03:00:     constraint: undefined,
+2026-01-09 18:33:21 -03:00:     file: 'numutils.c',
+2026-01-09 18:33:21 -03:00:     line: '232',
+2026-01-09 18:33:21 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:33:21 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:21 -03:00:     parameters: [
+2026-01-09 18:33:21 -03:00:       '372b9e4b-f49a-4cb6-9fb6-86b0484df68f',
+2026-01-09 18:33:21 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:21 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:21 -03:00:       'conn_1767993884804',
+2026-01-09 18:33:21 -03:00:       '+130713219239978',
+2026-01-09 18:33:21 -03:00:       'received',
+2026-01-09 18:33:21 -03:00:       'Teste',
+2026-01-09 18:33:21 -03:00:       '{"intent":"account"}',
+2026-01-09 18:33:21 -03:00:       '2026-01-09 21:33:21.801 +00:00'
+2026-01-09 18:33:21 -03:00:     ]
+2026-01-09 18:33:21 -03:00:   },
+2026-01-09 18:33:21 -03:00:   sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:21 -03:00:   parameters: [
+2026-01-09 18:33:21 -03:00:     '372b9e4b-f49a-4cb6-9fb6-86b0484df68f',
+2026-01-09 18:33:21 -03:00:     '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:21 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:21 -03:00:     'conn_1767993884804',
+2026-01-09 18:33:21 -03:00:     '+130713219239978',
+2026-01-09 18:33:21 -03:00:     'received',
+2026-01-09 18:33:21 -03:00:     'Teste',
+2026-01-09 18:33:21 -03:00:     '{"intent":"account"}',
+2026-01-09 18:33:21 -03:00:     '2026-01-09 21:33:21.801 +00:00'
+2026-01-09 18:33:21 -03:00:   ]
+2026-01-09 18:33:21 -03:00: }
+2026-01-09 18:33:30 -03:00: [AI] IA generation failed Error
+2026-01-09 18:33:30 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 18:33:30 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 18:33:30 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:33:30 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-09 18:33:30 -03:00:     at async AiConversationMessage.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-09 18:33:30 -03:00:     at async AiConversationMessage.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-09 18:33:30 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 18:33:30 -03:00:   parent: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:33:30 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:33:30 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:33:30 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:33:30 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:33:30 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:33:30 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:33:30 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:33:30 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:33:30 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:33:30 -03:00:     length: 156,
+2026-01-09 18:33:30 -03:00:     severity: 'ERROR',
+2026-01-09 18:33:30 -03:00:     code: '22P02',
+2026-01-09 18:33:30 -03:00:     detail: undefined,
+2026-01-09 18:33:30 -03:00:     hint: undefined,
+2026-01-09 18:33:30 -03:00:     position: undefined,
+2026-01-09 18:33:30 -03:00:     internalPosition: undefined,
+2026-01-09 18:33:30 -03:00:     internalQuery: undefined,
+2026-01-09 18:33:30 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:33:30 -03:00:     schema: undefined,
+2026-01-09 18:33:30 -03:00:     table: undefined,
+2026-01-09 18:33:30 -03:00:     column: undefined,
+2026-01-09 18:33:30 -03:00:     dataType: undefined,
+2026-01-09 18:33:30 -03:00:     constraint: undefined,
+2026-01-09 18:33:30 -03:00:     file: 'numutils.c',
+2026-01-09 18:33:30 -03:00:     line: '232',
+2026-01-09 18:33:30 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:33:30 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:30 -03:00:     parameters: [
+2026-01-09 18:33:30 -03:00:       'a35ab409-31ca-46f1-a979-5c42c052245f',
+2026-01-09 18:33:30 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:30 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:30 -03:00:       'conn_1767993884804',
+2026-01-09 18:33:30 -03:00:       '+130713219239978',
+2026-01-09 18:33:30 -03:00:       'received',
+2026-01-09 18:33:30 -03:00:       'Opa',
+2026-01-09 18:33:30 -03:00:       '{"intent":"account"}',
+2026-01-09 18:33:30 -03:00:       '2026-01-09 21:33:30.226 +00:00'
+2026-01-09 18:33:30 -03:00:     ]
+2026-01-09 18:33:30 -03:00:   },
+2026-01-09 18:33:30 -03:00:   original: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:33:30 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:33:30 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:33:30 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:33:30 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:33:30 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:33:30 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:33:30 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:33:30 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:33:30 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:33:30 -03:00:     length: 156,
+2026-01-09 18:33:30 -03:00:     severity: 'ERROR',
+2026-01-09 18:33:30 -03:00:     code: '22P02',
+2026-01-09 18:33:30 -03:00:     detail: undefined,
+2026-01-09 18:33:30 -03:00:     hint: undefined,
+2026-01-09 18:33:30 -03:00:     position: undefined,
+2026-01-09 18:33:30 -03:00:     internalPosition: undefined,
+2026-01-09 18:33:30 -03:00:     internalQuery: undefined,
+2026-01-09 18:33:30 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:33:30 -03:00:     schema: undefined,
+2026-01-09 18:33:30 -03:00:     table: undefined,
+2026-01-09 18:33:30 -03:00:     column: undefined,
+2026-01-09 18:33:30 -03:00:     dataType: undefined,
+2026-01-09 18:33:30 -03:00:     constraint: undefined,
+2026-01-09 18:33:30 -03:00:     file: 'numutils.c',
+2026-01-09 18:33:30 -03:00:     line: '232',
+2026-01-09 18:33:30 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:33:30 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:30 -03:00:     parameters: [
+2026-01-09 18:33:30 -03:00:       'a35ab409-31ca-46f1-a979-5c42c052245f',
+2026-01-09 18:33:30 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:30 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:30 -03:00:       'conn_1767993884804',
+2026-01-09 18:33:30 -03:00:       '+130713219239978',
+2026-01-09 18:33:30 -03:00:       'received',
+2026-01-09 18:33:30 -03:00:       'Opa',
+2026-01-09 18:33:30 -03:00:       '{"intent":"account"}',
+2026-01-09 18:33:30 -03:00:       '2026-01-09 21:33:30.226 +00:00'
+2026-01-09 18:33:30 -03:00:     ]
+2026-01-09 18:33:30 -03:00:   },
+2026-01-09 18:33:30 -03:00:   sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:30 -03:00:   parameters: [
+2026-01-09 18:33:30 -03:00:     'a35ab409-31ca-46f1-a979-5c42c052245f',
+2026-01-09 18:33:30 -03:00:     '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:30 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:30 -03:00:     'conn_1767993884804',
+2026-01-09 18:33:30 -03:00:     '+130713219239978',
+2026-01-09 18:33:30 -03:00:     'received',
+2026-01-09 18:33:30 -03:00:     'Opa',
+2026-01-09 18:33:30 -03:00:     '{"intent":"account"}',
+2026-01-09 18:33:30 -03:00:     '2026-01-09 21:33:30.226 +00:00'
+2026-01-09 18:33:30 -03:00:   ]
+2026-01-09 18:33:30 -03:00: }
+2026-01-09 18:33:56 -03:00: [AI] IA generation failed Error
+2026-01-09 18:33:56 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 18:33:56 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 18:33:56 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:33:56 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-09 18:33:56 -03:00:     at async AiConversationMessage.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-09 18:33:56 -03:00:     at async AiConversationMessage.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-09 18:33:56 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 18:33:56 -03:00:   parent: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:33:56 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:33:56 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:33:56 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:33:56 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:33:56 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:33:56 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:33:56 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:33:56 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:33:56 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:33:56 -03:00:     length: 156,
+2026-01-09 18:33:56 -03:00:     severity: 'ERROR',
+2026-01-09 18:33:56 -03:00:     code: '22P02',
+2026-01-09 18:33:56 -03:00:     detail: undefined,
+2026-01-09 18:33:56 -03:00:     hint: undefined,
+2026-01-09 18:33:56 -03:00:     position: undefined,
+2026-01-09 18:33:56 -03:00:     internalPosition: undefined,
+2026-01-09 18:33:56 -03:00:     internalQuery: undefined,
+2026-01-09 18:33:56 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:33:56 -03:00:     schema: undefined,
+2026-01-09 18:33:56 -03:00:     table: undefined,
+2026-01-09 18:33:56 -03:00:     column: undefined,
+2026-01-09 18:33:56 -03:00:     dataType: undefined,
+2026-01-09 18:33:56 -03:00:     constraint: undefined,
+2026-01-09 18:33:56 -03:00:     file: 'numutils.c',
+2026-01-09 18:33:56 -03:00:     line: '232',
+2026-01-09 18:33:56 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:33:56 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:56 -03:00:     parameters: [
+2026-01-09 18:33:56 -03:00:       'c04c1571-3a5d-4530-9530-599bdf00f75e',
+2026-01-09 18:33:56 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:56 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:56 -03:00:       'conn_1767993884804',
+2026-01-09 18:33:56 -03:00:       '+130713219239978',
+2026-01-09 18:33:56 -03:00:       'received',
+2026-01-09 18:33:56 -03:00:       'Opa',
+2026-01-09 18:33:56 -03:00:       '{"intent":"account"}',
+2026-01-09 18:33:56 -03:00:       '2026-01-09 21:33:56.322 +00:00'
+2026-01-09 18:33:56 -03:00:     ]
+2026-01-09 18:33:56 -03:00:   },
+2026-01-09 18:33:56 -03:00:   original: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:33:56 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:33:56 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:33:56 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:33:56 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:33:56 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:33:56 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:33:56 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:33:56 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:33:56 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:33:56 -03:00:     length: 156,
+2026-01-09 18:33:56 -03:00:     severity: 'ERROR',
+2026-01-09 18:33:56 -03:00:     code: '22P02',
+2026-01-09 18:33:56 -03:00:     detail: undefined,
+2026-01-09 18:33:56 -03:00:     hint: undefined,
+2026-01-09 18:33:56 -03:00:     position: undefined,
+2026-01-09 18:33:56 -03:00:     internalPosition: undefined,
+2026-01-09 18:33:56 -03:00:     internalQuery: undefined,
+2026-01-09 18:33:56 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:33:56 -03:00:     schema: undefined,
+2026-01-09 18:33:56 -03:00:     table: undefined,
+2026-01-09 18:33:56 -03:00:     column: undefined,
+2026-01-09 18:33:56 -03:00:     dataType: undefined,
+2026-01-09 18:33:56 -03:00:     constraint: undefined,
+2026-01-09 18:33:56 -03:00:     file: 'numutils.c',
+2026-01-09 18:33:56 -03:00:     line: '232',
+2026-01-09 18:33:56 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:33:56 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:56 -03:00:     parameters: [
+2026-01-09 18:33:56 -03:00:       'c04c1571-3a5d-4530-9530-599bdf00f75e',
+2026-01-09 18:33:56 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:56 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:56 -03:00:       'conn_1767993884804',
+2026-01-09 18:33:56 -03:00:       '+130713219239978',
+2026-01-09 18:33:56 -03:00:       'received',
+2026-01-09 18:33:56 -03:00:       'Opa',
+2026-01-09 18:33:56 -03:00:       '{"intent":"account"}',
+2026-01-09 18:33:56 -03:00:       '2026-01-09 21:33:56.322 +00:00'
+2026-01-09 18:33:56 -03:00:     ]
+2026-01-09 18:33:56 -03:00:   },
+2026-01-09 18:33:56 -03:00:   sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:33:56 -03:00:   parameters: [
+2026-01-09 18:33:56 -03:00:     'c04c1571-3a5d-4530-9530-599bdf00f75e',
+2026-01-09 18:33:56 -03:00:     '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:33:56 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:33:56 -03:00:     'conn_1767993884804',
+2026-01-09 18:33:56 -03:00:     '+130713219239978',
+2026-01-09 18:33:56 -03:00:     'received',
+2026-01-09 18:33:56 -03:00:     'Opa',
+2026-01-09 18:33:56 -03:00:     '{"intent":"account"}',
+2026-01-09 18:33:56 -03:00:     '2026-01-09 21:33:56.322 +00:00'
+2026-01-09 18:33:56 -03:00:   ]
+2026-01-09 18:33:56 -03:00: }
+2026-01-09 18:34:19 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:34:19 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:34:19 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:34:19 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:34:19 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:34:19 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:34:19 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:34:19 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:34:19 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:34:19 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:34:19 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:34:19 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:34:19 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:34:19 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:34:19 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:34:19 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:36:35 -03:00: [AI] IA generation failed Error
+2026-01-09 18:36:35 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 18:36:35 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 18:36:35 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:36:35 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-09 18:36:35 -03:00:     at async AiConversationMessage.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-09 18:36:35 -03:00:     at async AiConversationMessage.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-09 18:36:35 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 18:36:35 -03:00:   parent: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:36:35 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:36:35 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:36:35 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:36:35 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:36:35 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:36:35 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:36:35 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:36:35 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:36:35 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:36:35 -03:00:     length: 156,
+2026-01-09 18:36:35 -03:00:     severity: 'ERROR',
+2026-01-09 18:36:35 -03:00:     code: '22P02',
+2026-01-09 18:36:35 -03:00:     detail: undefined,
+2026-01-09 18:36:35 -03:00:     hint: undefined,
+2026-01-09 18:36:35 -03:00:     position: undefined,
+2026-01-09 18:36:35 -03:00:     internalPosition: undefined,
+2026-01-09 18:36:35 -03:00:     internalQuery: undefined,
+2026-01-09 18:36:35 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:36:35 -03:00:     schema: undefined,
+2026-01-09 18:36:35 -03:00:     table: undefined,
+2026-01-09 18:36:35 -03:00:     column: undefined,
+2026-01-09 18:36:35 -03:00:     dataType: undefined,
+2026-01-09 18:36:35 -03:00:     constraint: undefined,
+2026-01-09 18:36:35 -03:00:     file: 'numutils.c',
+2026-01-09 18:36:35 -03:00:     line: '232',
+2026-01-09 18:36:35 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:36:35 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:36:35 -03:00:     parameters: [
+2026-01-09 18:36:35 -03:00:       '55730d8c-73b3-471f-9302-0851d151fc6e',
+2026-01-09 18:36:35 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:36:35 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:36:35 -03:00:       'conn_1767993884804',
+2026-01-09 18:36:35 -03:00:       '+130713219239978',
+2026-01-09 18:36:35 -03:00:       'received',
+2026-01-09 18:36:35 -03:00:       'Teste',
+2026-01-09 18:36:35 -03:00:       '{"intent":"account"}',
+2026-01-09 18:36:35 -03:00:       '2026-01-09 21:36:35.766 +00:00'
+2026-01-09 18:36:35 -03:00:     ]
+2026-01-09 18:36:35 -03:00:   },
+2026-01-09 18:36:35 -03:00:   original: error: invalid input syntax for type integer: "conn_1767993884804"
+2026-01-09 18:36:35 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 18:36:35 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 18:36:35 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 18:36:35 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 18:36:35 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 18:36:35 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 18:36:35 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 18:36:35 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 18:36:35 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 18:36:35 -03:00:     length: 156,
+2026-01-09 18:36:35 -03:00:     severity: 'ERROR',
+2026-01-09 18:36:35 -03:00:     code: '22P02',
+2026-01-09 18:36:35 -03:00:     detail: undefined,
+2026-01-09 18:36:35 -03:00:     hint: undefined,
+2026-01-09 18:36:35 -03:00:     position: undefined,
+2026-01-09 18:36:35 -03:00:     internalPosition: undefined,
+2026-01-09 18:36:35 -03:00:     internalQuery: undefined,
+2026-01-09 18:36:35 -03:00:     where: "unnamed portal parameter $4 = '...'",
+2026-01-09 18:36:35 -03:00:     schema: undefined,
+2026-01-09 18:36:35 -03:00:     table: undefined,
+2026-01-09 18:36:35 -03:00:     column: undefined,
+2026-01-09 18:36:35 -03:00:     dataType: undefined,
+2026-01-09 18:36:35 -03:00:     constraint: undefined,
+2026-01-09 18:36:35 -03:00:     file: 'numutils.c',
+2026-01-09 18:36:35 -03:00:     line: '232',
+2026-01-09 18:36:35 -03:00:     routine: 'pg_strtoint32',
+2026-01-09 18:36:35 -03:00:     sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:36:35 -03:00:     parameters: [
+2026-01-09 18:36:35 -03:00:       '55730d8c-73b3-471f-9302-0851d151fc6e',
+2026-01-09 18:36:35 -03:00:       '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:36:35 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:36:35 -03:00:       'conn_1767993884804',
+2026-01-09 18:36:35 -03:00:       '+130713219239978',
+2026-01-09 18:36:35 -03:00:       'received',
+2026-01-09 18:36:35 -03:00:       'Teste',
+2026-01-09 18:36:35 -03:00:       '{"intent":"account"}',
+2026-01-09 18:36:35 -03:00:       '2026-01-09 21:36:35.766 +00:00'
+2026-01-09 18:36:35 -03:00:     ]
+2026-01-09 18:36:35 -03:00:   },
+2026-01-09 18:36:35 -03:00:   sql: 'INSERT INTO "ai_conversation_messages" ("id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING "id","company_id","user_id","connection_id","client_ref","direction","message_text","metadata","created_at";',
+2026-01-09 18:36:35 -03:00:   parameters: [
+2026-01-09 18:36:35 -03:00:     '55730d8c-73b3-471f-9302-0851d151fc6e',
+2026-01-09 18:36:35 -03:00:     '99999999-9999-9999-9999-999999999999',
+2026-01-09 18:36:35 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-09 18:36:35 -03:00:     'conn_1767993884804',
+2026-01-09 18:36:35 -03:00:     '+130713219239978',
+2026-01-09 18:36:35 -03:00:     'received',
+2026-01-09 18:36:35 -03:00:     'Teste',
+2026-01-09 18:36:35 -03:00:     '{"intent":"account"}',
+2026-01-09 18:36:35 -03:00:     '2026-01-09 21:36:35.766 +00:00'
+2026-01-09 18:36:35 -03:00:   ]
+2026-01-09 18:36:35 -03:00: }
+2026-01-09 18:38:03 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:03 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:03 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:03 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:03 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:03 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:03 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:03 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:03 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:03 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:03 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:03 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:03 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:03 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:03 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:03 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:14 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:14 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:14 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:14 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:14 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:14 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:14 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:14 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:24 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:24 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:24 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:24 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:24 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:24 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:24 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:24 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:34 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:34 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:34 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:34 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:34 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:34 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:34 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:34 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:44 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:44 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:44 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:44 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:44 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:44 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:44 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:44 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:47 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:47 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:47 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:47 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:47 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:47 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:47 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:47 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:47 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:47 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:47 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:47 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:47 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:47 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:47 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:47 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:52 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:52 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:52 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:52 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:52 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:52 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:52 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:52 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:38:52 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:38:52 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:38:52 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:38:52 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:38:52 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:38:52 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:38:52 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:38:52 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:39:03 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:39:03 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:39:03 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:39:03 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:39:03 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:39:03 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:39:03 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:39:03 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:39:13 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:39:13 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:39:13 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:39:13 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:39:13 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:39:13 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:39:13 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:39:13 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:39:23 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:39:23 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:39:23 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:39:23 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:39:23 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:39:23 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:39:23 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:39:23 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:39:33 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:39:33 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:39:33 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:39:33 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:39:33 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:39:33 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:39:33 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:39:33 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:39:43 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:39:43 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:39:43 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:39:43 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:39:43 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:39:43 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:39:43 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:39:43 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:39:53 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:39:53 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:39:53 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:39:53 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:39:53 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:39:53 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:39:53 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:39:53 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:40:03 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:40:03 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:40:03 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:40:03 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:40:03 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:40:03 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:40:03 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:40:03 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:04 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:04 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:04 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:04 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:04 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:04 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:04 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:04 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:20 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:20 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:20 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:20 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:20 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:20 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:20 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:20 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:22 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:22 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:22 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:22 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:22 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:22 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:22 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:22 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:25 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:25 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:25 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:25 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:25 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:25 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:25 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:25 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:25 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:25 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:25 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:25 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:25 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:25 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:25 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:25 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:29 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:29 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:29 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:29 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:29 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:29 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:29 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:29 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:35 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:35 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:35 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:35 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:35 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:35 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:35 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:35 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:46 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:46 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:46 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:46 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:46 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:46 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:46 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:46 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:41:56 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:41:56 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:41:56 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:41:56 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:41:56 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:41:56 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:41:56 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:41:56 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:42:06 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:42:06 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:42:06 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:42:06 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:42:06 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:42:06 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:42:06 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:42:06 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:42:16 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:42:16 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:42:16 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:42:16 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:42:16 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:42:16 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:42:16 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:42:16 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:42:26 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:42:26 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:42:26 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:42:26 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:42:26 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:42:26 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:42:26 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:42:26 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:42:36 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:42:36 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:42:36 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:42:36 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:42:36 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:42:36 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:42:36 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:42:36 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:43:09 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:43:09 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:43:09 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:43:09 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:43:09 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:43:09 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:43:09 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:43:09 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 18:44:09 -03:00: Error fetching suggestions: EagerLoadingError [SequelizeEagerLoadingError]: UserConnection is not associated to AiConversationSuggestion!
+2026-01-09 18:44:09 -03:00:     at AiConversationSuggestion._getIncludedAssociation (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:565:13)
+2026-01-09 18:44:09 -03:00:     at AiConversationSuggestion._validateIncludedElement (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:502:53)
+2026-01-09 18:44:09 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:421:37
+2026-01-09 18:44:09 -03:00:     at Array.map (<anonymous>)
+2026-01-09 18:44:09 -03:00:     at AiConversationSuggestion._validateIncludedElements (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:417:39)
+2026-01-09 18:44:09 -03:00:     at AiConversationSuggestion.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1124:12)
+2026-01-09 18:44:09 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)

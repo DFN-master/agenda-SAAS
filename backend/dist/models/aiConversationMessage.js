@@ -33,7 +33,7 @@ exports.default = (sequelize) => {
             allowNull: false,
         },
         connection_id: {
-            type: sequelize_1.DataTypes.INTEGER,
+            type: sequelize_1.DataTypes.STRING,
             allowNull: true,
         },
         client_ref: {

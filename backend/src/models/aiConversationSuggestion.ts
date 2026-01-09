@@ -11,6 +11,10 @@ export default (sequelize: Sequelize) => {
         foreignKey: 'company_id',
         as: 'company',
       });
+      AiConversationSuggestion.belongsTo(models.UserConnection, {
+        foreignKey: 'connection_id',
+        as: 'userConnection',
+      });
     }
   }
 
