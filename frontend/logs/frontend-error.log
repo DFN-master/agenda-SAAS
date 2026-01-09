@@ -1,0 +1,1118 @@
+2026-01-09 11:09:36 -03:00: [2m11:09:36[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./Login.css" from "src\pages\Login.jsx". Does the file exist?[39m
+2026-01-09 11:09:36 -03:00:   Plugin: [35mvite:import-analysis[39m
+2026-01-09 11:09:36 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Login.jsx[39m:2:7
+2026-01-09 11:09:36 -03:00: [33m  17 |  var _s = $RefreshSig$();
+2026-01-09 11:09:36 -03:00:   18 |  import React, { useState } from "react";
+2026-01-09 11:09:36 -03:00:   19 |  import "./Login.css";
+2026-01-09 11:09:36 -03:00:      |          ^
+2026-01-09 11:09:36 -03:00:   20 |  function Login() {
+2026-01-09 11:09:36 -03:00:   21 |    _s();[39m
+2026-01-09 11:09:36 -03:00:       at formatError (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44066:46)
+2026-01-09 11:09:36 -03:00:       at TransformContext.error (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44062:19)
+2026-01-09 11:09:36 -03:00:       at normalizeUrl (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41845:33)
+2026-01-09 11:09:36 -03:00:       at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 11:09:36 -03:00:       at async file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41999:47
+2026-01-09 11:09:36 -03:00:       at async Promise.all (index 4)
+2026-01-09 11:09:36 -03:00:       at async TransformContext.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41915:13)
+2026-01-09 11:09:36 -03:00:       at async Object.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44356:30)
+2026-01-09 11:09:36 -03:00:       at async loadAndTransform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:55088:29)
+2026-01-09 11:09:36 -03:00:       at async viteTransformMiddleware (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:64699:32)
+2026-01-09 11:09:43 -03:00: Failed to resolve import "./Login.css" from "src\pages\Login.jsx". Does the file exist?
+2026-01-09 11:09:43 -03:00: [2m11:09:43[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./Login.css" from "src\pages\Login.jsx". Does the file exist?[39m
+2026-01-09 11:09:43 -03:00:   Plugin: [35mvite:import-analysis[39m
+2026-01-09 11:09:43 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Login.jsx[39m:2:7
+2026-01-09 11:09:43 -03:00: [33m  17 |  var _s = $RefreshSig$();
+2026-01-09 11:09:43 -03:00:   18 |  import React, { useState } from "react";
+2026-01-09 11:09:43 -03:00:   19 |  import "./Login.css";
+2026-01-09 11:09:43 -03:00:      |          ^
+2026-01-09 11:09:43 -03:00:   20 |  function Login() {
+2026-01-09 11:09:43 -03:00:   21 |    _s();[39m
+2026-01-09 11:09:43 -03:00:       at formatError (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44066:46)
+2026-01-09 11:09:43 -03:00:       at TransformContext.error (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44062:19)
+2026-01-09 11:09:43 -03:00:       at normalizeUrl (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41845:33)
+2026-01-09 11:09:43 -03:00:       at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 11:09:43 -03:00:       at async file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41999:47
+2026-01-09 11:09:43 -03:00:       at async Promise.all (index 4)
+2026-01-09 11:09:43 -03:00:       at async TransformContext.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41915:13)
+2026-01-09 11:09:43 -03:00:       at async Object.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44356:30)
+2026-01-09 11:09:43 -03:00:       at async loadAndTransform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:55088:29)
+2026-01-09 11:09:43 -03:00:       at async viteTransformMiddleware (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:64699:32)
+2026-01-09 11:26:44 -03:00: [2m11:26:44[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./components/Navbar" from "src\App.jsx". Does the file exist?[39m
+2026-01-09 11:26:44 -03:00:   Plugin: [35mvite:import-analysis[39m
+2026-01-09 11:26:44 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/App.jsx[39m:8:19
+2026-01-09 11:26:44 -03:00: [33m  22 |  import Reports from "./pages/Reports";
+2026-01-09 11:26:44 -03:00:   23 |  import Integrations from "./pages/Integrations";
+2026-01-09 11:26:44 -03:00:   24 |  import Navbar from "./components/Navbar";
+2026-01-09 11:26:44 -03:00:      |                      ^
+2026-01-09 11:26:44 -03:00:   25 |  function ProtectedRoute({ children }) {
+2026-01-09 11:26:44 -03:00:   26 |    const token = localStorage.getItem("token");[39m
+2026-01-09 11:26:44 -03:00:       at formatError (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44066:46)
+2026-01-09 11:26:44 -03:00:       at TransformContext.error (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44062:19)
+2026-01-09 11:26:44 -03:00:       at normalizeUrl (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41845:33)
+2026-01-09 11:26:44 -03:00:       at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 11:26:44 -03:00:       at async file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41999:47
+2026-01-09 11:26:44 -03:00:       at async Promise.all (index 10)
+2026-01-09 11:26:44 -03:00:       at async TransformContext.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41915:13)
+2026-01-09 11:26:44 -03:00:       at async Object.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44356:30)
+2026-01-09 11:26:44 -03:00:       at async loadAndTransform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:55088:29)
+2026-01-09 11:26:44 -03:00:       at async viteTransformMiddleware (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:64699:32)
+2026-01-09 11:26:44 -03:00: Failed to resolve import "./components/Navbar" from "src\App.jsx". Does the file exist?
+2026-01-09 11:26:45 -03:00: [2m11:26:45[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./components/Navbar" from "src\App.jsx". Does the file exist?[39m
+2026-01-09 11:26:45 -03:00:   Plugin: [35mvite:import-analysis[39m
+2026-01-09 11:26:45 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/App.jsx[39m:8:19
+2026-01-09 11:26:45 -03:00: [33m  22 |  import Reports from "./pages/Reports";
+2026-01-09 11:26:45 -03:00:   23 |  import Integrations from "./pages/Integrations";
+2026-01-09 11:26:45 -03:00:   24 |  import Navbar from "./components/Navbar";
+2026-01-09 11:26:45 -03:00:      |                      ^
+2026-01-09 11:26:45 -03:00:   25 |  function ProtectedRoute({ children }) {
+2026-01-09 11:26:45 -03:00:   26 |    const token = localStorage.getItem("token");[39m
+2026-01-09 11:26:45 -03:00:       at formatError (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44066:46)
+2026-01-09 11:26:45 -03:00:       at TransformContext.error (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44062:19)
+2026-01-09 11:26:45 -03:00:       at normalizeUrl (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41845:33)
+2026-01-09 11:26:45 -03:00:       at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 11:26:45 -03:00:       at async file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41999:47
+2026-01-09 11:26:45 -03:00:       at async Promise.all (index 10)
+2026-01-09 11:26:45 -03:00:       at async TransformContext.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41915:13)
+2026-01-09 11:26:45 -03:00:       at async Object.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44356:30)
+2026-01-09 11:26:45 -03:00:       at async loadAndTransform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:55088:29)
+2026-01-09 11:26:45 -03:00:       at async viteTransformMiddleware (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:64699:32)
+2026-01-09 11:26:46 -03:00: [2m11:26:46[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./components/Navbar" from "src\App.jsx". Does the file exist?[39m
+2026-01-09 11:26:46 -03:00:   Plugin: [35mvite:import-analysis[39m
+2026-01-09 11:26:46 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/App.jsx[39m:8:19
+2026-01-09 11:26:46 -03:00: [33m  22 |  import Reports from "./pages/Reports";
+2026-01-09 11:26:46 -03:00:   23 |  import Integrations from "./pages/Integrations";
+2026-01-09 11:26:46 -03:00:   24 |  import Navbar from "./components/Navbar";
+2026-01-09 11:26:46 -03:00:      |                      ^
+2026-01-09 11:26:46 -03:00:   25 |  function ProtectedRoute({ children }) {
+2026-01-09 11:26:46 -03:00:   26 |    const token = localStorage.getItem("token");[39m
+2026-01-09 11:26:46 -03:00:       at formatError (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44066:46)
+2026-01-09 11:26:46 -03:00:       at TransformContext.error (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44062:19)
+2026-01-09 11:26:46 -03:00:       at normalizeUrl (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41845:33)
+2026-01-09 11:26:46 -03:00:       at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 11:26:46 -03:00:       at async file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41999:47
+2026-01-09 11:26:46 -03:00:       at async Promise.all (index 10)
+2026-01-09 11:26:46 -03:00:       at async TransformContext.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41915:13)
+2026-01-09 11:26:46 -03:00:       at async Object.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44356:30)
+2026-01-09 11:26:46 -03:00:       at async loadAndTransform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:55088:29)
+2026-01-09 11:26:46 -03:00:       at async viteTransformMiddleware (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:64699:32)
+2026-01-09 11:26:53 -03:00: Failed to resolve import "./Navbar.css" from "src\components\Navbar.jsx". Does the file exist?
+2026-01-09 11:26:53 -03:00: [2m11:26:53[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./Navbar.css" from "src\components\Navbar.jsx". Does the file exist?[39m
+2026-01-09 11:26:53 -03:00:   Plugin: [35mvite:import-analysis[39m
+2026-01-09 11:26:53 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/components/Navbar.jsx[39m:3:7
+2026-01-09 11:26:53 -03:00: [33m  18 |  import { useLocation, useNavigate } from "react-router-dom";
+2026-01-09 11:26:53 -03:00:   19 |  import { useEffect, useState } from "react";
+2026-01-09 11:26:53 -03:00:   20 |  import "./Navbar.css";
+2026-01-09 11:26:53 -03:00:      |          ^
+2026-01-09 11:26:53 -03:00:   21 |  function Navbar() {
+2026-01-09 11:26:53 -03:00:   22 |    _s();[39m
+2026-01-09 11:26:53 -03:00:       at formatError (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44066:46)
+2026-01-09 11:26:53 -03:00:       at TransformContext.error (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44062:19)
+2026-01-09 11:26:53 -03:00:       at normalizeUrl (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41845:33)
+2026-01-09 11:26:53 -03:00:       at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 11:26:53 -03:00:       at async file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41999:47
+2026-01-09 11:26:53 -03:00:       at async Promise.all (index 5)
+2026-01-09 11:26:53 -03:00:       at async TransformContext.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:41915:13)
+2026-01-09 11:26:53 -03:00:       at async Object.transform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:44356:30)
+2026-01-09 11:26:53 -03:00:       at async loadAndTransform (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:55088:29)
+2026-01-09 11:26:53 -03:00:       at async viteTransformMiddleware (file:///D:/Agenda-Sys/frontend/node_modules/vite/dist/node/chunks/dep-827b23df.js:64699:32)
+2026-01-09 11:27:15 -03:00: [2m11:27:15[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (183:4)
+2026-01-09 11:27:15 -03:00: 
+2026-01-09 11:27:15 -03:00: [0m [90m 181 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:15 -03:00:  [90m 182 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:15 -03:00: [31m[1m>[22m[31m[90m 183 |[31m     [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:15 -03:00:  [90m     |[31m     [31m[1m^[22m[31m
+2026-01-09 11:27:15 -03:00:  [90m 184 |[31m   )[33m;[31m
+2026-01-09 11:27:15 -03:00:  [90m 185 |[31m }
+2026-01-09 11:27:15 -03:00:  [90m 186 |[31m[0m[39m
+2026-01-09 11:27:15 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:15 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:183:4
+2026-01-09 11:27:15 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.jsxParseElementAt (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4771:18)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.jsxParseElement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4778:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4788:19)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 11:27:15 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:39
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12500:12)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeAssignAllowIn (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12567:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseParenAndDistinguishExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11747:28)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11395:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExpressionBase (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10848:23)
+2026-01-09 11:27:15 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:39
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12495:16)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13218:28)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 11:27:15 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:15 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:18 -03:00: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (183:4)
+2026-01-09 11:27:18 -03:00: 
+2026-01-09 11:27:18 -03:00: [0m [90m 181 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+2026-01-09 11:27:18 -03:00:  [90m 182 |[39m       [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+2026-01-09 11:27:18 -03:00: [31m[1m>[22m[39m[90m 183 |[39m     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+2026-01-09 11:27:18 -03:00:  [90m     |[39m     [31m[1m^[22m[39m
+2026-01-09 11:27:18 -03:00:  [90m 184 |[39m   )[33m;[39m
+2026-01-09 11:27:18 -03:00:  [90m 185 |[39m }
+2026-01-09 11:27:18 -03:00:  [90m 186 |[39m[0m
+2026-01-09 11:27:19 -03:00: [2m11:27:19[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (183:4)
+2026-01-09 11:27:19 -03:00: 
+2026-01-09 11:27:19 -03:00: [0m [90m 181 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:19 -03:00:  [90m 182 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:19 -03:00: [31m[1m>[22m[31m[90m 183 |[31m     [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:19 -03:00:  [90m     |[31m     [31m[1m^[22m[31m
+2026-01-09 11:27:19 -03:00:  [90m 184 |[31m   )[33m;[31m
+2026-01-09 11:27:19 -03:00:  [90m 185 |[31m }
+2026-01-09 11:27:19 -03:00:  [90m 186 |[31m[0m[39m
+2026-01-09 11:27:19 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:19 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:183:4
+2026-01-09 11:27:19 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.jsxParseElementAt (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4771:18)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.jsxParseElement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4778:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4788:19)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 11:27:19 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:39
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12500:12)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeAssignAllowIn (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12567:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseParenAndDistinguishExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11747:28)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11395:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExpressionBase (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10848:23)
+2026-01-09 11:27:19 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:39
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12495:16)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13218:28)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 11:27:19 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:19 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:24 -03:00: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (183:4)
+2026-01-09 11:27:24 -03:00: 
+2026-01-09 11:27:24 -03:00: [0m [90m 181 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+2026-01-09 11:27:24 -03:00:  [90m 182 |[39m       [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+2026-01-09 11:27:24 -03:00: [31m[1m>[22m[39m[90m 183 |[39m     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+2026-01-09 11:27:24 -03:00:  [90m     |[39m     [31m[1m^[22m[39m
+2026-01-09 11:27:24 -03:00:  [90m 184 |[39m   )[33m;[39m
+2026-01-09 11:27:24 -03:00:  [90m 185 |[39m }
+2026-01-09 11:27:24 -03:00:  [90m 186 |[39m[0m
+2026-01-09 11:27:24 -03:00: [2m11:27:24[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (183:4)
+2026-01-09 11:27:24 -03:00: 
+2026-01-09 11:27:24 -03:00: [0m [90m 181 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:24 -03:00:  [90m 182 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:24 -03:00: [31m[1m>[22m[31m[90m 183 |[31m     [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+2026-01-09 11:27:24 -03:00:  [90m     |[31m     [31m[1m^[22m[31m
+2026-01-09 11:27:24 -03:00:  [90m 184 |[31m   )[33m;[31m
+2026-01-09 11:27:24 -03:00:  [90m 185 |[31m }
+2026-01-09 11:27:24 -03:00:  [90m 186 |[31m[0m[39m
+2026-01-09 11:27:24 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:24 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:183:4
+2026-01-09 11:27:24 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.jsxParseElementAt (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4771:18)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.jsxParseElement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4778:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4788:19)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 11:27:24 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:39
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12500:12)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeAssignAllowIn (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12567:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseParenAndDistinguishExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11747:28)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11395:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExpressionBase (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10848:23)
+2026-01-09 11:27:24 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:39
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12495:16)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13218:28)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 11:27:24 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:24 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:25 -03:00: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:25 -03:00: 
+2026-01-09 11:27:25 -03:00: [0m [90m 184 |[39m   }
+2026-01-09 11:27:25 -03:00:  [90m 185 |[39m
+2026-01-09 11:27:25 -03:00: [31m[1m>[22m[39m[90m 186 |[39m   [36mreturn[39m (
+2026-01-09 11:27:25 -03:00:  [90m     |[39m   [31m[1m^[22m[39m
+2026-01-09 11:27:25 -03:00:  [90m 187 |[39m     [33m<[39m[33mdiv[39m className[33m=[39m[32m"dashboard-main"[39m[33m>[39m
+2026-01-09 11:27:25 -03:00:  [90m 188 |[39m       [33m<[39m[33mdiv[39m className[33m=[39m[32m"dashboard-header"[39m[33m>[39m
+2026-01-09 11:27:25 -03:00:  [90m 189 |[39m         [33m<[39m[33mh1[39m[33m>[39m[33mBem[39m[33m-[39mvindo[33m,[39m {user[33m?[39m[33m.[39memail[33m?[39m[33m.[39msplit([32m'@'[39m)[[35m0[39m][33m?[39m[33m.[39mtoUpperCase()}[33m![39m[33m<[39m[33m/[39m[33mh1[39m[33m>[39m[0m
+2026-01-09 11:27:25 -03:00: [2m11:27:25[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:25 -03:00: 
+2026-01-09 11:27:25 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:27:25 -03:00:  [90m 185 |[31m
+2026-01-09 11:27:25 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:27:25 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:27:25 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:27:25 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:27:25 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:27:25 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:25 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:27:25 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:27:25 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:27:25 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:27:25 -03:00:      |                           ^
+2026-01-09 11:27:25 -03:00:   191|        </div>
+2026-01-09 11:27:25 -03:00:   192|  [39m
+2026-01-09 11:27:25 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:25 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:27:25 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:27:25 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:27:25 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:27:25 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:27:25 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:27:25 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:27:25 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:27:25 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:27:25 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:27:25 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:27:25 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:25 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:25 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:27:25 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:27:25 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:27:25 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:27:25 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:25 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:27 -03:00: [2m11:27:27[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:27 -03:00: 
+2026-01-09 11:27:27 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:27:27 -03:00:  [90m 185 |[31m
+2026-01-09 11:27:27 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:27:27 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:27:27 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:27:27 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:27:27 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:27:27 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:27 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:27:27 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:27:27 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:27:27 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:27:27 -03:00:      |                           ^
+2026-01-09 11:27:27 -03:00:   191|        </div>
+2026-01-09 11:27:27 -03:00:   192|  [39m
+2026-01-09 11:27:27 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:27 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:27:27 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:27:27 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:27:27 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:27:27 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:27:27 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:27:27 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:27:27 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:27:27 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:27:27 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:27:27 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:27:27 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:27 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:27 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:27:27 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:27:27 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:27:27 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:27:27 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:27 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:38 -03:00: [2m11:27:38[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:38 -03:00: 
+2026-01-09 11:27:38 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:27:38 -03:00:  [90m 185 |[31m
+2026-01-09 11:27:38 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:27:38 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:27:38 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:27:38 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:27:38 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:27:38 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:38 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:27:38 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:27:38 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:27:38 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:27:38 -03:00:      |                           ^
+2026-01-09 11:27:38 -03:00:   191|        </div>
+2026-01-09 11:27:38 -03:00:   192|  [39m
+2026-01-09 11:27:38 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:38 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:27:38 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:27:38 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:27:38 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:27:38 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:27:38 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:27:38 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:27:38 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:27:38 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:27:38 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:27:38 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:27:38 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:38 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:38 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:27:38 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:27:38 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:27:38 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:27:38 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:38 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:38 -03:00: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:38 -03:00: 
+2026-01-09 11:27:38 -03:00: [0m [90m 184 |[39m   }
+2026-01-09 11:27:38 -03:00:  [90m 185 |[39m
+2026-01-09 11:27:38 -03:00: [31m[1m>[22m[39m[90m 186 |[39m   [36mreturn[39m (
+2026-01-09 11:27:38 -03:00:  [90m     |[39m   [31m[1m^[22m[39m
+2026-01-09 11:27:38 -03:00:  [90m 187 |[39m     [33m<[39m[33mdiv[39m className[33m=[39m[32m"dashboard-main"[39m[33m>[39m
+2026-01-09 11:27:38 -03:00:  [90m 188 |[39m       [33m<[39m[33mdiv[39m className[33m=[39m[32m"dashboard-header"[39m[33m>[39m
+2026-01-09 11:27:38 -03:00:  [90m 189 |[39m         [33m<[39m[33mh1[39m[33m>[39m[33mBem[39m[33m-[39mvindo[33m,[39m {user[33m?[39m[33m.[39memail[33m?[39m[33m.[39msplit([32m'@'[39m)[[35m0[39m][33m?[39m[33m.[39mtoUpperCase()}[33m![39m[33m<[39m[33m/[39m[33mh1[39m[33m>[39m[0m
+2026-01-09 11:27:40 -03:00: [2m11:27:40[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:40 -03:00: 
+2026-01-09 11:27:40 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:27:40 -03:00:  [90m 185 |[31m
+2026-01-09 11:27:40 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:27:40 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:27:40 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:27:40 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:27:40 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:27:40 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:40 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:27:40 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:27:40 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:27:40 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:27:40 -03:00:      |                           ^
+2026-01-09 11:27:40 -03:00:   191|        </div>
+2026-01-09 11:27:40 -03:00:   192|  [39m
+2026-01-09 11:27:40 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:40 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:27:40 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:27:40 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:27:40 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:27:40 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:27:40 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:27:40 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:27:40 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:27:40 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:27:40 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:27:40 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:27:40 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:40 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:40 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:27:40 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:27:40 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:27:40 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:27:40 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:40 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:43 -03:00: [2m11:27:43[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:43 -03:00: 
+2026-01-09 11:27:43 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:27:43 -03:00:  [90m 185 |[31m
+2026-01-09 11:27:43 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:27:43 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:27:43 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:27:43 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:27:43 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:27:43 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:43 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:27:43 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:27:43 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:27:43 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:27:43 -03:00:      |                           ^
+2026-01-09 11:27:43 -03:00:   191|        </div>
+2026-01-09 11:27:43 -03:00:   192|  [39m
+2026-01-09 11:27:43 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:43 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:27:43 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:27:43 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:27:43 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:27:43 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:27:43 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:27:43 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:27:43 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:27:43 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:27:43 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:27:43 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:27:43 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:43 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:43 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:27:43 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:27:43 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:27:43 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:27:43 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:43 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:45 -03:00: [2m11:27:45[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:45 -03:00: 
+2026-01-09 11:27:45 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:27:45 -03:00:  [90m 185 |[31m
+2026-01-09 11:27:45 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:27:45 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:27:45 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:27:45 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:27:45 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:27:45 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:45 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:27:45 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:27:45 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:27:45 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:27:45 -03:00:      |                           ^
+2026-01-09 11:27:45 -03:00:   191|        </div>
+2026-01-09 11:27:45 -03:00:   192|  [39m
+2026-01-09 11:27:45 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:45 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:27:45 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:27:45 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:27:45 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:27:45 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:27:45 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:27:45 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:27:45 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:27:45 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:27:45 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:27:45 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:27:45 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:45 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:45 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:27:45 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:27:45 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:27:45 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:27:45 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:45 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:48 -03:00: [2m11:27:48[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:48 -03:00: 
+2026-01-09 11:27:48 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:27:48 -03:00:  [90m 185 |[31m
+2026-01-09 11:27:48 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:27:48 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:27:48 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:27:48 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:27:48 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:27:48 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:48 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:27:48 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:27:48 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:27:48 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:27:48 -03:00:      |                           ^
+2026-01-09 11:27:48 -03:00:   191|        </div>
+2026-01-09 11:27:48 -03:00:   192|  [39m
+2026-01-09 11:27:48 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:48 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:27:48 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:27:48 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:27:48 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:27:48 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:27:48 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:27:48 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:27:48 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:27:48 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:27:48 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:27:48 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:27:48 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:48 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:48 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:27:48 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:27:48 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:27:48 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:27:48 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:48 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:50 -03:00: [2m11:27:50[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:27:50 -03:00: 
+2026-01-09 11:27:50 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:27:50 -03:00:  [90m 185 |[31m
+2026-01-09 11:27:50 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:27:50 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:27:50 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:27:50 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:27:50 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:27:50 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:27:50 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:27:50 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:27:50 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:27:50 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:27:50 -03:00:      |                           ^
+2026-01-09 11:27:50 -03:00:   191|        </div>
+2026-01-09 11:27:50 -03:00:   192|  [39m
+2026-01-09 11:27:50 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:27:50 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:27:50 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:27:50 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:27:50 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:27:50 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:27:50 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:27:50 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:27:50 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:27:50 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:27:50 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:27:50 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:27:50 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:50 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:27:50 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:27:50 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:27:50 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:27:50 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:27:50 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:27:50 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:28:55 -03:00: [2m11:28:55[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:28:55 -03:00: 
+2026-01-09 11:28:55 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:28:55 -03:00:  [90m 185 |[31m
+2026-01-09 11:28:55 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:28:55 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:28:55 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:28:55 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:28:55 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:28:55 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:28:55 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:28:55 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:28:55 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:28:55 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:28:55 -03:00:      |                           ^
+2026-01-09 11:28:55 -03:00:   191|        </div>
+2026-01-09 11:28:55 -03:00:   192|  [39m
+2026-01-09 11:28:55 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:28:55 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:28:55 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:28:55 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:28:55 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:28:55 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:28:55 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:28:55 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:28:55 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:28:55 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:28:55 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:28:55 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:28:55 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:28:55 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:28:55 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:28:55 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:28:55 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:28:55 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:28:55 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:28:55 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:28:59 -03:00: [2m11:28:59[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Dashboard.jsx: 'return' outside of function. (186:2)
+2026-01-09 11:28:59 -03:00: 
+2026-01-09 11:28:59 -03:00: [0m [90m 184 |[31m   }
+2026-01-09 11:28:59 -03:00:  [90m 185 |[31m
+2026-01-09 11:28:59 -03:00: [31m[1m>[22m[31m[90m 186 |[31m   [36mreturn[31m (
+2026-01-09 11:28:59 -03:00:  [90m     |[31m   [31m[1m^[22m[31m
+2026-01-09 11:28:59 -03:00:  [90m 187 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-main"[31m[33m>[31m
+2026-01-09 11:28:59 -03:00:  [90m 188 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"dashboard-header"[31m[33m>[31m
+2026-01-09 11:28:59 -03:00:  [90m 189 |[31m         [33m<[31m[33mh1[31m[33m>[31m[33mBem[31m[33m-[31mvindo[33m,[31m {user[33m?[31m[33m.[31memail[33m?[31m[33m.[31msplit([32m'@'[31m)[[35m0[31m][33m?[31m[33m.[31mtoUpperCase()}[33m![31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 11:28:59 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 11:28:59 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Dashboard.jsx[39m:186:2
+2026-01-09 11:28:59 -03:00: [33m  188|        <div className="dashboard-header">
+2026-01-09 11:28:59 -03:00:   189|          <h1>Bem-vindo, {user?.email?.split('@')[0]?.toUpperCase()}!</h1>
+2026-01-09 11:28:59 -03:00:   190|          <p>Gerencie seus agendamentos de forma simples e eficiente</p>
+2026-01-09 11:28:59 -03:00:      |                           ^
+2026-01-09 11:28:59 -03:00:   191|        </div>
+2026-01-09 11:28:59 -03:00:   192|  [39m
+2026-01-09 11:28:59 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 11:28:59 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 11:28:59 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 11:28:59 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 11:28:59 -03:00:       at parser.next (<anonymous>)
+2026-01-09 11:28:59 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 11:28:59 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 11:28:59 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 11:28:59 -03:00:       at run.next (<anonymous>)
+2026-01-09 11:28:59 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 11:28:59 -03:00:       at transform.next (<anonymous>)
+2026-01-09 11:28:59 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 11:28:59 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:28:59 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 11:28:59 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 11:28:59 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 11:28:59 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 11:28:59 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 11:28:59 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 11:28:59 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 12:09:14 -03:00: [2m12:09:14[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\AdminPanel.jsx: Unexpected token (31:5)
+2026-01-09 12:09:14 -03:00: 
+2026-01-09 12:09:14 -03:00: [0m [90m 29 |[31m [33m+[31m  [90m// Carregar planos sempre que estiver na aba de empresas (para o dropdown)[31m
+2026-01-09 12:09:14 -03:00:  [90m 30 |[31m [33m+[31m  useEffect(() [33m=>[31m {
+2026-01-09 12:09:14 -03:00: [31m[1m>[22m[31m[90m 31 |[31m [33m+[31m    [36mif[31m (activeTab [33m===[31m [32m'companies'[31m) {
+2026-01-09 12:09:14 -03:00:  [90m    |[31m      [31m[1m^[22m[31m
+2026-01-09 12:09:14 -03:00:  [90m 32 |[31m [33m+[31m      fetchPlans()[33m;[31m
+2026-01-09 12:09:14 -03:00:  [90m 33 |[31m [33m+[31m    }
+2026-01-09 12:09:14 -03:00:  [90m 34 |[31m [33m+[31m  }[33m,[31m [activeTab])[33m;[31m[0m[39m
+2026-01-09 12:09:14 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 12:09:14 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/AdminPanel.jsx[39m:31:5
+2026-01-09 12:09:14 -03:00: [33m  29 |  +  // Carregar planos sempre que estiver na aba de empresas (para o dropdown)
+2026-01-09 12:09:14 -03:00:   30 |  +  useEffect(() => {
+2026-01-09 12:09:14 -03:00:   31 |  +    if (activeTab === 'companies') {
+2026-01-09 12:09:14 -03:00:      |                                     ^
+2026-01-09 12:09:14 -03:00:   32 |  +      fetchPlans();
+2026-01-09 12:09:14 -03:00:   33 |  +    }[39m
+2026-01-09 12:09:14 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.unexpected (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6644:16)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11508:22)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExpressionBase (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10848:23)
+2026-01-09 12:09:14 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:39
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12495:16)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:17)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12971:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseArrowExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12149:10)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseParenAndDistinguishExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11759:12)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11395:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 12:09:14 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:39
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12500:12)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeAssignAllowIn (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:17)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12567:17)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12249:18)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseCallExpressionArguments (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11316:22)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseCoverCallAndAsyncArrowHead (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11250:29)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseSubscript (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11184:19)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11158:19)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11149:17)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:14 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:09:18 -03:00: [2m12:09:18[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\AdminPanel.jsx: Unexpected token (31:5)
+2026-01-09 12:09:18 -03:00: 
+2026-01-09 12:09:18 -03:00: [0m [90m 29 |[31m [33m+[31m  [90m// Carregar planos sempre que estiver na aba de empresas (para o dropdown)[31m
+2026-01-09 12:09:18 -03:00:  [90m 30 |[31m [33m+[31m  useEffect(() [33m=>[31m {
+2026-01-09 12:09:18 -03:00: [31m[1m>[22m[31m[90m 31 |[31m [33m+[31m    [36mif[31m (activeTab [33m===[31m [32m'companies'[31m) {
+2026-01-09 12:09:18 -03:00:  [90m    |[31m      [31m[1m^[22m[31m
+2026-01-09 12:09:18 -03:00:  [90m 32 |[31m [33m+[31m      fetchPlans()[33m;[31m
+2026-01-09 12:09:18 -03:00:  [90m 33 |[31m [33m+[31m    }
+2026-01-09 12:09:18 -03:00:  [90m 34 |[31m [33m+[31m  }[33m,[31m [activeTab])[33m;[31m[0m[39m
+2026-01-09 12:09:18 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 12:09:18 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/AdminPanel.jsx[39m:31:5
+2026-01-09 12:09:18 -03:00: [33m  29 |  +  // Carregar planos sempre que estiver na aba de empresas (para o dropdown)
+2026-01-09 12:09:18 -03:00:   30 |  +  useEffect(() => {
+2026-01-09 12:09:18 -03:00:   31 |  +    if (activeTab === 'companies') {
+2026-01-09 12:09:18 -03:00:      |                                     ^
+2026-01-09 12:09:18 -03:00:   32 |  +      fetchPlans();
+2026-01-09 12:09:18 -03:00:   33 |  +    }[39m
+2026-01-09 12:09:18 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.unexpected (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6644:16)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11508:22)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExpressionBase (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10848:23)
+2026-01-09 12:09:18 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:39
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12495:16)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:17)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12971:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseArrowExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12149:10)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseParenAndDistinguishExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11759:12)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11395:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 12:09:18 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:39
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12500:12)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeAssignAllowIn (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:17)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12567:17)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12249:18)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseCallExpressionArguments (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11316:22)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseCoverCallAndAsyncArrowHead (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11250:29)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseSubscript (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11184:19)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11158:19)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11149:17)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:18 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:09:20 -03:00: [2m12:09:20[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\AdminPanel.jsx: Unexpected token (31:5)
+2026-01-09 12:09:20 -03:00: 
+2026-01-09 12:09:20 -03:00: [0m [90m 29 |[31m [33m+[31m  [90m// Carregar planos sempre que estiver na aba de empresas (para o dropdown)[31m
+2026-01-09 12:09:20 -03:00:  [90m 30 |[31m [33m+[31m  useEffect(() [33m=>[31m {
+2026-01-09 12:09:20 -03:00: [31m[1m>[22m[31m[90m 31 |[31m [33m+[31m    [36mif[31m (activeTab [33m===[31m [32m'companies'[31m) {
+2026-01-09 12:09:20 -03:00:  [90m    |[31m      [31m[1m^[22m[31m
+2026-01-09 12:09:20 -03:00:  [90m 32 |[31m [33m+[31m      fetchPlans()[33m;[31m
+2026-01-09 12:09:20 -03:00:  [90m 33 |[31m [33m+[31m    }
+2026-01-09 12:09:20 -03:00:  [90m 34 |[31m [33m+[31m  }[33m,[31m [activeTab])[33m;[31m[0m[39m
+2026-01-09 12:09:20 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 12:09:20 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/AdminPanel.jsx[39m:31:5
+2026-01-09 12:09:20 -03:00: [33m  29 |  +  // Carregar planos sempre que estiver na aba de empresas (para o dropdown)
+2026-01-09 12:09:20 -03:00:   30 |  +  useEffect(() => {
+2026-01-09 12:09:20 -03:00:   31 |  +    if (activeTab === 'companies') {
+2026-01-09 12:09:20 -03:00:      |                                     ^
+2026-01-09 12:09:20 -03:00:   32 |  +      fetchPlans();
+2026-01-09 12:09:20 -03:00:   33 |  +    }[39m
+2026-01-09 12:09:20 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.unexpected (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6644:16)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11508:22)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExpressionBase (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10848:23)
+2026-01-09 12:09:20 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:39
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12495:16)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10844:17)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12971:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseArrowExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12149:10)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseParenAndDistinguishExpression (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11759:12)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11395:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprAtom (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:4793:20)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11145:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprOps (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10968:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeConditional (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10945:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeAssign (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10895:21)
+2026-01-09 12:09:20 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:39
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.allowInAnd (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12500:12)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeAssignAllowIn (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10864:17)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12567:17)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12249:18)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseCallExpressionArguments (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11316:22)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseCoverCallAndAsyncArrowHead (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11250:29)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseSubscript (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11184:19)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11158:19)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseExprSubscripts (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11149:17)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseUpdate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11130:21)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11110:23)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnary (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:11093:28)
+2026-01-09 12:09:20 -03:00:       at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:10963:61)
+2026-01-09 12:44:46 -03:00: [2m12:44:46[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Integrations.jsx: 'return' outside of function. (715:4)
+2026-01-09 12:44:46 -03:00: 
+2026-01-09 12:44:46 -03:00: [0m [90m 713 |[31m
+2026-01-09 12:44:46 -03:00:  [90m 714 |[31m   [36mif[31m (loading) {
+2026-01-09 12:44:46 -03:00: [31m[1m>[22m[31m[90m 715 |[31m     [36mreturn[31m (
+2026-01-09 12:44:46 -03:00:  [90m     |[31m     [31m[1m^[22m[31m
+2026-01-09 12:44:46 -03:00:  [90m 716 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"page-container"[31m[33m>[31m
+2026-01-09 12:44:46 -03:00:  [90m 717 |[31m         [33m<[31m[33mdiv[31m className[33m=[31m[32m"page-header"[31m[33m>[31m
+2026-01-09 12:44:46 -03:00:  [90m 718 |[31m           [33m<[31m[33mh1[31m[33m>[31m[33mIntegrações[31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 12:44:46 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 12:44:46 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Integrations.jsx[39m:715:4
+2026-01-09 12:44:46 -03:00: [33m  739|          <div className="plan-limits-section">
+2026-01-09 12:44:46 -03:00:   740|            <h2>Limites do Seu Plano</h2>
+2026-01-09 12:44:46 -03:00:   741|            <div className="limits-grid">
+2026-01-09 12:44:46 -03:00:      |                  ^
+2026-01-09 12:44:46 -03:00:   742|              <div className="limit-card">
+2026-01-09 12:44:46 -03:00:   743|                <div className="limit-icon">✉️</div>[39m
+2026-01-09 12:44:46 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12934:21)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseStatementOrSloppyAnnexBFunctionDeclaration (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12833:17)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseIfStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13206:28)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12872:21)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 12:44:46 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 12:44:46 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 12:44:46 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 12:44:46 -03:00:       at parser.next (<anonymous>)
+2026-01-09 12:44:46 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 12:44:46 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 12:44:46 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 12:44:46 -03:00:       at run.next (<anonymous>)
+2026-01-09 12:44:46 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 12:44:46 -03:00:       at transform.next (<anonymous>)
+2026-01-09 12:44:46 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 12:44:46 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 12:44:46 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 12:44:46 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 12:44:46 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 12:44:46 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 12:44:46 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 12:44:46 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 12:44:46 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 12:44:46 -03:00: D:\Agenda-Sys\frontend\src\pages\Integrations.jsx: 'return' outside of function. (715:4)
+2026-01-09 12:44:46 -03:00: 
+2026-01-09 12:44:46 -03:00: [0m [90m 713 |[39m
+2026-01-09 12:44:46 -03:00:  [90m 714 |[39m   [36mif[39m (loading) {
+2026-01-09 12:44:46 -03:00: [31m[1m>[22m[39m[90m 715 |[39m     [36mreturn[39m (
+2026-01-09 12:44:46 -03:00:  [90m     |[39m     [31m[1m^[22m[39m
+2026-01-09 12:44:46 -03:00:  [90m 716 |[39m       [33m<[39m[33mdiv[39m className[33m=[39m[32m"page-container"[39m[33m>[39m
+2026-01-09 12:44:46 -03:00:  [90m 717 |[39m         [33m<[39m[33mdiv[39m className[33m=[39m[32m"page-header"[39m[33m>[39m
+2026-01-09 12:44:46 -03:00:  [90m 718 |[39m           [33m<[39m[33mh1[39m[33m>[39m[33mIntegrações[39m[33m<[39m[33m/[39m[33mh1[39m[33m>[39m[0m
+2026-01-09 12:44:51 -03:00: [2m12:44:51[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda-Sys\frontend\src\pages\Integrations.jsx: 'return' outside of function. (715:4)
+2026-01-09 12:44:51 -03:00: 
+2026-01-09 12:44:51 -03:00: [0m [90m 713 |[31m
+2026-01-09 12:44:51 -03:00:  [90m 714 |[31m   [36mif[31m (loading) {
+2026-01-09 12:44:51 -03:00: [31m[1m>[22m[31m[90m 715 |[31m     [36mreturn[31m (
+2026-01-09 12:44:51 -03:00:  [90m     |[31m     [31m[1m^[22m[31m
+2026-01-09 12:44:51 -03:00:  [90m 716 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"page-container"[31m[33m>[31m
+2026-01-09 12:44:51 -03:00:  [90m 717 |[31m         [33m<[31m[33mdiv[31m className[33m=[31m[32m"page-header"[31m[33m>[31m
+2026-01-09 12:44:51 -03:00:  [90m 718 |[31m           [33m<[31m[33mh1[31m[33m>[31m[33mIntegrações[31m[33m<[31m[33m/[31m[33mh1[31m[33m>[31m[0m[39m
+2026-01-09 12:44:51 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 12:44:51 -03:00:   File: [36mD:/Agenda-Sys/frontend/src/pages/Integrations.jsx[39m:715:4
+2026-01-09 12:44:51 -03:00: [33m  739|          <div className="plan-limits-section">
+2026-01-09 12:44:51 -03:00:   740|            <h2>Limites do Seu Plano</h2>
+2026-01-09 12:44:51 -03:00:   741|            <div className="limits-grid">
+2026-01-09 12:44:51 -03:00:      |                  ^
+2026-01-09 12:44:51 -03:00:   742|              <div className="limit-card">
+2026-01-09 12:44:51 -03:00:   743|                <div className="limit-icon">✉️</div>[39m
+2026-01-09 12:44:51 -03:00:       at constructor (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.raise (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseReturnStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13212:12)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12874:21)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12934:21)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseStatementOrSloppyAnnexBFunctionDeclaration (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12833:17)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseIfStatement (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13206:28)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12872:21)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 12:44:51 -03:00:       at JSXParserMixin.parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 12:44:51 -03:00:       at parse (D:\Agenda-Sys\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 12:44:51 -03:00:       at parser (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 12:44:51 -03:00:       at parser.next (<anonymous>)
+2026-01-09 12:44:51 -03:00:       at normalizeFile (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 12:44:51 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 12:44:51 -03:00:       at run (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 12:44:51 -03:00:       at run.next (<anonymous>)
+2026-01-09 12:44:51 -03:00:       at transform (D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 12:44:51 -03:00:       at transform.next (<anonymous>)
+2026-01-09 12:44:51 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 12:44:51 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 12:44:51 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 12:44:51 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 12:44:51 -03:00:       at D:\Agenda-Sys\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 12:44:51 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 12:44:51 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 12:44:51 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 12:44:51 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)

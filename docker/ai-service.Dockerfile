@@ -11,4 +11,4 @@ COPY ai-service/ .
 
 EXPOSE 5000
 
-CMD ["python", "email_summary_local.py"]
+CMD ["python", "server.py"]

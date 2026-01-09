@@ -1,0 +1,178 @@
+2026-01-09 11:07:44 -03:00: 
+2026-01-09 11:07:44 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m412[22m[2m[0m ms[22m
+2026-01-09 11:07:44 -03:00: 
+2026-01-09 11:07:44 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 11:07:44 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 11:08:04 -03:00: [2m11:08:04[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+2026-01-09 11:08:08 -03:00: 
+2026-01-09 11:08:08 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m411[22m[2m[0m ms[22m
+2026-01-09 11:08:08 -03:00: 
+2026-01-09 11:08:08 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 11:08:08 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 11:08:44 -03:00: [2m11:08:44[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+2026-01-09 11:09:18 -03:00: [2m11:09:18[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.jsx[22m
+2026-01-09 11:09:21 -03:00: [2m11:09:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+2026-01-09 11:09:23 -03:00: [2m11:09:23[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.jsx[22m
+2026-01-09 11:09:36 -03:00: [2m11:09:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Login.jsx[22m
+2026-01-09 11:09:43 -03:00: [2m11:09:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:09:54 -03:00: [2m11:09:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+2026-01-09 11:11:38 -03:00: [2m11:11:38[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+2026-01-09 11:13:19 -03:00: [2m11:13:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Login.jsx[22m
+2026-01-09 11:13:23 -03:00: [2m11:13:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:13:26 -03:00: [2m11:13:26[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+2026-01-09 11:13:26 -03:00: [2m11:13:26[22m [36m[1m[vite][22m[39m server restarted.
+2026-01-09 11:13:33 -03:00: 
+2026-01-09 11:13:33 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m330[22m[2m[0m ms[22m
+2026-01-09 11:13:33 -03:00: 
+2026-01-09 11:13:33 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 11:13:33 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 11:14:01 -03:00: [2m11:14:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.css[22m
+2026-01-09 11:14:01 -03:00: [2m11:14:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+2026-01-09 11:14:01 -03:00: [2m11:14:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Login.jsx[22m
+2026-01-09 11:14:01 -03:00: [2m11:14:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:14:01 -03:00: [2m11:14:01[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+2026-01-09 11:14:01 -03:00: [2m11:14:01[22m [36m[1m[vite][22m[39m server restarted.
+2026-01-09 11:16:43 -03:00: [2m11:16:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+2026-01-09 11:16:48 -03:00: [2m11:16:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+2026-01-09 11:16:51 -03:00: [2m11:16:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.css[22m
+2026-01-09 11:16:56 -03:00: 
+2026-01-09 11:16:56 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m305[22m[2m[0m ms[22m
+2026-01-09 11:16:56 -03:00: 
+2026-01-09 11:16:56 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 11:16:56 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 11:17:24 -03:00: [2m11:17:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.css[22m
+2026-01-09 11:21:33 -03:00: [2m11:21:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:21:42 -03:00: 
+2026-01-09 11:21:42 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m387[22m[2m[0m ms[22m
+2026-01-09 11:21:42 -03:00: 
+2026-01-09 11:21:42 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 11:21:42 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 11:24:28 -03:00: [2m11:24:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:26:44 -03:00: [2m11:26:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:26:44 -03:00: [2m11:26:44[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mreact-router-dom[32m[39m
+2026-01-09 11:26:44 -03:00: [2m11:26:44[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+2026-01-09 11:26:52 -03:00: [2m11:26:52[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/App.jsx[22m
+2026-01-09 11:27:15 -03:00: [2m11:27:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+2026-01-09 11:27:24 -03:00: [2m11:27:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+2026-01-09 11:27:25 -03:00: [2m11:27:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+2026-01-09 11:27:37 -03:00: 
+2026-01-09 11:27:37 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m308[22m[2m[0m ms[22m
+2026-01-09 11:27:37 -03:00: 
+2026-01-09 11:27:37 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 11:27:37 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 11:35:11 -03:00: [2m11:35:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 11:35:45 -03:00: [2m11:35:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.css[22m
+2026-01-09 11:43:59 -03:00: [2m11:43:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 11:43:59 -03:00: [2m11:43:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.css[22m
+2026-01-09 11:44:31 -03:00: 
+2026-01-09 11:44:31 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m309[22m[2m[0m ms[22m
+2026-01-09 11:44:31 -03:00: 
+2026-01-09 11:44:31 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 11:44:31 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 11:46:40 -03:00: [2m11:46:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:46:43 -03:00: [2m11:46:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:46:50 -03:00: [2m11:46:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Navbar.jsx[22m
+2026-01-09 11:48:01 -03:00: [2m11:48:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+2026-01-09 11:48:01 -03:00: [2m11:48:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.css[22m
+2026-01-09 11:48:01 -03:00: [2m11:48:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Navbar.jsx[22m
+2026-01-09 11:48:01 -03:00: [2m11:48:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 11:48:11 -03:00: 
+2026-01-09 11:48:11 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m411[22m[2m[0m ms[22m
+2026-01-09 11:48:11 -03:00: 
+2026-01-09 11:48:11 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 11:48:11 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 12:09:14 -03:00: [2m12:09:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:09:18 -03:00: [2m12:09:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:09:20 -03:00: [2m12:09:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:09:37 -03:00: [2m12:09:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:10:30 -03:00: [2m12:10:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:16:06 -03:00: [2m12:16:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:16:10 -03:00: [2m12:16:10[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:20:45 -03:00: [2m12:20:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 12:21:11 -03:00: [2m12:21:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 12:27:39 -03:00: [2m12:27:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:29:14 -03:00: [2m12:29:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 12:37:15 -03:00: 
+2026-01-09 12:37:15 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m313[22m[2m[0m ms[22m
+2026-01-09 12:37:15 -03:00: 
+2026-01-09 12:37:15 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 12:37:15 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 12:40:39 -03:00: 
+2026-01-09 12:40:39 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m333[22m[2m[0m ms[22m
+2026-01-09 12:40:39 -03:00: 
+2026-01-09 12:40:39 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 12:40:39 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 13:00:07 -03:00: [2m13:00:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:00:12 -03:00: [2m13:00:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:00:27 -03:00: [2m13:00:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:03:05 -03:00: [2m13:03:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:05:16 -03:00: [2m13:05:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:05:23 -03:00: [2m13:05:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.css[22m
+2026-01-09 13:05:38 -03:00: [2m13:05:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:05:53 -03:00: [2m13:05:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.css[22m
+2026-01-09 13:05:53 -03:00: [2m13:05:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:10:17 -03:00: [2m13:10:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:10:25 -03:00: [2m13:10:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:10:28 -03:00: [2m13:10:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:10:30 -03:00: [2m13:10:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:10:33 -03:00: [2m13:10:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:10:40 -03:00: [2m13:10:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:10:46 -03:00: [2m13:10:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:10:48 -03:00: [2m13:10:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.css[22m
+2026-01-09 13:10:49 -03:00: [2m13:10:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.css[22m
+2026-01-09 13:11:10 -03:00: 
+2026-01-09 13:11:10 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m266[22m[2m[0m ms[22m
+2026-01-09 13:11:10 -03:00: 
+2026-01-09 13:11:10 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 13:11:10 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 13:12:18 -03:00: [2m13:12:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:12:23 -03:00: 
+2026-01-09 13:12:23 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m271[22m[2m[0m ms[22m
+2026-01-09 13:12:23 -03:00: 
+2026-01-09 13:12:23 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 13:12:23 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 13:12:40 -03:00: [2m13:12:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:46:25 -03:00: [2m13:46:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 13:46:28 -03:00: [2m13:46:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 13:46:32 -03:00: [2m13:46:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 13:46:46 -03:00: 
+2026-01-09 13:46:46 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m276[22m[2m[0m ms[22m
+2026-01-09 13:46:46 -03:00: 
+2026-01-09 13:46:46 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 13:46:46 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 13:49:04 -03:00: [2m13:49:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.css[22m
+2026-01-09 13:49:04 -03:00: [2m13:49:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 13:49:04 -03:00: [2m13:49:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 13:51:32 -03:00: [2m13:51:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:51:35 -03:00: [2m13:51:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:51:40 -03:00: [2m13:51:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:51:41 -03:00: [2m13:51:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Integrations.jsx[22m
+2026-01-09 13:52:47 -03:00: [2m13:52:47[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+2026-01-09 13:52:53 -03:00: 
+2026-01-09 13:52:53 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m321[22m[2m[0m ms[22m
+2026-01-09 13:52:53 -03:00: 
+2026-01-09 13:52:53 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 13:52:53 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 13:54:32 -03:00: [2m13:54:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+2026-01-09 13:54:38 -03:00: 
+2026-01-09 13:54:38 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m398[22m[2m[0m ms[22m
+2026-01-09 13:54:38 -03:00: 
+2026-01-09 13:54:38 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 13:54:38 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 14:09:00 -03:00: [2m14:09:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Navbar.jsx[22m
+2026-01-09 14:09:03 -03:00: [2m14:09:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Navbar.jsx[22m
+2026-01-09 14:09:20 -03:00: [2m14:09:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 14:09:47 -03:00: [2m14:09:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 14:09:51 -03:00: [2m14:09:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminPanel.jsx[22m
+2026-01-09 14:09:51 -03:00: [2m14:09:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 14:09:59 -03:00: [2m14:09:59[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+2026-01-09 15:53:32 -03:00: 
+2026-01-09 15:53:32 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m672[22m[2m[0m ms[22m
+2026-01-09 15:53:32 -03:00: 
+2026-01-09 15:53:32 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 15:53:32 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 17:02:48 -03:00: 
+2026-01-09 17:02:48 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m840[22m[2m[0m ms[22m
+2026-01-09 17:02:48 -03:00: 
+2026-01-09 17:02:48 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 17:02:48 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m

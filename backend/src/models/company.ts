@@ -8,7 +8,7 @@ export default (sequelize: Sequelize) => {
         through: 'company_users',
         foreignKey: 'company_id',
       });
-      Company.belongsTo(Plan, {
+      Company.belongsTo(models.Plan, {
         foreignKey: 'plan_id',
       });
     }
@@ -16,9 +16,26 @@ export default (sequelize: Sequelize) => {
 
   Company.init(
     {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      plan_id: {
+        type: DataTypes.UUID,
+        allowNull: true,
       },
     },
     {

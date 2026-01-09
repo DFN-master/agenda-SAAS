@@ -2,14 +2,15 @@ import imaplib
 import email
 from email.header import decode_header
 import nltk
-from gensim.summarization import summarize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
+from collections import Counter
 import pickle
 import os
 
 # Ensure nltk data is downloaded
-nltk.download('punkt')
+nltk.download('punkt', quiet=True)
+nltk.download('punkt_tab', quiet=True)
 
 # Load or train a simple email category classifier
 MODEL_PATH = 'email_classifier.pkl'
@@ -59,13 +60,25 @@ def fetch_emails(host, port, user, password, mailbox='INBOX', limit=10):
                 emails.append({'subject': subject, 'body': body})
     return emails
 
-# Summarize email body
-def summarize_email(body, ratio=0.2):
-    try:
-        return summarize(body, ratio=ratio)
-    except ValueError:
-        # If text is too short for summarization
+def summarize_email(body, max_sentences=3):
+    sentences = nltk.sent_tokenize(body)
+    if len(sentences) <= max_sentences:
         return body
+
+    words = [w.lower() for w in nltk.word_tokenize(body) if w.isalpha()]
+    if not words:
+        return ' '.join(sentences[:max_sentences])
+
+    freq = Counter(words)
+    scored = []
+    for sent in sentences:
+        score = sum(freq.get(w.lower(), 0) for w in nltk.word_tokenize(sent) if w.isalpha())
+        scored.append((score, sent))
+
+    top = sorted(scored, key=lambda x: x[0], reverse=True)[:max_sentences]
+    # Preserve original order
+    top_sorted = [s for _, s in sorted(top, key=lambda x: sentences.index(x[1]))]
+    return ' '.join(top_sorted)
 
 # Classify email category
 def classify_email(body):
