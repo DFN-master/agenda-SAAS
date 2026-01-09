@@ -33,7 +33,8 @@ exports.default = (sequelize) => {
             allowNull: false,
         },
         connection_id: {
-            type: sequelize_1.DataTypes.STRING,
+            // Matches user_connections.id (INTEGER) to avoid join type mismatch
+            type: sequelize_1.DataTypes.INTEGER,
             allowNull: true,
         },
         client_ref: {

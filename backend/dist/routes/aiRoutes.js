@@ -20,11 +20,14 @@ const models_1 = __importDefault(require("../models"));
 const router = express_1.default.Router();
 // Middleware para verificar company_id e user_id
 const getCompanyId = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
     const userId = req.userId;
-    const companyId = req.query.company_id || req.body.company_id;
+    const companyId = String(req.query.company_id || req.body.company_id || '').trim();
     if (!companyId) {
         return res.status(400).json({ error: 'company_id é obrigatório' });
+    }
+    const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+    if (!uuidRegex.test(companyId)) {
+        return res.status(400).json({ error: 'company_id deve ser um UUID' });
     }
     // Verificar se usuário pertence à empresa
     const user = yield models_1.default.User.findByPk(userId, {
@@ -35,7 +38,9 @@ const getCompanyId = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
             },
         ],
     });
-    if (!user || !((_a = user.Companies) === null || _a === void 0 ? void 0 : _a.some((c) => c.id === companyId))) {
+    const userCompanies = (user === null || user === void 0 ? void 0 : user.Companies) || [];
+    const belongsToCompany = userCompanies.some((c) => String(c.id) === companyId);
+    if (!user || !belongsToCompany) {
         return res.status(403).json({ error: 'Unauthorized company access' });
     }
     req.companyId = companyId;
@@ -98,13 +103,16 @@ router.post('/suggestions', getCompanyId, (req, res) => __awaiter(void 0, void 0
         const userId = req.userId;
         const companyId = req.companyId;
         const { connection_id, client_ref, incoming_message } = req.body;
+        const normalizedConnectionId = Number.isFinite(Number(connection_id))
+            ? Number(connection_id)
+            : undefined;
         if (!incoming_message) {
             return res.status(400).json({ error: 'incoming_message é obrigatório' });
         }
         const suggestion = yield (0, aiConversationService_1.createConversationSuggestion)({
             userId,
             companyId,
-            connectionId: connection_id,
+            connectionId: normalizedConnectionId,
             clientRef: client_ref,
             incomingMessage: incoming_message,
         });

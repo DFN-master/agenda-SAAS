@@ -19,16 +19,21 @@ const models_1 = __importDefault(require("../models"));
 const router = express_1.default.Router();
 // Middleware para validar company_id do usuário
 const getCompanyId = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
     const userId = req.userId;
-    const companyId = req.query.company_id || req.body.company_id;
+    const companyId = String(req.query.company_id || req.body.company_id || '').trim();
     if (!companyId) {
         return res.status(400).json({ error: 'company_id é obrigatório' });
+    }
+    const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+    if (!uuidRegex.test(companyId)) {
+        return res.status(400).json({ error: 'company_id deve ser um UUID' });
     }
     const user = yield models_1.default.User.findByPk(userId, {
         include: [{ model: models_1.default.Company, through: { attributes: [] } }],
     });
-    if (!user || !((_a = user.Companies) === null || _a === void 0 ? void 0 : _a.some((c) => c.id === companyId))) {
+    const userCompanies = (user === null || user === void 0 ? void 0 : user.Companies) || [];
+    const belongsToCompany = userCompanies.some((c) => String(c.id) === companyId);
+    if (!user || !belongsToCompany) {
         return res.status(403).json({ error: 'Unauthorized company access' });
     }
     req.companyId = companyId;
@@ -43,13 +48,16 @@ router.post('/webhook', getCompanyId, (req, res) => __awaiter(void 0, void 0, vo
         const userId = req.userId;
         const companyId = req.companyId;
         const { connection_id, jid, client_ref, message_text } = req.body;
+        const normalizedConnectionId = Number.isFinite(Number(connection_id))
+            ? Number(connection_id)
+            : undefined;
         if (!message_text) {
             return res.status(400).json({ error: 'message_text é obrigatório' });
         }
         const suggestion = yield (0, aiConversationService_1.createConversationSuggestion)({
             userId,
             companyId,
-            connectionId: connection_id,
+            connectionId: normalizedConnectionId,
             clientRef: jid || client_ref,
             incomingMessage: message_text,
         });
