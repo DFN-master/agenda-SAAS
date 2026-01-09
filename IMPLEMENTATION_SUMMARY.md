@@ -9,6 +9,7 @@ Um **sistema cognitivo de IA com aprendizado iterativo** foi implementado de pon
 - ✅ **Auto-resposta inteligente** (confidence-based)
 - ✅ **Isolamento multi-tenant** (cada empresa isolada)
 - ✅ **Rastreamento de confiança** (score aumenta com aprovações)
+- ✅ **Motor cognitivo Python (Flask) com conceitos aprendidos** priorizando `ai_learned_concepts` e fallback para `ai_knowledge_base`
 
 ---
 
@@ -158,6 +159,19 @@ Um **sistema cognitivo de IA com aprendizado iterativo** foi implementado de pon
 ---
 
 ## 🔧 APIs Criadas/Atualizadas
+
+### Cognitive Engine (Flask, porta 5001)
+```
+GET  /health              → status do serviço
+GET  /debug-version       → arquivo em execução e versão carregada
+POST /cognitive-response  → { incoming_message, context_summary?, intent, company_id }
+                           Retorna suggested_response, confidence, source, concepts_used
+```
+
+Notas operacionais:
+- Executar via PM2: `pm2 start ecosystem.config.js --only cognitive-engine`
+- Requer `DATABASE_URL` carregada; `.env` do backend atende.
+- Validação de company_id (UUID) para evitar erros de sintaxe no banco.
 
 ### Sugestões IA
 

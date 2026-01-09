@@ -104,3 +104,12 @@
 2026-01-09 15:46:23 -03:00: </body>
 2026-01-09 15:46:23 -03:00: </html>
 2026-01-09 15:46:23 -03:00: 
+2026-01-09 18:44:11 -03:00: Error: UNKNOWN: unknown error, open 'D:\Agenda\agenda-SAAS\whatsapp-service\auth_info\conn_1767993884804\creds.json'
+2026-01-09 18:44:11 -03:00:     at open (node:internal/fs/promises:642:25)
+2026-01-09 18:44:11 -03:00:     at writeFile (node:internal/fs/promises:1249:14)
+2026-01-09 18:44:11 -03:00:     at file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Utils/use-multi-file-auth-state.ts:43:5 {
+2026-01-09 18:44:11 -03:00:   errno: -4094,
+2026-01-09 18:44:11 -03:00:   code: 'UNKNOWN',
+2026-01-09 18:44:11 -03:00:   syscall: 'open',
+2026-01-09 18:44:11 -03:00:   path: 'D:\\Agenda\\agenda-SAAS\\whatsapp-service\\auth_info\\conn_1767993884804\\creds.json'
+2026-01-09 18:44:11 -03:00: }

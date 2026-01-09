@@ -80,6 +80,61 @@ async function sendAutoRespond(
   }
 }
 
+function detectIntent(message: string) {
+  const lower = message.toLowerCase();
+  if (/(preço|valor|custo|plano)/.test(lower)) return 'preço';
+  if (/(agendar|marcar|agenda|horário)/.test(lower)) return 'agendamento';
+  if (/(suporte|problema|erro|ajuda)/.test(lower)) return 'suporte';
+  if (/(cancelar|cancelamento)/.test(lower)) return 'cancelamento';
+  if (/(endereço|localização|onde)/.test(lower)) return 'localização';
+  return 'geral';
+}
+
+function buildSuggestedResponse(intent: string, incoming: string, summary: string) {
+  const trimmed = incoming.trim().slice(0, 140);
+  const base =
+    summary && summary !== 'Nenhuma mensagem anterior'
+      ? `Contexto rápido: ${summary.split('\n').slice(-3).join(' | ')}`
+      : 'Sem histórico prévio.';
+
+  const templates: Record<string, string[]> = {
+    preço: [
+      `Recebi sua dúvida sobre planos/preços. Vou confirmar a melhor opção e já retorno com valores atualizados. (${base})`,
+      `Entendi que você quer detalhes de preço. Vou levantar os valores e te respondo na sequência. (${base})`,
+    ],
+    agendamento: [
+      `Posso ajudar com o agendamento. Qual é o melhor dia/horário? Vou verificar disponibilidade e confirmo. (${base})`,
+      `Vamos marcar? Me diga sua preferência e já tento encaixar. (${base})`,
+    ],
+    suporte: [
+      `Vou te ajudar com esse problema. Me dá um minuto para revisar e volto com a solução. (${base})`,
+      `Entendi o erro relatado. Vou checar os detalhes e retorno com um passo a passo. (${base})`,
+    ],
+    cancelamento: [
+      `Posso cuidar do cancelamento. Só confirmando a solicitação: "${trimmed}". Vou processar e aviso quando concluir. (${base})`,
+      `Registro seu pedido de cancelamento e retorno já com a confirmação. (${base})`,
+    ],
+    localização: [
+      `Quer nosso endereço/localização. Vou enviar o link e orientações em seguida. (${base})`,
+      `Já pego o endereço certinho e compartilho com você. (${base})`,
+    ],
+    geral: [
+      `Recebi sua mensagem: "${trimmed}". Vou analisar e te respondo em instantes. (${base})`,
+      `Obrigado pelo contato! Vou verificar o que você precisa e retorno já. (${base})`,
+    ],
+  };
+
+  const options = templates[intent] || templates.geral;
+  const choice = Math.floor(Math.random() * options.length);
+  return options[choice];
+}
+
+function mergeSuggestionMetadata(existing: any, patch: any) {
+  // Preserva metadados anteriores e acrescenta decisão/feedback
+  const base = existing && typeof existing === 'object' ? existing : {};
+  return { ...base, ...patch };
+}
+
 export async function createConversationSuggestion(input: CreateSuggestionInput) {
   const { userId, companyId, connectionId, clientRef, incomingMessage } = input;
 
@@ -98,51 +153,51 @@ export async function createConversationSuggestion(input: CreateSuggestionInput)
     clientRef || 'unknown'
   );
 
-  // Gerar sugestão via IA local
+  // Gerar sugestão via heurística local
   let suggestedResponse = '';
   let confidence = 0.5;
+  const intent = detectIntent(incomingMessage || '');
 
   try {
-    const aiPayload = {
-      emails: [
-        {
-          subject: 'Cliente',
-          body: `Contexto:\n${context.summary}\n\nNova mensagem: ${incomingMessage}`,
-        },
-      ],
+    // Chama motor cognitivo em Python (cognitive_engine.py na porta 5001)
+    const cognitivePayload = {
+      incoming_message: incomingMessage,
+      context_summary: context.summary,
+      intent,
+      company_id: companyId,
     };
 
-    const aiRes = await fetch('http://localhost:5000/summaries', {
+    const cognitiveRes = await fetch('http://localhost:5001/cognitive-response', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(aiPayload),
+      body: JSON.stringify(cognitivePayload),
     });
 
-    if (aiRes.ok) {
-      const data = (await aiRes.json()) as any;
-      const result = data.results?.[0];
-      if (result) {
-        const intent = result.category || 'unknown';
-        suggestedResponse = `Entendi que você quer algo sobre ${intent}. Vou verificar e respondo em breve.`;
-        confidence = 0.6;
+    if (cognitiveRes.ok) {
+      const data = (await cognitiveRes.json()) as any;
+      suggestedResponse = data.suggested_response || buildSuggestedResponse(intent, incomingMessage, context.summary);
+      suggestedResponse = data.suggested_response || buildSuggestedResponse(intent, incomingMessage, context.summary);
+      confidence = data.confidence || 0.6;
 
-        // Registrar mensagem recebida
-        await (models as any).AiConversationMessage.create({
-          company_id: companyId,
-          user_id: userId,
-          connection_id: connectionId,
-          client_ref: clientRef,
-          direction: 'received',
-          message_text: incomingMessage,
-          metadata: { intent },
-        });
-      }
+      // Registrar mensagem recebida
+      await (models as any).AiConversationMessage.create({
+        company_id: companyId,
+        user_id: userId,
+        connection_id: connectionId,
+        client_ref: clientRef,
+        direction: 'received',
+        message_text: incomingMessage,
+        metadata: { intent, knowledge_used: data.knowledge_used || [] },
+      });
+    } else {
+      // Fallback se cognitive engine falhar
+      suggestedResponse = buildSuggestedResponse(intent, incomingMessage, context.summary);
+      confidence = 0.5;
     }
   } catch (err) {
     console.error('[AI] IA generation failed', err);
-    suggestedResponse =
-      'Obrigado pela mensagem. Vou verificar e respondo em breve.';
-    confidence = 0.4;
+    suggestedResponse = buildSuggestedResponse(intent, incomingMessage, context.summary);
+    confidence = 0.45;
   }
 
   const suggestion = await (models as any).AiConversationSuggestion.create({
@@ -153,6 +208,7 @@ export async function createConversationSuggestion(input: CreateSuggestionInput)
     incoming_message: incomingMessage,
     suggested_response: suggestedResponse,
     confidence,
+    metadata: { intent },
   });
 
   // Verificar se auto-respond está ativado e confiança > threshold
@@ -215,6 +271,17 @@ export async function approveSuggestion(
   (suggestion as any).status = 'approved';
   (suggestion as any).approved_response =
     approvedResponse || (suggestion as any).suggested_response;
+  (suggestion as any).metadata = mergeSuggestionMetadata(
+    (suggestion as any).metadata,
+    {
+      last_decision: {
+        type: 'approved',
+        at: new Date().toISOString(),
+        approved_response:
+          approvedResponse || (suggestion as any).suggested_response,
+      },
+    }
+  );
   await (suggestion as any).save();
 
   // Registrar mensagem enviada
@@ -262,6 +329,16 @@ export async function rejectSuggestion(
 
   (suggestion as any).status = 'rejected';
   (suggestion as any).feedback = feedback;
+  (suggestion as any).metadata = mergeSuggestionMetadata(
+    (suggestion as any).metadata,
+    {
+      last_decision: {
+        type: 'rejected',
+        at: new Date().toISOString(),
+        feedback,
+      },
+    }
+  );
   await (suggestion as any).save();
 
   return suggestion;
@@ -272,22 +349,87 @@ export async function getPendingSuggestions(
   companyId: string,
   limit = 20
 ) {
-  const suggestions = await (models as any).AiConversationSuggestion.findAll({
+  const suggestions = await ((models as any).AiConversationSuggestion as any)
+    .unscoped()
+    .findAll({
     where: {
       user_id: userId,
       company_id: companyId,
       status: 'pending',
     },
-    order: [['created_at', 'DESC']],
-    limit,
-    include: [
-      {
-        model: (models as any).UserConnection,
-        as: 'connection',
-        required: false,
+      include: [],
+      order: [['created_at', 'DESC']],
+      limit,
+    });
+
+  return suggestions;
+}
+
+export async function updateSuggestionDecision(
+  suggestionId: string,
+  userId: string,
+  companyId: string,
+  data: { status: 'approved' | 'rejected'; approved_response?: string; feedback?: string }
+) {
+  const suggestion = await ((models as any).AiConversationSuggestion as any)
+    .unscoped()
+    .findOne({
+      where: { id: suggestionId, user_id: userId, company_id: companyId },
+    });
+
+  if (!suggestion) {
+    throw new Error('Suggestion not found or unauthorized');
+  }
+
+  const { status, approved_response, feedback } = data;
+  (suggestion as any).status = status;
+
+  if (status === 'approved') {
+    (suggestion as any).approved_response =
+      approved_response || (suggestion as any).approved_response || (suggestion as any).suggested_response;
+    (suggestion as any).feedback = null;
+  } else if (status === 'rejected') {
+    (suggestion as any).feedback = feedback || null;
+    (suggestion as any).approved_response = null;
+  }
+
+  (suggestion as any).metadata = mergeSuggestionMetadata(
+    (suggestion as any).metadata,
+    {
+      last_decision: {
+        type: status,
+        at: new Date().toISOString(),
+        approved_response:
+          status === 'approved'
+            ? (suggestion as any).approved_response
+            : undefined,
+        feedback: status === 'rejected' ? feedback : undefined,
       },
-    ],
-  });
+    }
+  );
+
+  await (suggestion as any).save();
+  return suggestion;
+}
+
+export async function getDecidedSuggestions(
+  userId: string,
+  companyId: string,
+  status: 'approved' | 'rejected' | 'auto_sent' | 'pending' = 'approved',
+  limit = 50
+) {
+  const suggestions = await ((models as any).AiConversationSuggestion as any)
+    .unscoped()
+    .findAll({
+      where: {
+        user_id: userId,
+        company_id: companyId,
+        status,
+      },
+      include: [],
+      order: [['updated_at', 'DESC']],
+      limit,
+    });
 
   return suggestions;
 }

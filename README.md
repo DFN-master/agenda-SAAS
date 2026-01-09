@@ -95,10 +95,24 @@ Para mais detalhes, consulte a documentação completa no repositório.
      ```bash
      npm start
      ```
-   - Microserviço de IA:
-     ```bash
-     python ai-service/email_summary.py
-     ```
+    - Microserviço de IA (cognitive engine Flask, porta 5001):
+       ```bash
+       # Executar via PM2 (recomendado, carrega .env do backend)
+       pm2 start ecosystem.config.js --only cognitive-engine
+
+       # Ou rodar direto para debug (assegure DATABASE_URL definido)
+       cd ai-service
+       python cognitive_engine.py
+       ```
+
+    Diagnóstico rápido da IA:
+    ```bash
+    # Verificar se o arquivo correto está carregado e versão
+    curl http://localhost:5001/debug-version
+
+    # Health check
+    curl http://localhost:5001/health
+    ```
 
 ## Contribuição
 

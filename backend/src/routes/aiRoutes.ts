@@ -5,9 +5,18 @@ import {
   approveSuggestion,
   rejectSuggestion,
   getPendingSuggestions,
+  getDecidedSuggestions,
+  updateSuggestionDecision,
   getAutoRespondStatus,
   setAutoRespondEnabled,
 } from '../services/ai/aiConversationService';
+import {
+  teachConcept,
+  findSimilarConcepts,
+  getLearnedConcepts,
+  deleteConcept,
+  updateConcept,
+} from '../services/ai/learningService';
 import models from '../models';
 
 const router = express.Router();
@@ -148,6 +157,33 @@ router.get('/suggestions', getCompanyId, async (req: Request, res: Response) => 
   }
 });
 
+// Histórico de sugestões aprovadas/rejeitadas
+router.get('/suggestions/history', getCompanyId, async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).userId;
+    const companyId = (req as any).companyId;
+    const limit = req.query.limit ? parseInt(req.query.limit as string, 10) : 50;
+    const status = (req.query.status as string) || 'approved';
+
+    const allowed = ['approved', 'rejected', 'auto_sent', 'pending'];
+    if (!allowed.includes(status)) {
+      return res.status(400).json({ error: 'status inválido' });
+    }
+
+    const suggestions = await getDecidedSuggestions(
+      userId,
+      companyId,
+      status as any,
+      limit
+    );
+
+    res.json({ data: suggestions });
+  } catch (error) {
+    console.error('Error fetching suggestion history:', error);
+    res.status(500).json({ error: 'Failed to fetch history' });
+  }
+});
+
 // Aprovar sugestão e treinar
 router.post(
   '/suggestions/:id/approve',
@@ -193,6 +229,31 @@ router.post(
   }
 );
 
+// Editar decisão de uma sugestão aprovada/rejeitada
+router.post('/suggestions/:id/update', getCompanyId, async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).userId;
+    const companyId = (req as any).companyId;
+    const { id } = req.params;
+    const { status, approved_response, feedback } = req.body;
+
+    if (!status || !['approved', 'rejected'].includes(status)) {
+      return res.status(400).json({ error: 'status deve ser approved ou rejected' });
+    }
+
+    const suggestion = await updateSuggestionDecision(id, userId, companyId, {
+      status,
+      approved_response,
+      feedback,
+    });
+
+    res.json({ data: suggestion });
+  } catch (error) {
+    console.error('Error updating suggestion decision:', error);
+    res.status(500).json({ error: 'Failed to update suggestion' });
+  }
+});
+
 // Obter status de auto-resposta
 router.get('/auto-respond/status', getCompanyId, async (req: Request, res: Response) => {
   try {
@@ -223,6 +284,103 @@ router.post('/auto-respond', getCompanyId, async (req: Request, res: Response) =
   } catch (error) {
     console.error('Error setting auto-respond:', error);
     res.status(500).json({ error: 'Failed to set auto-respond' });
+  }
+});
+
+// ==================== LEARNING ENDPOINTS ====================
+
+// Ensinar um novo conceito para a IA
+router.post('/learning/teach', getCompanyId, async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).userId;
+    const companyId = (req as any).companyId;
+    const { original_query, explanation, intent, examples, keywords } = req.body;
+
+    if (!original_query || !explanation) {
+      return res.status(400).json({ error: 'original_query e explanation são obrigatórios' });
+    }
+
+    const concept = await teachConcept({
+      companyId,
+      originalQuery: original_query,
+      explanation,
+      intent,
+      examples: examples || [],
+      keywords: keywords || [],
+      userId,
+    });
+
+    res.status(201).json({ data: concept });
+  } catch (error) {
+    console.error('Error teaching concept:', error);
+    res.status(500).json({ error: 'Failed to teach concept' });
+  }
+});
+
+// Buscar conceitos similares (para detectar duplicatas ou sugerir conceitos existentes)
+router.post('/learning/search', getCompanyId, async (req: Request, res: Response) => {
+  try {
+    const companyId = (req as any).companyId;
+    const { query, limit } = req.body;
+
+    if (!query) {
+      return res.status(400).json({ error: 'query é obrigatório' });
+    }
+
+    const concepts = await findSimilarConcepts(query, companyId, limit || 5);
+    res.json({ data: concepts });
+  } catch (error) {
+    console.error('Error searching concepts:', error);
+    res.status(500).json({ error: 'Failed to search concepts' });
+  }
+});
+
+// Listar todos os conceitos aprendidos
+router.get('/learning/concepts', getCompanyId, async (req: Request, res: Response) => {
+  try {
+    const companyId = (req as any).companyId;
+    const intent = req.query.intent as string | undefined;
+
+    const concepts = await getLearnedConcepts(companyId, intent);
+    res.json({ data: concepts });
+  } catch (error) {
+    console.error('Error fetching concepts:', error);
+    res.status(500).json({ error: 'Failed to fetch concepts' });
+  }
+});
+
+// Atualizar um conceito existente
+router.put('/learning/concepts/:id', getCompanyId, async (req: Request, res: Response) => {
+  try {
+    const companyId = (req as any).companyId;
+    const { id } = req.params;
+    const { explanation, intent, examples, keywords } = req.body;
+
+    const concept = await updateConcept(id, companyId, {
+      explanation,
+      intent,
+      examples,
+      keywords,
+    });
+
+    res.json({ data: concept });
+  } catch (error) {
+    console.error('Error updating concept:', error);
+    res.status(500).json({ error: 'Failed to update concept' });
+  }
+});
+
+// Deletar um conceito
+router.delete('/learning/concepts/:id', getCompanyId, async (req: Request, res: Response) => {
+  try {
+    const companyId = (req as any).companyId;
+    const { id } = req.params;
+
+    await deleteConcept(id, companyId);
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Error deleting concept:', error);
+    res.status(500).json({ error: 'Failed to delete concept' });
   }
 });
 

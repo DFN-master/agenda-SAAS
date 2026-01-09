@@ -3,12 +3,18 @@ import './AdminAITraining.css';
 
 function AdminAITraining({ companyId }) {
   const [suggestions, setSuggestions] = useState([]);
+  const [history, setHistory] = useState([]);
+  const [historyStatus, setHistoryStatus] = useState('approved');
+  const [editingId, setEditingId] = useState(null);
+  const [editedResponse, setEditedResponse] = useState('');
+  const [editedFeedback, setEditedFeedback] = useState('');
   const [autoRespondStatus, setAutoRespondStatus] = useState({
     auto_respond_enabled: false,
     ai_confidence_score: 0,
     ai_total_approvals: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [loadingHistory, setLoadingHistory] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [approving, setApproving] = useState(null);
@@ -16,6 +22,15 @@ function AdminAITraining({ companyId }) {
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
   const [rejectFeedback, setRejectFeedback] = useState('');
   const [resolvedCompanyId, setResolvedCompanyId] = useState(companyId || null);
+  const [teachingModal, setTeachingModal] = useState({
+    isOpen: false,
+    query: '',
+    explanation: '',
+    examples: [],
+    currentExample: '',
+    intent: '',
+  });
+  const [teaching, setTeaching] = useState(false);
 
   const token = localStorage.getItem('token');
   const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
@@ -71,8 +86,19 @@ function AdminAITraining({ companyId }) {
       );
       if (statusRes.ok) {
         const data = await statusRes.json();
-        setAutoRespondStatus(data.data || {});
+        const status = data.data || {};
+        // Normaliza nomes vindos do backend
+        setAutoRespondStatus({
+          auto_respond_enabled: status.auto_respond_enabled ?? false,
+          ai_confidence_score:
+            status.ai_confidence_score ?? status.confidence_score ?? 0,
+          ai_total_approvals:
+            status.ai_total_approvals ?? status.total_approvals ?? 0,
+        });
       }
+
+      // Fetch history with current filter
+      await fetchHistory(cid, historyStatus, false);
 
       setLoading(false);
     } catch (err) {
@@ -195,6 +221,153 @@ function AdminAITraining({ companyId }) {
     (autoRespondStatus.ai_confidence_score / 0.95) * 100
   );
 
+  const fetchHistory = async (cid, status = 'approved', showLoading = true) => {
+    try {
+      if (showLoading) setLoadingHistory(true);
+      const res = await fetch(
+        `http://localhost:3000/api/ai/suggestions/history?company_id=${cid}&status=${status}&limit=50`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setHistory(data.data || []);
+      }
+    } catch (err) {
+      console.error('Error fetching history:', err);
+    } finally {
+      setLoadingHistory(false);
+    }
+  };
+
+  const startEdit = (item) => {
+    setEditingId(item.id);
+    setEditedResponse(item.approved_response || item.suggested_response || '');
+    setEditedFeedback(item.feedback || '');
+  };
+
+  const cancelEdit = () => {
+    setEditingId(null);
+    setEditedResponse('');
+    setEditedFeedback('');
+  };
+
+  const saveEdit = async (item) => {
+    try {
+      setError('');
+      setSuccess('');
+      const res = await fetch(`http://localhost:3000/api/ai/suggestions/${item.id}/update`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          company_id: resolvedCompanyId,
+          status: item.status,
+          approved_response: editedResponse,
+          feedback: editedFeedback,
+        }),
+      });
+
+      if (res.ok) {
+        setSuccess('Sugestão atualizada.');
+        cancelEdit();
+        await fetchHistory(resolvedCompanyId, historyStatus);
+        await fetchData(resolvedCompanyId);
+      } else {
+        const data = await res.json();
+        setError(data.error || 'Erro ao atualizar sugestão');
+      }
+    } catch (err) {
+      console.error('Error updating suggestion:', err);
+      setError('Erro ao atualizar sugestão');
+    }
+  };
+
+  const openTeachingModal = (suggestion) => {
+    const intent = suggestion?.intent || 'geral';
+    setTeachingModal({
+      isOpen: true,
+      query: suggestion?.incoming_message || '',
+      explanation: '',
+      examples: [],
+      currentExample: '',
+      intent: intent,
+    });
+  };
+
+  const closeTeachingModal = () => {
+    setTeachingModal({
+      isOpen: false,
+      query: '',
+      explanation: '',
+      examples: [],
+      currentExample: '',
+      intent: '',
+    });
+  };
+
+  const addExample = () => {
+    if (teachingModal.currentExample.trim()) {
+      setTeachingModal({
+        ...teachingModal,
+        examples: [...teachingModal.examples, teachingModal.currentExample],
+        currentExample: '',
+      });
+    }
+  };
+
+  const removeExample = (index) => {
+    setTeachingModal({
+      ...teachingModal,
+      examples: teachingModal.examples.filter((_, i) => i !== index),
+    });
+  };
+
+  const submitTeaching = async () => {
+    if (!teachingModal.query.trim() || !teachingModal.explanation.trim()) {
+      setError('Pergunta e explicação são obrigatórios');
+      return;
+    }
+
+    try {
+      setTeaching(true);
+      setError('');
+      setSuccess('');
+
+      const res = await fetch('http://localhost:3000/api/ai/learning/teach', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          company_id: resolvedCompanyId,
+          original_query: teachingModal.query,
+          explanation: teachingModal.explanation,
+          intent: teachingModal.intent,
+          examples: teachingModal.examples,
+        }),
+      });
+
+      if (res.ok) {
+        setSuccess('Conceito ensinado com sucesso! A IA aprendeu uma nova forma de responder.');
+        closeTeachingModal();
+        // Refresh data to show new learned concept
+        await new Promise(resolve => setTimeout(resolve, 500));
+        await fetchData(resolvedCompanyId);
+      } else {
+        const data = await res.json();
+        setError(data.error || 'Erro ao ensinar conceito');
+      }
+    } catch (err) {
+      console.error('Error teaching concept:', err);
+      setError('Erro ao ensinar conceito');
+    } finally {
+      setTeaching(false);
+    }
+  };
+
   if (!resolvedCompanyId) {
     return <div className="ai-training-container"><p>Carregando contexto da empresa...</p></div>;
   }
@@ -277,9 +450,9 @@ function AdminAITraining({ companyId }) {
                   }
                 >
                   <div className="suggestion-client">
-                    <strong>{suggestion.UserConnection?.client_ref || 'Desconhecido'}</strong>
+                    <strong>{suggestion.client_ref || 'Desconhecido'}</strong>
                     <span className="confidence-badge">
-                      Conf: {(suggestion.confidence_score * 100).toFixed(0)}%
+                      Conf: {((suggestion.confidence || 0) * 100).toFixed(0)}%
                     </span>
                   </div>
                   <div className="suggestion-time">
@@ -332,6 +505,14 @@ function AdminAITraining({ companyId }) {
                         {approving === suggestion.id ? '⏳ Aprovando...' : '✓ Aprovar'}
                       </button>
 
+                      <button
+                        className="btn-teach"
+                        onClick={() => openTeachingModal(suggestion)}
+                        title="Ensinar à IA como responder a este tipo de pergunta"
+                      >
+                        📚 Ensinar
+                      </button>
+
                       <div className="reject-group">
                         <input
                           type="text"
@@ -360,6 +541,239 @@ function AdminAITraining({ companyId }) {
           </div>
         )}
       </div>
+
+      {/* Histórico */}
+      <div className="history-section">
+        <div className="history-header">
+          <h3>Histórico de Decisões</h3>
+          <div className="history-filters">
+            <label>Status:</label>
+            <select
+              value={historyStatus}
+              onChange={(e) => {
+                const status = e.target.value;
+                setHistoryStatus(status);
+                fetchHistory(resolvedCompanyId, status);
+              }}
+            >
+              <option value="approved">Aprovadas</option>
+              <option value="rejected">Rejeitadas</option>
+              <option value="auto_sent">Auto-enviadas</option>
+              <option value="pending">Pendentes</option>
+            </select>
+            <button
+              className="btn-refresh"
+              onClick={() => fetchHistory(resolvedCompanyId, historyStatus)}
+              disabled={loadingHistory}
+            >
+              {loadingHistory ? 'Atualizando...' : 'Atualizar'}
+            </button>
+          </div>
+        </div>
+
+        {history.length === 0 ? (
+          <div className="no-suggestions">
+            <p>Nenhuma entrada neste filtro.</p>
+          </div>
+        ) : (
+          <div className="history-list">
+            {history.map((item) => (
+              <div key={item.id} className={`history-card status-${item.status}`}>
+                <div className="history-top">
+                  <div>
+                    <strong>{item.client_ref || 'Desconhecido'}</strong>
+                    <span className="history-status">{item.status}</span>
+                  </div>
+                  <div className="history-time">
+                    {new Date(item.updated_at || item.created_at).toLocaleString()}
+                  </div>
+                </div>
+                <div className="history-body">
+                  <div className="history-field">
+                    <span className="history-label">Recebida:</span>
+                    <span>{item.incoming_message}</span>
+                  </div>
+                  <div className="history-field">
+                    <span className="history-label">Sugestão:</span>
+                    <span>{item.suggested_response}</span>
+                  </div>
+                  <div className="history-field">
+                    <span className="history-label">Aprovada:</span>
+                    {editingId === item.id && item.status === 'approved' ? (
+                      <input
+                        className="history-input"
+                        value={editedResponse}
+                        onChange={(e) => setEditedResponse(e.target.value)}
+                      />
+                    ) : (
+                      <span>{item.approved_response || '—'}</span>
+                    )}
+                  </div>
+                  <div className="history-field">
+                    <span className="history-label">Feedback:</span>
+                    {editingId === item.id && item.status === 'rejected' ? (
+                      <input
+                        className="history-input"
+                        value={editedFeedback}
+                        onChange={(e) => setEditedFeedback(e.target.value)}
+                      />
+                    ) : (
+                      <span>{item.feedback || '—'}</span>
+                    )}
+                  </div>
+                  {item.metadata?.last_decision && (
+                    <div className="history-field meta">
+                      <span className="history-label">Última decisão:</span>
+                      <span>
+                        {item.metadata.last_decision.type} em {new Date(item.metadata.last_decision.at).toLocaleString()}
+                        {item.metadata.last_decision.feedback
+                          ? ` • Feedback: ${item.metadata.last_decision.feedback}`
+                          : ''}
+                      </span>
+                    </div>
+                  )}
+                  <div className="history-actions">
+                    {editingId === item.id ? (
+                      <>
+                        <button className="btn-save" onClick={() => saveEdit(item)}>
+                          Salvar
+                        </button>
+                        <button className="btn-cancel" onClick={cancelEdit}>
+                          Cancelar
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        className="btn-edit"
+                        onClick={() => startEdit(item)}
+                        disabled={item.status === 'pending'}
+                      >
+                        Editar
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Teaching Modal */}
+      {teachingModal.isOpen && (
+        <div className="modal-overlay" onClick={closeTeachingModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>📚 Ensinar um novo conceito à IA</h3>
+              <button className="modal-close" onClick={closeTeachingModal}>✕</button>
+            </div>
+
+            <div className="modal-body">
+              <div className="form-group">
+                <label>Pergunta/Query</label>
+                <input
+                  type="text"
+                  value={teachingModal.query}
+                  onChange={(e) =>
+                    setTeachingModal({ ...teachingModal, query: e.target.value })
+                  }
+                  placeholder="Ex: Quais são os planos disponíveis?"
+                  disabled={teaching}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Explicação (obrigatório)</label>
+                <textarea
+                  value={teachingModal.explanation}
+                  onChange={(e) =>
+                    setTeachingModal({ ...teachingModal, explanation: e.target.value })
+                  }
+                  placeholder="Como a IA deve responder a este tipo de pergunta?"
+                  rows="4"
+                  disabled={teaching}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Intenção</label>
+                <select
+                  value={teachingModal.intent}
+                  onChange={(e) =>
+                    setTeachingModal({ ...teachingModal, intent: e.target.value })
+                  }
+                  disabled={teaching}
+                >
+                  <option value="geral">Geral</option>
+                  <option value="preço">Preço</option>
+                  <option value="agendamento">Agendamento</option>
+                  <option value="suporte">Suporte</option>
+                  <option value="cancelamento">Cancelamento</option>
+                  <option value="localização">Localização</option>
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label>Exemplos de perguntas similares</label>
+                <div className="examples-list">
+                  {teachingModal.examples.map((ex, idx) => (
+                    <div key={idx} className="example-item">
+                      <span>{ex}</span>
+                      <button
+                        className="btn-remove"
+                        onClick={() => removeExample(idx)}
+                        disabled={teaching}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="example-input-group">
+                  <input
+                    type="text"
+                    value={teachingModal.currentExample}
+                    onChange={(e) =>
+                      setTeachingModal({
+                        ...teachingModal,
+                        currentExample: e.target.value,
+                      })
+                    }
+                    placeholder="Ex: Vocês têm planos compartilhados?"
+                    disabled={teaching}
+                    onKeyPress={(e) => e.key === 'Enter' && addExample()}
+                  />
+                  <button
+                    className="btn-add-example"
+                    onClick={addExample}
+                    disabled={teaching || !teachingModal.currentExample.trim()}
+                  >
+                    + Adicionar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="modal-footer">
+              <button
+                className="btn-cancel"
+                onClick={closeTeachingModal}
+                disabled={teaching}
+              >
+                Cancelar
+              </button>
+              <button
+                className="btn-submit-teaching"
+                onClick={submitTeaching}
+                disabled={teaching || !teachingModal.query.trim() || !teachingModal.explanation.trim()}
+              >
+                {teaching ? '⏳ Ensinando...' : '✓ Ensinar à IA'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

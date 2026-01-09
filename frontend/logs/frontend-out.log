@@ -198,3 +198,56 @@
 2026-01-09 18:32:49 -03:00: 
 2026-01-09 18:32:49 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
 2026-01-09 18:32:49 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 18:50:13 -03:00: [2m18:50:13[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 18:50:18 -03:00: [2m18:50:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:07:39 -03:00: [2m19:07:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:07:47 -03:00: [2m19:07:47[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mdist/index.html[22m
+2026-01-09 19:07:48 -03:00: 
+2026-01-09 19:07:48 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m380[22m[2m[0m ms[22m
+2026-01-09 19:07:48 -03:00: 
+2026-01-09 19:07:48 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 19:07:48 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 19:08:32 -03:00: [2m19:08:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:12:48 -03:00: [2m19:12:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:12:54 -03:00: [2m19:12:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:12:56 -03:00: [2m19:12:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:13:22 -03:00: [2m19:13:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:13:25 -03:00: [2m19:13:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.css[22m
+2026-01-09 19:13:31 -03:00: 
+2026-01-09 19:13:31 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m467[22m[2m[0m ms[22m
+2026-01-09 19:13:31 -03:00: 
+2026-01-09 19:13:31 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 19:13:31 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 19:13:43 -03:00: [2m19:13:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.css[22m
+2026-01-09 19:14:37 -03:00: [2m19:14:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:14:43 -03:00: [2m19:14:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:14:47 -03:00: [2m19:14:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.css[22m
+2026-01-09 19:14:52 -03:00: 
+2026-01-09 19:14:52 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m337[22m[2m[0m ms[22m
+2026-01-09 19:14:52 -03:00: 
+2026-01-09 19:14:52 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 19:14:52 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 19:15:11 -03:00: [2m19:15:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.css[22m
+2026-01-09 19:15:11 -03:00: [2m19:15:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:57:49 -03:00: [2m19:57:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:57:56 -03:00: [2m19:57:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:58:02 -03:00: [2m19:58:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:58:15 -03:00: [2m19:58:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:58:17 -03:00: [2m19:58:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.jsx[22m
+2026-01-09 19:58:28 -03:00: [2m19:58:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.css[22m
+2026-01-09 19:58:30 -03:00: [2m19:58:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AdminAITraining.css[22m
+2026-01-09 20:11:11 -03:00: 
+2026-01-09 20:11:11 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m469[22m[2m[0m ms[22m
+2026-01-09 20:11:11 -03:00: 
+2026-01-09 20:11:11 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 20:11:11 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 20:18:38 -03:00: 
+2026-01-09 20:18:38 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m499[22m[2m[0m ms[22m
+2026-01-09 20:18:38 -03:00: 
+2026-01-09 20:18:38 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 20:18:38 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+2026-01-09 20:21:15 -03:00: 
+2026-01-09 20:21:15 -03:00:   [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m471[22m[2m[0m ms[22m
+2026-01-09 20:21:15 -03:00: 
+2026-01-09 20:21:15 -03:00:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+2026-01-09 20:21:15 -03:00: [2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m

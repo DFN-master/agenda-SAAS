@@ -422,3 +422,394 @@
     gap: 8px;
   }
 }
+
+/* Histórico */
+.history-section {
+  margin-top: 40px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.history-filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.history-card .history-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.history-status {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: #ecf0f1;
+  color: #2c3e50;
+}
+
+.history-card.status-approved .history-status {
+  background: #e8f8f0;
+  color: #27ae60;
+}
+
+.history-card.status-rejected .history-status {
+  background: #fdecea;
+  color: #e74c3c;
+}
+
+.history-card.status-auto_sent .history-status {
+  background: #eef5ff;
+  color: #2980b9;
+}
+
+.history-time {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.history-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-field {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.history-label {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.history-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 6px 8px;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+}
+
+.history-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-edit,
+.btn-save,
+.btn-cancel {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-edit {
+  background: #f0f4ff;
+  border-color: #2980b9;
+  color: #2980b9;
+}
+
+.btn-save {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-cancel {
+  background: #ecf0f1;
+  color: #2c3e50;
+}
+
+.btn-refresh {
+  padding: 6px 12px;
+  border: 1px solid #2980b9;
+  background: #2980b9;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* Teaching Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f8f9fa;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #7f8c8d;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #2c3e50;
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-group input[type="text"]:disabled,
+.form-group textarea:disabled,
+.form-group select:disabled {
+  background-color: #ecf0f1;
+  cursor: not-allowed;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.examples-list {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.example-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: #f0f4ff;
+  border-left: 3px solid #3498db;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.btn-remove {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.btn-remove:hover {
+  color: #c0392b;
+}
+
+.btn-remove:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.example-input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.example-input-group input {
+  flex: 1;
+}
+
+.btn-add-example {
+  padding: 10px 15px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-add-example:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+.btn-add-example:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.modal-footer {
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-submit-teaching {
+  padding: 10px 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-submit-teaching:hover:not(:disabled) {
+  background: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.btn-submit-teaching:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-teach {
+  flex: 0 0 auto;
+  padding: 10px 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-teach:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.btn-teach:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

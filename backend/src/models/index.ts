@@ -6,6 +6,8 @@ import UserConnectionModel from './userConnection';
 import AiEventModel from './aiEvent';
 import AiConversationSuggestionModel from './aiConversationSuggestion';
 import AiConversationMessageModel from './aiConversationMessage';
+import AiKnowledgeBaseModel from './aiKnowledgeBase';
+import AiLearnedConceptModel from './aiLearnedConcept';
 
 const sequelize = new Sequelize(process.env.DATABASE_URL || '', {
   dialect: 'postgres',
@@ -20,6 +22,8 @@ const models = {
   AiEvent: AiEventModel(sequelize),
   AiConversationSuggestion: AiConversationSuggestionModel(sequelize),
   AiConversationMessage: AiConversationMessageModel(sequelize),
+  AiKnowledgeBase: AiKnowledgeBaseModel(sequelize),
+  AiLearnedConcept: AiLearnedConceptModel(sequelize),
 };
 
 Object.values(models).forEach((model: any) => {

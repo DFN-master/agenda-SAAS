@@ -17,6 +17,7 @@
     "@types/ws": "^8.18.1",
     "@whiskeysockets/baileys": "latest",
     "bcryptjs": "^3.0.3",
+    "cheerio": "^1.0.0-rc.12",
     "dotenv": "^17.2.3",
     "express": "latest",
     "imap": "^0.8.19",

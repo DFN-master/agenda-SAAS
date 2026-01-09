@@ -7,6 +7,10 @@ exports.default = (sequelize) => {
             UserConnection.belongsTo(models.User, {
                 foreignKey: 'user_id',
             });
+            UserConnection.hasMany(models.AiConversationSuggestion, {
+                foreignKey: 'connection_id',
+                as: 'aiSuggestions',
+            });
         }
     }
     UserConnection.init({

@@ -24,6 +24,18 @@ exports.default = (sequelize) => {
             type: sequelize_1.DataTypes.ENUM('super_admin', 'admin', 'user'),
             allowNull: false,
         },
+        ai_auto_respond_enabled: {
+            type: sequelize_1.DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+        ai_confidence_score: {
+            type: sequelize_1.DataTypes.FLOAT,
+            defaultValue: 0.5,
+        },
+        ai_total_approvals: {
+            type: sequelize_1.DataTypes.INTEGER,
+            defaultValue: 0,
+        },
     }, {
         sequelize,
         modelName: 'User',

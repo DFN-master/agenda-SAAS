@@ -17,6 +17,8 @@ exports.createConversationSuggestion = createConversationSuggestion;
 exports.approveSuggestion = approveSuggestion;
 exports.rejectSuggestion = rejectSuggestion;
 exports.getPendingSuggestions = getPendingSuggestions;
+exports.updateSuggestionDecision = updateSuggestionDecision;
+exports.getDecidedSuggestions = getDecidedSuggestions;
 exports.getAutoRespondStatus = getAutoRespondStatus;
 exports.setAutoRespondEnabled = setAutoRespondEnabled;
 const models_1 = __importDefault(require("../../models"));
@@ -69,9 +71,62 @@ function sendAutoRespond(connectionId, clientJid, message) {
         }
     });
 }
+function detectIntent(message) {
+    const lower = message.toLowerCase();
+    if (/(preço|valor|custo|plano)/.test(lower))
+        return 'preço';
+    if (/(agendar|marcar|agenda|horário)/.test(lower))
+        return 'agendamento';
+    if (/(suporte|problema|erro|ajuda)/.test(lower))
+        return 'suporte';
+    if (/(cancelar|cancelamento)/.test(lower))
+        return 'cancelamento';
+    if (/(endereço|localização|onde)/.test(lower))
+        return 'localização';
+    return 'geral';
+}
+function buildSuggestedResponse(intent, incoming, summary) {
+    const trimmed = incoming.trim().slice(0, 140);
+    const base = summary && summary !== 'Nenhuma mensagem anterior'
+        ? `Contexto rápido: ${summary.split('\n').slice(-3).join(' | ')}`
+        : 'Sem histórico prévio.';
+    const templates = {
+        preço: [
+            `Recebi sua dúvida sobre planos/preços. Vou confirmar a melhor opção e já retorno com valores atualizados. (${base})`,
+            `Entendi que você quer detalhes de preço. Vou levantar os valores e te respondo na sequência. (${base})`,
+        ],
+        agendamento: [
+            `Posso ajudar com o agendamento. Qual é o melhor dia/horário? Vou verificar disponibilidade e confirmo. (${base})`,
+            `Vamos marcar? Me diga sua preferência e já tento encaixar. (${base})`,
+        ],
+        suporte: [
+            `Vou te ajudar com esse problema. Me dá um minuto para revisar e volto com a solução. (${base})`,
+            `Entendi o erro relatado. Vou checar os detalhes e retorno com um passo a passo. (${base})`,
+        ],
+        cancelamento: [
+            `Posso cuidar do cancelamento. Só confirmando a solicitação: "${trimmed}". Vou processar e aviso quando concluir. (${base})`,
+            `Registro seu pedido de cancelamento e retorno já com a confirmação. (${base})`,
+        ],
+        localização: [
+            `Quer nosso endereço/localização. Vou enviar o link e orientações em seguida. (${base})`,
+            `Já pego o endereço certinho e compartilho com você. (${base})`,
+        ],
+        geral: [
+            `Recebi sua mensagem: "${trimmed}". Vou analisar e te respondo em instantes. (${base})`,
+            `Obrigado pelo contato! Vou verificar o que você precisa e retorno já. (${base})`,
+        ],
+    };
+    const options = templates[intent] || templates.geral;
+    const choice = Math.floor(Math.random() * options.length);
+    return options[choice];
+}
+function mergeSuggestionMetadata(existing, patch) {
+    // Preserva metadados anteriores e acrescenta decisão/feedback
+    const base = existing && typeof existing === 'object' ? existing : {};
+    return Object.assign(Object.assign({}, base), patch);
+}
 function createConversationSuggestion(input) {
     return __awaiter(this, void 0, void 0, function* () {
-        var _a;
         const { userId, companyId, connectionId, clientRef, incomingMessage } = input;
         // Garantir isolamento por company_id - apenas verificar se o usuário pertence à empresa
         const user = yield models_1.default.User.findByPk(userId);
@@ -81,48 +136,49 @@ function createConversationSuggestion(input) {
         }
         // Buscar contexto da conversa
         const context = yield getConversationContext(userId, companyId, clientRef || 'unknown');
-        // Gerar sugestão via IA local
+        // Gerar sugestão via heurística local
         let suggestedResponse = '';
         let confidence = 0.5;
+        const intent = detectIntent(incomingMessage || '');
         try {
-            const aiPayload = {
-                emails: [
-                    {
-                        subject: 'Cliente',
-                        body: `Contexto:\n${context.summary}\n\nNova mensagem: ${incomingMessage}`,
-                    },
-                ],
+            // Chama motor cognitivo em Python (cognitive_engine.py na porta 5001)
+            const cognitivePayload = {
+                incoming_message: incomingMessage,
+                context_summary: context.summary,
+                intent,
+                company_id: companyId,
             };
-            const aiRes = yield (0, node_fetch_1.default)('http://localhost:5000/summaries', {
+            const cognitiveRes = yield (0, node_fetch_1.default)('http://localhost:5001/cognitive-response', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(aiPayload),
+                body: JSON.stringify(cognitivePayload),
             });
-            if (aiRes.ok) {
-                const data = (yield aiRes.json());
-                const result = (_a = data.results) === null || _a === void 0 ? void 0 : _a[0];
-                if (result) {
-                    const intent = result.category || 'unknown';
-                    suggestedResponse = `Entendi que você quer algo sobre ${intent}. Vou verificar e respondo em breve.`;
-                    confidence = 0.6;
-                    // Registrar mensagem recebida
-                    yield models_1.default.AiConversationMessage.create({
-                        company_id: companyId,
-                        user_id: userId,
-                        connection_id: connectionId,
-                        client_ref: clientRef,
-                        direction: 'received',
-                        message_text: incomingMessage,
-                        metadata: { intent },
-                    });
-                }
+            if (cognitiveRes.ok) {
+                const data = (yield cognitiveRes.json());
+                suggestedResponse = data.suggested_response || buildSuggestedResponse(intent, incomingMessage, context.summary);
+                suggestedResponse = data.suggested_response || buildSuggestedResponse(intent, incomingMessage, context.summary);
+                confidence = data.confidence || 0.6;
+                // Registrar mensagem recebida
+                yield models_1.default.AiConversationMessage.create({
+                    company_id: companyId,
+                    user_id: userId,
+                    connection_id: connectionId,
+                    client_ref: clientRef,
+                    direction: 'received',
+                    message_text: incomingMessage,
+                    metadata: { intent, knowledge_used: data.knowledge_used || [] },
+                });
+            }
+            else {
+                // Fallback se cognitive engine falhar
+                suggestedResponse = buildSuggestedResponse(intent, incomingMessage, context.summary);
+                confidence = 0.5;
             }
         }
         catch (err) {
             console.error('[AI] IA generation failed', err);
-            suggestedResponse =
-                'Obrigado pela mensagem. Vou verificar e respondo em breve.';
-            confidence = 0.4;
+            suggestedResponse = buildSuggestedResponse(intent, incomingMessage, context.summary);
+            confidence = 0.45;
         }
         const suggestion = yield models_1.default.AiConversationSuggestion.create({
             company_id: companyId,
@@ -132,6 +188,7 @@ function createConversationSuggestion(input) {
             incoming_message: incomingMessage,
             suggested_response: suggestedResponse,
             confidence,
+            metadata: { intent },
         });
         // Verificar se auto-respond está ativado e confiança > threshold
         if ((user === null || user === void 0 ? void 0 : user.ai_auto_respond_enabled) &&
@@ -176,6 +233,13 @@ function approveSuggestion(suggestionId, userId, companyId, approvedResponse) {
         suggestion.status = 'approved';
         suggestion.approved_response =
             approvedResponse || suggestion.suggested_response;
+        suggestion.metadata = mergeSuggestionMetadata(suggestion.metadata, {
+            last_decision: {
+                type: 'approved',
+                at: new Date().toISOString(),
+                approved_response: approvedResponse || suggestion.suggested_response,
+            },
+        });
         yield suggestion.save();
         // Registrar mensagem enviada
         yield models_1.default.AiConversationMessage.create({
@@ -209,27 +273,82 @@ function rejectSuggestion(suggestionId, userId, companyId, feedback) {
         }
         suggestion.status = 'rejected';
         suggestion.feedback = feedback;
+        suggestion.metadata = mergeSuggestionMetadata(suggestion.metadata, {
+            last_decision: {
+                type: 'rejected',
+                at: new Date().toISOString(),
+                feedback,
+            },
+        });
         yield suggestion.save();
         return suggestion;
     });
 }
 function getPendingSuggestions(userId_1, companyId_1) {
     return __awaiter(this, arguments, void 0, function* (userId, companyId, limit = 20) {
-        const suggestions = yield models_1.default.AiConversationSuggestion.findAll({
+        const suggestions = yield models_1.default.AiConversationSuggestion
+            .unscoped()
+            .findAll({
             where: {
                 user_id: userId,
                 company_id: companyId,
                 status: 'pending',
             },
+            include: [],
             order: [['created_at', 'DESC']],
             limit,
-            include: [
-                {
-                    model: models_1.default.UserConnection,
-                    as: 'connection',
-                    required: false,
-                },
-            ],
+        });
+        return suggestions;
+    });
+}
+function updateSuggestionDecision(suggestionId, userId, companyId, data) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const suggestion = yield models_1.default.AiConversationSuggestion
+            .unscoped()
+            .findOne({
+            where: { id: suggestionId, user_id: userId, company_id: companyId },
+        });
+        if (!suggestion) {
+            throw new Error('Suggestion not found or unauthorized');
+        }
+        const { status, approved_response, feedback } = data;
+        suggestion.status = status;
+        if (status === 'approved') {
+            suggestion.approved_response =
+                approved_response || suggestion.approved_response || suggestion.suggested_response;
+            suggestion.feedback = null;
+        }
+        else if (status === 'rejected') {
+            suggestion.feedback = feedback || null;
+            suggestion.approved_response = null;
+        }
+        suggestion.metadata = mergeSuggestionMetadata(suggestion.metadata, {
+            last_decision: {
+                type: status,
+                at: new Date().toISOString(),
+                approved_response: status === 'approved'
+                    ? suggestion.approved_response
+                    : undefined,
+                feedback: status === 'rejected' ? feedback : undefined,
+            },
+        });
+        yield suggestion.save();
+        return suggestion;
+    });
+}
+function getDecidedSuggestions(userId_1, companyId_1) {
+    return __awaiter(this, arguments, void 0, function* (userId, companyId, status = 'approved', limit = 50) {
+        const suggestions = yield models_1.default.AiConversationSuggestion
+            .unscoped()
+            .findAll({
+            where: {
+                user_id: userId,
+                company_id: companyId,
+                status,
+            },
+            include: [],
+            order: [['updated_at', 'DESC']],
+            limit,
         });
         return suggestions;
     });

@@ -85,17 +85,20 @@ def classify_email(body):
     X = vectorizer.transform([body])
     return classifier.predict(X)[0]
 
-# Example usage
+# Ajuste temporário para ignorar conexão IMAP e recriar o modelo
 if __name__ == "__main__":
-    HOST = os.getenv('IMAP_HOST', 'imap.example.com')
-    PORT = int(os.getenv('IMAP_PORT', 993))
-    USER = os.getenv('IMAP_USER', 'user@example.com')
-    PASS = os.getenv('IMAP_PASS', 'password')
-
-    emails = fetch_emails(HOST, PORT, USER, PASS)
-    for e in emails:
-        summary = summarize_email(e['body'])
-        category = classify_email(e['body'])
-        print(f"Subject: {e['subject']}")
-        print(f"Category: {category}")
-        print(f"Summary: {summary}\n")
+    print("Recriando modelo de classificação...")
+    texts = [
+        "Your invoice is attached. Please review.",
+        "Meeting scheduled for tomorrow at 10 AM.",
+        "Your account has been updated.",
+        "Congratulations! You won a prize.",
+    ]
+    labels = ["billing", "meeting", "account", "promotion"]
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(texts)
+    classifier = MultinomialNB()
+    classifier.fit(X, labels)
+    with open(MODEL_PATH, 'wb') as f:
+        pickle.dump((classifier, vectorizer), f)
+    print("Modelo recriado e salvo com sucesso.")

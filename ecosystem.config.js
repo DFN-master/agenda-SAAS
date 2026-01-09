@@ -47,6 +47,23 @@ module.exports = {
       error_file: './logs/whatsapp-error.log',
       out_file: './logs/whatsapp-out.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
+    },
+    {
+      name: 'cognitive-engine',
+      cwd: './ai-service',
+      script: 'cognitive_engine.py',
+      interpreter: 'python',
+      env_file: './backend/.env',
+      env: {
+        NODE_ENV: 'development',
+        PORT: 5001
+      },
+      autorestart: true,
+      watch: false,
+      max_memory_restart: '2G',
+      error_file: './logs/cognitive-error.log',
+      out_file: './logs/cognitive-out.log',
+      log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
     }
   ]
 };
