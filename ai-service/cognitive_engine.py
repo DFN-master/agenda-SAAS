@@ -45,7 +45,7 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/agenda')
-DEBUG_VERSION = "debug-2026-01-09T23:22Z"
+DEBUG_VERSION = "semantic-2026-01-09T23:55Z"
 
 # Log startup info
 logger.info(f"Cognitive Engine Starting")
@@ -64,6 +64,96 @@ def tokenize(text: str) -> List[str]:
     """Tokeniza texto em palavras relevantes (3+ caracteres)."""
     words = re.findall(r'\b\w{3,}\b', text.lower())
     return words
+
+# Léxico semântico básico (pt-BR): mapeia palavras a conceitos e significados
+# Objetivo: fornecer ao motor cognitivo o "significado das palavras" sem depender
+# de respostas pré-cadastradas no banco.
+SEMANTIC_LEXICON: Dict[str, Dict[str, Any]] = {
+    # Planos e preços
+    "preco": {"concept": "preço", "definition": "valor cobrado por um serviço ou produto.",
+               "synonyms": ["preço", "valor", "custo", "quanto", "quanto custa", "valores"],
+               "topic": "comercial"},
+    "planos": {"concept": "planos", "definition": "conjuntos de ofertas com características e preços distintos.",
+                "synonyms": ["plano", "planos", "pacote", "pacotes", "assinatura"],
+                "topic": "comercial"},
+    "agendar": {"concept": "agendamento", "definition": "ato de marcar data e horário para um compromisso.",
+                 "synonyms": ["agendar", "agendamento", "marcar", "agenda", "horario", "horário"],
+                 "topic": "operacional"},
+    "suporte": {"concept": "suporte", "definition": "ajuda técnica ou atendimento ao cliente.",
+                 "synonyms": ["suporte", "ajuda", "atendimento", "problema", "erro"],
+                 "topic": "atendimento"},
+    "pagamento": {"concept": "pagamento", "definition": "processo de quitação de um valor devido.",
+                   "synonyms": ["pagar", "pagamento", "boleto", "cartao", "cartão", "pix"],
+                   "topic": "financeiro"},
+    "cancelar": {"concept": "cancelamento", "definition": "encerrar um serviço ou compromisso.",
+                  "synonyms": ["cancelar", "cancelamento", "rescindir"],
+                  "topic": "operacional"},
+    "integracao": {"concept": "integração", "definition": "ligação entre sistemas para troca de dados.",
+                    "synonyms": ["integracao", "integração", "api", "webhook", "conectar"],
+                    "topic": "tecnico"},
+}
+
+STOPWORDS_PT = {
+    "de", "da", "do", "das", "dos", "e", "ou", "a", "o", "os", "as", "um", "uma",
+    "para", "por", "com", "sem", "em", "no", "na", "nos", "nas", "que", "qual", "quais",
+}
+
+def normalize_token(token: str) -> str:
+    """Normaliza token para aproximação rudimentar (remove acentos comuns e plural)."""
+    # Remover acentos básicos
+    replacements = {
+        "á": "a", "à": "a", "â": "a", "ã": "a",
+        "é": "e", "ê": "e",
+        "í": "i",
+        "ó": "o", "ô": "o", "õ": "o",
+        "ú": "u",
+        "ç": "c",
+    }
+    t = token.lower()
+    for k, v in replacements.items():
+        t = t.replace(k, v)
+    # Singularização simplificada (remove 's' final se parecer plural)
+    if len(t) > 4 and t.endswith("s"):
+        t = t[:-1]
+    return t
+
+def interpret_semantics(tokens: List[str]) -> Dict[str, Any]:
+    """
+    Interpreta tokens com base no léxico semântico, retornando tópicos e conceitos reconhecidos.
+    Não usa respostas do banco; apenas significados das palavras e sinônimos.
+    """
+    recognized: List[Dict[str, Any]] = []
+    topics: Dict[str, int] = {}
+
+    for raw in tokens:
+        if raw in STOPWORDS_PT:
+            continue
+        t = normalize_token(raw)
+        # Procurar em todas as entradas do léxico por sinônimos que contenham o token
+        for key, entry in SEMANTIC_LEXICON.items():
+            syns = entry.get("synonyms", [])
+            for s in syns:
+                if t in normalize_token(s):
+                    recognized.append({
+                        "concept": entry["concept"],
+                        "definition": entry["definition"],
+                        "token": raw,
+                        "topic": entry["topic"],
+                    })
+                    topics[entry["topic"]] = topics.get(entry["topic"], 0) + 1
+                    break
+
+    # Ordenar por tópicos mais frequentes
+    recognized_sorted = sorted(recognized, key=lambda x: (topics.get(x["topic"], 0), x["concept"]), reverse=True)
+    dominant_topic = None
+    if topics:
+        dominant_topic = max(topics.items(), key=lambda kv: kv[1])[0]
+
+    return {
+        "recognized": recognized_sorted,
+        "dominant_topic": dominant_topic,
+        "topics": topics,
+    }
 
 def calculate_concept_relevance(query_tokens: List[str], concept: Dict[str, Any]) -> float:
     """
@@ -182,106 +272,95 @@ def fetch_knowledge(company_id: str, intent: str = None, limit: int = 10) -> Lis
 
 def cognitive_search(query: str, company_id: str, intent: str = None, top_k: int = 3) -> Dict[str, Any]:
     """
-    Busca cognitiva avançada: prioriza conceitos aprendidos, depois knowledge base.
-    Retorna dicionário com conceitos e conhecimento ranqueados.
+    Busca cognitiva focada em semântica: interpreta tokens pelo léxico e compõe resposta.
+    Mantém knowledge/concepts apenas como fallback secundário.
     """
     query_tokens = tokenize(query)
     if not query_tokens:
-        return {'concepts': [], 'knowledge': [], 'source': 'none'}
-    
-    # 1. Buscar conceitos aprendidos (prioridade máxima)
-    learned_concepts = fetch_learned_concepts(company_id, intent, limit=30)
-    
+        return {'semantics': {}, 'concepts': [], 'knowledge': [], 'source': 'none'}
+
+    # 0. Interpretar semântica (prioridade principal)
+    semantic = interpret_semantics(query_tokens)
+
+    # 1. Fallbacks (aprendizado e base) – apenas se semântica for fraca
+    learned_concepts = []
     scored_concepts = []
-    for concept in learned_concepts:
-        score = calculate_concept_relevance(query_tokens, concept)
-        if score > 2.0:  # Threshold mais alto para conceitos
-            scored_concepts.append({'entry': concept, 'score': score, 'type': 'concept'})
-    
-    scored_concepts.sort(key=lambda x: x['score'], reverse=True)
-    
-    # Se encontrou conceitos relevantes, prioriza eles
-    if scored_concepts and scored_concepts[0]['score'] > 5.0:
-        # Alta confiança no conceito aprendido
-        return {
-            'concepts': [s['entry'] for s in scored_concepts[:top_k]],
-            'knowledge': [],
-            'source': 'learned_concepts',
-            'confidence_boost': 0.2  # Conceitos aprendidos dão boost de confiança
-        }
-    
-    # 2. Buscar na knowledge base
-    knowledge_entries = fetch_knowledge(company_id, intent, limit=50)
-    
     scored_knowledge = []
-    for entry in knowledge_entries:
-        score = calculate_relevance(query_tokens, entry['content'], entry['title'])
-        if score > 0:
-            scored_knowledge.append({'entry': entry, 'score': score, 'type': 'knowledge'})
-    
-    scored_knowledge.sort(key=lambda x: x['score'], reverse=True)
-    
-    # 3. Combinar resultados
-    top_concepts = [s['entry'] for s in scored_concepts[:2]] if scored_concepts else []
-    top_knowledge = [s['entry'] for s in scored_knowledge[:2]] if scored_knowledge else []
-    
+
+    # Critério: se menos de 2 conceitos reconhecidos semanticamente, tenta enriquecer
+    if len(semantic.get("recognized", [])) < 2:
+        learned_concepts = fetch_learned_concepts(company_id, intent, limit=20)
+        for concept in learned_concepts:
+            score = calculate_concept_relevance(query_tokens, concept)
+            if score > 2.0:
+                scored_concepts.append({'entry': concept, 'score': score, 'type': 'concept'})
+        scored_concepts.sort(key=lambda x: x['score'], reverse=True)
+
+        knowledge_entries = fetch_knowledge(company_id, intent, limit=30)
+        for entry in knowledge_entries:
+            score = calculate_relevance(query_tokens, entry['content'], entry['title'])
+            if score > 0:
+                scored_knowledge.append({'entry': entry, 'score': score, 'type': 'knowledge'})
+        scored_knowledge.sort(key=lambda x: x['score'], reverse=True)
+
     return {
-        'concepts': top_concepts,
-        'knowledge': top_knowledge,
-        'source': 'hybrid' if (top_concepts and top_knowledge) else ('concepts' if top_concepts else 'knowledge'),
-        'confidence_boost': 0.1 if top_concepts else 0
+        'semantics': semantic,
+        'concepts': [s['entry'] for s in scored_concepts[:2]] if scored_concepts else [],
+        'knowledge': [s['entry'] for s in scored_knowledge[:2]] if scored_knowledge else [],
+        'source': 'semantics' if semantic.get('recognized') else (
+            'hybrid' if (scored_concepts or scored_knowledge) else 'none'
+        ),
+        'confidence_boost': 0.15 if semantic.get('recognized') else (0.1 if scored_concepts else 0)
     }
 
 def build_cognitive_response(incoming_message: str, context_summary: str, intent: str, search_result: Dict[str, Any]) -> str:
     """
-    Constrói resposta estruturada priorizando conceitos aprendidos.
+    Constrói resposta estruturada semântica: usa significados de palavras para compor a resposta.
+    Evita recuperar respostas prontas; pode usar aprendizados/knowledge apenas como suporte.
     """
     try:
         concepts = search_result.get('concepts', [])
         knowledge = search_result.get('knowledge', [])
-        
-        if not concepts and not knowledge:
-            return f"Recebi sua mensagem sobre {intent}. Estou aprendendo sobre esse assunto. Poderia me explicar um pouco mais para que eu possa te ajudar melhor?"
-        
+        semantics = search_result.get('semantics', {})
+
+        recognized = semantics.get('recognized', [])
+        dominant_topic = semantics.get('dominant_topic')
+
         response_parts = []
-        
-        # Se há conceitos aprendidos, usar explicações deles
-        if concepts:
-            intro = f"Entendi! Esse tipo de pergunta se refere a **{intent}**."
-            response_parts.append(intro)
-            
-            for i, concept in enumerate(concepts[:2], 1):
-                try:
-                    explanation = concept.get('explanation', 'sem explicação')
-                    original_query = concept.get('original_query', 'conceito aprendido')
-                    examples = concept.get('examples', [])
-                    
-                    response_parts.append(f"\n📚 **{original_query}**")
-                    response_parts.append(f"{explanation}")
-                    
-                    if examples and len(examples) > 0:
-                        response_parts.append(f"\n*Exemplos*: {examples[0]}")
-                except Exception as e:
-                    logger.error(f"Error processing concept {i}: {e}")
-                    continue
-        
-        # Adicionar conhecimento da base se disponível
-        if knowledge:
-            if not concepts:
-                intro = f"Aqui está o que encontrei sobre **{intent}**:"
-                response_parts.append(intro)
-            
-            for i, entry in enumerate(knowledge[:2], 1):
-                try:
-                    snippet = entry.get('content', '')[:180].strip()
-                    if len(entry.get('content', '')) > 180:
-                        snippet += '...'
-                    title = entry.get('title', 'Resultado')
-                    response_parts.append(f"\n{i}. **{title}**: {snippet}")
-                except Exception as e:
-                    logger.error(f"Error processing knowledge entry {i}: {e}")
-                    continue
-        
+
+        # Introdução baseada no tópico dominante
+        if recognized:
+            if dominant_topic:
+                response_parts.append(f"Entendi o tema principal: **{dominant_topic}**. ")
+            else:
+                response_parts.append("Entendi o que você está perguntando. ")
+
+            # Explicar com base nos significados das palavras
+            explained = []
+            for item in recognized[:3]:
+                c = item.get('concept')
+                d = item.get('definition')
+                if c and d and c not in explained:
+                    response_parts.append(f"\n📚 **{c.capitalize()}**: {d}")
+                    explained.append(c)
+
+            # Compor orientação/proposta de resposta de forma generativa
+            guidance = []
+            if any(x.get('concept') == 'preço' for x in recognized):
+                guidance.append("Posso te informar os valores e diferenças entre os planos.")
+            if any(x.get('concept') == 'planos' for x in recognized):
+                guidance.append("Temos diferentes planos com características específicas; posso detalhar conforme sua necessidade.")
+            if any(x.get('concept') == 'agendamento' for x in recognized):
+                guidance.append("Se preferir, posso sugerir datas e horários disponíveis para agendar.")
+            if any(x.get('concept') == 'suporte' for x in recognized):
+                guidance.append("Descreva o problema e eu oriento os próximos passos ou encaminho ao suporte técnico.")
+
+            if guidance:
+                response_parts.append("\n\n" + " ".join(guidance))
+        else:
+            # Sem semântica suficiente – fallback leve
+            response_parts.append(f"Recebi sua mensagem sobre {intent}. Estou analisando para formular a melhor resposta.")
+
         # Contexto resumido se houver
         if context_summary and context_summary != "Nenhuma mensagem anterior":
             try:
@@ -290,10 +369,14 @@ def build_cognitive_response(incoming_message: str, context_summary: str, intent
                 response_parts.append(context_note)
             except:
                 pass
-        
+
+        # Complemento opcional com conhecimento/aprendizado (não respostas prontas)
+        if concepts or knowledge:
+            response_parts.append("\n\nTambém posso considerar informações internas para enriquecer a resposta.")
+
         footer = "\n\nPosso esclarecer algo mais específico?"
         response_parts.append(footer)
-        
+
         return ''.join(response_parts)
     except Exception as e:
         logger.error(f"Error building cognitive response: {e}")
@@ -331,7 +414,7 @@ def cognitive_response():
 
         logger.debug(f'Received request: company_id={company_id}, intent={intent}')
 
-        # Busca cognitiva (prioriza conceitos aprendidos)
+        # Busca cognitiva com prioridade à semântica
         search_result = cognitive_search(incoming_message, company_id, intent, top_k=3)
         logger.debug(f'Search result source: {search_result.get("source")}')
 
@@ -339,15 +422,18 @@ def cognitive_response():
         response = build_cognitive_response(incoming_message, context_summary, intent, search_result)
 
         # Confiança: maior se usou conceitos aprendidos
-        base_confidence = 0.4
+        base_confidence = 0.5
         concepts = search_result.get('concepts', [])
         knowledge = search_result.get('knowledge', [])
+        semantics = search_result.get('semantics', {})
         confidence_boost = search_result.get('confidence_boost', 0)
 
-        if concepts:
+        if semantics.get('recognized'):
             base_confidence = 0.75 + confidence_boost
+        elif concepts:
+            base_confidence = 0.65 + confidence_boost
         elif knowledge:
-            base_confidence = 0.6 + (len(knowledge) * 0.05)
+            base_confidence = 0.55 + (len(knowledge) * 0.05)
 
         confidence = min(0.95, base_confidence)
         needs_training = confidence < 0.55
@@ -372,6 +458,7 @@ def cognitive_response():
             'source': search_result.get('source', 'none'),
             'concepts_used': concepts_used,
             'knowledge_used': knowledge_used,
+            'semantics': semantics,  # inclui tópicos e tokens reconhecidos
             'needs_training': bool(needs_training)
         })
     except Exception as e:
