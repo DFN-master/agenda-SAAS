@@ -24,10 +24,15 @@ const router = express.Router();
 // Middleware para verificar company_id e user_id
 const getCompanyId = async (req: any, res: Response, next: any) => {
   const userId = req.userId;
-  const companyId = req.query.company_id || req.body.company_id;
+  const companyId = String(req.query.company_id || req.body.company_id || '').trim();
 
   if (!companyId) {
     return res.status(400).json({ error: 'company_id é obrigatório' });
+  }
+
+  const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+  if (!uuidRegex.test(companyId)) {
+    return res.status(400).json({ error: 'company_id deve ser um UUID' });
   }
 
   // Verificar se usuário pertence à empresa
@@ -40,7 +45,10 @@ const getCompanyId = async (req: any, res: Response, next: any) => {
     ],
   });
 
-  if (!user || !(user as any).Companies?.some((c: any) => c.id === companyId)) {
+  const userCompanies = (user as any)?.Companies || [];
+  const belongsToCompany = userCompanies.some((c: any) => String(c.id) === companyId);
+
+  if (!user || !belongsToCompany) {
     return res.status(403).json({ error: 'Unauthorized company access' });
   }
 
@@ -121,6 +129,9 @@ router.post('/suggestions', getCompanyId, async (req: Request, res: Response) =>
     const userId = (req as any).userId;
     const companyId = (req as any).companyId;
     const { connection_id, client_ref, incoming_message } = req.body;
+    const normalizedConnectionId = Number.isFinite(Number(connection_id))
+      ? Number(connection_id)
+      : undefined;
 
     if (!incoming_message) {
       return res.status(400).json({ error: 'incoming_message é obrigatório' });
@@ -129,7 +140,7 @@ router.post('/suggestions', getCompanyId, async (req: Request, res: Response) =>
     const suggestion = await createConversationSuggestion({
       userId,
       companyId,
-      connectionId: connection_id,
+      connectionId: normalizedConnectionId,
       clientRef: client_ref,
       incomingMessage: incoming_message,
     });

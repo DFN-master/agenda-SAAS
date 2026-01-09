@@ -8,17 +8,25 @@ const router = express.Router();
 // Middleware para validar company_id do usuário
 const getCompanyId = async (req: any, res: Response, next: any) => {
   const userId = req.userId;
-  const companyId = req.query.company_id || req.body.company_id;
+  const companyId = String(req.query.company_id || req.body.company_id || '').trim();
 
   if (!companyId) {
     return res.status(400).json({ error: 'company_id é obrigatório' });
+  }
+
+  const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+  if (!uuidRegex.test(companyId)) {
+    return res.status(400).json({ error: 'company_id deve ser um UUID' });
   }
 
   const user = await (models as any).User.findByPk(userId, {
     include: [{ model: (models as any).Company, through: { attributes: [] } }],
   });
 
-  if (!user || !(user as any).Companies?.some((c: any) => c.id === companyId)) {
+  const userCompanies = (user as any)?.Companies || [];
+  const belongsToCompany = userCompanies.some((c: any) => String(c.id) === companyId);
+
+  if (!user || !belongsToCompany) {
     return res.status(403).json({ error: 'Unauthorized company access' });
   }
 
@@ -35,6 +43,9 @@ router.post('/webhook', getCompanyId, async (req: any, res: Response) => {
     const userId = req.userId;
     const companyId = req.companyId as string;
     const { connection_id, jid, client_ref, message_text } = req.body;
+    const normalizedConnectionId = Number.isFinite(Number(connection_id))
+      ? Number(connection_id)
+      : undefined;
 
     if (!message_text) {
       return res.status(400).json({ error: 'message_text é obrigatório' });
@@ -43,7 +54,7 @@ router.post('/webhook', getCompanyId, async (req: any, res: Response) => {
     const suggestion = await createConversationSuggestion({
       userId,
       companyId,
-      connectionId: connection_id,
+      connectionId: normalizedConnectionId,
       clientRef: jid || client_ref,
       incomingMessage: message_text,
     });
