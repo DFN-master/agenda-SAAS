@@ -13,6 +13,7 @@ import connectionRoutes from './routes/connectionRoutes';
 import aiRoutes from './routes/aiRoutes';
 import aiWordMeaningRoutes from './routes/aiWordMeaningRoutes';
 import whatsappRoutes from './routes/whatsappRoutes';
+import chatRoutes from './routes/chatRoutes';
 import { ensureWhatsMeowConnections } from './services/whatsapp/whatsappService';
 
 const app = express();
@@ -67,6 +68,7 @@ app.use('/api/connections', authMiddleware, connectionRoutes);
 app.use('/api/ai', authMiddleware, aiRoutes);
 app.use('/api/ai', authMiddleware, aiWordMeaningRoutes);
 app.use('/api/whatsapp', authMiddleware, whatsappRoutes);
+app.use('/api/chat', authMiddleware, chatRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {

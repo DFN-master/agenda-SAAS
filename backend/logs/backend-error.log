@@ -972,3 +972,302 @@
 2026-01-09 23:11:09 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
 2026-01-09 23:13:46 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
 2026-01-09 23:13:46 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-09 23:28:50 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-09 23:37:41 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-09 23:43:57 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-09 23:47:01 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-09 23:49:30 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-09 23:49:32 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-10 07:34:50 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-10 07:42:00 -03:00: Appointments list error: Error
+2026-01-10 07:42:00 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 07:42:00 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 07:42:00 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 07:42:00 -03:00:     at async PostgresQueryInterface.select (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+2026-01-10 07:42:00 -03:00:     at async Appointment.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1140:21)
+2026-01-10 07:42:00 -03:00:     at async Promise.all (index 1)
+2026-01-10 07:42:00 -03:00:     at async Appointment.findAndCountAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1322:27) {
+2026-01-10 07:42:00 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 07:42:00 -03:00:   parent: error: relation "appointments" does not exist
+2026-01-10 07:42:00 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 07:42:00 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 07:42:00 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 07:42:00 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 07:42:00 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 07:42:00 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 07:42:00 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 07:42:00 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 07:42:00 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 07:42:00 -03:00:     length: 112,
+2026-01-10 07:42:00 -03:00:     severity: 'ERROR',
+2026-01-10 07:42:00 -03:00:     code: '42P01',
+2026-01-10 07:42:00 -03:00:     detail: undefined,
+2026-01-10 07:42:00 -03:00:     hint: undefined,
+2026-01-10 07:42:00 -03:00:     position: '254',
+2026-01-10 07:42:00 -03:00:     internalPosition: undefined,
+2026-01-10 07:42:00 -03:00:     internalQuery: undefined,
+2026-01-10 07:42:00 -03:00:     where: undefined,
+2026-01-10 07:42:00 -03:00:     schema: undefined,
+2026-01-10 07:42:00 -03:00:     table: undefined,
+2026-01-10 07:42:00 -03:00:     column: undefined,
+2026-01-10 07:42:00 -03:00:     dataType: undefined,
+2026-01-10 07:42:00 -03:00:     constraint: undefined,
+2026-01-10 07:42:00 -03:00:     file: 'parse_relation.c',
+2026-01-10 07:42:00 -03:00:     line: '1392',
+2026-01-10 07:42:00 -03:00:     routine: 'parserOpenTable',
+2026-01-10 07:42:00 -03:00:     sql: 'SELECT "id", "company_id", "client_name", "appointment_date", "appointment_date_normalized", "appointment_time", "service_description", "status", "extraction_confidence", "user_id", "notes", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "appointments" AS "Appointment" ORDER BY "updatedAt" DESC LIMIT 10 OFFSET 0;',
+2026-01-10 07:42:00 -03:00:     parameters: undefined
+2026-01-10 07:42:00 -03:00:   },
+2026-01-10 07:42:00 -03:00:   original: error: relation "appointments" does not exist
+2026-01-10 07:42:00 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 07:42:00 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 07:42:00 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 07:42:00 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 07:42:00 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 07:42:00 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 07:42:00 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 07:42:00 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 07:42:00 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 07:42:00 -03:00:     length: 112,
+2026-01-10 07:42:00 -03:00:     severity: 'ERROR',
+2026-01-10 07:42:00 -03:00:     code: '42P01',
+2026-01-10 07:42:00 -03:00:     detail: undefined,
+2026-01-10 07:42:00 -03:00:     hint: undefined,
+2026-01-10 07:42:00 -03:00:     position: '254',
+2026-01-10 07:42:00 -03:00:     internalPosition: undefined,
+2026-01-10 07:42:00 -03:00:     internalQuery: undefined,
+2026-01-10 07:42:00 -03:00:     where: undefined,
+2026-01-10 07:42:00 -03:00:     schema: undefined,
+2026-01-10 07:42:00 -03:00:     table: undefined,
+2026-01-10 07:42:00 -03:00:     column: undefined,
+2026-01-10 07:42:00 -03:00:     dataType: undefined,
+2026-01-10 07:42:00 -03:00:     constraint: undefined,
+2026-01-10 07:42:00 -03:00:     file: 'parse_relation.c',
+2026-01-10 07:42:00 -03:00:     line: '1392',
+2026-01-10 07:42:00 -03:00:     routine: 'parserOpenTable',
+2026-01-10 07:42:00 -03:00:     sql: 'SELECT "id", "company_id", "client_name", "appointment_date", "appointment_date_normalized", "appointment_time", "service_description", "status", "extraction_confidence", "user_id", "notes", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "appointments" AS "Appointment" ORDER BY "updatedAt" DESC LIMIT 10 OFFSET 0;',
+2026-01-10 07:42:00 -03:00:     parameters: undefined
+2026-01-10 07:42:00 -03:00:   },
+2026-01-10 07:42:00 -03:00:   sql: 'SELECT "id", "company_id", "client_name", "appointment_date", "appointment_date_normalized", "appointment_time", "service_description", "status", "extraction_confidence", "user_id", "notes", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "appointments" AS "Appointment" ORDER BY "updatedAt" DESC LIMIT 10 OFFSET 0;',
+2026-01-10 07:42:00 -03:00:   parameters: {}
+2026-01-10 07:42:00 -03:00: }
+2026-01-10 07:42:00 -03:00: Appointments list error: Error
+2026-01-10 07:42:00 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 07:42:00 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 07:42:00 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 07:42:00 -03:00:     at async PostgresQueryInterface.rawSelect (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:434:18)
+2026-01-10 07:42:00 -03:00:     at async Appointment.aggregate (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1277:19)
+2026-01-10 07:42:00 -03:00:     at async Appointment.count (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1306:20)
+2026-01-10 07:42:00 -03:00:     at async Promise.all (index 0)
+2026-01-10 07:42:00 -03:00:     at async Appointment.findAndCountAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1322:27) {
+2026-01-10 07:42:00 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 07:42:00 -03:00:   parent: error: relation "appointments" does not exist
+2026-01-10 07:42:00 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 07:42:00 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 07:42:00 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 07:42:00 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 07:42:00 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 07:42:00 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 07:42:00 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 07:42:00 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 07:42:00 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 07:42:00 -03:00:     length: 111,
+2026-01-10 07:42:00 -03:00:     severity: 'ERROR',
+2026-01-10 07:42:00 -03:00:     code: '42P01',
+2026-01-10 07:42:00 -03:00:     detail: undefined,
+2026-01-10 07:42:00 -03:00:     hint: undefined,
+2026-01-10 07:42:00 -03:00:     position: '33',
+2026-01-10 07:42:00 -03:00:     internalPosition: undefined,
+2026-01-10 07:42:00 -03:00:     internalQuery: undefined,
+2026-01-10 07:42:00 -03:00:     where: undefined,
+2026-01-10 07:42:00 -03:00:     schema: undefined,
+2026-01-10 07:42:00 -03:00:     table: undefined,
+2026-01-10 07:42:00 -03:00:     column: undefined,
+2026-01-10 07:42:00 -03:00:     dataType: undefined,
+2026-01-10 07:42:00 -03:00:     constraint: undefined,
+2026-01-10 07:42:00 -03:00:     file: 'parse_relation.c',
+2026-01-10 07:42:00 -03:00:     line: '1392',
+2026-01-10 07:42:00 -03:00:     routine: 'parserOpenTable',
+2026-01-10 07:42:00 -03:00:     sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:00 -03:00:     parameters: undefined
+2026-01-10 07:42:00 -03:00:   },
+2026-01-10 07:42:00 -03:00:   original: error: relation "appointments" does not exist
+2026-01-10 07:42:00 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 07:42:00 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 07:42:00 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 07:42:00 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 07:42:00 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 07:42:00 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 07:42:00 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 07:42:00 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 07:42:00 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 07:42:00 -03:00:     length: 111,
+2026-01-10 07:42:00 -03:00:     severity: 'ERROR',
+2026-01-10 07:42:00 -03:00:     code: '42P01',
+2026-01-10 07:42:00 -03:00:     detail: undefined,
+2026-01-10 07:42:00 -03:00:     hint: undefined,
+2026-01-10 07:42:00 -03:00:     position: '33',
+2026-01-10 07:42:00 -03:00:     internalPosition: undefined,
+2026-01-10 07:42:00 -03:00:     internalQuery: undefined,
+2026-01-10 07:42:00 -03:00:     where: undefined,
+2026-01-10 07:42:00 -03:00:     schema: undefined,
+2026-01-10 07:42:00 -03:00:     table: undefined,
+2026-01-10 07:42:00 -03:00:     column: undefined,
+2026-01-10 07:42:00 -03:00:     dataType: undefined,
+2026-01-10 07:42:00 -03:00:     constraint: undefined,
+2026-01-10 07:42:00 -03:00:     file: 'parse_relation.c',
+2026-01-10 07:42:00 -03:00:     line: '1392',
+2026-01-10 07:42:00 -03:00:     routine: 'parserOpenTable',
+2026-01-10 07:42:00 -03:00:     sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:00 -03:00:     parameters: undefined
+2026-01-10 07:42:00 -03:00:   },
+2026-01-10 07:42:00 -03:00:   sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:00 -03:00:   parameters: {}
+2026-01-10 07:42:00 -03:00: }
+2026-01-10 07:42:03 -03:00: Appointments list error: Error
+2026-01-10 07:42:03 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 07:42:03 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 07:42:03 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 07:42:03 -03:00:     at async PostgresQueryInterface.rawSelect (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:434:18)
+2026-01-10 07:42:03 -03:00:     at async Appointment.aggregate (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1277:19)
+2026-01-10 07:42:03 -03:00:     at async Appointment.count (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1306:20)
+2026-01-10 07:42:03 -03:00:     at async Promise.all (index 0)
+2026-01-10 07:42:03 -03:00:     at async Appointment.findAndCountAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1322:27) {
+2026-01-10 07:42:03 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 07:42:03 -03:00:   parent: error: relation "appointments" does not exist
+2026-01-10 07:42:03 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 07:42:03 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 07:42:03 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 07:42:03 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 07:42:03 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 07:42:03 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 07:42:03 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 07:42:03 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 07:42:03 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 07:42:03 -03:00:     length: 111,
+2026-01-10 07:42:03 -03:00:     severity: 'ERROR',
+2026-01-10 07:42:03 -03:00:     code: '42P01',
+2026-01-10 07:42:03 -03:00:     detail: undefined,
+2026-01-10 07:42:03 -03:00:     hint: undefined,
+2026-01-10 07:42:03 -03:00:     position: '33',
+2026-01-10 07:42:03 -03:00:     internalPosition: undefined,
+2026-01-10 07:42:03 -03:00:     internalQuery: undefined,
+2026-01-10 07:42:03 -03:00:     where: undefined,
+2026-01-10 07:42:03 -03:00:     schema: undefined,
+2026-01-10 07:42:03 -03:00:     table: undefined,
+2026-01-10 07:42:03 -03:00:     column: undefined,
+2026-01-10 07:42:03 -03:00:     dataType: undefined,
+2026-01-10 07:42:03 -03:00:     constraint: undefined,
+2026-01-10 07:42:03 -03:00:     file: 'parse_relation.c',
+2026-01-10 07:42:03 -03:00:     line: '1392',
+2026-01-10 07:42:03 -03:00:     routine: 'parserOpenTable',
+2026-01-10 07:42:03 -03:00:     sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:03 -03:00:     parameters: undefined
+2026-01-10 07:42:03 -03:00:   },
+2026-01-10 07:42:03 -03:00:   original: error: relation "appointments" does not exist
+2026-01-10 07:42:03 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 07:42:03 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 07:42:03 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 07:42:03 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 07:42:03 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 07:42:03 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 07:42:03 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 07:42:03 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 07:42:03 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 07:42:03 -03:00:     length: 111,
+2026-01-10 07:42:03 -03:00:     severity: 'ERROR',
+2026-01-10 07:42:03 -03:00:     code: '42P01',
+2026-01-10 07:42:03 -03:00:     detail: undefined,
+2026-01-10 07:42:03 -03:00:     hint: undefined,
+2026-01-10 07:42:03 -03:00:     position: '33',
+2026-01-10 07:42:03 -03:00:     internalPosition: undefined,
+2026-01-10 07:42:03 -03:00:     internalQuery: undefined,
+2026-01-10 07:42:03 -03:00:     where: undefined,
+2026-01-10 07:42:03 -03:00:     schema: undefined,
+2026-01-10 07:42:03 -03:00:     table: undefined,
+2026-01-10 07:42:03 -03:00:     column: undefined,
+2026-01-10 07:42:03 -03:00:     dataType: undefined,
+2026-01-10 07:42:03 -03:00:     constraint: undefined,
+2026-01-10 07:42:03 -03:00:     file: 'parse_relation.c',
+2026-01-10 07:42:03 -03:00:     line: '1392',
+2026-01-10 07:42:03 -03:00:     routine: 'parserOpenTable',
+2026-01-10 07:42:03 -03:00:     sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:03 -03:00:     parameters: undefined
+2026-01-10 07:42:03 -03:00:   },
+2026-01-10 07:42:03 -03:00:   sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:03 -03:00:   parameters: {}
+2026-01-10 07:42:03 -03:00: }
+2026-01-10 07:42:03 -03:00: Appointments list error: Error
+2026-01-10 07:42:03 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 07:42:03 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 07:42:03 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 07:42:03 -03:00:     at async PostgresQueryInterface.rawSelect (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:434:18)
+2026-01-10 07:42:03 -03:00:     at async Appointment.aggregate (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1277:19)
+2026-01-10 07:42:03 -03:00:     at async Appointment.count (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1306:20)
+2026-01-10 07:42:03 -03:00:     at async Promise.all (index 0)
+2026-01-10 07:42:03 -03:00:     at async Appointment.findAndCountAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1322:27) {
+2026-01-10 07:42:03 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 07:42:03 -03:00:   parent: error: relation "appointments" does not exist
+2026-01-10 07:42:03 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 07:42:03 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 07:42:03 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 07:42:03 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 07:42:03 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 07:42:03 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 07:42:03 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 07:42:03 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 07:42:03 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 07:42:03 -03:00:     length: 111,
+2026-01-10 07:42:03 -03:00:     severity: 'ERROR',
+2026-01-10 07:42:03 -03:00:     code: '42P01',
+2026-01-10 07:42:03 -03:00:     detail: undefined,
+2026-01-10 07:42:03 -03:00:     hint: undefined,
+2026-01-10 07:42:03 -03:00:     position: '33',
+2026-01-10 07:42:03 -03:00:     internalPosition: undefined,
+2026-01-10 07:42:03 -03:00:     internalQuery: undefined,
+2026-01-10 07:42:03 -03:00:     where: undefined,
+2026-01-10 07:42:03 -03:00:     schema: undefined,
+2026-01-10 07:42:03 -03:00:     table: undefined,
+2026-01-10 07:42:03 -03:00:     column: undefined,
+2026-01-10 07:42:03 -03:00:     dataType: undefined,
+2026-01-10 07:42:03 -03:00:     constraint: undefined,
+2026-01-10 07:42:03 -03:00:     file: 'parse_relation.c',
+2026-01-10 07:42:03 -03:00:     line: '1392',
+2026-01-10 07:42:03 -03:00:     routine: 'parserOpenTable',
+2026-01-10 07:42:03 -03:00:     sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:03 -03:00:     parameters: undefined
+2026-01-10 07:42:03 -03:00:   },
+2026-01-10 07:42:03 -03:00:   original: error: relation "appointments" does not exist
+2026-01-10 07:42:03 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 07:42:03 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 07:42:03 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 07:42:03 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 07:42:03 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 07:42:03 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 07:42:03 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 07:42:03 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 07:42:03 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 07:42:03 -03:00:     length: 111,
+2026-01-10 07:42:03 -03:00:     severity: 'ERROR',
+2026-01-10 07:42:03 -03:00:     code: '42P01',
+2026-01-10 07:42:03 -03:00:     detail: undefined,
+2026-01-10 07:42:03 -03:00:     hint: undefined,
+2026-01-10 07:42:03 -03:00:     position: '33',
+2026-01-10 07:42:03 -03:00:     internalPosition: undefined,
+2026-01-10 07:42:03 -03:00:     internalQuery: undefined,
+2026-01-10 07:42:03 -03:00:     where: undefined,
+2026-01-10 07:42:03 -03:00:     schema: undefined,
+2026-01-10 07:42:03 -03:00:     table: undefined,
+2026-01-10 07:42:03 -03:00:     column: undefined,
+2026-01-10 07:42:03 -03:00:     dataType: undefined,
+2026-01-10 07:42:03 -03:00:     constraint: undefined,
+2026-01-10 07:42:03 -03:00:     file: 'parse_relation.c',
+2026-01-10 07:42:03 -03:00:     line: '1392',
+2026-01-10 07:42:03 -03:00:     routine: 'parserOpenTable',
+2026-01-10 07:42:03 -03:00:     sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:03 -03:00:     parameters: undefined
+2026-01-10 07:42:03 -03:00:   },
+2026-01-10 07:42:03 -03:00:   sql: 'SELECT count(*) AS "count" FROM "appointments" AS "Appointment";',
+2026-01-10 07:42:03 -03:00:   parameters: {}
+2026-01-10 07:42:03 -03:00: }
+2026-01-10 07:43:39 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503

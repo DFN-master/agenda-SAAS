@@ -18,6 +18,7 @@ const connectionRoutes_1 = __importDefault(require("./routes/connectionRoutes"))
 const aiRoutes_1 = __importDefault(require("./routes/aiRoutes"));
 const aiWordMeaningRoutes_1 = __importDefault(require("./routes/aiWordMeaningRoutes"));
 const whatsappRoutes_1 = __importDefault(require("./routes/whatsappRoutes"));
+const chatRoutes_1 = __importDefault(require("./routes/chatRoutes"));
 const whatsappService_1 = require("./services/whatsapp/whatsappService");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
@@ -69,6 +70,7 @@ app.use('/api/connections', authMiddleware, connectionRoutes_1.default);
 app.use('/api/ai', authMiddleware, aiRoutes_1.default);
 app.use('/api/ai', authMiddleware, aiWordMeaningRoutes_1.default);
 app.use('/api/whatsapp', authMiddleware, whatsappRoutes_1.default);
+app.use('/api/chat', authMiddleware, chatRoutes_1.default);
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });

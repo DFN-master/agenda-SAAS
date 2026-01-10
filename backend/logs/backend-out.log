@@ -570,3 +570,401 @@
 2026-01-09 23:16:44 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
 2026-01-09 23:16:44 -03:00: [AI] Auto-responded to 5511993326079@s.whatsapp.net via connection conn_1768010155160
 2026-01-09 23:16:44 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:28:50 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:28:50 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:28:50 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-09 23:28:50 -03:00:   client_ref: '+5511993326079',
+2026-01-09 23:28:50 -03:00:   message: 'como faço para agendar'
+2026-01-09 23:28:50 -03:00: }
+2026-01-09 23:28:50 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:28:50 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:28:50 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9349999999999999
+2026-01-09 23:37:41 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:37:41 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:37:41 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-09 23:37:41 -03:00:   client_ref: '+5511993326079',
+2026-01-09 23:37:41 -03:00:   message: 'como faço para agendar'
+2026-01-09 23:37:41 -03:00: }
+2026-01-09 23:37:41 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:37:41 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:37:41 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9349999999999999
+2026-01-09 23:43:34 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:43:34 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:43:34 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:43:34 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:43:34 -03:00:   message: 'Como vc está?'
+2026-01-09 23:43:34 -03:00: }
+2026-01-09 23:43:34 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:43:34 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:43:57 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.94
+2026-01-09 23:43:57 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:43:57 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:43:57 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:43:57 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:43:57 -03:00:   message: 'Teste'
+2026-01-09 23:43:57 -03:00: }
+2026-01-09 23:43:57 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:43:57 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:46:31 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:46:31 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:46:31 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:46:31 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:46:31 -03:00:   message: 'Vc é uma IA?'
+2026-01-09 23:46:31 -03:00: }
+2026-01-09 23:46:31 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:46:31 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:47:01 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:49:28 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:49:28 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:49:28 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:49:28 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:49:28 -03:00:   message: 'O que vc pode fazer?'
+2026-01-09 23:49:28 -03:00: }
+2026-01-09 23:49:28 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:49:28 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:49:30 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9349999999999999
+2026-01-09 23:49:30 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:49:30 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:49:30 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:49:30 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:49:30 -03:00:   message: 'O que vc faz?'
+2026-01-09 23:49:30 -03:00: }
+2026-01-09 23:49:30 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:49:30 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:49:32 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9349999999999999
+2026-01-09 23:51:54 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:51:54 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:51:54 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:51:54 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:51:54 -03:00:   message: 'Oap'
+2026-01-09 23:51:54 -03:00: }
+2026-01-09 23:51:54 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:51:54 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:54:33 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:54:33 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:54:33 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:54:33 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:54:33 -03:00:   message: 'E aí?'
+2026-01-09 23:54:33 -03:00: }
+2026-01-09 23:54:33 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:54:33 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:54:34 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:54:35 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-09 23:54:35 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:55:01 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:55:01 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:55:01 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:55:01 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:55:01 -03:00:   message: 'O que vc consegue fazer como IA?'
+2026-01-09 23:55:01 -03:00: }
+2026-01-09 23:55:01 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:55:01 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:55:03 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9349999999999999
+2026-01-09 23:55:03 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-09 23:55:03 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:55:47 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:55:47 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:55:47 -03:00:   jid: '29880204955681@lid',
+2026-01-09 23:55:47 -03:00:   client_ref: '+29880204955681',
+2026-01-09 23:55:47 -03:00:   message: 'E aí qual a boa para hj?'
+2026-01-09 23:55:47 -03:00: }
+2026-01-09 23:55:47 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:55:47 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:55:49 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:55:49 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:55:49 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:55:49 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:55:49 -03:00:   message: 'Vc é um sistema de que exatamente?'
+2026-01-09 23:55:49 -03:00: }
+2026-01-09 23:55:49 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:55:49 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:55:49 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:55:50 -03:00: [AI] Auto-responded to 29880204955681@lid via connection conn_1768010155160
+2026-01-09 23:55:50 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:55:51 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:55:51 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-09 23:55:51 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:57:29 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:57:29 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:57:29 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:57:29 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:57:29 -03:00:   message: 'Gostaria de fazer um agendamento'
+2026-01-09 23:57:29 -03:00: }
+2026-01-09 23:57:29 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:57:29 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:57:31 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:57:31 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-09 23:57:31 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:57:59 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:57:59 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:57:59 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:57:59 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:57:59 -03:00:   message: 'Gostaria de agendar uma visita para amanhã às 09:0'
+2026-01-09 23:57:59 -03:00: }
+2026-01-09 23:57:59 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:57:59 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:58:01 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:58:01 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-09 23:58:01 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:58:20 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:58:20 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:58:20 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:58:20 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:58:20 -03:00:   message: 'Quais os serviços disponíveis?'
+2026-01-09 23:58:20 -03:00: }
+2026-01-09 23:58:20 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:58:20 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:58:22 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:58:22 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-09 23:58:22 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:59:06 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:59:06 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:59:06 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:59:06 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:59:06 -03:00:   message: 'Ok, o serviço para o agendamento anterior e suport'
+2026-01-09 23:59:06 -03:00: }
+2026-01-09 23:59:06 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:59:06 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:59:08 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:59:08 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-09 23:59:08 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-09 23:59:31 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-09 23:59:31 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-09 23:59:31 -03:00:   jid: '130713219239978@lid',
+2026-01-09 23:59:31 -03:00:   client_ref: '+130713219239978',
+2026-01-09 23:59:31 -03:00:   message: 'Suporte para manutenção de umaaquina'
+2026-01-09 23:59:31 -03:00: }
+2026-01-09 23:59:31 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-09 23:59:31 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-09 23:59:33 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-09 23:59:33 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-09 23:59:33 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:00:28 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:00:28 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:00:28 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:00:28 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:00:28 -03:00:   message: 'Ok, gostaria de agendar uma visita para amanhã às '
+2026-01-10 00:00:28 -03:00: }
+2026-01-10 00:00:28 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:00:28 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:00:31 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:00:31 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:00:31 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:01:04 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:01:04 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:01:04 -03:00:   jid: '29880204955681@lid',
+2026-01-10 00:01:04 -03:00:   client_ref: '+29880204955681',
+2026-01-10 00:01:04 -03:00:   message: 'Bora jogar um destiny 2'
+2026-01-10 00:01:04 -03:00: }
+2026-01-10 00:01:04 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:01:04 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:01:18 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:01:18 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:01:18 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:01:18 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:01:18 -03:00:   message: 'Ok, será feito na rua topázio imperial no bairro d'
+2026-01-10 00:01:18 -03:00: }
+2026-01-10 00:01:18 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:01:18 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:01:21 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:01:21 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:01:21 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:01:37 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:01:37 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:01:37 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:01:37 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:01:37 -03:00:   message: 'Suporte a uma máquina'
+2026-01-10 00:01:37 -03:00: }
+2026-01-10 00:01:37 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:01:37 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:01:40 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:01:40 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:01:40 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:02:37 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:02:37 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:02:37 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:02:37 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:02:37 -03:00:   message: 'Quais são meus agendamentos?'
+2026-01-10 00:02:37 -03:00: }
+2026-01-10 00:02:37 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:02:37 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:02:39 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:02:39 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:02:39 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:03:28 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:03:28 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:03:28 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:03:28 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:03:28 -03:00:   message: 'Use meu número para enviar uma mensagem para mim a'
+2026-01-10 00:03:28 -03:00: }
+2026-01-10 00:03:28 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:03:28 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:03:31 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:03:31 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:03:31 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:11:54 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:11:54 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:11:54 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 00:11:54 -03:00:   client_ref: '+5511993326079',
+2026-01-10 00:11:54 -03:00:   message: 'como vc faz as coisas'
+2026-01-10 00:11:54 -03:00: }
+2026-01-10 00:11:54 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:11:54 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:11:58 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:11:58 -03:00: [AI] Auto-responded to 5511993326079@s.whatsapp.net via connection conn_1768010155160
+2026-01-10 00:11:58 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:12:51 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:12:51 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:12:51 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 00:12:51 -03:00:   client_ref: '+5511993326079',
+2026-01-10 00:12:51 -03:00:   message: 'gostaria de agendar uma visita ao cliente Farkon s'
+2026-01-10 00:12:51 -03:00: }
+2026-01-10 00:12:51 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:12:51 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:12:53 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9364705882352942
+2026-01-10 00:12:53 -03:00: [AI] Auto-responded to 5511993326079@s.whatsapp.net via connection conn_1768010155160
+2026-01-10 00:12:53 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:13:05 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:13:05 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:13:05 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 00:13:05 -03:00:   client_ref: '+5511993326079',
+2026-01-10 00:13:05 -03:00:   message: 'sim'
+2026-01-10 00:13:05 -03:00: }
+2026-01-10 00:13:05 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:13:05 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:13:07 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:13:07 -03:00: [AI] Auto-responded to 5511993326079@s.whatsapp.net via connection conn_1768010155160
+2026-01-10 00:13:07 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:13:56 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:13:56 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:13:56 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 00:13:56 -03:00:   client_ref: '+5511993326079',
+2026-01-10 00:13:56 -03:00:   message: 'confirmado'
+2026-01-10 00:13:56 -03:00: }
+2026-01-10 00:13:56 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:13:56 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:16:01 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:16:01 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:16:01 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 00:16:01 -03:00:   client_ref: '+5511993326079',
+2026-01-10 00:16:01 -03:00:   message: 'gostaria de agendar uma visita ao cliente Farkon s'
+2026-01-10 00:16:01 -03:00: }
+2026-01-10 00:16:01 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:16:01 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:16:04 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9364705882352942
+2026-01-10 00:16:04 -03:00: [AI] Auto-responded to 5511993326079@s.whatsapp.net via connection conn_1768010155160
+2026-01-10 00:16:04 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:16:15 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:16:15 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:16:15 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 00:16:15 -03:00:   client_ref: '+5511993326079',
+2026-01-10 00:16:15 -03:00:   message: 'confirmado'
+2026-01-10 00:16:15 -03:00: }
+2026-01-10 00:16:15 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:16:15 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:21:45 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:21:45 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:21:45 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:21:45 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:21:45 -03:00:   message: 'gostaria de agendar uma visita ao cliente Farkon s'
+2026-01-10 00:21:45 -03:00: }
+2026-01-10 00:21:45 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:21:45 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:21:48 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9364705882352942
+2026-01-10 00:21:48 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:21:48 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:22:20 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:22:20 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:22:20 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:22:20 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:22:20 -03:00:   message: 'Não, pode agendar'
+2026-01-10 00:22:20 -03:00: }
+2026-01-10 00:22:20 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:22:20 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:22:22 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.94
+2026-01-10 00:22:22 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:22:22 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:22:50 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:22:50 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:22:50 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:22:50 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:22:50 -03:00:   message: 'Rua topázio imperial, 70 jacaré - SP'
+2026-01-10 00:22:50 -03:00: }
+2026-01-10 00:22:50 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:22:50 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:22:52 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:22:52 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:22:52 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:25:23 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:25:23 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:25:23 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:25:23 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:25:23 -03:00:   message: 'Sua memória está muito curta, vc troca de assunto '
+2026-01-10 00:25:23 -03:00: }
+2026-01-10 00:25:23 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:25:23 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:25:26 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:25:26 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:25:26 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 00:27:20 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 00:27:20 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 00:27:20 -03:00:   jid: '130713219239978@lid',
+2026-01-10 00:27:20 -03:00:   client_ref: '+130713219239978',
+2026-01-10 00:27:20 -03:00:   message: 'Quando vc aprende as novas palavras, vc tem que pa'
+2026-01-10 00:27:20 -03:00: }
+2026-01-10 00:27:20 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 00:27:20 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 00:27:22 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8
+2026-01-10 00:27:23 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 00:27:23 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 07:25:29 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 07:25:29 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 07:25:29 -03:00:   jid: '130713219239978@lid',
+2026-01-10 07:25:29 -03:00:   client_ref: '+130713219239978',
+2026-01-10 07:25:29 -03:00:   message: 'Vc ainda está funcionando?'
+2026-01-10 07:25:29 -03:00: }
+2026-01-10 07:25:29 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 07:25:29 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 07:25:35 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9349999999999999
+2026-01-10 07:25:36 -03:00: [AI] Auto-responded to 130713219239978@lid via connection conn_1768010155160
+2026-01-10 07:25:36 -03:00: [AI] Auto-respond enviado com sucesso
+2026-01-10 07:28:20 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 07:28:20 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 07:28:20 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 07:28:20 -03:00:   client_ref: '+5511993326079',
+2026-01-10 07:28:20 -03:00:   message: 'vc pode trabalhar com outras coisas?'
+2026-01-10 07:28:20 -03:00: }
+2026-01-10 07:28:20 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 07:28:20 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 07:28:23 -03:00: Server is running on port 3000
+2026-01-10 07:28:23 -03:00: Database connected successfully
+2026-01-10 07:28:27 -03:00: Conexões do WhatsMeow reconectadas com sucesso.
+2026-01-10 07:34:45 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 07:34:45 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 07:34:45 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 07:34:45 -03:00:   client_ref: '+5511993326079',
+2026-01-10 07:34:45 -03:00:   message: 'o que vc pode agendar?'
+2026-01-10 07:34:45 -03:00: }
+2026-01-10 07:34:45 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 07:34:45 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 07:34:50 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.9388636363636363
+2026-01-10 07:41:09 -03:00: Server is running on port 3000
+2026-01-10 07:41:09 -03:00: Database connected successfully
+2026-01-10 07:41:13 -03:00: Conexões do WhatsMeow reconectadas com sucesso.
+2026-01-10 07:43:16 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 07:43:16 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 07:43:16 -03:00:   jid: '130713219239978@lid',
+2026-01-10 07:43:16 -03:00:   client_ref: '+130713219239978',
+2026-01-10 07:43:16 -03:00:   message: 'Opa'
+2026-01-10 07:43:16 -03:00: }
+2026-01-10 07:43:16 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 07:43:16 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 07:43:36 -03:00: [AI SUGGESTIONS] Received: {
+2026-01-10 07:43:36 -03:00:   connection_id: 'conn_1768010155160',
+2026-01-10 07:43:36 -03:00:   jid: '5511993326079@s.whatsapp.net',
+2026-01-10 07:43:36 -03:00:   client_ref: '+5511993326079',
+2026-01-10 07:43:36 -03:00:   message: 'e ai?'
+2026-01-10 07:43:36 -03:00: }
+2026-01-10 07:43:36 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
+2026-01-10 07:43:36 -03:00: [AI SUGGESTIONS] Found active connection: 3
+2026-01-10 07:43:39 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.8

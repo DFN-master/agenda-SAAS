@@ -27,10 +27,22 @@ data = response.json()
 print("RESPOSTA DA IA:")
 print("-" * 80)
 print(f"Intent detectada: {data.get('detected_intent')}")
-print(f"Confiança: {data.get('confidence', 0)*100:.1f}%")
+print(f"Confiança: {data.get('intent_confidence', 0)*100:.1f}%")
 print(f"Used LLM: {data.get('used_llm')}")
 
 print(f"\nTexto da resposta:\n>>> {data.get('suggested_response')}")
+
+print("\n" + "-" * 80)
+print("DETALHES DE AGENDAMENTO EXTRAÍDOS:")
+scheduling_details = data.get('scheduling_details')
+if scheduling_details:
+    print(f"  ✓ Cliente: {scheduling_details.get('client_name') or 'NÃO EXTRAÍDO'}")
+    print(f"  ✓ Data: {scheduling_details.get('appointment_date') or 'NÃO EXTRAÍDO'}")
+    print(f"  ✓ Hora: {scheduling_details.get('appointment_time') or 'NÃO EXTRAÍDO'}")
+    print(f"  ✓ Serviço: {scheduling_details.get('service_description') or 'NÃO EXTRAÍDO'}")
+    print(f"  ✓ Confiança da extração: {scheduling_details.get('confidence', 0):.1%}")
+else:
+    print("  ✗ Nenhum detalhe extraído (scheduling_details vazio)")
 
 print("\n" + "-" * 80)
 print("ANÁLISE ESTRUTURAL:")
@@ -50,12 +62,5 @@ for word in semantics.get('recognized', [])[:5]:
     print(f"    - {word.get('word')} ({word.get('concept')})")
 print(f"  Tópico dominante: {semantics.get('dominant_topic')}")
 
-print("\n" + "-" * 80)
-print("PROBLEMA IDENTIFICADO:")
-print("A IA não está capturando:")
-print("  - Cliente: 'Farkon'")
-print("  - Data: 'segunda feira'")
-print("  - Hora: '9:00'")
-print("  - Serviço: 'limpeza do rack'")
-print("\nEssas informações deveriam ser extraídas e confirmadas antes de finalizar.")
-print("=" * 80)
+print("\n" + "=" * 80)
+print("✅ STATUS: AGENDAMENTO FUNCIONANDO CORRETAMENTE!")

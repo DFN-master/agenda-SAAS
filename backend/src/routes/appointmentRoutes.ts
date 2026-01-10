@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from 'express';
-import { sequelize } from '../models';
+import models, { sequelize } from '../models';
 
 const router: Router = express.Router();
 
@@ -13,41 +13,26 @@ router.get('/', async (req: Request, res: Response) => {
     const limit = parseInt(req.query.limit as string) || 10;
     const offset = (page - 1) * limit;
     const status = req.query.status as string;
+    const company_id = req.query.company_id as string;
 
     // Build query
     const where: any = {};
-    if (status) {
-      where.status = status;
-    }
+    if (status) where.status = status;
+    if (company_id) where.company_id = company_id;
 
-    // Mock data for now - in production, query the appointments table
-    const appointments = [
-      {
-        id: '1',
-        title: 'Reunião com Cliente',
-        description: 'Discussão sobre novo projeto',
-        scheduled_at: new Date(Date.now() + 86400000),
-        status: 'scheduled',
-        client_email: 'cliente@example.com',
-        created_at: new Date(),
-      },
-      {
-        id: '2',
-        title: 'Acompanhamento',
-        description: 'Follow-up do projeto anterior',
-        scheduled_at: new Date(Date.now() + 172800000),
-        status: 'scheduled',
-        client_email: 'outro@example.com',
-        created_at: new Date(),
-      },
-    ];
+    const { rows, count } = await models.Appointment.findAndCountAll({
+      where,
+      order: [['updated_at', 'DESC']],
+      limit,
+      offset,
+    });
 
     res.json({
-      total: appointments.length,
+      total: count,
       page,
       limit,
-      totalPages: Math.ceil(appointments.length / limit),
-      data: appointments.slice(offset, offset + limit),
+      totalPages: Math.ceil(count / limit),
+      data: rows,
     });
   } catch (error) {
     console.error('Appointments list error:', error);
@@ -61,27 +46,63 @@ router.get('/', async (req: Request, res: Response) => {
  */
 router.post('/', async (req: Request, res: Response) => {
   try {
-    const { title, description, scheduled_at, client_email } = req.body;
+    const {
+      company_id,
+      client_name,
+      appointment_date,
+      appointment_time,
+      service_description,
+      extraction_confidence,
+      notes,
+      user_id,
+      status,
+    } = req.body;
 
-    // Validate input
-    if (!title || !scheduled_at || !client_email) {
-      return res.status(400).json({ message: 'Missing required fields' });
+    // Validate required fields
+    if (!company_id || !client_name || !appointment_date || !appointment_time) {
+      return res.status(400).json({ message: 'Missing required fields: company_id, client_name, appointment_date, appointment_time' });
     }
 
-    // Mock response - in production, save to database
-    const appointment = {
-      id: Date.now().toString(),
-      title,
-      description,
-      scheduled_at,
-      status: 'scheduled',
-      client_email,
-      created_at: new Date(),
-    };
+    // Create appointment
+    const created = await models.Appointment.create({
+      company_id,
+      client_name,
+      appointment_date,
+      appointment_time,
+      service_description,
+      extraction_confidence,
+      notes,
+      user_id,
+      status: status || 'pending',
+    });
 
-    res.status(201).json(appointment);
+    res.status(201).json(created);
   } catch (error) {
     console.error('Create appointment error:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+/**
+ * POST /api/appointments/confirm
+ * Confirm an existing appointment (sets status to 'confirmed')
+ */
+router.post('/confirm', async (req: Request, res: Response) => {
+  try {
+    const { appointment_id, company_id } = req.body;
+    if (!appointment_id || !company_id) {
+      return res.status(400).json({ message: 'Missing required fields: appointment_id, company_id' });
+    }
+
+    const appt = await models.Appointment.findOne({ where: { id: appointment_id, company_id } });
+    if (!appt) {
+      return res.status(404).json({ message: 'Appointment not found' });
+    }
+
+    await appt.update({ status: 'confirmed' });
+    res.json(appt);
+  } catch (error) {
+    console.error('Confirm appointment error:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });

@@ -687,17 +687,46 @@ def generate_llm_response(
         
         # Construir prompt mais detalhado baseado na intenção
         if intent == 'ask_scheduling':
-            prompt = f"""Você é um assistente de agendamentos amigável e eficiente.
+            # NOVO: Extrair detalhes de agendamento
+            scheduling_details = extract_scheduling_details(incoming_message)
+            
+            # Construir prompt com detalhes extraídos
+            extracted_info = ""
+            if scheduling_details['client_name']:
+                extracted_info += f"\n✓ Cliente: {scheduling_details['client_name']}"
+            if scheduling_details['appointment_date']:
+                extracted_info += f"\n✓ Data: {scheduling_details['appointment_date']}"
+            if scheduling_details['appointment_time']:
+                extracted_info += f"\n✓ Hora: {scheduling_details['appointment_time']}"
+            if scheduling_details['service_description']:
+                extracted_info += f"\n✓ Serviço: {scheduling_details['service_description']}"
+            
+            # Se extração tiver sucesso (>60% confiança), confirmar detalhes
+            if scheduling_details['confidence'] > 0.6:
+                prompt = f"""Você é um assistente de agendamentos amigável e eficiente.
+
+Cliente solicitou: "{incoming_message}"
+
+DETALHES EXTRAÍDOS:{extracted_info}
+
+INSTRUÇÕES:
+- Confirme explicitamente cada detalhe extraído
+- Pergunte quaisquer informações faltantes
+- Seja entusiasta e profissional
+
+Responda em português (MÁXIMO 2 FRASES, confirmando os detalhes):"""
+            else:
+                # Se não conseguiu extrair muitos detalhes, pedir mais informações
+                prompt = f"""Você é um assistente de agendamentos amigável e eficiente.
 
 Cliente: "{incoming_message}"
 
 INSTRUÇÕES:
-- Confirme o tipo de serviço (consulta, visita, suporte, reunião, etc)
-- Pergunte a data desejada
-- Pergunte o horário desejado
-- Seja breve, direto e entusiasta
+- Identifique quais informações faltam: cliente, data, hora, tipo de serviço
+- Pergunte educadamente pelas informações faltantes
+- Seja breve e direto
 
-Responda em português brasileiro (MÁXIMO 2 FRASES, ser muito conciso):"""
+Responda em português (MÁXIMO 2 FRASES, solicitando informações):"""
         elif intent == 'ask_pricing':
             prompt = f"""Você é um assistente de vendas educado e informativo.
 
@@ -973,6 +1002,113 @@ def normalize_text(text: str) -> str:
         t = t.replace(k, v)
     return t
 
+def extract_scheduling_details(text: str) -> Dict[str, Any]:
+    """
+    Extrai informações de agendamento do texto do usuário.
+    
+    Retorna:
+    {
+        'client_name': 'Farkon',
+        'appointment_date': 'segunda feira',
+        'appointment_time': '9:00',
+        'service_description': 'limpeza do rack',
+        'confidence': 0.85
+    }
+    """
+    text_lower = text.lower()
+    details = {
+        'client_name': None,
+        'appointment_date': None,
+        'appointment_time': None,
+        'service_description': None,
+        'confidence': 0.0
+    }
+    
+    matched_fields = 0
+    
+    # ===== EXTRAIR CLIENTE =====
+    # Padrões: "cliente [Nome]", "ao cliente [Nome]", "[Nome] segunda", etc
+    client_patterns = [
+        r"cliente\s+([A-Z][a-záàâãéèêíïóôõöúç\w\s'-]{2,30}?)(?:\s+segunda|\s+terca|\s+quarta|\s+quinta|\s+sexta|\s+sabado|\s+domingo|\s+as\s+\d|$)",
+        r"cliente\s+([A-Z][a-záàâãéèêíïóôõöúç\w\s'-]{2,30}?)\s",
+        r"visita\s+ao\s+cliente\s+([A-Z][a-záàâãéèêíïóôõöúç\w\s'-]{2,30}?)(?:\s|$)",
+        r"visita\s+[à|ao]?\s*([A-Z][a-záàâãéèêíïóôõöúç\w\s'-]{2,30}?)(?:\s+segunda|\s+terca|\s+quarta|\s+quinta|\s+sexta|\s+sabado|\s+domingo)",
+    ]
+    for pattern in client_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            candidate = match.group(1).strip()
+            # Validar que é um nome real (não é palavra-chave)
+            if candidate and len(candidate) >= 3 and candidate.lower() not in ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado', 'domingo', 'segunda-feira']:
+                details['client_name'] = candidate
+                matched_fields += 1
+                break
+    
+    # ===== EXTRAIR DATA =====
+    # Padrões: "segunda feira", "segunda-feira", "dia 15", "próxima segunda", etc
+    date_patterns = [
+        r"(segunda(?:\s|-)?feira|segunda)",
+        r"(terca(?:\s|-)?feira|terca)",
+        r"(quarta(?:\s|-)?feira|quarta)",
+        r"(quinta(?:\s|-)?feira|quinta)",
+        r"(sexta(?:\s|-)?feira|sexta)",
+        r"(sabado(?:\s|-)?feira|sabado|sábado)",
+        r"(domingo)",
+        r"(amanhe|amanhã)",
+        r"(hoje)",
+        r"(proxima\s+segunda|próxima\s+segunda)",
+        r"(proxima\s+semana|próxima\s+semana)",
+        r"dia\s+(\d{1,2})",
+    ]
+    for pattern in date_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            details['appointment_date'] = match.group(1).strip().lower()
+            matched_fields += 1
+            break
+    
+    # ===== EXTRAIR HORA =====
+    # Padrões: "9:00", "09h00", "14:30", "as 9 horas", etc
+    time_patterns = [
+        r"(\d{1,2}[:hH]\d{2})",  # 9:00 ou 9h00
+        r"(?:as|a)\s+(\d{1,2})\s*(?:horas?|h)",  # as 9 horas
+        r"(\d{1,2})(?::|\s)(\d{2})(?:\s+da|$)",  # 9 00 da manhã/tarde
+    ]
+    for pattern in time_patterns:
+        match = re.search(pattern, text)
+        if match:
+            time_match = match.group(1) if match.lastindex == 1 else f"{match.group(1)}:{match.group(2)}"
+            details['appointment_time'] = time_match
+            matched_fields += 1
+            break
+    
+    # ===== EXTRAIR SERVIÇO =====
+    # Padrões: "o serviço será [descrição]", "para [descrição]", etc
+    service_patterns = [
+        r"servico\s+(?:sera|será|é|e)\s+([a-záàâãéèêíïóôõöúç\w\s]{3,40}?)(?:\s+(?:segunda|terca|quarta|quinta|sexta|sabado|domingo|$))",
+        r"para\s+(?:fazer\s+)?([a-záàâãéèêíïóôõöúç\w\s]{3,50}?)(?:\s+(?:segunda|terca|quarta|quinta|sexta|sabado|domingo|as\s+\d))",
+        r"(?:limpeza|conserto|reparo|manutencao|instalacao|suporte|consultoria|atendimento)\s+(?:do|da|de|em)\s+([a-záàâãéèêíïóôõöúç\w\s]{3,30}?)\b",
+        r"([a-záàâãéèêíïóôõöúç\w\s]{3,30}?)\s+(?:do|da|de)\s+(?:cliente|rack|equipamento|sistema|servidor|computador)\b",
+    ]
+    for pattern in service_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            service = match.group(1).strip() if match.lastindex >= 1 else None
+            if service and len(service) >= 3:
+                details['service_description'] = service.lower()
+                matched_fields += 1
+                break
+
+    
+    # ===== CALCULAR CONFIANÇA =====
+    # Cada campo encontrado aumenta a confiança
+    # Máximo é 4 campos (cliente, data, hora, serviço)
+    details['confidence'] = min(0.95, (matched_fields / 4) * 0.95)
+    
+    logger.info(f"[SCHEDULING] Extracted details: client={details['client_name']}, date={details['appointment_date']}, time={details['appointment_time']}, service={details['service_description']}, confidence={details['confidence']:.2%}")
+    
+    return details
+
 def fetch_word_meaning_online(word: str) -> Dict[str, Any]:
     """
     Attempt to fetch word meaning from online sources.
@@ -983,6 +1119,42 @@ def fetch_word_meaning_online(word: str) -> Dict[str, Any]:
     # For now, return empty dict; actual fetching disabled due to API rate limits.
     # The word will still be upserted as 'pending' for admin to fill in later.
     return {}
+
+
+def build_context_summary_from_db(company_id: str, client_ref: str, limit: int = 10) -> str:
+    """
+    Monta um resumo das últimas mensagens da conversa (cliente/IA) a partir da base,
+    filtrando por company_id e client_ref. Retorna string com linhas "Cliente:" e "IA:".
+    """
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+        cur.execute(
+            """
+            SELECT direction, message_text
+            FROM ai_conversation_messages
+            WHERE company_id = %s AND client_ref = %s
+            ORDER BY created_at ASC
+            LIMIT %s
+            """,
+            (company_id, client_ref, limit)
+        )
+        rows = cur.fetchall() or []
+        try:
+            cur.close()
+            conn.close()
+        except:
+            pass
+        lines = []
+        for r in rows:
+            role = 'Cliente' if (r.get('direction') == 'received') else 'IA'
+            txt = str(r.get('message_text') or '').strip()
+            if txt:
+                lines.append(f"{role}: {txt}")
+        return "\n".join(lines)
+    except Exception as e:
+        logger.error(f"Error building context summary: {e}")
+        return ""
 
 
 def upsert_word_meaning(company_id: str, word: str, definition: str, source_url: str, status: str = 'pending'):
@@ -1325,6 +1497,7 @@ def cognitive_response():
         
         incoming_message = data.get('incoming_message', '')
         context_summary = data.get('context_summary', '')
+        client_ref = data.get('client_ref')
         intent_hint = data.get('intent', 'geral')  # Hint externo (opcional)
         company_id = data.get('company_id')
 
@@ -1344,7 +1517,11 @@ def cognitive_response():
         
         # 3. Log com company_id para auditoria
         message_display = incoming_message.encode('utf-8').decode('utf-8') if incoming_message else "N/A"
-        logger.info(f'[TENANT:{company_id}] Cognitive request: message="{message_display[:60]}..."')
+        logger.info(f'[TENANT:{company_id}][CLIENT:{client_ref or "-"}] Cognitive request: message="{message_display[:60]}..."')
+
+        # Se não foi passado um context_summary, tentar construir via client_ref
+        if (not context_summary) and client_ref:
+            context_summary = build_context_summary_from_db(company_id, client_ref, limit=10)
 
         # NOVO: 1. Analisar estrutura da frase
         structural_analysis = structure_sentence_analysis(incoming_message)
@@ -1363,9 +1540,16 @@ def cognitive_response():
         
         # NOVO: 5. Tentar gerar resposta com LLM (Ollama)
         semantics = search_result.get('semantics', {})
+        # Injetar contexto no texto de entrada para o LLM, se disponível
+        incoming_for_llm = incoming_message
+        if context_summary:
+            # Limitar tamanho do contexto para não poluir o prompt
+            ctx = "\n".join(context_summary.split("\n")[-6:])
+            incoming_for_llm = f"{incoming_message}\n\n[CONTEXT]\n{ctx}"
+
         llm_result = generate_llm_response(
             detected_intent,
-            incoming_message,
+            incoming_for_llm,
             semantics,
             approved_vocabulary,
             company_id
@@ -1433,6 +1617,11 @@ def cognitive_response():
         except Exception:
             logger.error("Error building knowledge_used list")
 
+        # NOVO: Preparar scheduling_details se foi detectada intenção de agendamento
+        scheduling_details = None
+        if detected_intent == 'ask_scheduling':
+            scheduling_details = extract_scheduling_details(incoming_message)
+
         return jsonify({
             'suggested_response': response,
             'confidence': float(confidence),
@@ -1446,8 +1635,10 @@ def cognitive_response():
             'needs_training': bool(needs_training),
             'used_llm': bool(used_llm),
             'llm_fallback': llm_result.get('fallback', False),
-            'llm_error': llm_result.get('error')
+            'llm_error': llm_result.get('error'),
+            'scheduling_details': scheduling_details  # NOVO: Detalhes extraídos de agendamento
         })
+
     except Exception as e:
         logger.error(f'Error in cognitive_response: {e}', exc_info=True)
         return jsonify({'error': str(e)}), 500
