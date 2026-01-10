@@ -14,6 +14,7 @@ const aiConversationSuggestion_1 = __importDefault(require("./aiConversationSugg
 const aiConversationMessage_1 = __importDefault(require("./aiConversationMessage"));
 const aiKnowledgeBase_1 = __importDefault(require("./aiKnowledgeBase"));
 const aiLearnedConcept_1 = __importDefault(require("./aiLearnedConcept"));
+const aiWordMeaning_1 = __importDefault(require("./aiWordMeaning"));
 const sequelize = new sequelize_1.Sequelize(process.env.DATABASE_URL || '', {
     dialect: 'postgres',
     logging: false,
@@ -29,6 +30,7 @@ const models = {
     AiConversationMessage: (0, aiConversationMessage_1.default)(sequelize),
     AiKnowledgeBase: (0, aiKnowledgeBase_1.default)(sequelize),
     AiLearnedConcept: (0, aiLearnedConcept_1.default)(sequelize),
+    AiWordMeaning: (0, aiWordMeaning_1.default)(sequelize),
 };
 Object.values(models).forEach((model) => {
     if (model.associate) {

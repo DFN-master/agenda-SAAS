@@ -11,6 +11,7 @@ import reportRoutes from './routes/reportRoutes';
 import integrationRoutes from './routes/integrationRoutes';
 import connectionRoutes from './routes/connectionRoutes';
 import aiRoutes from './routes/aiRoutes';
+import aiWordMeaningRoutes from './routes/aiWordMeaningRoutes';
 import whatsappRoutes from './routes/whatsappRoutes';
 import { ensureWhatsMeowConnections } from './services/whatsapp/whatsappService';
 
@@ -64,6 +65,7 @@ app.use('/api/reports', reportRoutes);
 app.use('/api/integrations', integrationRoutes);
 app.use('/api/connections', authMiddleware, connectionRoutes);
 app.use('/api/ai', authMiddleware, aiRoutes);
+app.use('/api/ai', authMiddleware, aiWordMeaningRoutes);
 app.use('/api/whatsapp', authMiddleware, whatsappRoutes);
 
 // Health check endpoint

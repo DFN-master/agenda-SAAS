@@ -10,6 +10,7 @@ from flask import Flask, request, jsonify
 from typing import List, Dict, Any
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import requests
 
 # Load .env file manually
 def load_env_file():
@@ -59,6 +60,31 @@ sys.stderr.flush()
 
 def get_db_connection():
     return psycopg2.connect(DATABASE_URL, cursor_factory=RealDictCursor)
+
+def fetch_approved_word_meanings(company_id: str) -> Dict[str, Dict[str, Any]]:
+    """Busca significados de palavras aprovados pela admin para usar no léxico local."""
+    meanings: Dict[str, Dict[str, Any]] = {}
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT id, word, definition
+            FROM ai_word_meanings
+            WHERE company_id = %s AND status = 'approved'
+        """, (company_id,))
+        results = cur.fetchall()
+        cur.close()
+        conn.close()
+        for row in results:
+            word = row.get('word', '').lower().strip()
+            if word:
+                meanings[word] = {
+                    'id': row.get('id'),
+                    'definition': row.get('definition'),
+                }
+    except Exception as e:
+        logger.error(f"Failed to fetch approved word meanings: {e}")
+    return meanings
 
 def tokenize(text: str) -> List[str]:
     """Tokeniza texto em palavras relevantes (3+ caracteres)."""
@@ -117,20 +143,62 @@ def normalize_token(token: str) -> str:
         t = t[:-1]
     return t
 
-def interpret_semantics(tokens: List[str]) -> Dict[str, Any]:
+def fetch_word_meaning_online(word: str) -> Dict[str, Any]:
     """
-    Interpreta tokens com base no léxico semântico, retornando tópicos e conceitos reconhecidos.
-    Não usa respostas do banco; apenas significados das palavras e sinônimos.
+    Attempt to fetch word meaning from online sources.
+    Currently uses a simple strategy: if word is unknown locally and >= 4 chars,
+    mark as pending for admin approval with a placeholder.
+    Future: integrate with public APIs once Wikipedia access is resolved.
+    """
+    # For now, return empty dict; actual fetching disabled due to API rate limits.
+    # The word will still be upserted as 'pending' for admin to fill in later.
+    return {}
+
+
+def upsert_word_meaning(company_id: str, word: str, definition: str, source_url: str, status: str = 'pending'):
+    """Insert or update word meaning in ai_word_meanings (unique per company+word)."""
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        # Use ON CONFLICT for idempotent insert/update
+        cur.execute(
+            """
+            INSERT INTO ai_word_meanings (id, company_id, word, definition, source_url, status, created_at, updated_at)
+            VALUES (gen_random_uuid(), %s, %s, %s, %s, %s, NOW(), NOW())
+            ON CONFLICT (company_id, word)
+            DO UPDATE SET definition = EXCLUDED.definition, source_url = EXCLUDED.source_url, status = EXCLUDED.status, updated_at = NOW()
+            WHERE ai_word_meanings.status != 'approved';
+            """,
+            (company_id, word, definition, source_url, status)
+        )
+        conn.commit()
+        cur.close()
+        conn.close()
+    except Exception as e:
+        logger.error(f"Failed to upsert word meaning '{word}': {e}")
+
+
+def interpret_semantics(tokens: List[str], company_id: str) -> Dict[str, Any]:
+    """
+    Interpreta tokens com base no léxico semântico (builtin + aprovados pela admin).
+    Retorna tópicos e conceitos reconhecidos.
+    Para tokens desconhecidos, marca como pendente de aprovação do admin para aprendizado futuro.
     """
     recognized: List[Dict[str, Any]] = []
     topics: Dict[str, int] = {}
+    new_words: List[Dict[str, Any]] = []
+
+    # Buscar significados aprovados pela admin da empresa
+    approved_meanings = fetch_approved_word_meanings(company_id)
 
     for raw in tokens:
         if raw in STOPWORDS_PT:
             continue
         t = normalize_token(raw)
-        # Procurar em todas as entradas do léxico por sinônimos que contenham o token
-        for key, entry in SEMANTIC_LEXICON.items():
+        
+        # 1. Procurar em léxico builtin
+        matched = False
+        for entry in SEMANTIC_LEXICON.values():
             syns = entry.get("synonyms", [])
             for s in syns:
                 if t in normalize_token(s):
@@ -141,7 +209,33 @@ def interpret_semantics(tokens: List[str]) -> Dict[str, Any]:
                         "topic": entry["topic"],
                     })
                     topics[entry["topic"]] = topics.get(entry["topic"], 0) + 1
+                    matched = True
                     break
+            if matched:
+                break
+        
+        # 2. Se não encontrou builtin, procurar em significados aprovados pela admin
+        if not matched and t in approved_meanings:
+            appr = approved_meanings[t]
+            # Inferir tópico básico (neste caso, usar um tópico genérico)
+            recognized.append({
+                "concept": raw.capitalize(),
+                "definition": appr['definition'],
+                "token": raw,
+                "topic": "custom",  # Tópico de palavras aprendidas
+            })
+            topics["custom"] = topics.get("custom", 0) + 1
+            matched = True
+        
+        # 3. Se não encontrou, marcar como pendente de aprendizado
+        if not matched and len(t) >= 4:
+            # Registra palavra como pendente (admin deve preencher definição depois)
+            upsert_word_meaning(company_id, raw, None, None, status='pending')
+            new_words.append({
+                "word": raw,
+                "definition": "(Aguardando significado do administrador)",
+                "status": "pending",
+            })
 
     # Ordenar por tópicos mais frequentes
     recognized_sorted = sorted(recognized, key=lambda x: (topics.get(x["topic"], 0), x["concept"]), reverse=True)
@@ -153,6 +247,7 @@ def interpret_semantics(tokens: List[str]) -> Dict[str, Any]:
         "recognized": recognized_sorted,
         "dominant_topic": dominant_topic,
         "topics": topics,
+        "new_words": new_words,
     }
 
 def calculate_concept_relevance(query_tokens: List[str], concept: Dict[str, Any]) -> float:
@@ -280,7 +375,7 @@ def cognitive_search(query: str, company_id: str, intent: str = None, top_k: int
         return {'semantics': {}, 'concepts': [], 'knowledge': [], 'source': 'none'}
 
     # 0. Interpretar semântica (prioridade principal)
-    semantic = interpret_semantics(query_tokens)
+    semantic = interpret_semantics(query_tokens, company_id)
 
     # 1. Fallbacks (aprendizado e base) – apenas se semântica for fraca
     learned_concepts = []
@@ -325,6 +420,7 @@ def build_cognitive_response(incoming_message: str, context_summary: str, intent
 
         recognized = semantics.get('recognized', [])
         dominant_topic = semantics.get('dominant_topic')
+        new_words = semantics.get('new_words', [])
 
         response_parts = []
 
@@ -357,9 +453,16 @@ def build_cognitive_response(incoming_message: str, context_summary: str, intent
 
             if guidance:
                 response_parts.append("\n\n" + " ".join(guidance))
-        else:
-            # Sem semântica suficiente – fallback leve
+        elif not new_words:
+            # Sem semântica e sem novas palavras – fallback leve
             response_parts.append(f"Recebi sua mensagem sobre {intent}. Estou analisando para formular a melhor resposta.")
+
+        # Notificar sobre novas palavras aprendidas pendentes de aprovação
+        if new_words:
+            response_parts.append("\n\n🔎 Detectei palavras novas que ainda não conheço:")
+            for nw in new_words[:3]:
+                response_parts.append(f"\n- **{nw['word']}**: {nw['definition']}")
+            response_parts.append("\n\nPor favor, defina o significado dessas palavras (como administrador) para que eu possa aprender e usá-las em futuras respostas.")
 
         # Contexto resumido se houver
         if context_summary and context_summary != "Nenhuma mensagem anterior":
@@ -458,7 +561,7 @@ def cognitive_response():
             'source': search_result.get('source', 'none'),
             'concepts_used': concepts_used,
             'knowledge_used': knowledge_used,
-            'semantics': semantics,  # inclui tópicos e tokens reconhecidos
+            'semantics': semantics,  # inclui tópicos, tokens e novas palavras pendentes
             'needs_training': bool(needs_training)
         })
     except Exception as e:

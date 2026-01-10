@@ -16,6 +16,7 @@ const reportRoutes_1 = __importDefault(require("./routes/reportRoutes"));
 const integrationRoutes_1 = __importDefault(require("./routes/integrationRoutes"));
 const connectionRoutes_1 = __importDefault(require("./routes/connectionRoutes"));
 const aiRoutes_1 = __importDefault(require("./routes/aiRoutes"));
+const aiWordMeaningRoutes_1 = __importDefault(require("./routes/aiWordMeaningRoutes"));
 const whatsappRoutes_1 = __importDefault(require("./routes/whatsappRoutes"));
 const whatsappService_1 = require("./services/whatsapp/whatsappService");
 const app = (0, express_1.default)();
@@ -66,6 +67,7 @@ app.use('/api/reports', reportRoutes_1.default);
 app.use('/api/integrations', integrationRoutes_1.default);
 app.use('/api/connections', authMiddleware, connectionRoutes_1.default);
 app.use('/api/ai', authMiddleware, aiRoutes_1.default);
+app.use('/api/ai', authMiddleware, aiWordMeaningRoutes_1.default);
 app.use('/api/whatsapp', authMiddleware, whatsappRoutes_1.default);
 // Health check endpoint
 app.get('/health', (req, res) => {
