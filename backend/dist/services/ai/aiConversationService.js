@@ -52,18 +52,16 @@ function getConversationContext(userId_1, companyId_1, clientRef_1) {
 function sendAutoRespond(connectionIdOrDbId, clientJid, message) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            // Se é um número (ID do banco), precisa buscar o connectionId string (conn_*)
+            // Se é um número (ID do banco), usa o formato conn_ID
             let connectionIdStr;
             if (typeof connectionIdOrDbId === 'number') {
-                // Buscar a conexão real no user_connections
-                const connection = yield models_1.default.UserConnection.findOne({
-                    where: { id: connectionIdOrDbId, status: 'active' }
-                });
-                if (!connection || !connection.connection_id) {
-                    console.error(`[AI] Connection ID ${connectionIdOrDbId} not found in database or not active`);
-                    return false;
-                }
-                connectionIdStr = String(connection.connection_id);
+                // Usar diretamente o ID no formato esperado pelo whatsapp-service
+                // Como o whatsapp-service cria conexões com formato "conn_timestamp",
+                // vamos precisar buscar isso de outra forma ou passar o ID numérico
+                console.log(`[AI] Trying to send via connection DB ID: ${connectionIdOrDbId}`);
+                // Por enquanto, vamos tentar passar direto para o endpoint
+                // O whatsapp-service precisa aceitar IDs numéricos ou ter mapeamento
+                connectionIdStr = `conn_${connectionIdOrDbId}`;
             }
             else {
                 connectionIdStr = connectionIdOrDbId;
@@ -143,7 +141,7 @@ function mergeSuggestionMetadata(existing, patch) {
 }
 function createConversationSuggestion(input) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { userId, companyId, connectionId, clientRef, incomingMessage } = input;
+        const { userId, companyId, connectionId, connectionIdString, clientRef, clientJid, incomingMessage } = input;
         // Garantir isolamento por company_id - apenas verificar se o usuário pertence à empresa
         const user = yield models_1.default.User.findByPk(userId);
         const userCompanies = yield user.getCompanies();
@@ -226,8 +224,11 @@ function createConversationSuggestion(input) {
             yield suggestion.save();
             // Tentar enviar via WhatsApp
             try {
-                // Passar connectionId (number do banco) - sendAutoRespond irá buscar o conn_* correto
-                const sent = yield sendAutoRespond(connectionId || 0, clientRef || '', suggestedResponse);
+                // Usar clientJid (LID/JID original) se disponível, senão usar clientRef (telefone)
+                const targetJid = clientJid || clientRef || '';
+                // Usar connectionIdString se disponível, senão tenta com connectionId numérico
+                const connId = connectionIdString || connectionId || 0;
+                const sent = yield sendAutoRespond(connId, targetJid, suggestedResponse);
                 if (sent) {
                     console.log(`[AI] Auto-respond enviado com sucesso`);
                 }

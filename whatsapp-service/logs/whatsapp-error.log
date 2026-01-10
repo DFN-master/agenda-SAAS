@@ -113,3 +113,26 @@
 2026-01-09 18:44:11 -03:00:   syscall: 'open',
 2026-01-09 18:44:11 -03:00:   path: 'D:\\Agenda\\agenda-SAAS\\whatsapp-service\\auth_info\\conn_1767993884804\\creds.json'
 2026-01-09 18:44:11 -03:00: }
+2026-01-09 21:58:59 -03:00: [2026-01-10T00:58:59.356Z] ❌ Erro do backend (500): {"error":"Failed to create suggestion"}
+2026-01-09 22:01:05 -03:00: [2026-01-10T01:01:05.638Z] ❌ Erro do backend (500): {"error":"Failed to create suggestion"}
+2026-01-09 22:01:24 -03:00: [2026-01-10T01:01:24.044Z] ❌ Erro do backend (500): {"error":"Failed to create suggestion"}
+2026-01-09 22:04:21 -03:00: Erro ao enviar mensagem: TypeError: Cannot destructure property 'user' of 'jidDecode(...)' as it is undefined.
+2026-01-09 22:04:21 -03:00:     at relayMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:581:11)
+2026-01-09 22:04:21 -03:00:     at Object.sendMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:1193:11)
+2026-01-09 22:04:21 -03:00:     at processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 22:04:21 -03:00:     at D:\Agenda\agenda-SAAS\whatsapp-service\src\routes\whatsappRoutes.ts:197:7
+2026-01-09 22:04:32 -03:00: Erro ao enviar mensagem: TypeError: Cannot destructure property 'user' of 'jidDecode(...)' as it is undefined.
+2026-01-09 22:04:32 -03:00:     at relayMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:581:11)
+2026-01-09 22:04:32 -03:00:     at Object.sendMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:1193:11)
+2026-01-09 22:04:32 -03:00:     at processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 22:04:32 -03:00:     at D:\Agenda\agenda-SAAS\whatsapp-service\src\routes\whatsappRoutes.ts:197:7
+2026-01-09 22:06:31 -03:00: Erro ao enviar mensagem: TypeError: Cannot destructure property 'user' of 'jidDecode(...)' as it is undefined.
+2026-01-09 22:06:31 -03:00:     at relayMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:581:11)
+2026-01-09 22:06:31 -03:00:     at Object.sendMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:1193:11)
+2026-01-09 22:06:31 -03:00:     at processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 22:06:31 -03:00:     at D:\Agenda\agenda-SAAS\whatsapp-service\src\routes\whatsappRoutes.ts:197:7
+2026-01-09 22:06:51 -03:00: Erro ao enviar mensagem: TypeError: Cannot destructure property 'user' of 'jidDecode(...)' as it is undefined.
+2026-01-09 22:06:51 -03:00:     at relayMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:581:11)
+2026-01-09 22:06:51 -03:00:     at Object.sendMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:1193:11)
+2026-01-09 22:06:51 -03:00:     at processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 22:06:51 -03:00:     at D:\Agenda\agenda-SAAS\whatsapp-service\src\routes\whatsappRoutes.ts:197:7

@@ -82,23 +82,62 @@ def fetch_approved_word_meanings(company_id: str) -> Dict[str, Dict[str, Any]]:
     try:
         conn = get_db_connection()
         cur = conn.cursor()
-        cur.execute("""
-            SELECT id, word, definition
-            FROM ai_word_meanings
-            WHERE company_id = %s AND status = 'approved'
-        """, (company_id,))
-        results = cur.fetchall()
+        
+        # Primeiro, tentar buscar vocabulário do metadata da empresa
+        try:
+            cur.execute("""
+                SELECT metadata
+                FROM companies
+                WHERE id = %s
+            """, (company_id,))
+            result = cur.fetchone()
+            
+            if result and result.get('metadata'):
+                metadata = result.get('metadata') or {}
+                vocabulary = metadata.get('vocabulary', [])
+                
+                # Processar vocabulário do metadata
+                for word_entry in vocabulary:
+                    word = word_entry.get('word', '').lower().strip()
+                    if word:
+                        meanings[word] = {
+                            'id': word_entry.get('id'),
+                            'definition': word_entry.get('definition', ''),
+                            'synonyms': word_entry.get('synonyms', []),
+                            'examples': word_entry.get('examples', []),
+                            'source': 'vocabulary_metadata'
+                        }
+        except Exception as meta_error:
+            # Coluna metadata pode não existir
+            logger.debug(f"Could not fetch metadata: {meta_error}")
+        
+        # Também buscar significados de uma tabela ai_word_meanings se existir
+        try:
+            cur.execute("""
+                SELECT id, word, definition
+                FROM ai_word_meanings
+                WHERE company_id = %s AND status = 'approved'
+            """, (company_id,))
+            results = cur.fetchall()
+            
+            for row in results:
+                word = row.get('word', '').lower().strip()
+                if word:
+                    meanings[word] = {
+                        'id': row.get('id'),
+                        'definition': row.get('definition'),
+                        'source': 'ai_word_meanings_table'
+                    }
+        except Exception as table_error:
+            # Tabela pode não existir ou estar vazia
+            logger.debug(f"Could not fetch ai_word_meanings: {table_error}")
+        
         cur.close()
         conn.close()
-        for row in results:
-            word = row.get('word', '').lower().strip()
-            if word:
-                meanings[word] = {
-                    'id': row.get('id'),
-                    'definition': row.get('definition'),
-                }
+        
     except Exception as e:
         logger.error(f"Failed to fetch approved word meanings: {e}")
+    
     return meanings
 
 def tokenize(text: str) -> List[str]:
@@ -635,6 +674,45 @@ def build_cognitive_response(incoming_message: str, context_summary: str, intent
     """DEPRECATED: Use compose_intent_response instead."""
     return f"Recebi sua mensagem. Vou analisar e retorno em breve."
 
+def reformulate_response_with_vocabulary(response: str, company_id: str, vocabulary: Dict[str, Dict[str, Any]]) -> str:
+    """
+    Reformula uma resposta usando vocabulário aprendido.
+    Substitui termos técnicos por explicações mais claras baseadas na semântica da empresa.
+    
+    Exemplo:
+    - Response: "Você pode agendar uma consulta"
+    - Se vocabulário tem "agendar" → "agendamento", adiciona sinônimos e exemplos
+    """
+    if not vocabulary:
+        return response
+    
+    reformulated = response
+    
+    # Processar cada palavra no vocabulário
+    for word_lower, word_info in vocabulary.items():
+        # Buscar a palavra de forma case-insensitive na resposta
+        import re
+        pattern = re.compile(re.escape(word_lower), re.IGNORECASE)
+        
+        # Se a palavra aparece na resposta, enriquecer com definição/sinônimos
+        if pattern.search(reformulated):
+            definition = word_info.get('definition', '')
+            synonyms = word_info.get('synonyms', [])
+            
+            # Adicionar contexto: se há uma definição clara, usar
+            if definition:
+                # Criar uma versão enriquecida (adicionar entre parênteses ou como explicação)
+                # Para não ficar muito poluído, só enriquecer uma vez
+                synonyms_str = f" (também chamado de: {', '.join(synonyms)})" if synonyms else ""
+                
+                # Substituir apenas a primeira ocorrência com contexto
+                def replace_with_context(match):
+                    return f"{match.group(0)} - {definition}{synonyms_str}"
+                
+                reformulated = pattern.sub(replace_with_context, reformulated, count=1)
+    
+    return reformulated
+
 @app.route('/debug-version', methods=['GET'])
 def debug_version():
     """Rota de diagnóstico para verificar qual arquivo está rodando."""
@@ -681,13 +759,17 @@ def cognitive_response():
         detected_intent, intent_confidence = detect_intent(incoming_message)
         logger.debug(f'Detected intent: {detected_intent} (confidence: {intent_confidence:.2f})')
 
-        # 3. Busca semântica (continua igual, mas agora com intent detectada)
+        # NOVO: 3. Busca semântica (continua igual, mas agora com intent detectada)
         search_result = cognitive_search(incoming_message, company_id, detected_intent, top_k=3)
         logger.debug(f'Search result source: {search_result.get("source")}')
 
         # NOVO: 4. Compor resposta baseado em intenção detectada + análise semântica
         semantics = search_result.get('semantics', {})
         response = compose_intent_response(detected_intent, incoming_message, semantics)
+        
+        # NOVO: 5. Reformular resposta usando vocabulário aprendido pela empresa
+        approved_vocabulary = fetch_approved_word_meanings(company_id)
+        response = reformulate_response_with_vocabulary(response, company_id, approved_vocabulary)
 
         # Adicionar contexto se relevante
         if context_summary and context_summary != "Nenhuma mensagem anterior":

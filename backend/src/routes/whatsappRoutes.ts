@@ -51,10 +51,32 @@ router.post('/webhook', getCompanyId, async (req: any, res: Response) => {
   try {
     const userId = req.userId;
     const companyId = req.companyId as string;
-    const { connection_id, jid, client_ref, message_text } = req.body;
-    const normalizedConnectionId = Number.isFinite(Number(connection_id))
-      ? Number(connection_id)
-      : undefined;
+    const { connection_id, jid, client_ref, message_text } = req.body as any;
+    
+    console.log('[WEBHOOK] Received:', { connection_id, jid, client_ref, message_text: message_text?.substring(0, 50) });
+    
+    // Buscar o ID numérico da conexão no banco se receber uma string "conn_*"
+    let normalizedConnectionId: number | undefined;
+    
+    if (connection_id) {
+      if (Number.isFinite(Number(connection_id))) {
+        // Se já é um número, usa direto
+        normalizedConnectionId = Number(connection_id);
+        console.log('[WEBHOOK] connection_id is number:', normalizedConnectionId);
+      } else if (typeof connection_id === 'string' && connection_id.startsWith('conn_')) {
+        // Se é uma string "conn_*", busca no banco
+        console.log('[WEBHOOK] Searching for connection_id in database:', connection_id);
+        const conn = await (models as any).UserConnection.findOne({
+          where: { connection_id: connection_id, status: 'active' }
+        });
+        if (conn) {
+          normalizedConnectionId = conn.id;
+          console.log('[WEBHOOK] Found connection with id:', normalizedConnectionId);
+        } else {
+          console.log('[WEBHOOK] Connection not found in database');
+        }
+      }
+    }
 
     if (!message_text) {
       return res.status(400).json({ error: 'message_text é obrigatório' });
@@ -64,7 +86,8 @@ router.post('/webhook', getCompanyId, async (req: any, res: Response) => {
       userId,
       companyId,
       connectionId: normalizedConnectionId,
-      clientRef: jid || client_ref,
+      clientRef: client_ref,
+      clientJid: jid, // JID original (LID/JID)
       incomingMessage: message_text,
     });
 

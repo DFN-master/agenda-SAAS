@@ -77,6 +77,7 @@ async function sendMessageToAIBackend(connectionId, connection, senderJid, messa
             company_id: connection.companyId,
             connection_id: connectionId,
             client_ref: clientRef,
+            jid: senderJid, // JID original para responder
             incoming_message: messageText,
         };
         const response = await (0, node_fetch_1.default)('http://localhost:3000/api/ai/suggestions', {
@@ -230,7 +231,7 @@ async function initiateBaileysAuth(connectionId, authDir) {
                 const statusCode = lastDisconnect?.error?.output?.statusCode;
                 const reason = lastDisconnect?.error?.output?.payload?.message || 'Unknown';
                 console.log(`[${new Date().toISOString()}] Desconectado. Status Code: ${statusCode}, Reason: ${reason}`);
-                // 405 = QR code expirou, 401 = não autorizado
+                // 405 = QR code expirou, 401 = não autorizado, 440 = conflict
                 if (statusCode === 405) {
                     console.log(`[${new Date().toISOString()}] QR code expirou, será regenerado`);
                     connection.status = 'disconnected';
@@ -240,6 +241,43 @@ async function initiateBaileysAuth(connectionId, authDir) {
                         console.log(`[${new Date().toISOString()}] Tentando reconectar ${connectionId}`);
                         initiateBaileysAuth(connectionId, authDir);
                     }, 2000);
+                }
+                else if (statusCode === 440) {
+                    console.log(`[${new Date().toISOString()}] ⚠️ Conflito detectado (conta conectada em outro lugar). Limpando sessão...`);
+                    connection.status = 'disconnected';
+                    // Fechar socket se estiver aberto
+                    try {
+                        if (connection.socket) {
+                            await connection.socket.end();
+                        }
+                    }
+                    catch (err) {
+                        console.log(`[${new Date().toISOString()}] Socket já estava fechado`);
+                    }
+                    // Limpar arquivos de autenticação para forçar novo QR code
+                    try {
+                        const authDir = path_1.default.join(process.cwd(), 'auth_info', connectionId);
+                        const fs = require('fs').promises;
+                        // Não deletar tudo, apenas limpar credenciais corruptas
+                        const credsPath = path_1.default.join(authDir, 'creds.json');
+                        try {
+                            await fs.unlink(credsPath);
+                            console.log(`[${new Date().toISOString()}] Credenciais limpas, novo QR será gerado`);
+                        }
+                        catch (e) {
+                            // arquivo já não existe
+                        }
+                    }
+                    catch (err) {
+                        console.log(`[${new Date().toISOString()}] Erro ao limpar credenciais:`, err);
+                    }
+                    connection.qrCode = undefined;
+                    connection.status = 'scanning';
+                    // Aguardar antes de reconectar
+                    setTimeout(() => {
+                        console.log(`[${new Date().toISOString()}] Reconectando com nova sessão...`);
+                        initiateBaileysAuth(connectionId, authDir);
+                    }, 10000);
                 }
                 else if (statusCode !== 401) {
                     connection.status = 'disconnected';

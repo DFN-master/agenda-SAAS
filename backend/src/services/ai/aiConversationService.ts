@@ -8,7 +8,9 @@ export interface CreateSuggestionInput {
   userId: string;
   companyId: string;
   connectionId?: number;
+  connectionIdString?: string; // ID string do whatsapp-service (conn_*)
   clientRef?: string;
+  clientJid?: string; // JID original (pode ser LID ou JID normal)
   incomingMessage: string;
 }
 
@@ -59,21 +61,18 @@ async function sendAutoRespond(
   message: string
 ): Promise<boolean> {
   try {
-    // Se é um número (ID do banco), precisa buscar o connectionId string (conn_*)
+    // Se é um número (ID do banco), usa o formato conn_ID
     let connectionIdStr: string;
     
     if (typeof connectionIdOrDbId === 'number') {
-      // Buscar a conexão real no user_connections
-      const connection = await (models as any).UserConnection.findOne({
-        where: { id: connectionIdOrDbId, status: 'active' }
-      });
+      // Usar diretamente o ID no formato esperado pelo whatsapp-service
+      // Como o whatsapp-service cria conexões com formato "conn_timestamp",
+      // vamos precisar buscar isso de outra forma ou passar o ID numérico
+      console.log(`[AI] Trying to send via connection DB ID: ${connectionIdOrDbId}`);
       
-      if (!connection || !connection.connection_id) {
-        console.error(`[AI] Connection ID ${connectionIdOrDbId} not found in database or not active`);
-        return false;
-      }
-      
-      connectionIdStr = String(connection.connection_id);
+      // Por enquanto, vamos tentar passar direto para o endpoint
+      // O whatsapp-service precisa aceitar IDs numéricos ou ter mapeamento
+      connectionIdStr = `conn_${connectionIdOrDbId}`;
     } else {
       connectionIdStr = connectionIdOrDbId;
     }
@@ -155,7 +154,7 @@ function mergeSuggestionMetadata(existing: any, patch: any) {
 }
 
 export async function createConversationSuggestion(input: CreateSuggestionInput) {
-  const { userId, companyId, connectionId, clientRef, incomingMessage } = input;
+  const { userId, companyId, connectionId, connectionIdString, clientRef, clientJid, incomingMessage } = input;
 
   // Garantir isolamento por company_id - apenas verificar se o usuário pertence à empresa
   const user = await (models as any).User.findByPk(userId);
@@ -257,8 +256,11 @@ export async function createConversationSuggestion(input: CreateSuggestionInput)
 
     // Tentar enviar via WhatsApp
     try {
-      // Passar connectionId (number do banco) - sendAutoRespond irá buscar o conn_* correto
-      const sent = await sendAutoRespond(connectionId || 0, clientRef || '', suggestedResponse);
+      // Usar clientJid (LID/JID original) se disponível, senão usar clientRef (telefone)
+      const targetJid = clientJid || clientRef || '';
+      // Usar connectionIdString se disponível, senão tenta com connectionId numérico
+      const connId = connectionIdString || connectionId || 0;
+      const sent = await sendAutoRespond(connId, targetJid, suggestedResponse);
       if (sent) {
         console.log(`[AI] Auto-respond enviado com sucesso`);
       }

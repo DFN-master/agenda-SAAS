@@ -31,6 +31,21 @@ function AdminAITraining({ companyId }) {
     intent: '',
   });
   const [teaching, setTeaching] = useState(false);
+  const [vocabularyTab, setVocabularyTab] = useState('words');
+  const [vocabulary, setVocabulary] = useState([]);
+  const [concepts, setConcepts] = useState([]);
+  const [vocabularyModal, setVocabularyModal] = useState({
+    isOpen: false,
+    word: '',
+    definition: '',
+    synonyms: [],
+    currentSynonym: '',
+    examples: [],
+    currentExample: '',
+    editingId: null,
+  });
+  const [addingVocabulary, setAddingVocabulary] = useState(false);
+  const [seedingVocabulary, setSeedingVocabulary] = useState(false);
 
   const token = localStorage.getItem('token');
   const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
@@ -60,8 +75,12 @@ function AdminAITraining({ companyId }) {
   useEffect(() => {
     if (!resolvedCompanyId) return;
     fetchData(resolvedCompanyId);
+    fetchVocabulary(resolvedCompanyId);
     // Refresh every 10 seconds
-    const interval = setInterval(() => fetchData(resolvedCompanyId), 10000);
+    const interval = setInterval(() => {
+      fetchData(resolvedCompanyId);
+      fetchVocabulary(resolvedCompanyId);
+    }, 10000);
     return () => clearInterval(interval);
   }, [resolvedCompanyId]);
 
@@ -365,6 +384,210 @@ function AdminAITraining({ companyId }) {
       setError('Erro ao ensinar conceito');
     } finally {
       setTeaching(false);
+    }
+  };
+
+  // ==================== VOCABULARY FUNCTIONS ====================
+
+  const fetchVocabulary = async (cid) => {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/ai/vocabulary?company_id=${cid}`,
+        { headers: { 'Authorization': `Bearer ${token}` } }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setVocabulary(data.data || []);
+      }
+    } catch (err) {
+      console.error('Error fetching vocabulary:', err);
+    }
+  };
+
+  const openVocabularyModal = (word = null) => {
+    if (word) {
+      setVocabularyModal({
+        isOpen: true,
+        word: word.word,
+        definition: word.definition,
+        synonyms: word.synonyms || [],
+        currentSynonym: '',
+        examples: word.examples || [],
+        currentExample: '',
+        editingId: word.id,
+      });
+    } else {
+      setVocabularyModal({
+        isOpen: true,
+        word: '',
+        definition: '',
+        synonyms: [],
+        currentSynonym: '',
+        examples: [],
+        currentExample: '',
+        editingId: null,
+      });
+    }
+  };
+
+  const closeVocabularyModal = () => {
+    setVocabularyModal({
+      isOpen: false,
+      word: '',
+      definition: '',
+      synonyms: [],
+      currentSynonym: '',
+      examples: [],
+      currentExample: '',
+      editingId: null,
+    });
+  };
+
+  const addSynonym = () => {
+    if (vocabularyModal.currentSynonym.trim()) {
+      setVocabularyModal({
+        ...vocabularyModal,
+        synonyms: [...vocabularyModal.synonyms, vocabularyModal.currentSynonym.trim()],
+        currentSynonym: '',
+      });
+    }
+  };
+
+  const removeSynonym = (index) => {
+    setVocabularyModal({
+      ...vocabularyModal,
+      synonyms: vocabularyModal.synonyms.filter((_, i) => i !== index),
+    });
+  };
+
+  const addVocabularyExample = () => {
+    if (vocabularyModal.currentExample.trim()) {
+      setVocabularyModal({
+        ...vocabularyModal,
+        examples: [...vocabularyModal.examples, vocabularyModal.currentExample.trim()],
+        currentExample: '',
+      });
+    }
+  };
+
+  const removeVocabularyExample = (index) => {
+    setVocabularyModal({
+      ...vocabularyModal,
+      examples: vocabularyModal.examples.filter((_, i) => i !== index),
+    });
+  };
+
+  const saveVocabularyWord = async () => {
+    if (!vocabularyModal.word.trim() || !vocabularyModal.definition.trim()) {
+      setError('Palavra e definição são obrigatórios');
+      return;
+    }
+
+    try {
+      setAddingVocabulary(true);
+      setError('');
+      setSuccess('');
+
+      const method = vocabularyModal.editingId ? 'PUT' : 'POST';
+      const url = vocabularyModal.editingId
+        ? `http://localhost:3000/api/ai/vocabulary/words/${vocabularyModal.editingId}`
+        : 'http://localhost:3000/api/ai/vocabulary/words';
+
+      const res = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          company_id: resolvedCompanyId,
+          word: vocabularyModal.word.trim(),
+          definition: vocabularyModal.definition.trim(),
+          synonyms: vocabularyModal.synonyms,
+          examples: vocabularyModal.examples,
+        }),
+      });
+
+      if (res.ok) {
+        setSuccess(vocabularyModal.editingId ? 'Palavra atualizada!' : 'Palavra adicionada ao vocabulário!');
+        closeVocabularyModal();
+        await fetchVocabulary(resolvedCompanyId);
+      } else {
+        const data = await res.json();
+        setError(data.error || 'Erro ao salvar palavra');
+      }
+    } catch (err) {
+      console.error('Error saving vocabulary word:', err);
+      setError('Erro ao salvar palavra');
+    } finally {
+      setAddingVocabulary(false);
+    }
+  };
+
+  const deleteVocabularyWord = async (wordId) => {
+    if (!window.confirm('Tem certeza que deseja remover esta palavra?')) return;
+
+    try {
+      setError('');
+      setSuccess('');
+
+      const res = await fetch(
+        `http://localhost:3000/api/ai/vocabulary/words/${wordId}`,
+        {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${token}` },
+        }
+      );
+
+      if (res.ok) {
+        setSuccess('Palavra removida do vocabulário');
+        await fetchVocabulary(resolvedCompanyId);
+      } else {
+        setError('Erro ao remover palavra');
+      }
+    } catch (err) {
+      console.error('Error deleting vocabulary word:', err);
+      setError('Erro ao remover palavra');
+    }
+  };
+
+  const seedInitialVocabulary = async () => {
+    if (!window.confirm('Isso irá carregar um dicionário inicial com 20+ palavras de negócio. Continuar?')) {
+      return;
+    }
+
+    try {
+      setSeedingVocabulary(true);
+      setError('');
+      setSuccess('');
+
+      const res = await fetch(
+        `http://localhost:3000/api/ai/vocabulary/seed`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            company_id: resolvedCompanyId,
+          }),
+        }
+      );
+
+      if (res.ok) {
+        const data = await res.json();
+        setSuccess(`✓ ${data.message} Sua IA agora tem uma base de conhecimento de ${data.data.total} palavras!`);
+        await fetchVocabulary(resolvedCompanyId);
+      } else {
+        const data = await res.json();
+        setError(data.error || 'Erro ao carregar vocabulário');
+      }
+    } catch (err) {
+      console.error('Error seeding vocabulary:', err);
+      setError('Erro ao carregar vocabulário inicial');
+    } finally {
+      setSeedingVocabulary(false);
     }
   };
 
@@ -769,6 +992,219 @@ function AdminAITraining({ companyId }) {
                 disabled={teaching || !teachingModal.query.trim() || !teachingModal.explanation.trim()}
               >
                 {teaching ? '⏳ Ensinando...' : '✓ Ensinar à IA'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Vocabulary Section */}
+      <div className="vocabulary-section">
+        <div className="vocabulary-header">
+          <h3>📖 Vocabulário e Conceitos</h3>
+          <div className="vocabulary-buttons">
+            <button
+              className="btn-seed-vocabulary"
+              onClick={seedInitialVocabulary}
+              disabled={seedingVocabulary || vocabulary.length > 0}
+              title="Carregar dicionário inicial com 20+ palavras de negócio"
+            >
+              {seedingVocabulary ? '⏳ Carregando...' : '🌱 Carregar Dicionário'}
+            </button>
+            <button
+              className="btn-add-word"
+              onClick={() => openVocabularyModal()}
+              title="Adicionar nova palavra ao vocabulário para que a IA aprenda"
+            >
+              + Adicionar Palavra
+            </button>
+          </div>
+        </div>
+
+        {vocabulary.length === 0 ? (
+          <div className="no-suggestions">
+            <p>Nenhuma palavra no vocabulário. <strong>Clique em "🌱 Carregar Dicionário"</strong> para começar com uma base de conhecimento, ou adicione palavras manualmente para que a IA entenda melhor seus conceitos.</p>
+          </div>
+        ) : (
+          <div className="vocabulary-list">
+            {vocabulary.map((word) => (
+              <div key={word.id} className="vocabulary-card">
+                <div className="vocabulary-word-header">
+                  <h4>{word.word}</h4>
+                  <div className="vocabulary-actions">
+                    <button
+                      className="btn-edit"
+                      onClick={() => openVocabularyModal(word)}
+                      title="Editar palavra"
+                    >
+                      ✏️
+                    </button>
+                    <button
+                      className="btn-delete"
+                      onClick={() => deleteVocabularyWord(word.id)}
+                      title="Remover palavra"
+                    >
+                      🗑️
+                    </button>
+                  </div>
+                </div>
+                <div className="vocabulary-definition">
+                  <strong>Definição:</strong> {word.definition}
+                </div>
+                {word.synonyms && word.synonyms.length > 0 && (
+                  <div className="vocabulary-synonyms">
+                    <strong>Sinônimos:</strong> {word.synonyms.join(', ')}
+                  </div>
+                )}
+                {word.examples && word.examples.length > 0 && (
+                  <div className="vocabulary-examples">
+                    <strong>Exemplos:</strong>
+                    <ul>
+                      {word.examples.map((ex, idx) => (
+                        <li key={idx}>{ex}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Vocabulary Modal */}
+      {vocabularyModal.isOpen && (
+        <div className="modal-overlay" onClick={closeVocabularyModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>{vocabularyModal.editingId ? '✏️ Editar Palavra' : '📝 Adicionar Palavra ao Vocabulário'}</h3>
+              <button className="modal-close" onClick={closeVocabularyModal}>✕</button>
+            </div>
+
+            <div className="modal-body">
+              <div className="form-group">
+                <label>Palavra (obrigatório)</label>
+                <input
+                  type="text"
+                  value={vocabularyModal.word}
+                  onChange={(e) =>
+                    setVocabularyModal({ ...vocabularyModal, word: e.target.value })
+                  }
+                  placeholder="Ex: Agendamento"
+                  disabled={addingVocabulary || vocabularyModal.editingId}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Definição (obrigatório)</label>
+                <textarea
+                  value={vocabularyModal.definition}
+                  onChange={(e) =>
+                    setVocabularyModal({ ...vocabularyModal, definition: e.target.value })
+                  }
+                  placeholder="Explique o significado desta palavra para seu negócio..."
+                  rows="3"
+                  disabled={addingVocabulary}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Sinônimos</label>
+                <div className="synonyms-list">
+                  {vocabularyModal.synonyms.map((syn, idx) => (
+                    <div key={idx} className="synonym-item">
+                      <span>{syn}</span>
+                      <button
+                        className="btn-remove"
+                        onClick={() => removeSynonym(idx)}
+                        disabled={addingVocabulary}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="synonym-input-group">
+                  <input
+                    type="text"
+                    value={vocabularyModal.currentSynonym}
+                    onChange={(e) =>
+                      setVocabularyModal({
+                        ...vocabularyModal,
+                        currentSynonym: e.target.value,
+                      })
+                    }
+                    placeholder="Ex: Marcação, Reserva"
+                    disabled={addingVocabulary}
+                    onKeyPress={(e) => e.key === 'Enter' && addSynonym()}
+                  />
+                  <button
+                    className="btn-add"
+                    onClick={addSynonym}
+                    disabled={addingVocabulary || !vocabularyModal.currentSynonym.trim()}
+                  >
+                    + Adicionar
+                  </button>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Exemplos de Uso</label>
+                <div className="examples-list">
+                  {vocabularyModal.examples.map((ex, idx) => (
+                    <div key={idx} className="example-item">
+                      <span>{ex}</span>
+                      <button
+                        className="btn-remove"
+                        onClick={() => removeVocabularyExample(idx)}
+                        disabled={addingVocabulary}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="example-input-group">
+                  <input
+                    type="text"
+                    value={vocabularyModal.currentExample}
+                    onChange={(e) =>
+                      setVocabularyModal({
+                        ...vocabularyModal,
+                        currentExample: e.target.value,
+                      })
+                    }
+                    placeholder="Ex: Você pode agendar uma consulta conosco"
+                    disabled={addingVocabulary}
+                    onKeyPress={(e) => e.key === 'Enter' && addVocabularyExample()}
+                  />
+                  <button
+                    className="btn-add"
+                    onClick={addVocabularyExample}
+                    disabled={addingVocabulary || !vocabularyModal.currentExample.trim()}
+                  >
+                    + Adicionar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="modal-footer">
+              <button
+                className="btn-cancel"
+                onClick={closeVocabularyModal}
+                disabled={addingVocabulary}
+              >
+                Cancelar
+              </button>
+              <button
+                className="btn-save"
+                onClick={saveVocabularyWord}
+                disabled={addingVocabulary || !vocabularyModal.word.trim() || !vocabularyModal.definition.trim()}
+              >
+                {addingVocabulary ? '⏳ Salvando...' : '✓ Salvar'}
               </button>
             </div>
           </div>

@@ -737,3 +737,229 @@
 2026-01-09 21:41:28 -03:00: [AI] Connection ID 0 not found in database or not active
 2026-01-09 21:42:41 -03:00: [AI] Connection ID 0 not found in database or not active
 2026-01-09 21:43:31 -03:00: [AI] Connection ID 0 not found in database or not active
+2026-01-09 21:48:10 -03:00: [AI] Connection ID 0 not found in database or not active
+2026-01-09 21:50:35 -03:00: [AI] Connection ID 0 not found in database or not active
+2026-01-09 21:51:27 -03:00: [AI] Connection ID 0 not found in database or not active
+2026-01-09 21:53:04 -03:00: [AI] Connection ID 0 not found in database or not active
+2026-01-09 21:57:27 -03:00: [AI] Connection ID 0 not found in database or not active
+2026-01-09 21:58:59 -03:00: Error creating suggestion: Error
+2026-01-09 21:58:59 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 21:58:59 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 21:58:59 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 21:58:59 -03:00:     at async PostgresQueryInterface.select (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+2026-01-09 21:58:59 -03:00:     at async UserConnection.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1140:21)
+2026-01-09 21:58:59 -03:00:     at async UserConnection.findOne (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1240:12) {
+2026-01-09 21:58:59 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 21:58:59 -03:00:   parent: error: column UserConnection.connection_id does not exist
+2026-01-09 21:58:59 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 21:58:59 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 21:58:59 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 21:58:59 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 21:58:59 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 21:58:59 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 21:58:59 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 21:58:59 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 21:58:59 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 21:58:59 -03:00:     length: 127,
+2026-01-09 21:58:59 -03:00:     severity: 'ERROR',
+2026-01-09 21:58:59 -03:00:     code: '42703',
+2026-01-09 21:58:59 -03:00:     detail: undefined,
+2026-01-09 21:58:59 -03:00:     hint: undefined,
+2026-01-09 21:58:59 -03:00:     position: '246',
+2026-01-09 21:58:59 -03:00:     internalPosition: undefined,
+2026-01-09 21:58:59 -03:00:     internalQuery: undefined,
+2026-01-09 21:58:59 -03:00:     where: undefined,
+2026-01-09 21:58:59 -03:00:     schema: undefined,
+2026-01-09 21:58:59 -03:00:     table: undefined,
+2026-01-09 21:58:59 -03:00:     column: undefined,
+2026-01-09 21:58:59 -03:00:     dataType: undefined,
+2026-01-09 21:58:59 -03:00:     constraint: undefined,
+2026-01-09 21:58:59 -03:00:     file: 'parse_relation.c',
+2026-01-09 21:58:59 -03:00:     line: '3665',
+2026-01-09 21:58:59 -03:00:     routine: 'errorMissingColumn',
+2026-01-09 21:58:59 -03:00:     sql: `SELECT "id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."connection_id" = 'conn_1767993884804' AND "UserConnection"."status" = 'active' LIMIT 1;`,
+2026-01-09 21:58:59 -03:00:     parameters: undefined
+2026-01-09 21:58:59 -03:00:   },
+2026-01-09 21:58:59 -03:00:   original: error: column UserConnection.connection_id does not exist
+2026-01-09 21:58:59 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 21:58:59 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 21:58:59 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 21:58:59 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 21:58:59 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 21:58:59 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 21:58:59 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 21:58:59 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 21:58:59 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 21:58:59 -03:00:     length: 127,
+2026-01-09 21:58:59 -03:00:     severity: 'ERROR',
+2026-01-09 21:58:59 -03:00:     code: '42703',
+2026-01-09 21:58:59 -03:00:     detail: undefined,
+2026-01-09 21:58:59 -03:00:     hint: undefined,
+2026-01-09 21:58:59 -03:00:     position: '246',
+2026-01-09 21:58:59 -03:00:     internalPosition: undefined,
+2026-01-09 21:58:59 -03:00:     internalQuery: undefined,
+2026-01-09 21:58:59 -03:00:     where: undefined,
+2026-01-09 21:58:59 -03:00:     schema: undefined,
+2026-01-09 21:58:59 -03:00:     table: undefined,
+2026-01-09 21:58:59 -03:00:     column: undefined,
+2026-01-09 21:58:59 -03:00:     dataType: undefined,
+2026-01-09 21:58:59 -03:00:     constraint: undefined,
+2026-01-09 21:58:59 -03:00:     file: 'parse_relation.c',
+2026-01-09 21:58:59 -03:00:     line: '3665',
+2026-01-09 21:58:59 -03:00:     routine: 'errorMissingColumn',
+2026-01-09 21:58:59 -03:00:     sql: `SELECT "id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."connection_id" = 'conn_1767993884804' AND "UserConnection"."status" = 'active' LIMIT 1;`,
+2026-01-09 21:58:59 -03:00:     parameters: undefined
+2026-01-09 21:58:59 -03:00:   },
+2026-01-09 21:58:59 -03:00:   sql: `SELECT "id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."connection_id" = 'conn_1767993884804' AND "UserConnection"."status" = 'active' LIMIT 1;`,
+2026-01-09 21:58:59 -03:00:   parameters: {}
+2026-01-09 21:58:59 -03:00: }
+2026-01-09 22:01:05 -03:00: Error creating suggestion: Error
+2026-01-09 22:01:05 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 22:01:05 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 22:01:05 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 22:01:05 -03:00:     at async PostgresQueryInterface.select (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+2026-01-09 22:01:05 -03:00:     at async UserConnection.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1140:21)
+2026-01-09 22:01:05 -03:00:     at async UserConnection.findOne (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1240:12) {
+2026-01-09 22:01:05 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 22:01:05 -03:00:   parent: error: column "connection_id" does not exist
+2026-01-09 22:01:05 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 22:01:05 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 22:01:05 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 22:01:05 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 22:01:05 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 22:01:05 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 22:01:05 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 22:01:05 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 22:01:05 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 22:01:05 -03:00:     length: 113,
+2026-01-09 22:01:05 -03:00:     severity: 'ERROR',
+2026-01-09 22:01:05 -03:00:     code: '42703',
+2026-01-09 22:01:05 -03:00:     detail: undefined,
+2026-01-09 22:01:05 -03:00:     hint: undefined,
+2026-01-09 22:01:05 -03:00:     position: '14',
+2026-01-09 22:01:05 -03:00:     internalPosition: undefined,
+2026-01-09 22:01:05 -03:00:     internalQuery: undefined,
+2026-01-09 22:01:05 -03:00:     where: undefined,
+2026-01-09 22:01:05 -03:00:     schema: undefined,
+2026-01-09 22:01:05 -03:00:     table: undefined,
+2026-01-09 22:01:05 -03:00:     column: undefined,
+2026-01-09 22:01:05 -03:00:     dataType: undefined,
+2026-01-09 22:01:05 -03:00:     constraint: undefined,
+2026-01-09 22:01:05 -03:00:     file: 'parse_relation.c',
+2026-01-09 22:01:05 -03:00:     line: '3665',
+2026-01-09 22:01:05 -03:00:     routine: 'errorMissingColumn',
+2026-01-09 22:01:05 -03:00:     sql: `SELECT "id", "connection_id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."user_id" = '00000000-0000-0000-0000-000000000001' AND "UserConnection"."status" = 'active' ORDER BY "createdAt" DESC LIMIT 1;`,
+2026-01-09 22:01:05 -03:00:     parameters: undefined
+2026-01-09 22:01:05 -03:00:   },
+2026-01-09 22:01:05 -03:00:   original: error: column "connection_id" does not exist
+2026-01-09 22:01:05 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 22:01:05 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 22:01:05 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 22:01:05 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 22:01:05 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 22:01:05 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 22:01:05 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 22:01:05 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 22:01:05 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 22:01:05 -03:00:     length: 113,
+2026-01-09 22:01:05 -03:00:     severity: 'ERROR',
+2026-01-09 22:01:05 -03:00:     code: '42703',
+2026-01-09 22:01:05 -03:00:     detail: undefined,
+2026-01-09 22:01:05 -03:00:     hint: undefined,
+2026-01-09 22:01:05 -03:00:     position: '14',
+2026-01-09 22:01:05 -03:00:     internalPosition: undefined,
+2026-01-09 22:01:05 -03:00:     internalQuery: undefined,
+2026-01-09 22:01:05 -03:00:     where: undefined,
+2026-01-09 22:01:05 -03:00:     schema: undefined,
+2026-01-09 22:01:05 -03:00:     table: undefined,
+2026-01-09 22:01:05 -03:00:     column: undefined,
+2026-01-09 22:01:05 -03:00:     dataType: undefined,
+2026-01-09 22:01:05 -03:00:     constraint: undefined,
+2026-01-09 22:01:05 -03:00:     file: 'parse_relation.c',
+2026-01-09 22:01:05 -03:00:     line: '3665',
+2026-01-09 22:01:05 -03:00:     routine: 'errorMissingColumn',
+2026-01-09 22:01:05 -03:00:     sql: `SELECT "id", "connection_id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."user_id" = '00000000-0000-0000-0000-000000000001' AND "UserConnection"."status" = 'active' ORDER BY "createdAt" DESC LIMIT 1;`,
+2026-01-09 22:01:05 -03:00:     parameters: undefined
+2026-01-09 22:01:05 -03:00:   },
+2026-01-09 22:01:05 -03:00:   sql: `SELECT "id", "connection_id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."user_id" = '00000000-0000-0000-0000-000000000001' AND "UserConnection"."status" = 'active' ORDER BY "createdAt" DESC LIMIT 1;`,
+2026-01-09 22:01:05 -03:00:   parameters: {}
+2026-01-09 22:01:05 -03:00: }
+2026-01-09 22:01:24 -03:00: Error creating suggestion: Error
+2026-01-09 22:01:24 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-09 22:01:24 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-09 22:01:24 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-09 22:01:24 -03:00:     at async PostgresQueryInterface.select (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+2026-01-09 22:01:24 -03:00:     at async UserConnection.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1140:21)
+2026-01-09 22:01:24 -03:00:     at async UserConnection.findOne (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1240:12) {
+2026-01-09 22:01:24 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-09 22:01:24 -03:00:   parent: error: column "connection_id" does not exist
+2026-01-09 22:01:24 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 22:01:24 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 22:01:24 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 22:01:24 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 22:01:24 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 22:01:24 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 22:01:24 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 22:01:24 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 22:01:24 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 22:01:24 -03:00:     length: 113,
+2026-01-09 22:01:24 -03:00:     severity: 'ERROR',
+2026-01-09 22:01:24 -03:00:     code: '42703',
+2026-01-09 22:01:24 -03:00:     detail: undefined,
+2026-01-09 22:01:24 -03:00:     hint: undefined,
+2026-01-09 22:01:24 -03:00:     position: '14',
+2026-01-09 22:01:24 -03:00:     internalPosition: undefined,
+2026-01-09 22:01:24 -03:00:     internalQuery: undefined,
+2026-01-09 22:01:24 -03:00:     where: undefined,
+2026-01-09 22:01:24 -03:00:     schema: undefined,
+2026-01-09 22:01:24 -03:00:     table: undefined,
+2026-01-09 22:01:24 -03:00:     column: undefined,
+2026-01-09 22:01:24 -03:00:     dataType: undefined,
+2026-01-09 22:01:24 -03:00:     constraint: undefined,
+2026-01-09 22:01:24 -03:00:     file: 'parse_relation.c',
+2026-01-09 22:01:24 -03:00:     line: '3665',
+2026-01-09 22:01:24 -03:00:     routine: 'errorMissingColumn',
+2026-01-09 22:01:24 -03:00:     sql: `SELECT "id", "connection_id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."user_id" = '00000000-0000-0000-0000-000000000001' AND "UserConnection"."status" = 'active' ORDER BY "createdAt" DESC LIMIT 1;`,
+2026-01-09 22:01:24 -03:00:     parameters: undefined
+2026-01-09 22:01:24 -03:00:   },
+2026-01-09 22:01:24 -03:00:   original: error: column "connection_id" does not exist
+2026-01-09 22:01:24 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-09 22:01:24 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-09 22:01:24 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-09 22:01:24 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-09 22:01:24 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-09 22:01:24 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-09 22:01:24 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-09 22:01:24 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-09 22:01:24 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-09 22:01:24 -03:00:     length: 113,
+2026-01-09 22:01:24 -03:00:     severity: 'ERROR',
+2026-01-09 22:01:24 -03:00:     code: '42703',
+2026-01-09 22:01:24 -03:00:     detail: undefined,
+2026-01-09 22:01:24 -03:00:     hint: undefined,
+2026-01-09 22:01:24 -03:00:     position: '14',
+2026-01-09 22:01:24 -03:00:     internalPosition: undefined,
+2026-01-09 22:01:24 -03:00:     internalQuery: undefined,
+2026-01-09 22:01:24 -03:00:     where: undefined,
+2026-01-09 22:01:24 -03:00:     schema: undefined,
+2026-01-09 22:01:24 -03:00:     table: undefined,
+2026-01-09 22:01:24 -03:00:     column: undefined,
+2026-01-09 22:01:24 -03:00:     dataType: undefined,
+2026-01-09 22:01:24 -03:00:     constraint: undefined,
+2026-01-09 22:01:24 -03:00:     file: 'parse_relation.c',
+2026-01-09 22:01:24 -03:00:     line: '3665',
+2026-01-09 22:01:24 -03:00:     routine: 'errorMissingColumn',
+2026-01-09 22:01:24 -03:00:     sql: `SELECT "id", "connection_id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."user_id" = '00000000-0000-0000-0000-000000000001' AND "UserConnection"."status" = 'active' ORDER BY "createdAt" DESC LIMIT 1;`,
+2026-01-09 22:01:24 -03:00:     parameters: undefined
+2026-01-09 22:01:24 -03:00:   },
+2026-01-09 22:01:24 -03:00:   sql: `SELECT "id", "connection_id", "user_id", "type", "name", "config", "status", "whatsapp_number", "whatsapp_name", "whatsapp_status", "whatsapp_avatar_url", "created_at" AS "createdAt", "updated_at" AS "updatedAt" FROM "user_connections" AS "UserConnection" WHERE "UserConnection"."user_id" = '00000000-0000-0000-0000-000000000001' AND "UserConnection"."status" = 'active' ORDER BY "createdAt" DESC LIMIT 1;`,
+2026-01-09 22:01:24 -03:00:   parameters: {}
+2026-01-09 22:01:24 -03:00: }
+2026-01-09 22:02:38 -03:00: [AI] Connection ID 1 not found in database or not active
+2026-01-09 22:02:39 -03:00: [AI] Connection ID 1 not found in database or not active
+2026-01-09 22:04:21 -03:00: [AI] Failed to auto-respond via conn_1767993884804: 500
+2026-01-09 22:04:32 -03:00: [AI] Failed to auto-respond via conn_1767993884804: 500
+2026-01-09 22:06:31 -03:00: [AI] Failed to auto-respond via conn_1767993884804: 500
+2026-01-09 22:06:51 -03:00: [AI] Failed to auto-respond via conn_1767993884804: 500
+2026-01-09 22:24:49 -03:00: [AI] Failed to auto-respond via conn_1767993884804: 503
+2026-01-09 22:25:09 -03:00: [AI] Failed to auto-respond via conn_1767993884804: 503
