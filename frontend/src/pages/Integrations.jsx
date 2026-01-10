@@ -99,6 +99,7 @@ function Integrations() {
 
       if (response.ok) {
         const data = await response.json();
+        console.log('[DEBUG] QR Response:', { connection_id: data.connection_id, qr_code_length: data.qr_code?.length, qr_code_starts: data.qr_code?.substring(0, 50) });
         setScanningConnectionId(data.connection_id);
         setQrCodeData(data.qr_code);
         setSuccess('QR Code gerado! Escaneie com seu WhatsApp');
@@ -141,6 +142,7 @@ function Integrations() {
 
       if (response.ok) {
         const data = await response.json();
+        console.log('[DEBUG] QR Reconnect Response:', { connection_id: data.connection_id, qr_code_length: data.qr_code?.length });
         setScanningConnectionId(data.connection_id);
         setQrCodeData(data.qr_code);
         setSuccess('QR Code gerado! Escaneie com seu WhatsApp');
@@ -469,7 +471,13 @@ function Integrations() {
                   {qrCodeData ? (
                     <div>
                       <p>Escaneie o código QR com seu WhatsApp:</p>
-                      <img src={qrCodeData} alt="QR Code" style={{ maxWidth: '300px' }} />
+                      <img 
+                        src={qrCodeData} 
+                        alt="QR Code" 
+                        style={{ maxWidth: '300px' }} 
+                        onLoad={() => console.log('[DEBUG] QR image loaded successfully')}
+                        onError={(e) => console.error('[DEBUG] QR image load error:', e)}
+                      />
                     </div>
                   ) : (
                     <div className="loading-spinner">

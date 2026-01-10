@@ -32,20 +32,21 @@ module.exports = {
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
     },
     {
-      name: 'whatsapp-service',
-      cwd: './whatsapp-service',
-      script: './dist/index.js',
+      name: 'whatsmeow',
+      cwd: './whatsmeow-service',
+      script: 'server.js',
       env_file: './.env',
       min_uptime: 5000,
       env: {
         NODE_ENV: 'development',
-        PORT: 4000
+        PORT: 4000,
+        BACKEND_URL: 'http://localhost:3000'
       },
       autorestart: true,
       watch: false,
       max_memory_restart: '8G',
-      error_file: './logs/whatsapp-error.log',
-      out_file: './logs/whatsapp-out.log',
+      error_file: './logs/whatsmeow-error.log',
+      out_file: './logs/whatsmeow-out.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
     },
     {

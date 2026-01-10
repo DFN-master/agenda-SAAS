@@ -1880,3 +1880,42 @@
 2026-01-10 08:51:09 -03:00:     '2026-01-10 11:51:09.143 +00:00'
 2026-01-10 08:51:09 -03:00:   ]
 2026-01-10 08:51:09 -03:00: }
+2026-01-10 08:54:40 -03:00: Falha ao reconectar conexões do WhatsMeow: 404
+2026-01-10 08:54:40 -03:00: URL chamada: http://localhost:4000/whatsapp/connections/reconnect-all
+2026-01-10 08:54:40 -03:00: Resposta do serviço: <!DOCTYPE html>
+2026-01-10 08:54:40 -03:00: <html lang="en">
+2026-01-10 08:54:40 -03:00: <head>
+2026-01-10 08:54:40 -03:00: <meta charset="utf-8">
+2026-01-10 08:54:40 -03:00: <title>Error</title>
+2026-01-10 08:54:40 -03:00: </head>
+2026-01-10 08:54:40 -03:00: <body>
+2026-01-10 08:54:40 -03:00: <pre>Cannot POST /whatsapp/connections/reconnect-all</pre>
+2026-01-10 08:54:40 -03:00: </body>
+2026-01-10 08:54:40 -03:00: </html>
+2026-01-10 08:54:40 -03:00: 
+2026-01-10 09:56:29 -03:00: Falha ao reconectar conexões do WhatsMeow: 404
+2026-01-10 09:56:29 -03:00: URL chamada: http://localhost:4000/whatsapp/connections/reconnect-all
+2026-01-10 09:56:29 -03:00: Resposta do serviço: <!DOCTYPE html>
+2026-01-10 09:56:29 -03:00: <html lang="en">
+2026-01-10 09:56:29 -03:00: <head>
+2026-01-10 09:56:29 -03:00: <meta charset="utf-8">
+2026-01-10 09:56:29 -03:00: <title>Error</title>
+2026-01-10 09:56:29 -03:00: </head>
+2026-01-10 09:56:29 -03:00: <body>
+2026-01-10 09:56:29 -03:00: <pre>Cannot POST /whatsapp/connections/reconnect-all</pre>
+2026-01-10 09:56:29 -03:00: </body>
+2026-01-10 09:56:29 -03:00: </html>
+2026-01-10 09:56:29 -03:00: 
+2026-01-10 10:01:32 -03:00: Falha ao reconectar conexões do WhatsMeow: 404
+2026-01-10 10:01:32 -03:00: URL chamada: http://localhost:4000/whatsapp/connections/reconnect-all
+2026-01-10 10:01:32 -03:00: Resposta do serviço: <!DOCTYPE html>
+2026-01-10 10:01:32 -03:00: <html lang="en">
+2026-01-10 10:01:32 -03:00: <head>
+2026-01-10 10:01:32 -03:00: <meta charset="utf-8">
+2026-01-10 10:01:32 -03:00: <title>Error</title>
+2026-01-10 10:01:32 -03:00: </head>
+2026-01-10 10:01:32 -03:00: <body>
+2026-01-10 10:01:32 -03:00: <pre>Cannot POST /whatsapp/connections/reconnect-all</pre>
+2026-01-10 10:01:32 -03:00: </body>
+2026-01-10 10:01:32 -03:00: </html>
+2026-01-10 10:01:32 -03:00: 

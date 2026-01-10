@@ -15,8 +15,8 @@ exports.default = (sequelize) => {
     }
     UserConnection.init({
         id: {
-            type: sequelize_1.DataTypes.INTEGER,
-            autoIncrement: true,
+            type: sequelize_1.DataTypes.UUID,
+            defaultValue: sequelize_1.DataTypes.UUIDV4,
             primaryKey: true,
         },
         user_id: {

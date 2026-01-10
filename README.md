@@ -41,6 +41,41 @@ Contribuições são bem‑vindas! Siga os passos abaixo:
 4. Push para a branch: `git push origin feature/nome-da-feature`.
 5. Abra um Pull Request.
 
+## Scripts de Gerenciamento
+
+O projeto inclui scripts PowerShell para gerenciar todos os serviços via PM2:
+
+### Iniciar todos os serviços
+```powershell
+.\start-all.ps1
+```
+
+Inicia todos os serviços definidos em `ecosystem.config.js`:
+- **Backend** (porta 3000)
+- **Frontend** (porta 5173)
+- **WhatsApp Service** (porta 4001)
+- **Whatsmeow** (porta 4000)
+- **Cognitive Engine** (porta 5001)
+
+### Parar todos os serviços
+```powershell
+.\stop-all.ps1
+```
+
+### Reiniciar todos os serviços
+```powershell
+.\restart-all.ps1
+```
+
+### Comandos PM2 úteis
+```powershell
+pm2 status                    # Ver status de todos os serviços
+pm2 logs                      # Ver logs de todos os serviços
+pm2 logs agenda-backend       # Ver logs de um serviço específico
+pm2 restart agenda-backend    # Reiniciar um serviço específico
+pm2 monit                     # Monitor em tempo real
+```
+
 ## Licença
 
 MIT License.
