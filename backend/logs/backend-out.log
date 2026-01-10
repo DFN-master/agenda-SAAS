@@ -1002,3 +1002,8 @@
 2026-01-10 07:52:28 -03:00: [AI SUGGESTIONS] Buscando conexão ativa para userId: 00000000-0000-0000-0000-000000000001 companyId: 99999999-9999-9999-9999-999999999999
 2026-01-10 07:52:28 -03:00: [AI SUGGESTIONS] Found active connection: 3
 2026-01-10 07:52:29 -03:00: [AI] Auto-respond ativado para 00000000-0000-0000-0000-000000000001, confiança: 0.94
+2026-01-10 08:38:24 -03:00: Server is running on port 3000
+2026-01-10 08:38:24 -03:00: Database connected successfully
+2026-01-10 08:41:11 -03:00: [WHATSAPP] QR Connection initiated for company: 99999999-9999-9999-9999-999999999999, connection_id: conn_1768045271513_yx45aj8c3
+2026-01-10 08:45:33 -03:00: [WHATSAPP] QR Connection initiated for company: 99999999-9999-9999-9999-999999999999, connection_id: conn_1768045533003_j6eq1b2za
+2026-01-10 08:45:39 -03:00: [WHATSAPP] QR Connection initiated for company: 99999999-9999-9999-9999-999999999999, connection_id: conn_1768045539021_15776z1as

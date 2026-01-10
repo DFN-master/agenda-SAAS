@@ -40,7 +40,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const whatsappRoutes_1 = __importDefault(require("./routes/whatsappRoutes"));
 const app = (0, express_1.default)();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001; // Default 4001, não 4000 (Whatsmeow usa 4000)
 // Middleware
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({

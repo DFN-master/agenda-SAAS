@@ -281,4 +281,71 @@ router.post('/send-cancellation', getCompanyId, async (req: any, res: Response) 
   }
 });
 
+/**
+ * POST /whatsapp/connect
+ * Inicia novo fluxo de autenticação com QR code
+ * Redireciona para o serviço Whatsmeow (porta 4000)
+ * Body: { company_id, user_id? }
+ */
+router.post('/connect', getCompanyId, async (req: any, res: Response) => {
+  try {
+    const companyId = req.companyId as string;
+    const userId = req.userId as string;
+
+    // Chamar serviço Whatsmeow para gerar QR code
+    const whatsmeowUrl = process.env.WHATSMEOW_API || 'http://localhost:4000';
+    const response = await fetch(`${whatsmeowUrl}/api/whatsapp/connect`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ company_id: companyId, user_id: userId }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Whatsmeow API error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    
+    // Registrar a tentativa de conexão no banco de dados (opcional)
+    console.log(`[WHATSAPP] QR Connection initiated for company: ${companyId}, connection_id: ${data.connection_id}`);
+
+    res.json(data);
+  } catch (error) {
+    console.error('[WHATSAPP] Connect error:', error);
+    res.status(500).json({ error: 'Falha ao iniciar conexão com WhatsApp' });
+  }
+});
+
+/**
+ * GET /whatsapp/qr
+ * Verifica o status de uma conexão e retorna o QR code se necessário
+ * Query: connection_id (obrigatório)
+ */
+router.get('/qr', async (req: Request, res: Response) => {
+  try {
+    const { connection_id } = req.query;
+
+    if (!connection_id) {
+      return res.status(400).json({ error: 'connection_id é obrigatório' });
+    }
+
+    // Chamar serviço Whatsmeow para obter status
+    const whatsmeowUrl = process.env.WHATSMEOW_API || 'http://localhost:4000';
+    const response = await fetch(`${whatsmeowUrl}/api/whatsapp/qr?connection_id=${connection_id}`);
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        return res.status(404).json({ error: 'Conexão não encontrada' });
+      }
+      throw new Error(`Whatsmeow API error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('[WHATSAPP] QR error:', error);
+    res.status(500).json({ error: 'Falha ao obter status da conexão' });
+  }
+});
+
 export default router;

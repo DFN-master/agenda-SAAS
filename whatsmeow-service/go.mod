@@ -3,8 +3,9 @@ module whatsmeow-service
 go 1.21
 
 require (
-	github.com/mdp/qrterminal/v3 v3.0.0
-	go.mau.fi/whatsmeow v0.0.0-20240115151713-32c67f64e992
+	github.com/google/uuid v1.5.0
+	github.com/gorilla/websocket v1.5.1
+	go.mau.fi/whatsmeow v0.0.0-20250110000000-000000000000
 	google.golang.org/protobuf v1.31.0
 )
 

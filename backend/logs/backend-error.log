@@ -1271,3 +1271,612 @@
 2026-01-10 07:42:03 -03:00:   parameters: {}
 2026-01-10 07:42:03 -03:00: }
 2026-01-10 07:43:39 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-10 07:49:34 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-10 07:52:29 -03:00: [AI] Failed to auto-respond via conn_1768010155160: 503
+2026-01-10 08:38:24 -03:00: Falha ao reconectar conexões do WhatsMeow: 404
+2026-01-10 08:38:24 -03:00: URL chamada: http://localhost:4000/whatsapp/connections/reconnect-all
+2026-01-10 08:38:24 -03:00: Resposta do serviço: <!DOCTYPE html>
+2026-01-10 08:38:24 -03:00: <html lang="en">
+2026-01-10 08:38:24 -03:00: <head>
+2026-01-10 08:38:24 -03:00: <meta charset="utf-8">
+2026-01-10 08:38:24 -03:00: <title>Error</title>
+2026-01-10 08:38:24 -03:00: </head>
+2026-01-10 08:38:24 -03:00: <body>
+2026-01-10 08:38:24 -03:00: <pre>Cannot POST /whatsapp/connections/reconnect-all</pre>
+2026-01-10 08:38:24 -03:00: </body>
+2026-01-10 08:38:24 -03:00: </html>
+2026-01-10 08:38:24 -03:00: 
+2026-01-10 08:38:56 -03:00: Error
+2026-01-10 08:38:56 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:38:56 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:38:56 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:38:56 -03:00:     at async PostgresQueryInterface.select (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+2026-01-10 08:38:56 -03:00:     at async User.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1140:21)
+2026-01-10 08:38:56 -03:00:     at async User.findOne (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1240:12)
+2026-01-10 08:38:56 -03:00:     at async User.findByPk (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1221:12)
+2026-01-10 08:45:11 -03:00: Error
+2026-01-10 08:45:11 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:45:11 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:45:11 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:45:11 -03:00:     at async PostgresQueryInterface.select (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+2026-01-10 08:45:11 -03:00:     at async User.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1140:21)
+2026-01-10 08:45:11 -03:00:     at async User.findOne (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1240:12)
+2026-01-10 08:45:11 -03:00:     at async User.findByPk (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1221:12)
+2026-01-10 08:45:14 -03:00: Error
+2026-01-10 08:45:14 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:45:14 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:45:14 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:45:14 -03:00:     at async PostgresQueryInterface.select (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+2026-01-10 08:45:14 -03:00:     at async User.findAll (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1140:21)
+2026-01-10 08:45:14 -03:00:     at async User.findOne (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1240:12)
+2026-01-10 08:45:14 -03:00:     at async User.findByPk (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1221:12)
+2026-01-10 08:48:32 -03:00: Error creating connection: Error
+2026-01-10 08:48:32 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:48:32 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:48:32 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:48:32 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-10 08:48:32 -03:00:     at async UserConnection.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-10 08:48:32 -03:00:     at async UserConnection.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-10 08:48:32 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 08:48:32 -03:00:   parent: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:48:32 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:48:32 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:48:32 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:48:32 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:48:32 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:48:32 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:48:32 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:48:32 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:48:32 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:48:32 -03:00:     length: 426,
+2026-01-10 08:48:32 -03:00:     severity: 'ERROR',
+2026-01-10 08:48:32 -03:00:     code: '23502',
+2026-01-10 08:48:32 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045709195_k1fd004i9","status":"authent..., active, 2026-01-10 11:48:32.217+00, 2026-01-10 11:48:32.217+00, null, null, null, null, null).',
+2026-01-10 08:48:32 -03:00:     hint: undefined,
+2026-01-10 08:48:32 -03:00:     position: undefined,
+2026-01-10 08:48:32 -03:00:     internalPosition: undefined,
+2026-01-10 08:48:32 -03:00:     internalQuery: undefined,
+2026-01-10 08:48:32 -03:00:     where: undefined,
+2026-01-10 08:48:32 -03:00:     schema: 'public',
+2026-01-10 08:48:32 -03:00:     table: 'user_connections',
+2026-01-10 08:48:32 -03:00:     column: 'id',
+2026-01-10 08:48:32 -03:00:     dataType: undefined,
+2026-01-10 08:48:32 -03:00:     constraint: undefined,
+2026-01-10 08:48:32 -03:00:     file: 'execMain.c',
+2026-01-10 08:48:32 -03:00:     line: '2023',
+2026-01-10 08:48:32 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:48:32 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:48:32 -03:00:     parameters: [
+2026-01-10 08:48:32 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:48:32 -03:00:       'whatsapp',
+2026-01-10 08:48:32 -03:00:       'teste',
+2026-01-10 08:48:32 -03:00:       '{"connectionId":"conn_1768045709195_k1fd004i9","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:48:32 -03:00:       'active',
+2026-01-10 08:48:32 -03:00:       '2026-01-10 11:48:32.217 +00:00',
+2026-01-10 08:48:32 -03:00:       '2026-01-10 11:48:32.217 +00:00'
+2026-01-10 08:48:32 -03:00:     ]
+2026-01-10 08:48:32 -03:00:   },
+2026-01-10 08:48:32 -03:00:   original: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:48:32 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:48:32 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:48:32 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:48:32 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:48:32 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:48:32 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:48:32 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:48:32 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:48:32 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:48:32 -03:00:     length: 426,
+2026-01-10 08:48:32 -03:00:     severity: 'ERROR',
+2026-01-10 08:48:32 -03:00:     code: '23502',
+2026-01-10 08:48:32 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045709195_k1fd004i9","status":"authent..., active, 2026-01-10 11:48:32.217+00, 2026-01-10 11:48:32.217+00, null, null, null, null, null).',
+2026-01-10 08:48:32 -03:00:     hint: undefined,
+2026-01-10 08:48:32 -03:00:     position: undefined,
+2026-01-10 08:48:32 -03:00:     internalPosition: undefined,
+2026-01-10 08:48:32 -03:00:     internalQuery: undefined,
+2026-01-10 08:48:32 -03:00:     where: undefined,
+2026-01-10 08:48:32 -03:00:     schema: 'public',
+2026-01-10 08:48:32 -03:00:     table: 'user_connections',
+2026-01-10 08:48:32 -03:00:     column: 'id',
+2026-01-10 08:48:32 -03:00:     dataType: undefined,
+2026-01-10 08:48:32 -03:00:     constraint: undefined,
+2026-01-10 08:48:32 -03:00:     file: 'execMain.c',
+2026-01-10 08:48:32 -03:00:     line: '2023',
+2026-01-10 08:48:32 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:48:32 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:48:32 -03:00:     parameters: [
+2026-01-10 08:48:32 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:48:32 -03:00:       'whatsapp',
+2026-01-10 08:48:32 -03:00:       'teste',
+2026-01-10 08:48:32 -03:00:       '{"connectionId":"conn_1768045709195_k1fd004i9","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:48:32 -03:00:       'active',
+2026-01-10 08:48:32 -03:00:       '2026-01-10 11:48:32.217 +00:00',
+2026-01-10 08:48:32 -03:00:       '2026-01-10 11:48:32.217 +00:00'
+2026-01-10 08:48:32 -03:00:     ]
+2026-01-10 08:48:32 -03:00:   },
+2026-01-10 08:48:32 -03:00:   sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:48:32 -03:00:   parameters: [
+2026-01-10 08:48:32 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:48:32 -03:00:     'whatsapp',
+2026-01-10 08:48:32 -03:00:     'teste',
+2026-01-10 08:48:32 -03:00:     '{"connectionId":"conn_1768045709195_k1fd004i9","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:48:32 -03:00:     'active',
+2026-01-10 08:48:32 -03:00:     '2026-01-10 11:48:32.217 +00:00',
+2026-01-10 08:48:32 -03:00:     '2026-01-10 11:48:32.217 +00:00'
+2026-01-10 08:48:32 -03:00:   ]
+2026-01-10 08:48:32 -03:00: }
+2026-01-10 08:48:49 -03:00: Error creating connection: Error
+2026-01-10 08:48:49 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:48:49 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:48:49 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:48:49 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-10 08:48:49 -03:00:     at async UserConnection.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-10 08:48:49 -03:00:     at async UserConnection.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-10 08:48:49 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 08:48:49 -03:00:   parent: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:48:49 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:48:49 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:48:49 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:48:49 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:48:49 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:48:49 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:48:49 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:48:49 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:48:49 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:48:49 -03:00:     length: 426,
+2026-01-10 08:48:49 -03:00:     severity: 'ERROR',
+2026-01-10 08:48:49 -03:00:     code: '23502',
+2026-01-10 08:48:49 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045726222_tx1mpvpp3","status":"authent..., active, 2026-01-10 11:48:49.252+00, 2026-01-10 11:48:49.252+00, null, null, null, null, null).',
+2026-01-10 08:48:49 -03:00:     hint: undefined,
+2026-01-10 08:48:49 -03:00:     position: undefined,
+2026-01-10 08:48:49 -03:00:     internalPosition: undefined,
+2026-01-10 08:48:49 -03:00:     internalQuery: undefined,
+2026-01-10 08:48:49 -03:00:     where: undefined,
+2026-01-10 08:48:49 -03:00:     schema: 'public',
+2026-01-10 08:48:49 -03:00:     table: 'user_connections',
+2026-01-10 08:48:49 -03:00:     column: 'id',
+2026-01-10 08:48:49 -03:00:     dataType: undefined,
+2026-01-10 08:48:49 -03:00:     constraint: undefined,
+2026-01-10 08:48:49 -03:00:     file: 'execMain.c',
+2026-01-10 08:48:49 -03:00:     line: '2023',
+2026-01-10 08:48:49 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:48:49 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:48:49 -03:00:     parameters: [
+2026-01-10 08:48:49 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:48:49 -03:00:       'whatsapp',
+2026-01-10 08:48:49 -03:00:       'teste',
+2026-01-10 08:48:49 -03:00:       '{"connectionId":"conn_1768045726222_tx1mpvpp3","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:48:49 -03:00:       'active',
+2026-01-10 08:48:49 -03:00:       '2026-01-10 11:48:49.252 +00:00',
+2026-01-10 08:48:49 -03:00:       '2026-01-10 11:48:49.252 +00:00'
+2026-01-10 08:48:49 -03:00:     ]
+2026-01-10 08:48:49 -03:00:   },
+2026-01-10 08:48:49 -03:00:   original: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:48:49 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:48:49 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:48:49 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:48:49 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:48:49 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:48:49 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:48:49 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:48:49 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:48:49 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:48:49 -03:00:     length: 426,
+2026-01-10 08:48:49 -03:00:     severity: 'ERROR',
+2026-01-10 08:48:49 -03:00:     code: '23502',
+2026-01-10 08:48:49 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045726222_tx1mpvpp3","status":"authent..., active, 2026-01-10 11:48:49.252+00, 2026-01-10 11:48:49.252+00, null, null, null, null, null).',
+2026-01-10 08:48:49 -03:00:     hint: undefined,
+2026-01-10 08:48:49 -03:00:     position: undefined,
+2026-01-10 08:48:49 -03:00:     internalPosition: undefined,
+2026-01-10 08:48:49 -03:00:     internalQuery: undefined,
+2026-01-10 08:48:49 -03:00:     where: undefined,
+2026-01-10 08:48:49 -03:00:     schema: 'public',
+2026-01-10 08:48:49 -03:00:     table: 'user_connections',
+2026-01-10 08:48:49 -03:00:     column: 'id',
+2026-01-10 08:48:49 -03:00:     dataType: undefined,
+2026-01-10 08:48:49 -03:00:     constraint: undefined,
+2026-01-10 08:48:49 -03:00:     file: 'execMain.c',
+2026-01-10 08:48:49 -03:00:     line: '2023',
+2026-01-10 08:48:49 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:48:49 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:48:49 -03:00:     parameters: [
+2026-01-10 08:48:49 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:48:49 -03:00:       'whatsapp',
+2026-01-10 08:48:49 -03:00:       'teste',
+2026-01-10 08:48:49 -03:00:       '{"connectionId":"conn_1768045726222_tx1mpvpp3","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:48:49 -03:00:       'active',
+2026-01-10 08:48:49 -03:00:       '2026-01-10 11:48:49.252 +00:00',
+2026-01-10 08:48:49 -03:00:       '2026-01-10 11:48:49.252 +00:00'
+2026-01-10 08:48:49 -03:00:     ]
+2026-01-10 08:48:49 -03:00:   },
+2026-01-10 08:48:49 -03:00:   sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:48:49 -03:00:   parameters: [
+2026-01-10 08:48:49 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:48:49 -03:00:     'whatsapp',
+2026-01-10 08:48:49 -03:00:     'teste',
+2026-01-10 08:48:49 -03:00:     '{"connectionId":"conn_1768045726222_tx1mpvpp3","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:48:49 -03:00:     'active',
+2026-01-10 08:48:49 -03:00:     '2026-01-10 11:48:49.252 +00:00',
+2026-01-10 08:48:49 -03:00:     '2026-01-10 11:48:49.252 +00:00'
+2026-01-10 08:48:49 -03:00:   ]
+2026-01-10 08:48:49 -03:00: }
+2026-01-10 08:49:01 -03:00: Error creating connection: Error
+2026-01-10 08:49:01 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:49:01 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:49:01 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:49:01 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-10 08:49:01 -03:00:     at async UserConnection.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-10 08:49:01 -03:00:     at async UserConnection.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-10 08:49:01 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 08:49:01 -03:00:   parent: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:49:01 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:49:01 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:49:01 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:49:01 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:49:01 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:49:01 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:49:01 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:49:01 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:49:01 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:49:01 -03:00:     length: 426,
+2026-01-10 08:49:01 -03:00:     severity: 'ERROR',
+2026-01-10 08:49:01 -03:00:     code: '23502',
+2026-01-10 08:49:01 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045738702_1n00ea4a4","status":"authent..., active, 2026-01-10 11:49:01.781+00, 2026-01-10 11:49:01.781+00, null, null, null, null, null).',
+2026-01-10 08:49:01 -03:00:     hint: undefined,
+2026-01-10 08:49:01 -03:00:     position: undefined,
+2026-01-10 08:49:01 -03:00:     internalPosition: undefined,
+2026-01-10 08:49:01 -03:00:     internalQuery: undefined,
+2026-01-10 08:49:01 -03:00:     where: undefined,
+2026-01-10 08:49:01 -03:00:     schema: 'public',
+2026-01-10 08:49:01 -03:00:     table: 'user_connections',
+2026-01-10 08:49:01 -03:00:     column: 'id',
+2026-01-10 08:49:01 -03:00:     dataType: undefined,
+2026-01-10 08:49:01 -03:00:     constraint: undefined,
+2026-01-10 08:49:01 -03:00:     file: 'execMain.c',
+2026-01-10 08:49:01 -03:00:     line: '2023',
+2026-01-10 08:49:01 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:49:01 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:49:01 -03:00:     parameters: [
+2026-01-10 08:49:01 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:49:01 -03:00:       'whatsapp',
+2026-01-10 08:49:01 -03:00:       'teste',
+2026-01-10 08:49:01 -03:00:       '{"connectionId":"conn_1768045738702_1n00ea4a4","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:49:01 -03:00:       'active',
+2026-01-10 08:49:01 -03:00:       '2026-01-10 11:49:01.781 +00:00',
+2026-01-10 08:49:01 -03:00:       '2026-01-10 11:49:01.781 +00:00'
+2026-01-10 08:49:01 -03:00:     ]
+2026-01-10 08:49:01 -03:00:   },
+2026-01-10 08:49:01 -03:00:   original: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:49:01 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:49:01 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:49:01 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:49:01 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:49:01 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:49:01 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:49:01 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:49:01 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:49:01 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:49:01 -03:00:     length: 426,
+2026-01-10 08:49:01 -03:00:     severity: 'ERROR',
+2026-01-10 08:49:01 -03:00:     code: '23502',
+2026-01-10 08:49:01 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045738702_1n00ea4a4","status":"authent..., active, 2026-01-10 11:49:01.781+00, 2026-01-10 11:49:01.781+00, null, null, null, null, null).',
+2026-01-10 08:49:01 -03:00:     hint: undefined,
+2026-01-10 08:49:01 -03:00:     position: undefined,
+2026-01-10 08:49:01 -03:00:     internalPosition: undefined,
+2026-01-10 08:49:01 -03:00:     internalQuery: undefined,
+2026-01-10 08:49:01 -03:00:     where: undefined,
+2026-01-10 08:49:01 -03:00:     schema: 'public',
+2026-01-10 08:49:01 -03:00:     table: 'user_connections',
+2026-01-10 08:49:01 -03:00:     column: 'id',
+2026-01-10 08:49:01 -03:00:     dataType: undefined,
+2026-01-10 08:49:01 -03:00:     constraint: undefined,
+2026-01-10 08:49:01 -03:00:     file: 'execMain.c',
+2026-01-10 08:49:01 -03:00:     line: '2023',
+2026-01-10 08:49:01 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:49:01 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:49:01 -03:00:     parameters: [
+2026-01-10 08:49:01 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:49:01 -03:00:       'whatsapp',
+2026-01-10 08:49:01 -03:00:       'teste',
+2026-01-10 08:49:01 -03:00:       '{"connectionId":"conn_1768045738702_1n00ea4a4","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:49:01 -03:00:       'active',
+2026-01-10 08:49:01 -03:00:       '2026-01-10 11:49:01.781 +00:00',
+2026-01-10 08:49:01 -03:00:       '2026-01-10 11:49:01.781 +00:00'
+2026-01-10 08:49:01 -03:00:     ]
+2026-01-10 08:49:01 -03:00:   },
+2026-01-10 08:49:01 -03:00:   sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:49:01 -03:00:   parameters: [
+2026-01-10 08:49:01 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:49:01 -03:00:     'whatsapp',
+2026-01-10 08:49:01 -03:00:     'teste',
+2026-01-10 08:49:01 -03:00:     '{"connectionId":"conn_1768045738702_1n00ea4a4","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:49:01 -03:00:     'active',
+2026-01-10 08:49:01 -03:00:     '2026-01-10 11:49:01.781 +00:00',
+2026-01-10 08:49:01 -03:00:     '2026-01-10 11:49:01.781 +00:00'
+2026-01-10 08:49:01 -03:00:   ]
+2026-01-10 08:49:01 -03:00: }
+2026-01-10 08:50:20 -03:00: Error creating connection: Error
+2026-01-10 08:50:20 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:50:20 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:50:20 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:50:20 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-10 08:50:20 -03:00:     at async UserConnection.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-10 08:50:20 -03:00:     at async UserConnection.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-10 08:50:20 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 08:50:20 -03:00:   parent: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:50:20 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:50:20 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:50:20 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:50:20 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:50:20 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:50:20 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:50:20 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:50:20 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:50:20 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:50:20 -03:00:     length: 422,
+2026-01-10 08:50:20 -03:00:     severity: 'ERROR',
+2026-01-10 08:50:20 -03:00:     code: '23502',
+2026-01-10 08:50:20 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045817681_9epbqmghd","status":"authent..., active, 2026-01-10 11:50:20.7+00, 2026-01-10 11:50:20.7+00, null, null, null, null, null).',
+2026-01-10 08:50:20 -03:00:     hint: undefined,
+2026-01-10 08:50:20 -03:00:     position: undefined,
+2026-01-10 08:50:20 -03:00:     internalPosition: undefined,
+2026-01-10 08:50:20 -03:00:     internalQuery: undefined,
+2026-01-10 08:50:20 -03:00:     where: undefined,
+2026-01-10 08:50:20 -03:00:     schema: 'public',
+2026-01-10 08:50:20 -03:00:     table: 'user_connections',
+2026-01-10 08:50:20 -03:00:     column: 'id',
+2026-01-10 08:50:20 -03:00:     dataType: undefined,
+2026-01-10 08:50:20 -03:00:     constraint: undefined,
+2026-01-10 08:50:20 -03:00:     file: 'execMain.c',
+2026-01-10 08:50:20 -03:00:     line: '2023',
+2026-01-10 08:50:20 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:50:20 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:50:20 -03:00:     parameters: [
+2026-01-10 08:50:20 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:50:20 -03:00:       'whatsapp',
+2026-01-10 08:50:20 -03:00:       'teste',
+2026-01-10 08:50:20 -03:00:       '{"connectionId":"conn_1768045817681_9epbqmghd","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:50:20 -03:00:       'active',
+2026-01-10 08:50:20 -03:00:       '2026-01-10 11:50:20.700 +00:00',
+2026-01-10 08:50:20 -03:00:       '2026-01-10 11:50:20.700 +00:00'
+2026-01-10 08:50:20 -03:00:     ]
+2026-01-10 08:50:20 -03:00:   },
+2026-01-10 08:50:20 -03:00:   original: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:50:20 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:50:20 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:50:20 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:50:20 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:50:20 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:50:20 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:50:20 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:50:20 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:50:20 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:50:20 -03:00:     length: 422,
+2026-01-10 08:50:20 -03:00:     severity: 'ERROR',
+2026-01-10 08:50:20 -03:00:     code: '23502',
+2026-01-10 08:50:20 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045817681_9epbqmghd","status":"authent..., active, 2026-01-10 11:50:20.7+00, 2026-01-10 11:50:20.7+00, null, null, null, null, null).',
+2026-01-10 08:50:20 -03:00:     hint: undefined,
+2026-01-10 08:50:20 -03:00:     position: undefined,
+2026-01-10 08:50:20 -03:00:     internalPosition: undefined,
+2026-01-10 08:50:20 -03:00:     internalQuery: undefined,
+2026-01-10 08:50:20 -03:00:     where: undefined,
+2026-01-10 08:50:20 -03:00:     schema: 'public',
+2026-01-10 08:50:20 -03:00:     table: 'user_connections',
+2026-01-10 08:50:20 -03:00:     column: 'id',
+2026-01-10 08:50:20 -03:00:     dataType: undefined,
+2026-01-10 08:50:20 -03:00:     constraint: undefined,
+2026-01-10 08:50:20 -03:00:     file: 'execMain.c',
+2026-01-10 08:50:20 -03:00:     line: '2023',
+2026-01-10 08:50:20 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:50:20 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:50:20 -03:00:     parameters: [
+2026-01-10 08:50:20 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:50:20 -03:00:       'whatsapp',
+2026-01-10 08:50:20 -03:00:       'teste',
+2026-01-10 08:50:20 -03:00:       '{"connectionId":"conn_1768045817681_9epbqmghd","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:50:20 -03:00:       'active',
+2026-01-10 08:50:20 -03:00:       '2026-01-10 11:50:20.700 +00:00',
+2026-01-10 08:50:20 -03:00:       '2026-01-10 11:50:20.700 +00:00'
+2026-01-10 08:50:20 -03:00:     ]
+2026-01-10 08:50:20 -03:00:   },
+2026-01-10 08:50:20 -03:00:   sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:50:20 -03:00:   parameters: [
+2026-01-10 08:50:20 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:50:20 -03:00:     'whatsapp',
+2026-01-10 08:50:20 -03:00:     'teste',
+2026-01-10 08:50:20 -03:00:     '{"connectionId":"conn_1768045817681_9epbqmghd","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:50:20 -03:00:     'active',
+2026-01-10 08:50:20 -03:00:     '2026-01-10 11:50:20.700 +00:00',
+2026-01-10 08:50:20 -03:00:     '2026-01-10 11:50:20.700 +00:00'
+2026-01-10 08:50:20 -03:00:   ]
+2026-01-10 08:50:20 -03:00: }
+2026-01-10 08:50:35 -03:00: Error creating connection: Error
+2026-01-10 08:50:35 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:50:35 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:50:35 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:50:35 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-10 08:50:35 -03:00:     at async UserConnection.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-10 08:50:35 -03:00:     at async UserConnection.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-10 08:50:35 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 08:50:35 -03:00:   parent: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:50:35 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:50:35 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:50:35 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:50:35 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:50:35 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:50:35 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:50:35 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:50:35 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:50:35 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:50:35 -03:00:     length: 426,
+2026-01-10 08:50:35 -03:00:     severity: 'ERROR',
+2026-01-10 08:50:35 -03:00:     code: '23502',
+2026-01-10 08:50:35 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste12, {"connectionId":"conn_1768045832551_47men1k13","status":"authent..., active, 2026-01-10 11:50:35.59+00, 2026-01-10 11:50:35.59+00, null, null, null, null, null).',
+2026-01-10 08:50:35 -03:00:     hint: undefined,
+2026-01-10 08:50:35 -03:00:     position: undefined,
+2026-01-10 08:50:35 -03:00:     internalPosition: undefined,
+2026-01-10 08:50:35 -03:00:     internalQuery: undefined,
+2026-01-10 08:50:35 -03:00:     where: undefined,
+2026-01-10 08:50:35 -03:00:     schema: 'public',
+2026-01-10 08:50:35 -03:00:     table: 'user_connections',
+2026-01-10 08:50:35 -03:00:     column: 'id',
+2026-01-10 08:50:35 -03:00:     dataType: undefined,
+2026-01-10 08:50:35 -03:00:     constraint: undefined,
+2026-01-10 08:50:35 -03:00:     file: 'execMain.c',
+2026-01-10 08:50:35 -03:00:     line: '2023',
+2026-01-10 08:50:35 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:50:35 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:50:35 -03:00:     parameters: [
+2026-01-10 08:50:35 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:50:35 -03:00:       'whatsapp',
+2026-01-10 08:50:35 -03:00:       'teste12',
+2026-01-10 08:50:35 -03:00:       '{"connectionId":"conn_1768045832551_47men1k13","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:50:35 -03:00:       'active',
+2026-01-10 08:50:35 -03:00:       '2026-01-10 11:50:35.590 +00:00',
+2026-01-10 08:50:35 -03:00:       '2026-01-10 11:50:35.590 +00:00'
+2026-01-10 08:50:35 -03:00:     ]
+2026-01-10 08:50:35 -03:00:   },
+2026-01-10 08:50:35 -03:00:   original: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:50:35 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:50:35 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:50:35 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:50:35 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:50:35 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:50:35 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:50:35 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:50:35 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:50:35 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:50:35 -03:00:     length: 426,
+2026-01-10 08:50:35 -03:00:     severity: 'ERROR',
+2026-01-10 08:50:35 -03:00:     code: '23502',
+2026-01-10 08:50:35 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste12, {"connectionId":"conn_1768045832551_47men1k13","status":"authent..., active, 2026-01-10 11:50:35.59+00, 2026-01-10 11:50:35.59+00, null, null, null, null, null).',
+2026-01-10 08:50:35 -03:00:     hint: undefined,
+2026-01-10 08:50:35 -03:00:     position: undefined,
+2026-01-10 08:50:35 -03:00:     internalPosition: undefined,
+2026-01-10 08:50:35 -03:00:     internalQuery: undefined,
+2026-01-10 08:50:35 -03:00:     where: undefined,
+2026-01-10 08:50:35 -03:00:     schema: 'public',
+2026-01-10 08:50:35 -03:00:     table: 'user_connections',
+2026-01-10 08:50:35 -03:00:     column: 'id',
+2026-01-10 08:50:35 -03:00:     dataType: undefined,
+2026-01-10 08:50:35 -03:00:     constraint: undefined,
+2026-01-10 08:50:35 -03:00:     file: 'execMain.c',
+2026-01-10 08:50:35 -03:00:     line: '2023',
+2026-01-10 08:50:35 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:50:35 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:50:35 -03:00:     parameters: [
+2026-01-10 08:50:35 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:50:35 -03:00:       'whatsapp',
+2026-01-10 08:50:35 -03:00:       'teste12',
+2026-01-10 08:50:35 -03:00:       '{"connectionId":"conn_1768045832551_47men1k13","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:50:35 -03:00:       'active',
+2026-01-10 08:50:35 -03:00:       '2026-01-10 11:50:35.590 +00:00',
+2026-01-10 08:50:35 -03:00:       '2026-01-10 11:50:35.590 +00:00'
+2026-01-10 08:50:35 -03:00:     ]
+2026-01-10 08:50:35 -03:00:   },
+2026-01-10 08:50:35 -03:00:   sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:50:35 -03:00:   parameters: [
+2026-01-10 08:50:35 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:50:35 -03:00:     'whatsapp',
+2026-01-10 08:50:35 -03:00:     'teste12',
+2026-01-10 08:50:35 -03:00:     '{"connectionId":"conn_1768045832551_47men1k13","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:50:35 -03:00:     'active',
+2026-01-10 08:50:35 -03:00:     '2026-01-10 11:50:35.590 +00:00',
+2026-01-10 08:50:35 -03:00:     '2026-01-10 11:50:35.590 +00:00'
+2026-01-10 08:50:35 -03:00:   ]
+2026-01-10 08:50:35 -03:00: }
+2026-01-10 08:51:09 -03:00: Error creating connection: Error
+2026-01-10 08:51:09 -03:00:     at Query.run (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+2026-01-10 08:51:09 -03:00:     at D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\sequelize.js:315:28
+2026-01-10 08:51:09 -03:00:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-10 08:51:09 -03:00:     at async PostgresQueryInterface.insert (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+2026-01-10 08:51:09 -03:00:     at async UserConnection.save (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:2490:35)
+2026-01-10 08:51:09 -03:00:     at async UserConnection.create (D:\Agenda\agenda-SAAS\backend\node_modules\sequelize\lib\model.js:1362:12) {
+2026-01-10 08:51:09 -03:00:   name: 'SequelizeDatabaseError',
+2026-01-10 08:51:09 -03:00:   parent: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:51:09 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:51:09 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:51:09 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:51:09 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:51:09 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:51:09 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:51:09 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:51:09 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:51:09 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:51:09 -03:00:     length: 426,
+2026-01-10 08:51:09 -03:00:     severity: 'ERROR',
+2026-01-10 08:51:09 -03:00:     code: '23502',
+2026-01-10 08:51:09 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045866079_xwbapwdl5","status":"authent..., active, 2026-01-10 11:51:09.143+00, 2026-01-10 11:51:09.143+00, null, null, null, null, null).',
+2026-01-10 08:51:09 -03:00:     hint: undefined,
+2026-01-10 08:51:09 -03:00:     position: undefined,
+2026-01-10 08:51:09 -03:00:     internalPosition: undefined,
+2026-01-10 08:51:09 -03:00:     internalQuery: undefined,
+2026-01-10 08:51:09 -03:00:     where: undefined,
+2026-01-10 08:51:09 -03:00:     schema: 'public',
+2026-01-10 08:51:09 -03:00:     table: 'user_connections',
+2026-01-10 08:51:09 -03:00:     column: 'id',
+2026-01-10 08:51:09 -03:00:     dataType: undefined,
+2026-01-10 08:51:09 -03:00:     constraint: undefined,
+2026-01-10 08:51:09 -03:00:     file: 'execMain.c',
+2026-01-10 08:51:09 -03:00:     line: '2023',
+2026-01-10 08:51:09 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:51:09 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:51:09 -03:00:     parameters: [
+2026-01-10 08:51:09 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:51:09 -03:00:       'whatsapp',
+2026-01-10 08:51:09 -03:00:       'teste',
+2026-01-10 08:51:09 -03:00:       '{"connectionId":"conn_1768045866079_xwbapwdl5","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:51:09 -03:00:       'active',
+2026-01-10 08:51:09 -03:00:       '2026-01-10 11:51:09.143 +00:00',
+2026-01-10 08:51:09 -03:00:       '2026-01-10 11:51:09.143 +00:00'
+2026-01-10 08:51:09 -03:00:     ]
+2026-01-10 08:51:09 -03:00:   },
+2026-01-10 08:51:09 -03:00:   original: error: null value in column "id" of relation "user_connections" violates not-null constraint
+2026-01-10 08:51:09 -03:00:       at Parser.parseErrorMessage (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:285:98)
+2026-01-10 08:51:09 -03:00:       at Parser.handlePacket (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:122:29)
+2026-01-10 08:51:09 -03:00:       at Parser.parse (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\parser.js:35:38)
+2026-01-10 08:51:09 -03:00:       at Socket.<anonymous> (D:\Agenda\agenda-SAAS\backend\node_modules\pg-protocol\dist\index.js:11:42)
+2026-01-10 08:51:09 -03:00:       at Socket.emit (node:events:508:28)
+2026-01-10 08:51:09 -03:00:       at addChunk (node:internal/streams/readable:559:12)
+2026-01-10 08:51:09 -03:00:       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+2026-01-10 08:51:09 -03:00:       at Readable.push (node:internal/streams/readable:390:5)
+2026-01-10 08:51:09 -03:00:       at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+2026-01-10 08:51:09 -03:00:     length: 426,
+2026-01-10 08:51:09 -03:00:     severity: 'ERROR',
+2026-01-10 08:51:09 -03:00:     code: '23502',
+2026-01-10 08:51:09 -03:00:     detail: 'Failing row contains (null, 00000000-0000-0000-0000-000000000001, whatsapp, teste, {"connectionId":"conn_1768045866079_xwbapwdl5","status":"authent..., active, 2026-01-10 11:51:09.143+00, 2026-01-10 11:51:09.143+00, null, null, null, null, null).',
+2026-01-10 08:51:09 -03:00:     hint: undefined,
+2026-01-10 08:51:09 -03:00:     position: undefined,
+2026-01-10 08:51:09 -03:00:     internalPosition: undefined,
+2026-01-10 08:51:09 -03:00:     internalQuery: undefined,
+2026-01-10 08:51:09 -03:00:     where: undefined,
+2026-01-10 08:51:09 -03:00:     schema: 'public',
+2026-01-10 08:51:09 -03:00:     table: 'user_connections',
+2026-01-10 08:51:09 -03:00:     column: 'id',
+2026-01-10 08:51:09 -03:00:     dataType: undefined,
+2026-01-10 08:51:09 -03:00:     constraint: undefined,
+2026-01-10 08:51:09 -03:00:     file: 'execMain.c',
+2026-01-10 08:51:09 -03:00:     line: '2023',
+2026-01-10 08:51:09 -03:00:     routine: 'ExecConstraints',
+2026-01-10 08:51:09 -03:00:     sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:51:09 -03:00:     parameters: [
+2026-01-10 08:51:09 -03:00:       '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:51:09 -03:00:       'whatsapp',
+2026-01-10 08:51:09 -03:00:       'teste',
+2026-01-10 08:51:09 -03:00:       '{"connectionId":"conn_1768045866079_xwbapwdl5","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:51:09 -03:00:       'active',
+2026-01-10 08:51:09 -03:00:       '2026-01-10 11:51:09.143 +00:00',
+2026-01-10 08:51:09 -03:00:       '2026-01-10 11:51:09.143 +00:00'
+2026-01-10 08:51:09 -03:00:     ]
+2026-01-10 08:51:09 -03:00:   },
+2026-01-10 08:51:09 -03:00:   sql: 'INSERT INTO "user_connections" ("id","user_id","type","name","config","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7) RETURNING "id","user_id","type","name","config","status","whatsapp_number","whatsapp_name","whatsapp_status","whatsapp_avatar_url","created_at","updated_at";',
+2026-01-10 08:51:09 -03:00:   parameters: [
+2026-01-10 08:51:09 -03:00:     '00000000-0000-0000-0000-000000000001',
+2026-01-10 08:51:09 -03:00:     'whatsapp',
+2026-01-10 08:51:09 -03:00:     'teste',
+2026-01-10 08:51:09 -03:00:     '{"connectionId":"conn_1768045866079_xwbapwdl5","status":"authenticated","phoneNumber":""}',
+2026-01-10 08:51:09 -03:00:     'active',
+2026-01-10 08:51:09 -03:00:     '2026-01-10 11:51:09.143 +00:00',
+2026-01-10 08:51:09 -03:00:     '2026-01-10 11:51:09.143 +00:00'
+2026-01-10 08:51:09 -03:00:   ]
+2026-01-10 08:51:09 -03:00: }

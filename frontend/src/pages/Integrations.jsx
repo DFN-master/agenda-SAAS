@@ -85,24 +85,22 @@ function Integrations() {
         return;
       }
 
-      // Criar conexão no microservice WhatsApp
-      const response = await fetch('http://localhost:4000/whatsapp/connections', {
+      // Chamar Whatsmeow em http://localhost:4000 (não o microservice)
+      const response = await fetch('http://localhost:4000/api/whatsapp/connect', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          userId: user.id,
-          phoneNumber: formData.phone_number || '',
-          companyId, // Para webhook da IA
-          userToken: token, // Para autenticação no backend
+          company_id: companyId,
+          user_id: user.id,
         }),
       });
 
       if (response.ok) {
         const data = await response.json();
-        setScanningConnectionId(data.connectionId);
-        setQrCodeData(null);
+        setScanningConnectionId(data.connection_id);
+        setQrCodeData(data.qr_code);
         setSuccess('QR Code gerado! Escaneie com seu WhatsApp');
       } else {
         const data = await response.json();
@@ -129,24 +127,22 @@ function Integrations() {
         return;
       }
 
-      // Criar nova conexão no microservice WhatsApp
-      const response = await fetch('http://localhost:4000/whatsapp/connections', {
+      // Criar nova conexão no Whatsmeow
+      const response = await fetch('http://localhost:4000/api/whatsapp/connect', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          userId: user.id,
-          phoneNumber: '',
-          companyId,
-          userToken: token,
+          company_id: companyId,
+          user_id: user.id,
         }),
       });
 
       if (response.ok) {
         const data = await response.json();
-        setScanningConnectionId(data.connectionId);
-        setQrCodeData(null);
+        setScanningConnectionId(data.connection_id);
+        setQrCodeData(data.qr_code);
         setSuccess('QR Code gerado! Escaneie com seu WhatsApp');
       } else {
         const data = await response.json();
@@ -167,9 +163,11 @@ function Integrations() {
       setDisconnectingId(connectionId);
       console.log(`[DISCONNECT] Desconectando ${connectionId}...`);
       
-      // Chamar microservice para desconectar
-      const response = await fetch(`http://localhost:4000/whatsapp/connections/${connectionId}`, {
-        method: 'DELETE',
+      // Chamar Whatsmeow para desconectar
+      const response = await fetch(`http://localhost:4000/api/whatsapp/disconnect`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ connection_id: connectionId }),
       });
 
       console.log(`[DISCONNECT] Response status: ${response.status}`);
@@ -205,7 +203,7 @@ function Integrations() {
 
   const pollQRCode = async (connectionId) => {
     try {
-      const response = await fetch(`http://localhost:4000/whatsapp/connections/${connectionId}/qr`, {
+      const response = await fetch(`http://localhost:4000/api/whatsapp/qr?connection_id=${connectionId}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
         },
@@ -217,12 +215,12 @@ function Integrations() {
         console.log(`[POLLING] Status: ${data.status}, ConnectionId: ${connectionId}`);
         
         // Mostrar QR code se disponível
-        if (data.qrCode && data.status === 'scanning') {
-          setQrCodeData(data.qrCode);
+        if (data.qr_code && data.status === 'waiting_qr') {
+          setQrCodeData(data.qr_code);
         }
 
         // Se conectado, parar polling e salvar
-        if (data.status === 'connected') {
+        if (data.status === 'authenticated') {
           console.log(`✅ [POLLING] WhatsApp CONECTADO! Salvando conexão...`);
           setScanningConnectionId(null);
           setSuccess('WhatsApp conectado com sucesso! Salvando...');

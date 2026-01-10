@@ -3,7 +3,7 @@ import cors from 'cors';
 import whatsappRoutes from './routes/whatsappRoutes';
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;  // Default 4001, não 4000 (Whatsmeow usa 4000)
 
 // Middleware
 app.use(express.json());

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import WhatsAppQRModal from './WhatsAppQRModal';
 
 function WhatsAppIntegration() {
   const [connections, setConnections] = useState([]);
@@ -7,6 +8,7 @@ function WhatsAppIntegration() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showForm, setShowForm] = useState(false);
+  const [showQRModal, setShowQRModal] = useState(false);
   const [editing, setEditing] = useState(null);
   const [formData, setFormData] = useState({ name: '', config: '{}' });
 
@@ -98,6 +100,15 @@ function WhatsAppIntegration() {
     }
   };
 
+  /**
+   * Callback ao conectar com sucesso via QR code
+   */
+  const handleQRSuccess = (connectionId) => {
+    setSuccess(`WhatsApp conectado! ID: ${connectionId}`);
+    // Recarregar conexões após 1 segundo
+    setTimeout(() => fetchData(), 1000);
+  };
+
   return (
     <div>
       <h1>Integração com WhatsApp</h1>
@@ -112,7 +123,16 @@ function WhatsAppIntegration() {
 
       {!showForm && (
         <button onClick={() => { setShowForm(true); setEditing(null); setFormData({ name: '', config: '{}' }); }}>
-          + Adicionar Conexão WhatsApp
+          + Adicionar Conexão WhatsApp (Manual)
+        </button>
+      )}
+
+      {!showForm && (
+        <button 
+          onClick={() => setShowQRModal(true)}
+          style={{ marginLeft: 8, backgroundColor: '#25d366', color: 'white' }}
+        >
+          + Conectar com QR Code
         </button>
       )}
 
@@ -160,6 +180,12 @@ function WhatsAppIntegration() {
           </tbody>
         </table>
       )}
+
+      <WhatsAppQRModal 
+        isOpen={showQRModal}
+        onClose={() => setShowQRModal(false)}
+        onSuccess={handleQRSuccess}
+      />
     </div>
   );
 }
