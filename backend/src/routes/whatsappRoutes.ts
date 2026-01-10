@@ -1,6 +1,15 @@
 import express, { Request, Response } from 'express';
 import { sendTextMessage } from '../services/whatsapp/whatsappService';
 import { createConversationSuggestion } from '../services/ai/aiConversationService';
+import {
+  sendAppointmentReminder,
+  sendAppointmentConfirmation,
+  sendAppointmentCancellation,
+  sendCustomMessage,
+  getActiveConnectionId,
+  sendAutoAppointmentReminder,
+  formatPhoneToJid,
+} from '../services/whatsapp/whatsappNotificationService';
 import models from '../models';
 
 const router = express.Router();

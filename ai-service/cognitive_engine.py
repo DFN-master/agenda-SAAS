@@ -1,16 +1,31 @@
 """
 Motor Cognitivo - Cognitive Engine
 Sistema de IA local que escolhe e processa conhecimento para gerar respostas inteligentes.
+Com análise estrutural de frases para detectar intenção do usuário.
 """
 import os
 import re
 import uuid
 import logging
 from flask import Flask, request, jsonify
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import requests
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+import nltk
+
+# Download required NLTK data
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt', quiet=True)
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords', quiet=True)
 
 # Load .env file manually
 def load_env_file():
@@ -123,6 +138,214 @@ STOPWORDS_PT = {
     "de", "da", "do", "das", "dos", "e", "ou", "a", "o", "os", "as", "um", "uma",
     "para", "por", "com", "sem", "em", "no", "na", "nos", "nas", "que", "qual", "quais",
 }
+
+# Padrões estruturais para detecção de intenção (análise sintática simples)
+INTENT_PATTERNS = {
+    "ask_capabilities": {
+        "patterns": [
+            r"(?:o que|quais?|que).*(?:você|vc|voce).*(?:faz|pode|consegue|sabe)",
+            r"(?:você|vc|voce).*(?:faz|pode|consegue|sabe).*(?:o que|qual|quais)",
+            r"(?:quais?|o que).*(?:você|vc|voce).*(?:fazer|fazer)",
+            r"capabilit",
+        ],
+        "response_template": "Posso ajudar você com:\n{actions}\n\nO que você gostaria de fazer?",
+        "actions": [
+            "📅 **Agendar compromissos** - Marcar datas e horários",
+            "💰 **Informações de preços e planos** - Detalhar valores",
+            "🔧 **Suporte técnico** - Resolver problemas e integrar sistemas",
+            "📋 **Gerenciar sua agenda** - Visualizar e modificar agendamentos",
+            "💬 **Responder dúvidas** - Esclarecer sobre serviços",
+        ]
+    },
+    "ask_pricing": {
+        "patterns": [
+            r"(?:qual|quais?|quanto).*(?:prec|cust|val|tarifas?)",
+            r"(?:prec|cust|val|tarifas?).*(?:de|dos?|da)",
+            r"plano",
+        ],
+        "response_template": "Temos diferentes planos:\n{plans}\n\nQual interesse você mais?",
+        "plans": [
+            "**Plano Basic** - Agenda e agendamentos simples",
+            "**Plano Pro** - Com WhatsApp integrado e automação",
+            "**Plano Enterprise** - Solução completa com API",
+        ]
+    },
+    "ask_how_to": {
+        "patterns": [
+            r"como.*(?:fazer|usar|agendar|integrar)",
+            r"(?:como|de que forma|qual a forma).*",
+        ],
+        "response_template": "Para {action}:\n{steps}\n\nPrecisa de mais detalhes?",
+        "steps": [
+            "1️⃣ Acesse o painel de controle",
+            "2️⃣ Clique em {section}",
+            "3️⃣ Preencha os dados solicitados",
+            "4️⃣ Confirme a ação",
+        ]
+    },
+    "report_issue": {
+        "patterns": [
+            r"(?:problema|erro|não funciona|nao funciona|bug)",
+            r"(?:não consigo|nao consigo).*(?:fazer|usar)",
+        ],
+        "response_template": "Entendi que você está com problema. Deixe-me ajudar:\n{steps}\n\nDescreva o problema mais detalhadamente?",
+        "steps": [
+            "1️⃣ Qual é exatamente o problema?",
+            "2️⃣ Em qual tela ou função?",
+            "3️⃣ Qual mensagem de erro recebeu (se houver)?",
+            "4️⃣ Quando começou?",
+        ]
+    },
+    "general_inquiry": {
+        "patterns": [r".*"],  # Fallback padrão
+        "response_template": "Recebi sua mensagem sobre {topic}:\n{explanation}\n\nPosso ajudá-lo com mais informações?",
+    }
+}
+
+def detect_intent(text: str) -> Tuple[str, float]:
+    """
+    Detecta a intenção do usuário analisando a estrutura da frase.
+    Retorna (intent_name, confidence).
+    
+    Exemplos:
+    - "O que vc faz?" → ("ask_capabilities", 0.95)
+    - "Qual o preço?" → ("ask_pricing", 0.9)
+    - "Como agendar?" → ("ask_how_to", 0.85)
+    - "Tenho um problema" → ("report_issue", 0.8)
+    """
+    text_lower = text.lower()
+    best_match = "general_inquiry"
+    best_confidence = 0.5
+    
+    for intent_name, intent_data in INTENT_PATTERNS.items():
+        if intent_name == "general_inquiry":
+            continue  # Fallback, pula para agora
+        
+        patterns = intent_data.get("patterns", [])
+        for pattern in patterns:
+            match = re.search(pattern, text_lower, re.IGNORECASE)
+            if match:
+                # Calcular confiança baseado em quantas palavras-chave aparecem
+                confidence = 0.8 + (len(match.group(0)) / len(text)) * 0.15
+                confidence = min(0.95, confidence)
+                
+                if confidence > best_confidence:
+                    best_confidence = confidence
+                    best_match = intent_name
+    
+    return best_match, best_confidence
+
+def compose_intent_response(intent: str, incoming_message: str, semantics: Dict[str, Any]) -> str:
+    """
+    Compõe uma resposta baseada na intenção detectada, usando a análise semântica
+    para enriquecer com detalhes específicos do contexto.
+    
+    A resposta não é apenas um template; é cognitivamente construída com base
+    na análise semântica e no que foi reconhecido.
+    """
+    intent_config = INTENT_PATTERNS.get(intent, INTENT_PATTERNS["general_inquiry"])
+    recognized = semantics.get("recognized", [])
+    topics = semantics.get("topics", {})
+    
+    # Construir resposta dinamicamente
+    if intent == "ask_capabilities":
+        # Priorizar o tópico mencionado, se houver
+        response = "Claro! Posso ajudá-lo com:\n\n"
+        response += "\n".join(intent_config.get("actions", []))
+        response += "\n\n🤔 Com qual desses você gostaria de começar?"
+        return response
+    
+    elif intent == "ask_pricing":
+        response = "Temos três planos disponíveis:\n\n"
+        response += "\n".join(intent_config.get("plans", []))
+        
+        # Se houver tópico dominante, mencionar relevância
+        if topics:
+            top_topic = max(topics.items(), key=lambda x: x[1])[0]
+            response += f"\n\nFoquei em {top_topic} porque você mencionou isso. "
+        
+        response += "\n\nQual plano combina melhor com suas necessidades?"
+        return response
+    
+    elif intent == "ask_how_to":
+        response = "Vou te guiar passo a passo:\n\n"
+        response += "\n".join(intent_config.get("steps", []))
+        response += "\n\nSiga esses passos e me avise se ficar preso em algum deles."
+        return response
+    
+    elif intent == "report_issue":
+        response = "Desculpe pelo problema! Vou te ajudar:\n\n"
+        response += "Para identificar melhor a causa, me responda:\n"
+        response += "\n".join(intent_config.get("steps", []))
+        response += "\n\nCom essas informações, poderei encaminhar para o suporte técnico."
+        return response
+    
+    else:  # general_inquiry
+        # Fallback cognitivo
+        if recognized:
+            topics_str = ", ".join(list(topics.keys())[:3])
+            response = f"Entendi que você está perguntando sobre: {topics_str}.\n\n"
+            response += "Deixe-me processar sua solicitação e retorno com mais detalhes.\n"
+            response += "Há algo específico sobre esses tópicos que possa esclarecer?"
+        else:
+            response = "Recebi sua mensagem. Estou analisando o melhor jeito de ajudar.\n\n"
+            response += "Pode descrever com um pouco mais de detalhe o que precisa?"
+        
+        return response
+
+def structure_sentence_analysis(text: str) -> Dict[str, Any]:
+    """
+    Analisa a estrutura sintática simples da frase:
+    - Identifica palavras interrogativas (O que, Qual, Como)
+    - Detecta o sujeito (geralmente "você/vc" quando pergunta sobre a IA)
+    - Identifica o verbo/ação principal
+    - Marca pontuação (?, !)
+    
+    Retorna análise estrutural que alimenta a detecção de intenção.
+    """
+    text_lower = text.lower().strip()
+    analysis = {
+        "original": text,
+        "is_question": text_lower.endswith("?"),
+        "is_exclamation": text_lower.endswith("!"),
+        "interrogatives": [],
+        "subjects": [],
+        "verbs": [],
+        "structure": ""
+    }
+    
+    # Detectar interrogativas
+    interrogatives = ["o que", "qual", "quais", "como", "por que", "porquê", "quando", "onde", "quem"]
+    for interr in interrogatives:
+        if interr in text_lower:
+            analysis["interrogatives"].append(interr)
+    
+    # Detectar sujeito (você/vc na maioria das questões sobre a IA)
+    subjects = ["você", "vc", "voce", "vcs", "vocês"]
+    for subj in subjects:
+        if re.search(r'\b' + subj + r'\b', text_lower):
+            analysis["subjects"].append(subj)
+    
+    # Detectar verbos comuns em ações/dúvidas
+    verbs = ["fazer", "pode", "faz", "fez", "conseguir", "consegue", "sabe", "agendar", 
+             "integrar", "funciona", "funcionar", "ajudar", "ajuda"]
+    for verb in verbs:
+        if re.search(r'\b' + verb + r'\b', text_lower):
+            analysis["verbs"].append(verb)
+    
+    # Resumir estrutura
+    if analysis["interrogatives"] and analysis["subjects"]:
+        analysis["structure"] = "interrogative_with_subject"
+    elif analysis["interrogatives"]:
+        analysis["structure"] = "interrogative"
+    elif analysis["is_question"]:
+        analysis["structure"] = "question_implicit"
+    elif analysis["is_exclamation"]:
+        analysis["structure"] = "exclamation"
+    else:
+        analysis["structure"] = "statement"
+    
+    return analysis
 
 def normalize_token(token: str) -> str:
     """Normaliza token para aproximação rudimentar (remove acentos comuns e plural)."""
@@ -409,81 +632,8 @@ def cognitive_search(query: str, company_id: str, intent: str = None, top_k: int
     }
 
 def build_cognitive_response(incoming_message: str, context_summary: str, intent: str, search_result: Dict[str, Any]) -> str:
-    """
-    Constrói resposta estruturada semântica: usa significados de palavras para compor a resposta.
-    Evita recuperar respostas prontas; pode usar aprendizados/knowledge apenas como suporte.
-    """
-    try:
-        concepts = search_result.get('concepts', [])
-        knowledge = search_result.get('knowledge', [])
-        semantics = search_result.get('semantics', {})
-
-        recognized = semantics.get('recognized', [])
-        dominant_topic = semantics.get('dominant_topic')
-        new_words = semantics.get('new_words', [])
-
-        response_parts = []
-
-        # Introdução baseada no tópico dominante
-        if recognized:
-            if dominant_topic:
-                response_parts.append(f"Entendi o tema principal: **{dominant_topic}**. ")
-            else:
-                response_parts.append("Entendi o que você está perguntando. ")
-
-            # Explicar com base nos significados das palavras
-            explained = []
-            for item in recognized[:3]:
-                c = item.get('concept')
-                d = item.get('definition')
-                if c and d and c not in explained:
-                    response_parts.append(f"\n📚 **{c.capitalize()}**: {d}")
-                    explained.append(c)
-
-            # Compor orientação/proposta de resposta de forma generativa
-            guidance = []
-            if any(x.get('concept') == 'preço' for x in recognized):
-                guidance.append("Posso te informar os valores e diferenças entre os planos.")
-            if any(x.get('concept') == 'planos' for x in recognized):
-                guidance.append("Temos diferentes planos com características específicas; posso detalhar conforme sua necessidade.")
-            if any(x.get('concept') == 'agendamento' for x in recognized):
-                guidance.append("Se preferir, posso sugerir datas e horários disponíveis para agendar.")
-            if any(x.get('concept') == 'suporte' for x in recognized):
-                guidance.append("Descreva o problema e eu oriento os próximos passos ou encaminho ao suporte técnico.")
-
-            if guidance:
-                response_parts.append("\n\n" + " ".join(guidance))
-        elif not new_words:
-            # Sem semântica e sem novas palavras – fallback leve
-            response_parts.append(f"Recebi sua mensagem sobre {intent}. Estou analisando para formular a melhor resposta.")
-
-        # Notificar sobre novas palavras aprendidas pendentes de aprovação
-        if new_words:
-            response_parts.append("\n\n🔎 Detectei palavras novas que ainda não conheço:")
-            for nw in new_words[:3]:
-                response_parts.append(f"\n- **{nw['word']}**: {nw['definition']}")
-            response_parts.append("\n\nPor favor, defina o significado dessas palavras (como administrador) para que eu possa aprender e usá-las em futuras respostas.")
-
-        # Contexto resumido se houver
-        if context_summary and context_summary != "Nenhuma mensagem anterior":
-            try:
-                last_msgs = context_summary.split('\n')[-2:]
-                context_note = f"\n\n📋 *Contexto*: {' | '.join(last_msgs)}"
-                response_parts.append(context_note)
-            except:
-                pass
-
-        # Complemento opcional com conhecimento/aprendizado (não respostas prontas)
-        if concepts or knowledge:
-            response_parts.append("\n\nTambém posso considerar informações internas para enriquecer a resposta.")
-
-        footer = "\n\nPosso esclarecer algo mais específico?"
-        response_parts.append(footer)
-
-        return ''.join(response_parts)
-    except Exception as e:
-        logger.error(f"Error building cognitive response: {e}")
-        return f"Recebi sua mensagem. Vou analisar e retorno em breve."
+    """DEPRECATED: Use compose_intent_response instead."""
+    return f"Recebi sua mensagem. Vou analisar e retorno em breve."
 
 @app.route('/debug-version', methods=['GET'])
 def debug_version():
@@ -497,13 +647,19 @@ def debug_version():
 def cognitive_response():
     """
     Endpoint principal: recebe mensagem, contexto, intent; retorna resposta cognitiva.
-    Prioriza conceitos aprendidos e aplica fallback para base de conhecimento.
+    Agora com análise estrutural de intenção e resposta composição cognitiva.
+    
+    Fluxo:
+    1. Analisar estrutura sintática da frase
+    2. Detectar intenção (ask_capabilities, ask_pricing, etc)
+    3. Busca semântica de tokens/conceitos
+    4. Compor resposta dinamicamente baseado em intenção + semântica
     """
     try:
         data = request.json or {}
         incoming_message = data.get('incoming_message', '')
         context_summary = data.get('context_summary', '')
-        intent = data.get('intent', 'geral')
+        intent_hint = data.get('intent', 'geral')  # Hint externo (opcional)
         company_id = data.get('company_id')
 
         if not company_id:
@@ -515,30 +671,58 @@ def cognitive_response():
         except ValueError:
             return jsonify({'error': 'company_id inválido (UUID esperado)'}), 400
 
-        logger.debug(f'Received request: company_id={company_id}, intent={intent}')
+        logger.debug(f'Received request: company_id={company_id}, message="{incoming_message[:50]}..."')
 
-        # Busca cognitiva com prioridade à semântica
-        search_result = cognitive_search(incoming_message, company_id, intent, top_k=3)
+        # NOVO: 1. Analisar estrutura da frase
+        structural_analysis = structure_sentence_analysis(incoming_message)
+        logger.debug(f'Structural analysis: {structural_analysis["structure"]}')
+
+        # NOVO: 2. Detectar intenção com confiança
+        detected_intent, intent_confidence = detect_intent(incoming_message)
+        logger.debug(f'Detected intent: {detected_intent} (confidence: {intent_confidence:.2f})')
+
+        # 3. Busca semântica (continua igual, mas agora com intent detectada)
+        search_result = cognitive_search(incoming_message, company_id, detected_intent, top_k=3)
         logger.debug(f'Search result source: {search_result.get("source")}')
 
-        # Constrói resposta
-        response = build_cognitive_response(incoming_message, context_summary, intent, search_result)
+        # NOVO: 4. Compor resposta baseado em intenção detectada + análise semântica
+        semantics = search_result.get('semantics', {})
+        response = compose_intent_response(detected_intent, incoming_message, semantics)
 
-        # Confiança: maior se usou conceitos aprendidos
+        # Adicionar contexto se relevante
+        if context_summary and context_summary != "Nenhuma mensagem anterior":
+            try:
+                last_msg = context_summary.split('\n')[-1]
+                if len(last_msg) < 100:
+                    response += f"\n\n*Contexto anterior*: {last_msg}"
+            except:
+                pass
+
+        # Adicionar notificação de palavras novas (aprendizado)
+        new_words = semantics.get('new_words', [])
+        if new_words:
+            response += "\n\n🔍 **Novas palavras detectadas:**\n"
+            for nw in new_words[:2]:
+                response += f"- **{nw['word']}** (definição pendente)\n"
+            response += "\nPor favor, defina essas palavras para que eu possa aprender!"
+
+        # Calcular confiança (aumenta se intenção foi detectada com certeza)
         base_confidence = 0.5
         concepts = search_result.get('concepts', [])
         knowledge = search_result.get('knowledge', [])
-        semantics = search_result.get('semantics', {})
-        confidence_boost = search_result.get('confidence_boost', 0)
 
-        if semantics.get('recognized'):
-            base_confidence = 0.75 + confidence_boost
+        if intent_confidence > 0.8:
+            base_confidence = 0.85
+        elif detected_intent in ["ask_capabilities", "ask_pricing", "ask_how_to", "report_issue"]:
+            base_confidence = 0.78
+        elif semantics.get('recognized'):
+            base_confidence = 0.75
         elif concepts:
-            base_confidence = 0.65 + confidence_boost
+            base_confidence = 0.65
         elif knowledge:
-            base_confidence = 0.55 + (len(knowledge) * 0.05)
+            base_confidence = 0.55
 
-        confidence = min(0.95, base_confidence)
+        confidence = min(0.95, base_confidence + (intent_confidence * 0.1))
         needs_training = confidence < 0.55
 
         concepts_used = []
@@ -559,9 +743,12 @@ def cognitive_response():
             'suggested_response': response,
             'confidence': float(confidence),
             'source': search_result.get('source', 'none'),
+            'detected_intent': detected_intent,
+            'intent_confidence': float(intent_confidence),
+            'structural_analysis': structural_analysis,
             'concepts_used': concepts_used,
             'knowledge_used': knowledge_used,
-            'semantics': semantics,  # inclui tópicos, tokens e novas palavras pendentes
+            'semantics': semantics,
             'needs_training': bool(needs_training)
         })
     except Exception as e:
