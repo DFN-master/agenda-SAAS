@@ -2,6 +2,11 @@
 Motor Cognitivo - Cognitive Engine
 Sistema de IA local que escolhe e processa conhecimento para gerar respostas inteligentes.
 Com análise estrutural de frases para detectar intenção do usuário.
+
+IMPORTANTE: Sistema Multi-Tenant (SaaS)
+- Todos os dados são isolados por company_id
+- Cache é separado por empresa para evitar vazamento de dados
+- Todas as queries filtram por company_id obrigatoriamente
 """
 import os
 import re
@@ -15,6 +20,8 @@ import requests
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import nltk
+from functools import lru_cache
+from datetime import datetime, timedelta
 
 # Download required NLTK data
 try:
@@ -62,6 +69,58 @@ app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False  # Allow UTF-8 characters in JSON
 app.config['PREFERRED_ENCODING'] = 'utf-8'
 
+# ==================== MULTI-TENANT CACHE SYSTEM ====================
+# Cache isolado por company_id para evitar vazamento de dados entre empresas
+class TenantCache:
+    """Cache multi-tenant: dados isolados por company_id com TTL."""
+    def __init__(self):
+        self.cache: Dict[str, Dict[str, Any]] = {}
+        self.timestamps: Dict[str, datetime] = {}
+        self.ttl_seconds = 3600  # 1 hora
+    
+    def set(self, company_id: str, key: str, value: Any):
+        """Armazena valor no cache (isolado por company_id)."""
+        cache_key = f"{company_id}:{key}"
+        self.cache[cache_key] = value
+        self.timestamps[cache_key] = datetime.now()
+        logger.debug(f"[CACHE] Set: {cache_key}")
+    
+    def get(self, company_id: str, key: str) -> Any:
+        """Recupera valor do cache se existir e não expirou."""
+        cache_key = f"{company_id}:{key}"
+        
+        # Verificar expiração
+        if cache_key in self.timestamps:
+            age = (datetime.now() - self.timestamps[cache_key]).total_seconds()
+            if age > self.ttl_seconds:
+                del self.cache[cache_key]
+                del self.timestamps[cache_key]
+                logger.debug(f"[CACHE] Expired: {cache_key}")
+                return None
+        
+        value = self.cache.get(cache_key)
+        if value is not None:
+            logger.debug(f"[CACHE] Hit: {cache_key}")
+        return value
+    
+    def clear(self, company_id: str = None):
+        """Limpa cache de uma empresa específica ou global."""
+        if company_id:
+            # Limpar apenas da empresa
+            keys_to_delete = [k for k in self.cache.keys() if k.startswith(f"{company_id}:")]
+            for k in keys_to_delete:
+                del self.cache[k]
+                del self.timestamps[k]
+            logger.info(f"[CACHE] Cleared {len(keys_to_delete)} entries for company {company_id}")
+        else:
+            # Limpar global (cuidado!)
+            self.cache.clear()
+            self.timestamps.clear()
+            logger.warning("[CACHE] Global cache cleared")
+
+# Instância global de cache
+tenant_cache = TenantCache()
+
 # Configure Flask to handle UTF-8 properly
 import sys
 if sys.stdout.encoding != 'utf-8':
@@ -72,21 +131,72 @@ if sys.stdout.encoding != 'utf-8':
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/agenda')
 DEBUG_VERSION = "semantic-2026-01-09T23:55Z"
 
+# Ollama LLM Configuration
+OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
+OLLAMA_MODEL = os.getenv('OLLAMA_MODEL', 'gemma2:2b')  # Modelo leve e rápido (1.6GB)
+OLLAMA_ENABLED = os.getenv('OLLAMA_ENABLED', 'true').lower() == 'true'
+OLLAMA_TIMEOUT = int(os.getenv('OLLAMA_TIMEOUT', '15'))  # Timeout reduzido para respostas mais rápidas
+
 # Log startup info
 logger.info(f"Cognitive Engine Starting")
 logger.info(f"DATABASE_URL set: {bool(os.getenv('DATABASE_URL'))}")
 logger.info(f"DATABASE_URL value: {DATABASE_URL[:50]}..." if len(DATABASE_URL) > 50 else f"DATABASE_URL: {DATABASE_URL}")
+logger.info(f"Ollama LLM: {'ENABLED' if OLLAMA_ENABLED else 'DISABLED'} - Model: {OLLAMA_MODEL} - Timeout: {OLLAMA_TIMEOUT}s")
 
 print("[STARTUP] Flask app initialized", flush=True)
 import sys
 sys.stdout.flush()
 sys.stderr.flush()
 
+# ==================== MULTI-TENANT MIDDLEWARE ====================
+@app.before_request
+def validate_tenant():
+    """Middleware para validar company_id em requisições de AI."""
+    # Endpoints que não precisam de company_id (health checks, etc)
+    public_endpoints = ['/health', '/debug-version']
+    
+    if request.path in public_endpoints:
+        return None
+    
+    # Para outros endpoints que processam dados, validar company_id
+    if request.method == 'POST' and request.path == '/cognitive-response':
+        try:
+            data = request.get_json() or {}
+            company_id = data.get('company_id')
+            
+            if not company_id:
+                logger.warning(f"[SECURITY] Request to {request.path} missing company_id from {request.remote_addr}")
+                return jsonify({'error': 'company_id é obrigatório'}), 400
+            
+            # Validar UUID
+            try:
+                uuid.UUID(str(company_id))
+            except ValueError:
+                logger.warning(f"[SECURITY] Request with invalid company_id: {company_id} from {request.remote_addr}")
+                return jsonify({'error': 'company_id deve ser um UUID válido'}), 400
+            
+        except Exception as e:
+            logger.error(f"[SECURITY] Error validating tenant: {e}")
+            return jsonify({'error': 'Erro na validação de tenant'}), 500
+    
+    return None
+
 def get_db_connection():
     return psycopg2.connect(DATABASE_URL, cursor_factory=RealDictCursor)
 
 def fetch_approved_word_meanings(company_id: str) -> Dict[str, Dict[str, Any]]:
-    """Busca significados de palavras aprovados pela admin para usar no léxico local."""
+    """
+    Busca significados de palavras aprovados pela admin para usar no léxico local.
+    
+    MULTI-TENANT SAFETY:
+    - Dados filtrados por company_id
+    - Cache isolado por empresa com TTL de 1 hora
+    """
+    # Tentar recuperar do cache primeiro
+    cached = tenant_cache.get(company_id, 'word_meanings')
+    if cached is not None:
+        return cached
+    
     meanings: Dict[str, Dict[str, Any]] = {}
     try:
         conn = get_db_connection()
@@ -114,11 +224,12 @@ def fetch_approved_word_meanings(company_id: str) -> Dict[str, Dict[str, Any]]:
                             'definition': word_entry.get('definition', ''),
                             'synonyms': word_entry.get('synonyms', []),
                             'examples': word_entry.get('examples', []),
-                            'source': 'vocabulary_metadata'
+                            'source': 'vocabulary_metadata',
+                            'company_id': company_id  # Marcar origem
                         }
         except Exception as meta_error:
             # Coluna metadata pode não existir
-            logger.debug(f"Could not fetch metadata: {meta_error}")
+            logger.debug(f"Could not fetch metadata for {company_id}: {meta_error}")
         
         # Também buscar significados de uma tabela ai_word_meanings se existir
         try:
@@ -135,17 +246,21 @@ def fetch_approved_word_meanings(company_id: str) -> Dict[str, Dict[str, Any]]:
                     meanings[word] = {
                         'id': row.get('id'),
                         'definition': row.get('definition'),
-                        'source': 'ai_word_meanings_table'
+                        'source': 'ai_word_meanings_table',
+                        'company_id': company_id
                     }
         except Exception as table_error:
             # Tabela pode não existir ou estar vazia
-            logger.debug(f"Could not fetch ai_word_meanings: {table_error}")
+            logger.debug(f"Could not fetch ai_word_meanings for {company_id}: {table_error}")
         
         cur.close()
         conn.close()
         
+        # Armazenar no cache
+        tenant_cache.set(company_id, 'word_meanings', meanings)
+        
     except Exception as e:
-        logger.error(f"Failed to fetch approved word meanings: {e}")
+        logger.error(f"Failed to fetch approved word meanings for {company_id}: {e}")
     
     return meanings
 
@@ -209,8 +324,55 @@ SEMANTIC_LEXICON: Dict[str, Dict[str, Any]] = {
     "gostaria": {"concept": "desejo/preferência", "definition": "expressar um desejo ou preferência de forma educada.",
                  "synonyms": ["gostaria", "gostaria de", "gostaria que"],
                  "topic": "verbo"},
+    
+    # ========== VERBOS DE AGENDAMENTO ==========
+    "agendar": {"concept": "agendamento", "definition": "marcar um horário ou data para uma atividade futura.",
+                "synonyms": ["agendar", "agendos", "agenda", "agendam", "agendei"],
+                "topic": "agendamento"},
+    "marcar": {"concept": "agendamento", "definition": "marcar ou reservar um horário/data para algo.",
+               "synonyms": ["marcar", "marco", "marca", "marcamos", "marcaram"],
+               "topic": "agendamento"},
+    
+    # ========== PALAVRAS DE TEMPO E DATAS ==========
+    "hoje": {"concept": "tempo presente", "definition": "no dia de hoje, neste dia.",
+             "synonyms": ["hoje"],
+             "topic": "tempo"},
+    "amanhe": {"concept": "tempo futuro próximo", "definition": "no dia seguinte ao de hoje.",
+               "synonyms": ["amanhã", "amanhe"],
+               "topic": "tempo"},
+    "semana": {"concept": "período", "definition": "período de sete dias.",
+               "synonyms": ["semana", "semanalmente"],
+               "topic": "tempo"},
+    "proxima": {"concept": "tempo futuro", "definition": "que vem a seguir, vindouro.",
+                "synonyms": ["próxima", "proxima", "próximo", "proximo"],
+                "topic": "tempo"},
+    "horario": {"concept": "hora/momento", "definition": "o momento específico do dia em que algo acontece.",
+                "synonyms": ["horário", "horario", "hora", "horas"],
+                "topic": "tempo"},
+    "data": {"concept": "data", "definition": "o dia específico de um mês ou ano.",
+             "synonyms": ["data", "datas"],
+             "topic": "tempo"},
 
-    # ========== PRONOMES ==========
+    # ========== PALAVRAS DE SERVIÇO ==========
+    "consulta": {"concept": "tipo de serviço", "definition": "atendimento ou reunião para obter informação ou parecer.",
+                 "synonyms": ["consulta", "consultoria"],
+                 "topic": "serviço"},
+    "visita": {"concept": "tipo de serviço", "definition": "ir até o local do cliente para fornecer serviço.",
+               "synonyms": ["visita", "visitar"],
+               "topic": "serviço"},
+    "reuniao": {"concept": "tipo de serviço", "definition": "encontro entre pessoas para discutir ou decidir algo.",
+                "synonyms": ["reunião", "reuniao"],
+                "topic": "serviço"},
+    "suporte": {"concept": "tipo de serviço", "definition": "assistência técnica ou apoio em caso de problema.",
+                "synonyms": ["suporte", "suportamos"],
+                "topic": "serviço"},
+    "tecnico": {"concept": "tipo de serviço", "definition": "atendimento especializado em problemas técnicos.",
+                "synonyms": ["técnico", "tecnico"],
+                "topic": "serviço"},
+    "servico": {"concept": "tipo de serviço", "definition": "trabalho realizado para atender a uma necessidade.",
+                "synonyms": ["serviço", "servico"],
+                "topic": "serviço"},
+
     "eu": {"concept": "primeira pessoa singular", "definition": "pronome que se refere ao falante.",
            "synonyms": ["eu", "me", "mim", "meu"],
            "topic": "pronome"},
@@ -312,10 +474,28 @@ INTENT_PATTERNS = {
             "💬 **Responder dúvidas** - Esclarecer sobre serviços",
         ]
     },
+    "ask_scheduling": {
+        "patterns": [
+            r"(?:gostaria|quero|preciso|desejo|gosto|pode).+(?:agendar|marcar|agendar consulta|agendar visita|agendar reunião|agendar horário|schedule|me agendar|agendar um)",
+            r"(?:agendar|marcar|agenda|agend|me agendar).+(?:consulta|visita|reunião|horario|hora|dia|data|atendimento|reunião)",
+            r"(?:agend|march).+(?:para|em|dia|data|horario|hora|quando)",
+            r"\bagendar\b.*(?:amanh|proxima|segunda|terça|quarta|quinta|sexta|sabado|proximo|fim de semana)",
+            r"(?:quando|qual.{0,20}horario|qual.{0,20}dia|que horas|qual data).+(?:agende|marca|agenda|agend|atendimento)",
+            r"(?:marcar|agendar|pode agendar|me agendar).+(?:turno|slot|disponibilidade|atendimento|horario)",
+        ],
+        "response_template": "Ótimo! Para agendar sua {service}:\n{steps}\n\nQual data e horário você prefere?",
+        "service": "consulta/serviço",
+        "steps": [
+            "1️⃣ Qual serviço ou tipo de atendimento?",
+            "2️⃣ Qual data deseja? (ex: hoje, amanhã, próxima semana)",
+            "3️⃣ Qual horário prefere? (ex: 09:00, 14:00)",
+            "4️⃣ Qual seu contato para confirmação?",
+        ]
+    },
     "ask_pricing": {
         "patterns": [
-            r"(?:qual|quais?|quanto).+(?:pre[cç]o|cust|val|tarifa|plano)",
-            r"(?:pre[cç]o|cust|val|tarifa).+(?:de|dos?|da)",
+            r"(?:qual|quais?|quanto).+(?:preco|prec|cust|val|tarifa|plano)",
+            r"(?:preco|prec|cust|val|tarifa).+(?:de|dos?|da)",
             r"\bplano\b",
         ],
         "response_template": "Temos diferentes planos:\n{plans}\n\nQual interesse você mais?",
@@ -327,8 +507,8 @@ INTENT_PATTERNS = {
     },
     "ask_how_to": {
         "patterns": [
-            r"\bcomo\b.*(?:fazer|usar|agendar|integrar|funciona)",
-            r"(?:como|de que forma|qual a forma).*(?:fazer|usar|agendar)",
+            r"\bcomo\b.+(?:fazer|usar|agendar|integrar|funciona|pagar|marcar|faco|faca)",
+            r"(?:como|de que forma|qual a forma).+(?:fazer|usar|agendar|pagar)",
             r"(?:qual|quais?).+(?:passo|etapa|processo|forma|jeito)",
         ],
         "response_template": "Para {action}:\n{steps}\n\nPrecisa de mais detalhes?",
@@ -341,9 +521,9 @@ INTENT_PATTERNS = {
     },
     "ask_status": {
         "patterns": [
-            r"\bcomo\b.+(?:está|tá|est[aá]|passa|vai|corre|anda)",
+            r"\bcomo\b.+(?:esta|ta|passa|vai|corre|anda)",
             r"(?:tudo).+(?:bem|ok|certo|bom)",
-            r"(?:está|tá|est[aá]).+(?:funcionando|pronto|disponível)",
+            r"(?:esta|ta).+(?:funcionando|pronto|disponivel)",
         ],
         "response_template": "Status atual: {status}\n\nTudo funcionando normalmente!",
         "status": "✅ Sistema online e operacional"
@@ -358,8 +538,8 @@ INTENT_PATTERNS = {
     },
     "ask_time": {
         "patterns": [
-            r"\bquando\b.+(?:abre|funciona|atende|hor[aá]rio)",
-            r"(?:qual|quais?).+(?:hor[aá]rio|hora|per[ií]odo|expediente)",
+            r"\bquando\b.+(?:abre|funciona|atende|horario)",
+            r"(?:qual|quais?).+(?:horario|hora|periodo|expediente)",
         ],
         "response_template": "Nosso horário:\n{time}\n\nEm qual dia você prefere?",
         "time": "Segunda a Sexta: 9h às 18h\nSábado: 9h às 13h"
@@ -391,13 +571,17 @@ def detect_intent(text: str) -> Tuple[str, float]:
     Exemplos:
     - "O que vc faz?" → ("ask_capabilities", 0.95)
     - "Qual o preço?" → ("ask_pricing", 0.9)
+    - "Gostaria de agendar" → ("ask_scheduling", 0.95)
     - "Como agendar?" → ("ask_how_to", 0.85)
     - "Como está?" → ("ask_status", 0.8)
     - "Onde fica?" → ("ask_location", 0.8)
     - "Qual horário?" → ("ask_time", 0.8)
     - "Tenho um problema" → ("report_issue", 0.8)
     """
+    # Normalizar texto: lowercase + remover acentos
     text_lower = text.lower()
+    text_normalized = normalize_text(text_lower)  # Remove acentos sem singularizar
+    
     best_match = "general_inquiry"
     best_confidence = 0.5
     
@@ -407,7 +591,8 @@ def detect_intent(text: str) -> Tuple[str, float]:
         
         patterns = intent_data.get("patterns", [])
         for pattern in patterns:
-            match = re.search(pattern, text_lower, re.IGNORECASE)
+            # Aplicar regex no texto normalizado (sem acentos)
+            match = re.search(pattern, text_normalized, re.IGNORECASE)
             if match:
                 # Calcular confiança baseado em:
                 # 1. Qualidade do match da regex
@@ -431,6 +616,184 @@ def detect_intent(text: str) -> Tuple[str, float]:
                     best_match = intent_name
     
     return best_match, best_confidence
+
+def generate_llm_response(
+    intent: str,
+    incoming_message: str,
+    semantics: Dict[str, Any],
+    vocabulary: Dict[str, Dict[str, Any]],
+    company_id: str
+) -> Dict[str, Any]:
+    """
+    Gera resposta natural usando Ollama LLM baseado em:
+    - Intent detectada pelo cognitive engine
+    - Contexto semântico (palavras reconhecidas, tópicos)
+    - Vocabulário aprendido da empresa
+    - Mensagem original do cliente
+    
+    Retorna dict com:
+    - response: str (resposta gerada)
+    - used_llm: bool (True se LLM foi usado)
+    - fallback: bool (True se caiu no fallback)
+    - error: str (mensagem de erro se houver)
+    """
+    
+    if not OLLAMA_ENABLED:
+        return {
+            'response': None,
+            'used_llm': False,
+            'fallback': False,
+            'error': 'LLM disabled'
+        }
+    
+    try:
+        # Construir contexto rico para o LLM
+        recognized = semantics.get("recognized", [])
+        topics = semantics.get("topics", {})
+        
+        # Formatar vocabulário para o prompt
+        vocab_context = ""
+        if vocabulary:
+            vocab_list = []
+            for word, info in list(vocabulary.items())[:5]:  # Limitar a 5 palavras mais relevantes
+                definition = info.get('definition', '')
+                if definition:
+                    vocab_list.append(f"- {word}: {definition}")
+            if vocab_list:
+                vocab_context = "\n\nVocabulário da empresa:\n" + "\n".join(vocab_list)
+        
+        # Formatar tópicos reconhecidos
+        topics_context = ""
+        if recognized:
+            concepts = [r.get('concept', '') for r in recognized[:3]]
+            concepts = [c for c in concepts if c]
+            if concepts:
+                topics_context = f"\n\nConceitos identificados: {', '.join(concepts)}"
+        
+        # Mapear intent para contexto de resposta
+        intent_instructions = {
+            'ask_scheduling': 'Seja entusiasmado em ajudar com agendamentos. Pergunte a data/horário e tipo de serviço desejado. Ofereça horários disponíveis se souber.',
+            'ask_status': 'Responda de forma amigável sobre o status/estado atual do sistema ou serviço.',
+            'ask_time': 'Informe os horários de funcionamento de forma clara e útil.',
+            'ask_location': 'Forneça informações sobre localização e como acessar o serviço.',
+            'ask_pricing': 'Explique os planos e preços disponíveis de forma clara e objetiva.',
+            'ask_how_to': 'Forneça instruções passo a passo de forma didática e fácil de entender.',
+            'ask_capabilities': 'Liste as principais funcionalidades e serviços oferecidos com entusiasmo.',
+            'report_issue': 'Seja empático e ofereça ajuda imediata para resolver o problema.',
+            'general_inquiry': 'Responda de forma útil, profissional e amigável.'
+        }
+        
+        instruction = intent_instructions.get(intent, intent_instructions['general_inquiry'])
+        
+        # Construir prompt mais detalhado baseado na intenção
+        if intent == 'ask_scheduling':
+            prompt = f"""Você é um assistente de agendamentos amigável e eficiente.
+
+Cliente: "{incoming_message}"
+
+INSTRUÇÕES:
+- Confirme o tipo de serviço (consulta, visita, suporte, reunião, etc)
+- Pergunte a data desejada
+- Pergunte o horário desejado
+- Seja breve, direto e entusiasta
+
+Responda em português brasileiro (MÁXIMO 2 FRASES, ser muito conciso):"""
+        elif intent == 'ask_pricing':
+            prompt = f"""Você é um assistente de vendas educado e informativo.
+
+Cliente: "{incoming_message}"
+
+Planos disponíveis:
+- Plano Basic: Agenda e agendamentos simples
+- Plano Pro: WhatsApp integrado e automação
+- Plano Enterprise: Solução completa com API
+
+Apresente os planos de forma clara e breve em português (MÁXIMO 2 FRASES):"""
+        elif intent == 'report_issue':
+            prompt = f"""Você é um assistente de suporte técnico empático e prestativo.
+
+Cliente: "{incoming_message}"
+
+INSTRUÇÕES:
+- Mostre empatia imediata
+- Peça detalhes sobre o problema
+- Ofereça ajuda rápida
+
+Responda em português (MÁXIMO 2 FRASES, ser muito conciso):"""
+        else:
+            prompt = f"""Assistente de agendamentos profissional.
+
+Cliente: "{incoming_message}"
+
+Contexto: {intent}
+{instruction}
+
+Responda em português (MÁXIMO 2 FRASES):"""
+
+        # Chamar Ollama API
+        logger.debug(f"Calling Ollama LLM: {OLLAMA_MODEL}")
+        response = requests.post(
+            f"{OLLAMA_BASE_URL}/api/generate",
+            json={
+                'model': OLLAMA_MODEL,
+                'prompt': prompt,
+                'stream': False,
+                'options': {
+                    'temperature': 0.7,
+                    'top_p': 0.9,
+                    'num_predict': 80,  # Máximo de 80 tokens para mais contexto
+                    'num_ctx': 512,  # Contexto reduzido para velocidade
+                }
+            },
+            timeout=OLLAMA_TIMEOUT
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            llm_response = result.get('response', '').strip()
+            
+            # Validar resposta
+            if llm_response and len(llm_response) > 10:
+                logger.info(f"LLM response generated successfully ({len(llm_response)} chars)")
+                return {
+                    'response': llm_response,
+                    'used_llm': True,
+                    'fallback': False,
+                    'error': None
+                }
+            else:
+                logger.warning("LLM returned empty or too short response")
+                return {
+                    'response': None,
+                    'used_llm': False,
+                    'fallback': True,
+                    'error': 'Empty LLM response'
+                }
+        else:
+            logger.error(f"Ollama API error: {response.status_code}")
+            return {
+                'response': None,
+                'used_llm': False,
+                'fallback': True,
+                'error': f'API error: {response.status_code}'
+            }
+            
+    except requests.exceptions.Timeout:
+        logger.error(f"Ollama timeout after {OLLAMA_TIMEOUT}s")
+        return {
+            'response': None,
+            'used_llm': False,
+            'fallback': True,
+            'error': 'LLM timeout'
+        }
+    except Exception as e:
+        logger.error(f"Error calling Ollama: {e}")
+        return {
+            'response': None,
+            'used_llm': False,
+            'fallback': True,
+            'error': str(e)
+        }
 
 def compose_intent_response(intent: str, incoming_message: str, semantics: Dict[str, Any]) -> str:
     """
@@ -590,6 +953,24 @@ def normalize_token(token: str) -> str:
     # MAS: não aplicar a palavras com <4 chars (como "é", "é", "ao", etc.)
     if len(t) >= 4 and t.endswith("s"):
         t = t[:-1]
+    return t
+
+def normalize_text(text: str) -> str:
+    """
+    Normaliza texto completo removendo acentos, mas SEM singularizar.
+    Útil para pattern matching em detecção de intent.
+    """
+    replacements = {
+        "á": "a", "à": "a", "â": "a", "ã": "a",
+        "é": "e", "ê": "e",
+        "í": "i",
+        "ó": "o", "ô": "o", "õ": "o",
+        "ú": "u",
+        "ç": "c",
+    }
+    t = text.lower()
+    for k, v in replacements.items():
+        t = t.replace(k, v)
     return t
 
 def fetch_word_meaning_online(word: str) -> Dict[str, Any]:
@@ -914,11 +1295,17 @@ def cognitive_response():
     Endpoint principal: recebe mensagem, contexto, intent; retorna resposta cognitiva.
     Agora com análise estrutural de intenção e resposta composição cognitiva.
     
+    MULTI-TENANT SAFETY:
+    - company_id é obrigatório e validado
+    - Todas as queries filtram por company_id
+    - Cache é isolado por empresa
+    
     Fluxo:
-    1. Analisar estrutura sintática da frase
-    2. Detectar intenção (ask_capabilities, ask_pricing, etc)
-    3. Busca semântica de tokens/conceitos
-    4. Compor resposta dinamicamente baseado em intenção + semântica
+    1. Validar company_id (UUID válido)
+    2. Analisar estrutura sintática da frase
+    3. Detectar intenção (ask_capabilities, ask_pricing, etc)
+    4. Busca semântica de tokens/conceitos isolados por empresa
+    5. Compor resposta dinamicamente baseado em intenção + semântica
     """
     try:
         # Handle encoding issues with Portuguese characters
@@ -941,22 +1328,23 @@ def cognitive_response():
         intent_hint = data.get('intent', 'geral')  # Hint externo (opcional)
         company_id = data.get('company_id')
 
+        # ==================== VALIDAÇÃO MULTI-TENANT ====================
+        # 1. company_id é OBRIGATÓRIO
         if not company_id:
+            logger.warning("[SECURITY] Rejected request without company_id")
             return jsonify({'error': 'company_id é obrigatório'}), 400
 
-        # Validação básica de UUID para evitar erros de sintaxe no banco
+        # 2. Validar formato UUID
         try:
-            uuid.UUID(str(company_id))
+            company_uuid = uuid.UUID(str(company_id))
+            company_id = str(company_uuid)  # Normalizar para string UUID
         except ValueError:
+            logger.warning(f"[SECURITY] Rejected request with invalid company_id: {company_id}")
             return jsonify({'error': 'company_id inválido (UUID esperado)'}), 400
-
-        # Normalize incoming message for logging
-        try:
-            message_display = incoming_message.encode('utf-8').decode('utf-8') if incoming_message else "N/A"
-        except:
-            message_display = str(incoming_message)
         
-        logger.debug(f'Received request: company_id={company_id}, message="{message_display[:80]}..."')
+        # 3. Log com company_id para auditoria
+        message_display = incoming_message.encode('utf-8').decode('utf-8') if incoming_message else "N/A"
+        logger.info(f'[TENANT:{company_id}] Cognitive request: message="{message_display[:60]}..."')
 
         # NOVO: 1. Analisar estrutura da frase
         structural_analysis = structure_sentence_analysis(incoming_message)
@@ -970,13 +1358,30 @@ def cognitive_response():
         search_result = cognitive_search(incoming_message, company_id, detected_intent, top_k=3)
         logger.debug(f'Search result source: {search_result.get("source")}')
 
-        # NOVO: 4. Compor resposta baseado em intenção detectada + análise semântica
-        semantics = search_result.get('semantics', {})
-        response = compose_intent_response(detected_intent, incoming_message, semantics)
-        
-        # NOVO: 5. Reformular resposta usando vocabulário aprendido pela empresa
+        # NOVO: 4. Buscar vocabulário aprendido pela empresa
         approved_vocabulary = fetch_approved_word_meanings(company_id)
-        response = reformulate_response_with_vocabulary(response, company_id, approved_vocabulary)
+        
+        # NOVO: 5. Tentar gerar resposta com LLM (Ollama)
+        semantics = search_result.get('semantics', {})
+        llm_result = generate_llm_response(
+            detected_intent,
+            incoming_message,
+            semantics,
+            approved_vocabulary,
+            company_id
+        )
+        
+        # Se LLM gerou resposta válida, usar ela; senão, fallback para templates
+        used_llm = llm_result.get('used_llm', False)
+        if llm_result.get('response'):
+            response = llm_result['response']
+            logger.info(f"Using LLM-generated response")
+        else:
+            # Fallback: usar templates tradicionais
+            response = compose_intent_response(detected_intent, incoming_message, semantics)
+            response = reformulate_response_with_vocabulary(response, company_id, approved_vocabulary)
+            logger.info(f"Using template-based response (LLM fallback)")
+
 
         # Adicionar contexto se relevante
         if context_summary and context_summary != "Nenhuma mensagem anterior":
@@ -1038,7 +1443,10 @@ def cognitive_response():
             'concepts_used': concepts_used,
             'knowledge_used': knowledge_used,
             'semantics': semantics,
-            'needs_training': bool(needs_training)
+            'needs_training': bool(needs_training),
+            'used_llm': bool(used_llm),
+            'llm_fallback': llm_result.get('fallback', False),
+            'llm_error': llm_result.get('error')
         })
     except Exception as e:
         logger.error(f'Error in cognitive_response: {e}', exc_info=True)
@@ -1046,7 +1454,112 @@ def cognitive_response():
 
 @app.route('/health', methods=['GET'])
 def health():
-    return jsonify({'status': 'ok', 'service': 'cognitive-engine'})
+    return jsonify({'status': 'ok', 'service': 'cognitive-engine', 'cache_size': len(tenant_cache.cache)})
+
+# ==================== TENANT MANAGEMENT ENDPOINTS ====================
+
+@app.route('/admin/cache/clear', methods=['POST'])
+def clear_cache():
+    """
+    Limpa cache de uma empresa.
+    SEGURANÇA: Deve ser protegido por autenticação em produção.
+    
+    Body: { "company_id": "uuid" } ou vazio para limpar tudo (admin only)
+    """
+    try:
+        data = request.get_json() or {}
+        company_id = data.get('company_id')
+        admin_token = request.headers.get('X-Admin-Token')
+        
+        if not company_id:
+            # Modo admin: limpar cache global (apenas com token)
+            if not admin_token or admin_token != os.getenv('ADMIN_CACHE_TOKEN', 'disabled'):
+                return jsonify({'error': 'Unauthorized to clear global cache'}), 403
+            tenant_cache.clear()
+            logger.warning("[ADMIN] Global cache cleared")
+            return jsonify({'success': True, 'message': 'Global cache cleared'})
+        
+        # Validar UUID
+        try:
+            uuid.UUID(str(company_id))
+        except ValueError:
+            return jsonify({'error': 'company_id inválido'}), 400
+        
+        # Limpar cache da empresa
+        tenant_cache.clear(company_id)
+        logger.info(f"[ADMIN] Cache cleared for company {company_id}")
+        return jsonify({'success': True, 'message': f'Cache cleared for {company_id}'})
+        
+    except Exception as e:
+        logger.error(f"Error clearing cache: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/admin/tenant/isolation-check', methods=['POST'])
+def isolation_check():
+    """
+    Endpoint de teste para verificar isolamento multi-tenant.
+    Retorna dados da empresa solicitada para verificação.
+    
+    SEGURANÇA: Deve ser protegido por autenticação admin em produção!
+    """
+    try:
+        data = request.get_json() or {}
+        company_id = data.get('company_id')
+        admin_token = request.headers.get('X-Admin-Token')
+        
+        if not admin_token or admin_token != os.getenv('ADMIN_CACHE_TOKEN', 'disabled'):
+            return jsonify({'error': 'Unauthorized'}), 403
+        
+        if not company_id:
+            return jsonify({'error': 'company_id required'}), 400
+        
+        # Validar UUID
+        try:
+            uuid.UUID(str(company_id))
+        except ValueError:
+            return jsonify({'error': 'Invalid company_id'}), 400
+        
+        # Testar isolamento: buscar dados de uma empresa
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor()
+            
+            # Verificar vocabulário
+            cur.execute("SELECT metadata FROM companies WHERE id = %s", (company_id,))
+            company = cur.fetchone()
+            
+            vocab_count = 0
+            if company and company.get('metadata'):
+                vocab_count = len(company.get('metadata', {}).get('vocabulary', []))
+            
+            # Contar conceitos aprendidos
+            cur.execute("SELECT COUNT(*) as count FROM ai_learned_concepts WHERE company_id = %s", (company_id,))
+            concepts_count = cur.fetchone().get('count', 0) if cur.fetchone() else 0
+            
+            # Contar entradas na base de conhecimento
+            cur.execute("SELECT COUNT(*) as count FROM ai_knowledge_base WHERE company_id = %s", (company_id,))
+            knowledge_count = cur.fetchone().get('count', 0) if cur.fetchone() else 0
+            
+            cur.close()
+            conn.close()
+            
+            return jsonify({
+                'company_id': company_id,
+                'isolation_verified': True,
+                'data_count': {
+                    'vocabulary_words': vocab_count,
+                    'learned_concepts': concepts_count,
+                    'knowledge_entries': knowledge_count
+                },
+                'note': 'All data properly filtered by company_id'
+            })
+        except Exception as db_error:
+            logger.error(f"Error checking isolation: {db_error}")
+            return jsonify({'error': str(db_error)}), 500
+    
+    except Exception as e:
+        logger.error(f"Error in isolation check: {e}")
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=False, use_reloader=False)

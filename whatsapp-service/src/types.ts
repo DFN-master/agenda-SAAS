@@ -26,6 +26,13 @@ export interface WhatsAppConnection {
 // Em-memory store para conexões
 const connections = new Map<string, WhatsAppConnection>();
 
+// Controle de reconexões para evitar loops infinitos
+const reconnectionAttempts = new Map<string, number>();
+const reconnectionTimers = new Map<string, NodeJS.Timeout>();
+const activeAuthProcesses = new Map<string, boolean>();
+const MAX_RECONNECTION_ATTEMPTS = 5;
+const BASE_RECONNECT_DELAY = 5000; // 5 segundos
+
 const jidToPhone = (jid?: string): string | undefined => {
   if (!jid) return undefined;
   const decoded = jidDecode(jid);
@@ -177,11 +184,26 @@ export async function createWhatsAppConnection(userId: string, phoneNumber?: str
  */
 async function initiateBaileysAuth(connectionId: string, authDir: string) {
   try {
+    // Verificar se já há um processo de autenticação ativo
+    if (activeAuthProcesses.get(connectionId)) {
+      console.log(`[${new Date().toISOString()}] ⚠️ Processo de autenticação já ativo para ${connectionId}, ignorando`);
+      return;
+    }
+    
+    activeAuthProcesses.set(connectionId, true);
+    
     const { state, saveCreds } = await useMultiFileAuthState(authDir);
     const sock = makeWASocket({
       auth: state,
       printQRInTerminal: false,
-      keepAliveIntervalMs: 30000, // Keep alive para evitar desconexão
+      keepAliveIntervalMs: 20000, // Keep alive a cada 20s (mais agressivo)
+      connectTimeoutMs: 60000, // Timeout de 60s
+      defaultQueryTimeoutMs: 60000,
+      qrTimeout: 40000, // QR expira em 40s (antes eram múltiplos QRs)
+      markOnlineOnConnect: true, // Marcar online ao conectar
+      retryRequestDelayMs: 250,
+      maxMsgRetryCount: 3,
+      getMessage: async () => undefined, // Evitar erros de mensagens não encontradas
     });
 
     const connection = connections.get(connectionId);
@@ -215,6 +237,17 @@ async function initiateBaileysAuth(connectionId: string, authDir: string) {
       if (conn === 'open') {
         connection.status = 'connected';
         connection.qrCode = undefined; // Limpar QR code após conexão bem-sucedida
+        
+        // Resetar contadores de reconexão
+        reconnectionAttempts.delete(connectionId);
+        activeAuthProcesses.delete(connectionId);
+        
+        // Limpar timers pendentes
+        if (reconnectionTimers.has(connectionId)) {
+          clearTimeout(reconnectionTimers.get(connectionId)!);
+          reconnectionTimers.delete(connectionId);
+        }
+        
         console.log(`[${new Date().toISOString()}] ✅ WhatsApp CONECTADO COM SUCESSO: ${connectionId}`);
         console.log(`[${new Date().toISOString()}] Usuario: ${connection.userId} - Status: ${connection.status}`);
         await populateConnectionProfile(sock, connection);
@@ -226,18 +259,25 @@ async function initiateBaileysAuth(connectionId: string, authDir: string) {
         console.log(`[${new Date().toISOString()}] Desconectado. Status Code: ${statusCode}, Reason: ${reason}`);
         
         // 405 = QR code expirou, 401 = não autorizado, 440 = conflict
-        if (statusCode === 405) {
-          console.log(`[${new Date().toISOString()}] QR code expirou, será regenerado`);
-          connection.status = 'disconnected';
+        if (statusCode === 405 || statusCode === 408) {
+          console.log(`[${new Date().toISOString()}] QR code expirou (${statusCode}), aguardando scan manual`);
+          connection.status = 'scanning';
           connection.qrCode = undefined;
-          // Reconectar para gerar novo QR code
-          setTimeout(() => {
-            console.log(`[${new Date().toISOString()}] Tentando reconectar ${connectionId}`);
-            initiateBaileysAuth(connectionId, authDir);
-          }, 2000);
+          activeAuthProcesses.delete(connectionId);
+          
+          // Limpar timers pendentes
+          if (reconnectionTimers.has(connectionId)) {
+            clearTimeout(reconnectionTimers.get(connectionId)!);
+            reconnectionTimers.delete(connectionId);
+          }
+          
+          // NÃO reconectar automaticamente - aguardar requisição manual do frontend
+          console.log(`[${new Date().toISOString()}] ℹ️ Aguardando nova requisição de QR code em /whatsapp/connections/${connectionId}/qr`);
+          
         } else if (statusCode === 440) {
-          console.log(`[${new Date().toISOString()}] ⚠️ Conflito detectado (conta conectada em outro lugar). Limpando sessão...`);
+          console.log(`[${new Date().toISOString()}] ⚠️ Conflito detectado (conta conectada em outro lugar). Parando reconexões automáticas...`);
           connection.status = 'disconnected';
+          activeAuthProcesses.delete(connectionId);
           
           // Fechar socket se estiver aberto
           try {
@@ -248,11 +288,19 @@ async function initiateBaileysAuth(connectionId: string, authDir: string) {
             console.log(`[${new Date().toISOString()}] Socket já estava fechado`);
           }
           
+          // Limpar timers de reconexão pendentes
+          if (reconnectionTimers.has(connectionId)) {
+            clearTimeout(reconnectionTimers.get(connectionId)!);
+            reconnectionTimers.delete(connectionId);
+          }
+          
+          // Resetar contadores
+          reconnectionAttempts.delete(connectionId);
+          
           // Limpar arquivos de autenticação para forçar novo QR code
           try {
             const authDir = path.join(process.cwd(), 'auth_info', connectionId);
             const fs = require('fs').promises;
-            // Não deletar tudo, apenas limpar credenciais corruptas
             const credsPath = path.join(authDir, 'creds.json');
             try {
               await fs.unlink(credsPath);
@@ -267,17 +315,39 @@ async function initiateBaileysAuth(connectionId: string, authDir: string) {
           connection.qrCode = undefined;
           connection.status = 'scanning';
           
-          // Aguardar antes de reconectar
-          setTimeout(() => {
-            console.log(`[${new Date().toISOString()}] Reconectando com nova sessão...`);
-            initiateBaileysAuth(connectionId, authDir);
-          }, 10000);
+          // IMPORTANTE: Não reconectar automaticamente em caso de conflito
+          // Usuário precisará escanear novo QR code manualmente
+          console.log(`[${new Date().toISOString()}] ℹ️ Conexão ${connectionId} aguardando novo QR scan. Acesse /whatsapp/connections/${connectionId}/qr`);
+          
         } else if (statusCode !== 401) {
           connection.status = 'disconnected';
-          // Tentar reconectar
-          setTimeout(() => {
+          activeAuthProcesses.delete(connectionId);
+          
+          // Implementar exponential backoff
+          const attempts = reconnectionAttempts.get(connectionId) || 0;
+          
+          if (attempts >= MAX_RECONNECTION_ATTEMPTS) {
+            console.log(`[${new Date().toISOString()}] ❌ Máximo de tentativas de reconexão atingido para ${connectionId}`);
+            reconnectionAttempts.delete(connectionId);
+            return;
+          }
+          
+          reconnectionAttempts.set(connectionId, attempts + 1);
+          const delay = BASE_RECONNECT_DELAY * Math.pow(2, attempts); // 5s, 10s, 20s, 40s, 80s
+          
+          console.log(`[${new Date().toISOString()}] 🔄 Tentativa ${attempts + 1}/${MAX_RECONNECTION_ATTEMPTS} em ${delay}ms`);
+          
+          // Limpar timer anterior se existir
+          if (reconnectionTimers.has(connectionId)) {
+            clearTimeout(reconnectionTimers.get(connectionId)!);
+          }
+          
+          const timer = setTimeout(() => {
+            reconnectionTimers.delete(connectionId);
             initiateBaileysAuth(connectionId, authDir);
-          }, 5000);
+          }, delay);
+          
+          reconnectionTimers.set(connectionId, timer);
         }
       }
     });
@@ -390,6 +460,16 @@ export function updateConnectionStatus(
  */
 export async function removeConnection(connectionId: string): Promise<boolean> {
   const connection = connections.get(connectionId);
+  
+  // Limpar processos ativos e timers
+  activeAuthProcesses.delete(connectionId);
+  reconnectionAttempts.delete(connectionId);
+  
+  if (reconnectionTimers.has(connectionId)) {
+    clearTimeout(reconnectionTimers.get(connectionId)!);
+    reconnectionTimers.delete(connectionId);
+  }
+  
   if (connection && connection.socket) {
     try {
       // Envia sinal de logout para forçar desconexão no dispositivo
@@ -491,8 +571,8 @@ export async function loadSavedConnections(): Promise<void> {
         // Tentar reconectar usando as credenciais salvas
         initiateBaileysAuth(connectionId, authDir);
         
-        // Aguardar um pouco antes de tentar a próxima conexão
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Aguardar 5 segundos antes de tentar a próxima conexão (evitar sobrecarga)
+        await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (err) {
         console.error(`[${new Date().toISOString()}] ❌ Erro ao processar ${connectionId}:`, (err as any)?.message || err);
       }
