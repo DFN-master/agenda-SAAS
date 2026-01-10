@@ -54,14 +54,33 @@ export async function getConversationContext(
  * Envia resposta automática via WhatsApp
  */
 async function sendAutoRespond(
-  connectionId: string,
+  connectionIdOrDbId: number | string,
   clientJid: string,
   message: string
 ): Promise<boolean> {
   try {
+    // Se é um número (ID do banco), precisa buscar o connectionId string (conn_*)
+    let connectionIdStr: string;
+    
+    if (typeof connectionIdOrDbId === 'number') {
+      // Buscar a conexão real no user_connections
+      const connection = await (models as any).UserConnection.findOne({
+        where: { id: connectionIdOrDbId, status: 'active' }
+      });
+      
+      if (!connection || !connection.connection_id) {
+        console.error(`[AI] Connection ID ${connectionIdOrDbId} not found in database or not active`);
+        return false;
+      }
+      
+      connectionIdStr = String(connection.connection_id);
+    } else {
+      connectionIdStr = connectionIdOrDbId;
+    }
+    
     const base = process.env.WHATSAPP_SERVICE_URL || 'http://localhost:4000';
     const response = await fetch(
-      `${base}/whatsapp/connections/${connectionId}/send-message`,
+      `${base}/whatsapp/connections/${connectionIdStr}/send-message`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -69,10 +88,10 @@ async function sendAutoRespond(
       }
     );
     if (response.ok) {
-      console.log(`[AI] Auto-responded to ${clientJid}`);
+      console.log(`[AI] Auto-responded to ${clientJid} via connection ${connectionIdStr}`);
       return true;
     }
-    console.error(`[AI] Failed to auto-respond: ${response.status}`);
+    console.error(`[AI] Failed to auto-respond via ${connectionIdStr}: ${response.status}`);
     return false;
   } catch (error) {
     console.error('[AI] Error sending auto-respond:', error);
@@ -238,7 +257,8 @@ export async function createConversationSuggestion(input: CreateSuggestionInput)
 
     // Tentar enviar via WhatsApp
     try {
-      const sent = await sendAutoRespond(String(connectionId || ''), clientRef || '', suggestedResponse);
+      // Passar connectionId (number do banco) - sendAutoRespond irá buscar o conn_* correto
+      const sent = await sendAutoRespond(connectionId || 0, clientRef || '', suggestedResponse);
       if (sent) {
         console.log(`[AI] Auto-respond enviado com sucesso`);
       }

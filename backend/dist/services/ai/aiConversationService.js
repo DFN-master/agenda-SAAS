@@ -49,20 +49,36 @@ function getConversationContext(userId_1, companyId_1, clientRef_1) {
 /**
  * Envia resposta automática via WhatsApp
  */
-function sendAutoRespond(connectionId, clientJid, message) {
+function sendAutoRespond(connectionIdOrDbId, clientJid, message) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            // Se é um número (ID do banco), precisa buscar o connectionId string (conn_*)
+            let connectionIdStr;
+            if (typeof connectionIdOrDbId === 'number') {
+                // Buscar a conexão real no user_connections
+                const connection = yield models_1.default.UserConnection.findOne({
+                    where: { id: connectionIdOrDbId, status: 'active' }
+                });
+                if (!connection || !connection.connection_id) {
+                    console.error(`[AI] Connection ID ${connectionIdOrDbId} not found in database or not active`);
+                    return false;
+                }
+                connectionIdStr = String(connection.connection_id);
+            }
+            else {
+                connectionIdStr = connectionIdOrDbId;
+            }
             const base = process.env.WHATSAPP_SERVICE_URL || 'http://localhost:4000';
-            const response = yield (0, node_fetch_1.default)(`${base}/whatsapp/connections/${connectionId}/send-message`, {
+            const response = yield (0, node_fetch_1.default)(`${base}/whatsapp/connections/${connectionIdStr}/send-message`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ jid: clientJid, message }),
             });
             if (response.ok) {
-                console.log(`[AI] Auto-responded to ${clientJid}`);
+                console.log(`[AI] Auto-responded to ${clientJid} via connection ${connectionIdStr}`);
                 return true;
             }
-            console.error(`[AI] Failed to auto-respond: ${response.status}`);
+            console.error(`[AI] Failed to auto-respond via ${connectionIdStr}: ${response.status}`);
             return false;
         }
         catch (error) {
@@ -210,7 +226,8 @@ function createConversationSuggestion(input) {
             yield suggestion.save();
             // Tentar enviar via WhatsApp
             try {
-                const sent = yield sendAutoRespond(String(connectionId || ''), clientRef || '', suggestedResponse);
+                // Passar connectionId (number do banco) - sendAutoRespond irá buscar o conn_* correto
+                const sent = yield sendAutoRespond(connectionId || 0, clientRef || '', suggestedResponse);
                 if (sent) {
                     console.log(`[AI] Auto-respond enviado com sucesso`);
                 }
