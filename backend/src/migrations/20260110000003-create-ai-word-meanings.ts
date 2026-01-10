@@ -47,10 +47,14 @@ export async function up(queryInterface: QueryInterface) {
   });
 
   // Unique per company+word to avoid duplicates
-  await queryInterface.addIndex('ai_word_meanings', ['company_id', 'word'], {
-    unique: true,
-    name: 'ai_word_meanings_company_word_unique',
-  });
+  try {
+    await queryInterface.addIndex('ai_word_meanings', ['company_id', 'word'], {
+      unique: true,
+      name: 'ai_word_meanings_company_word_unique',
+    });
+  } catch (err) {
+    // Ignore if index already exists
+  }
 }
 
 export async function down(queryInterface: QueryInterface) {

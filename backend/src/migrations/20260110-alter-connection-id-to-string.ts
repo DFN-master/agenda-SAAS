@@ -8,8 +8,12 @@ module.exports = {
       allowNull: false,
     });
 
-    // Remover a restrição de chave estrangeira
-    await queryInterface.removeConstraint('ai_conversation_messages', 'ai_conversation_messages_connection_id_fkey');
+    // Remover a restrição de chave estrangeira (se existir)
+    try {
+      await queryInterface.removeConstraint('ai_conversation_messages', 'ai_conversation_messages_connection_id_fkey');
+    } catch (err) {
+      // Ignorar erro caso a constraint não exista
+    }
 
     // Alterar o tipo da coluna connection_id para STRING
     await queryInterface.changeColumn('ai_conversation_messages', 'connection_id', {

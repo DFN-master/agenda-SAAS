@@ -136,3 +136,16 @@
 2026-01-09 22:06:51 -03:00:     at Object.sendMessage (file:///D:/Agenda/agenda-SAAS/whatsapp-service/node_modules/@whiskeysockets/baileys/src/Socket/messages-send.ts:1193:11)
 2026-01-09 22:06:51 -03:00:     at processTicksAndRejections (node:internal/process/task_queues:103:5)
 2026-01-09 22:06:51 -03:00:     at D:\Agenda\agenda-SAAS\whatsapp-service\src\routes\whatsappRoutes.ts:197:7
+2026-01-10 07:28:21 -03:00: [2026-01-10T10:28:21.499Z] ❌ Erro ao enviar para AI backend: FetchError: request to http://localhost:3000/api/ai/suggestions failed, reason: read ECONNRESET
+2026-01-10 07:28:21 -03:00:     at ClientRequest.<anonymous> (D:\Agenda\agenda-SAAS\whatsapp-service\node_modules\node-fetch\lib\index.js:1501:11)
+2026-01-10 07:28:21 -03:00:     at ClientRequest.emit (node:events:508:28)
+2026-01-10 07:28:21 -03:00:     at emitErrorEvent (node:_http_client:108:11)
+2026-01-10 07:28:21 -03:00:     at Socket.socketErrorListener (node:_http_client:575:5)
+2026-01-10 07:28:21 -03:00:     at Socket.emit (node:events:508:28)
+2026-01-10 07:28:21 -03:00:     at emitErrorNT (node:internal/streams/destroy:170:8)
+2026-01-10 07:28:21 -03:00:     at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+2026-01-10 07:28:21 -03:00:     at processTicksAndRejections (node:internal/process/task_queues:89:21) {
+2026-01-10 07:28:21 -03:00:   type: 'system',
+2026-01-10 07:28:21 -03:00:   errno: 'ECONNRESET',
+2026-01-10 07:28:21 -03:00:   code: 'ECONNRESET'
+2026-01-10 07:28:21 -03:00: }

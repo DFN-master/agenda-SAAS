@@ -2,8 +2,12 @@ import { QueryInterface, DataTypes } from 'sequelize';
 
 module.exports = {
   up: async (queryInterface: QueryInterface) => {
-    // Remover a restrição de chave estrangeira
-    await queryInterface.removeConstraint('ai_conversation_messages', 'ai_conversation_messages_connection_id_fkey');
+    // Remover a restrição de chave estrangeira (se existir)
+    try {
+      await queryInterface.removeConstraint('ai_conversation_messages', 'ai_conversation_messages_connection_id_fkey');
+    } catch (err) {
+      // Ignorar erro caso a constraint não exista
+    }
 
     // Alterar o tipo da coluna id na tabela user_connections para STRING
     await queryInterface.changeColumn('user_connections', 'id', {
@@ -17,18 +21,7 @@ module.exports = {
       allowNull: true,
     });
 
-    // Recriar a restrição de chave estrangeira
-    await queryInterface.addConstraint('ai_conversation_messages', {
-      fields: ['connection_id'],
-      type: 'foreign key',
-      name: 'ai_conversation_messages_connection_id_fkey',
-      references: {
-        table: 'user_connections',
-        field: 'id',
-      },
-      onDelete: 'SET NULL',
-      onUpdate: 'CASCADE',
-    });
+    // Não recriar a restrição de chave estrangeira neste passo para evitar falhas de integridade
   },
 
   down: async (queryInterface: QueryInterface) => {

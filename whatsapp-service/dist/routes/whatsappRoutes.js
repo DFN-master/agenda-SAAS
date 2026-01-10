@@ -4,33 +4,59 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const types_1 = require("../types");
+const node_fetch_1 = __importDefault(require("node-fetch"));
 const router = express_1.default.Router();
+// URL do serviço Whatsmeow em Go
+const WHATSMEOW_API = process.env.WHATSMEOW_API || 'http://localhost:4000';
+/**
+ * POST /whatsapp/connect
+ * Inicia novo fluxo de autenticação com QR code
+ */
+router.post('/connect', async (req, res) => {
+    try {
+        const { company_id, user_id } = req.body;
+        if (!company_id || !user_id) {
+            return res.status(400).json({ message: 'company_id e user_id obrigatórios' });
+        }
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/connect`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ company_id, user_id }),
+        });
+        if (!response.ok) {
+            throw new Error(`Whatsmeow API error: ${response.statusText}`);
+        }
+        const data = await response.json();
+        res.json(data);
+    }
+    catch (error) {
+        console.error('[WhatsApp] Connect error:', error);
+        res.status(500).json({ message: 'Erro ao conectar', error: String(error) });
+    }
+});
 /**
  * POST /whatsapp/connections
- * Cria uma nova conexão WhatsApp e retorna conexion ID para polling do QR code
+ * (DEPRECATED) Cria uma nova conexão WhatsApp - agora usa /connect
  */
 router.post('/connections', async (req, res) => {
     try {
-        const { userId, phoneNumber, companyId, userToken } = req.body;
-        if (!userId) {
-            return res.status(400).json({ error: 'userId é obrigatório' });
+        const { userId, companyId } = req.body;
+        if (!userId || !companyId) {
+            return res.status(400).json({ error: 'userId e companyId obrigatórios' });
         }
-        if (!companyId) {
-            return res.status(400).json({ error: 'companyId é obrigatório' });
+        // Redirecionar para novo endpoint
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/connect`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ company_id: companyId, user_id: userId }),
+        });
+        if (!response.ok) {
+            throw new Error(`Whatsmeow API error: ${response.statusText}`);
         }
-        console.log(`Criando conexão WhatsApp para usuário: ${userId}, empresa: ${companyId}`);
-        const connection = await (0, types_1.createWhatsAppConnection)(userId, phoneNumber);
-        // Adicionar companyId e userToken para webhook de IA
-        connection.companyId = companyId;
-        connection.userToken = userToken;
-        // Salvar metadados para persistência
-        const { saveConnectionMetadata } = require('../types');
-        await saveConnectionMetadata(connection.id, { userId, companyId, userToken });
-        console.log(`Conexão criada: ${connection.id}`);
+        const data = await response.json();
         res.status(201).json({
-            connectionId: connection.id,
-            status: connection.status,
+            connectionId: data.connection_id,
+            status: data.status,
             message: 'Escaneie o QR code com seu WhatsApp',
         });
     }
@@ -40,38 +66,53 @@ router.post('/connections', async (req, res) => {
     }
 });
 /**
+ * GET /whatsapp/qr
+ * Retorna status de uma conexão e QR code se necessário
+ */
+router.get('/qr', async (req, res) => {
+    try {
+        const { connection_id } = req.query;
+        if (!connection_id) {
+            return res.status(400).json({ message: 'connection_id obrigatório' });
+        }
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/qr?connection_id=${connection_id}`);
+        if (!response.ok) {
+            throw new Error(`Whatsmeow API error: ${response.statusText}`);
+        }
+        const data = await response.json();
+        res.json(data);
+    }
+    catch (error) {
+        console.error('[WhatsApp] QR error:', error);
+        res.status(500).json({ message: 'Erro ao obter QR', error: String(error) });
+    }
+});
+/**
  * GET /whatsapp/connections/:connectionId/qr
- * Obtém o QR code para autenticação
+ * (DEPRECATED) Obtém o QR code - agora usa /qr
  */
 router.get('/connections/:connectionId/qr', async (req, res) => {
     try {
         const { connectionId } = req.params;
         console.log(`GET QR code para: ${connectionId}`);
-        const connection = (0, types_1.getConnection)(connectionId);
-        if (!connection) {
-            console.log(`Conexão não encontrada: ${connectionId}`);
-            return res.status(404).json({ error: 'Conexão não encontrada' });
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/qr?connection_id=${connectionId}`);
+        if (!response.ok) {
+            if (response.status === 404) {
+                return res.status(404).json({ error: 'Conexão não encontrada' });
+            }
+            throw new Error(`Whatsmeow API error: ${response.statusText}`);
         }
-        console.log(`Status da conexão: ${connection.status}, QR Code presente: ${!!connection.qrCode}`);
-        // Se já conectado, devolve os dados mesmo sem QR code
-        if (connection.status === 'connected') {
+        const data = await response.json();
+        // Compatibilidade com código antigo
+        if (data.status === 'authenticated') {
             return res.json({
-                status: connection.status,
-                userName: connection.userName,
-                userStatus: connection.userStatus,
-                userProfilePic: connection.userProfilePic,
-                userPhone: connection.userPhone,
-            });
-        }
-        if (!connection.qrCode) {
-            return res.status(202).json({
-                status: connection.status,
-                message: 'QR code não está pronto, tente novamente em alguns segundos',
+                status: 'connected',
+                jid: data.jid,
             });
         }
         res.json({
-            status: connection.status,
-            qrCode: connection.qrCode,
+            status: data.status,
+            qrCode: data.qr_code,
         });
     }
     catch (error) {
@@ -81,23 +122,20 @@ router.get('/connections/:connectionId/qr', async (req, res) => {
 });
 /**
  * GET /whatsapp/connections/:connectionId/status
- * Obtém status completo da conexão incluindo dados do usuário
+ * (DEPRECATED) Obtém status - agora usa /status
  */
-router.get('/connections/:connectionId/status', (req, res) => {
+router.get('/connections/:connectionId/status', async (req, res) => {
     try {
         const { connectionId } = req.params;
-        const connection = (0, types_1.getConnection)(connectionId);
-        if (!connection) {
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/qr?connection_id=${connectionId}`);
+        if (!response.ok) {
             return res.status(404).json({ error: 'Conexão não encontrada' });
         }
+        const data = await response.json();
         res.json({
-            connectionId: connection.id,
-            status: connection.status,
-            phoneNumber: connection.phoneNumber,
-            userName: connection.userName,
-            userStatus: connection.userStatus,
-            userProfilePic: connection.userProfilePic,
-            userPhone: connection.userPhone,
+            connectionId: connectionId,
+            status: data.status === 'authenticated' ? 'connected' : data.status,
+            jid: data.jid || null,
         });
     }
     catch (error) {
@@ -112,8 +150,12 @@ router.get('/connections/:connectionId/status', (req, res) => {
 router.delete('/connections/:connectionId', async (req, res) => {
     try {
         const { connectionId } = req.params;
-        const removed = await (0, types_1.removeConnection)(connectionId);
-        if (!removed) {
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/disconnect`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ connection_id: connectionId }),
+        });
+        if (!response.ok) {
             return res.status(404).json({ error: 'Conexão não encontrada' });
         }
         res.json({ message: 'Conexão removida com sucesso' });
@@ -129,19 +171,16 @@ router.delete('/connections/:connectionId', async (req, res) => {
  */
 router.post('/connections/reconnect-all', async (req, res) => {
     try {
-        const { loadSavedConnections, getAllConnections } = require('../types');
-        await loadSavedConnections();
-        const connections = getAllConnections();
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/connections`);
+        if (!response.ok) {
+            throw new Error(`Whatsmeow API error: ${response.statusText}`);
+        }
+        const data = await response.json();
         res.json({
             success: true,
             message: 'Reconexão iniciada para todas as conexões salvas',
-            connectionsCount: connections.length,
-            connections: connections.map((c) => ({
-                id: c.id,
-                status: c.status,
-                phoneNumber: c.phoneNumber,
-                userName: c.userName,
-            })),
+            connectionsCount: data.count,
+            connections: data.connections || [],
         });
     }
     catch (error) {
@@ -150,8 +189,38 @@ router.post('/connections/reconnect-all', async (req, res) => {
     }
 });
 /**
+ * POST /whatsapp/send
+ * Envia uma mensagem via WhatsApp
+ */
+router.post('/send', async (req, res) => {
+    try {
+        const { connection_id, to, text, company_id } = req.body;
+        if (!connection_id || !to || !text) {
+            return res.status(400).json({
+                message: 'connection_id, to, text obrigatórios'
+            });
+        }
+        // Log
+        console.log(`[WhatsApp] Enviando para ${to} via conexão ${connection_id} (company: ${company_id})`);
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/send`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ connection_id, to, text }),
+        });
+        if (!response.ok) {
+            throw new Error(`Whatsmeow API error: ${response.statusText}`);
+        }
+        const data = await response.json();
+        res.json(data);
+    }
+    catch (error) {
+        console.error('[WhatsApp] Send error:', error);
+        res.status(500).json({ message: 'Erro ao enviar mensagem', error: String(error) });
+    }
+});
+/**
  * POST /whatsapp/connections/:connectionId/send-message
- * Envia uma mensagem via conexão WhatsApp
+ * (DEPRECATED) Envia mensagem - agora usa /send
  */
 router.post('/connections/:connectionId/send-message', async (req, res) => {
     try {
@@ -160,22 +229,17 @@ router.post('/connections/:connectionId/send-message', async (req, res) => {
         if (!jid || !message) {
             return res.status(400).json({ error: 'jid e message são obrigatórios' });
         }
-        const connection = (0, types_1.getConnection)(connectionId);
-        if (!connection) {
-            return res.status(404).json({ error: 'Conexão não encontrada' });
-        }
-        if (connection.status !== 'connected' || !connection.socket) {
+        const response = await (0, node_fetch_1.default)(`${WHATSMEOW_API}/api/whatsapp/send`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ connection_id: connectionId, to: jid, text: message }),
+        });
+        if (!response.ok) {
             return res.status(503).json({ error: 'Conexão WhatsApp não está ativa' });
         }
-        try {
-            await connection.socket.sendMessage(jid, { text: message });
-            console.log(`[${new Date().toISOString()}] 📤 Mensagem enviada para ${jid}: "${message.substring(0, 50)}..."`);
-            res.json({ success: true, message: 'Mensagem enviada' });
-        }
-        catch (error) {
-            console.error(`Erro ao enviar mensagem:`, error);
-            res.status(500).json({ error: 'Falha ao enviar mensagem via WhatsApp' });
-        }
+        const data = await response.json();
+        console.log(`[${new Date().toISOString()}] 📤 Mensagem enviada para ${jid}`);
+        res.json({ success: true, message: 'Mensagem enviada' });
     }
     catch (error) {
         console.error('Error in send-message endpoint:', error);
