@@ -404,6 +404,34 @@ export async function removeConnection(connectionId: string): Promise<boolean> {
       console.log(`[${new Date().toISOString()}] Erro ao finalizar socket:`, (err as any)?.message || err);
     }
   }
+  
+  // Limpar arquivos de autenticação para forçar novo QR code na próxima conexão
+  try {
+    const authDir = path.join(process.cwd(), 'auth_info', connectionId);
+    const files = await fs.readdir(authDir);
+    
+    for (const file of files) {
+      const filePath = path.join(authDir, file);
+      const stat = await fs.stat(filePath);
+      
+      if (stat.isDirectory()) {
+        // Remover diretórios
+        const dirFiles = await fs.readdir(filePath);
+        for (const dirFile of dirFiles) {
+          await fs.unlink(path.join(filePath, dirFile));
+        }
+        // Não remover o diretório em si, apenas seus conteúdos
+      } else {
+        // Remover arquivo
+        await fs.unlink(filePath);
+      }
+    }
+    
+    console.log(`[${new Date().toISOString()}] 🗑️  Arquivos de autenticação removidos para ${connectionId}`);
+  } catch (err) {
+    console.log(`[${new Date().toISOString()}] ⚠️  Aviso ao limpar arquivos: ${(err as any)?.message || err}`);
+  }
+  
   return connections.delete(connectionId);
 }
 

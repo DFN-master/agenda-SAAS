@@ -1116,3 +1116,866 @@
 2026-01-09 12:44:51 -03:00:       at step (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:287:14)
 2026-01-09 12:44:51 -03:00:       at D:\Agenda-Sys\frontend\node_modules\gensync\index.js:273:13
 2026-01-09 12:44:51 -03:00:       at async.call.result.err.err (D:\Agenda-Sys\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:15:06 -03:00: [2m22:15:06[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:15:06 -03:00: 
+2026-01-09 22:15:06 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:15:06 -03:00:  [90m 552 |[31m
+2026-01-09 22:15:06 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:15:06 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:15:06 -03:00:  [90m 554 |[31m
+2026-01-09 22:15:06 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:15:06 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:15:06 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:15:06 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:15:06 -03:00: [33m  568|        </div>
+2026-01-09 22:15:06 -03:00:   569|  
+2026-01-09 22:15:06 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:15:06 -03:00:      |                                        ^
+2026-01-09 22:15:06 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:15:06 -03:00:   572|  [39m
+2026-01-09 22:15:06 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:15:06 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:15:06 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:15:06 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:15:06 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:15:06 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:15:06 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:15:06 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:15:06 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:15:06 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:15:06 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:15:06 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:15:06 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:15:06 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:15:06 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:15:06 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:15:06 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:15:06 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:15:06 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:15:06 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:15:06 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:15:06 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:15:06 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:15:28 -03:00: [2m22:15:28[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:15:28 -03:00: 
+2026-01-09 22:15:28 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:15:28 -03:00:  [90m 552 |[31m
+2026-01-09 22:15:28 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:15:28 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:15:28 -03:00:  [90m 554 |[31m
+2026-01-09 22:15:28 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:15:28 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:15:28 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:15:28 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:15:28 -03:00: [33m  568|        </div>
+2026-01-09 22:15:28 -03:00:   569|  
+2026-01-09 22:15:28 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:15:28 -03:00:      |                                        ^
+2026-01-09 22:15:28 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:15:28 -03:00:   572|  [39m
+2026-01-09 22:15:28 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:15:28 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:15:28 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:15:28 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:15:28 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:15:28 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:15:28 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:15:28 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:15:28 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:15:28 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:15:28 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:15:28 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:15:28 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:15:28 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:15:28 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:15:28 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:15:28 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:15:28 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:15:28 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:15:28 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:15:28 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:15:28 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:15:28 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:12 -03:00: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:16:12 -03:00: 
+2026-01-09 22:16:12 -03:00: [0m [90m 551 |[39m   }[33m;[39m
+2026-01-09 22:16:12 -03:00:  [90m 552 |[39m
+2026-01-09 22:16:12 -03:00: [31m[1m>[22m[39m[90m 553 |[39m   [36mconst[39m confidencePercentage [33m=[39m (autoRespondStatus[33m.[39mai_confidence_score [33m||[39m [35m0[39m) [33m*[39m [35m100[39m[33m;[39m
+2026-01-09 22:16:12 -03:00:  [90m     |[39m         [31m[1m^[22m[39m
+2026-01-09 22:16:12 -03:00:  [90m 554 |[39m
+2026-01-09 22:16:12 -03:00:  [90m 555 |[39m   [36mif[39m ([33m![39mresolvedCompanyId) {
+2026-01-09 22:16:12 -03:00:  [90m 556 |[39m     [36mreturn[39m [33m<[39m[33mdiv[39m className[33m=[39m[32m"ai-training-container"[39m[33m>[39m[33m<[39m[33mp[39m[33m>[39m[33mCarregando[39m contexto da empresa[33m...[39m[33m<[39m[33m/[39m[33mp[39m[33m>[39m[33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[33m;[39m[0m
+2026-01-09 22:16:12 -03:00: [2m22:16:12[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:16:12 -03:00: 
+2026-01-09 22:16:12 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:16:12 -03:00:  [90m 552 |[31m
+2026-01-09 22:16:12 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:16:12 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:16:12 -03:00:  [90m 554 |[31m
+2026-01-09 22:16:12 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:16:12 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:16:12 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:16:12 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:16:12 -03:00: [33m  568|        </div>
+2026-01-09 22:16:12 -03:00:   569|  
+2026-01-09 22:16:12 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:16:12 -03:00:      |                                        ^
+2026-01-09 22:16:12 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:16:12 -03:00:   572|  [39m
+2026-01-09 22:16:12 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:16:12 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:16:12 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:16:12 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:16:12 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:16:12 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:16:12 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:16:12 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:16:12 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:16:12 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:16:12 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:16:12 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:16:12 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:16:12 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:16:12 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:16:12 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:12 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:12 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:16:12 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:16:12 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:16:12 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:16:12 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:12 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:14 -03:00: [2m22:16:14[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:16:14 -03:00: 
+2026-01-09 22:16:14 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:16:14 -03:00:  [90m 552 |[31m
+2026-01-09 22:16:14 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:16:14 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:16:14 -03:00:  [90m 554 |[31m
+2026-01-09 22:16:14 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:16:14 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:16:14 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:16:14 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:16:14 -03:00: [33m  568|        </div>
+2026-01-09 22:16:14 -03:00:   569|  
+2026-01-09 22:16:14 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:16:14 -03:00:      |                                        ^
+2026-01-09 22:16:14 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:16:14 -03:00:   572|  [39m
+2026-01-09 22:16:14 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:16:14 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:16:14 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:16:14 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:16:14 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:16:14 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:16:14 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:16:14 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:16:14 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:16:14 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:16:14 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:16:14 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:16:14 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:16:14 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:16:14 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:16:14 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:14 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:14 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:16:14 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:16:14 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:16:14 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:16:14 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:14 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:17 -03:00: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:16:17 -03:00: 
+2026-01-09 22:16:17 -03:00: [0m [90m 551 |[39m   }[33m;[39m
+2026-01-09 22:16:17 -03:00:  [90m 552 |[39m
+2026-01-09 22:16:17 -03:00: [31m[1m>[22m[39m[90m 553 |[39m   [36mconst[39m confidencePercentage [33m=[39m (autoRespondStatus[33m.[39mai_confidence_score [33m||[39m [35m0[39m) [33m*[39m [35m100[39m[33m;[39m
+2026-01-09 22:16:17 -03:00:  [90m     |[39m         [31m[1m^[22m[39m
+2026-01-09 22:16:17 -03:00:  [90m 554 |[39m
+2026-01-09 22:16:17 -03:00:  [90m 555 |[39m   [36mif[39m ([33m![39mresolvedCompanyId) {
+2026-01-09 22:16:17 -03:00:  [90m 556 |[39m     [36mreturn[39m [33m<[39m[33mdiv[39m className[33m=[39m[32m"ai-training-container"[39m[33m>[39m[33m<[39m[33mp[39m[33m>[39m[33mCarregando[39m contexto da empresa[33m...[39m[33m<[39m[33m/[39m[33mp[39m[33m>[39m[33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[33m;[39m[0m
+2026-01-09 22:16:17 -03:00: [2m22:16:17[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:16:17 -03:00: 
+2026-01-09 22:16:17 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:16:17 -03:00:  [90m 552 |[31m
+2026-01-09 22:16:17 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:16:17 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:16:17 -03:00:  [90m 554 |[31m
+2026-01-09 22:16:17 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:16:17 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:16:17 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:16:17 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:16:17 -03:00: [33m  568|        </div>
+2026-01-09 22:16:17 -03:00:   569|  
+2026-01-09 22:16:17 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:16:17 -03:00:      |                                        ^
+2026-01-09 22:16:17 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:16:17 -03:00:   572|  [39m
+2026-01-09 22:16:17 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:16:17 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:16:17 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:16:17 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:16:17 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:16:17 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:16:17 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:16:17 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:16:17 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:16:17 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:16:17 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:16:17 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:16:17 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:16:17 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:16:17 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:16:17 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:17 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:17 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:16:17 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:16:17 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:16:17 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:16:17 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:17 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:41 -03:00: [2m22:16:41[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:16:41 -03:00: 
+2026-01-09 22:16:41 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:16:41 -03:00:  [90m 552 |[31m
+2026-01-09 22:16:41 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:16:41 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:16:41 -03:00:  [90m 554 |[31m
+2026-01-09 22:16:41 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:16:41 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:16:41 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:16:41 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:16:41 -03:00: [33m  568|        </div>
+2026-01-09 22:16:41 -03:00:   569|  
+2026-01-09 22:16:41 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:16:41 -03:00:      |                                        ^
+2026-01-09 22:16:41 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:16:41 -03:00:   572|  [39m
+2026-01-09 22:16:41 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:16:41 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:16:41 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:16:41 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:16:41 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:16:41 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:16:41 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:16:41 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:16:41 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:16:41 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:16:41 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:16:41 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:16:41 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:16:41 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:16:41 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:16:41 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:41 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:41 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:16:41 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:16:41 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:16:41 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:16:41 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:41 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:44 -03:00: [2m22:16:44[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:16:44 -03:00: 
+2026-01-09 22:16:44 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:16:44 -03:00:  [90m 552 |[31m
+2026-01-09 22:16:44 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:16:44 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:16:44 -03:00:  [90m 554 |[31m
+2026-01-09 22:16:44 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:16:44 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:16:44 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:16:44 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:16:44 -03:00: [33m  568|        </div>
+2026-01-09 22:16:44 -03:00:   569|  
+2026-01-09 22:16:44 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:16:44 -03:00:      |                                        ^
+2026-01-09 22:16:44 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:16:44 -03:00:   572|  [39m
+2026-01-09 22:16:44 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:16:44 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:16:44 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:16:44 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:16:44 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:16:44 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:16:44 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:16:44 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:16:44 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:16:44 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:16:44 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:16:44 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:16:44 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:16:44 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:16:44 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:16:44 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:44 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:16:44 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:16:44 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:16:44 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:16:44 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:16:44 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:16:44 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:17:13 -03:00: [2m22:17:13[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:17:13 -03:00: 
+2026-01-09 22:17:13 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:17:13 -03:00:  [90m 552 |[31m
+2026-01-09 22:17:13 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:17:13 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:17:13 -03:00:  [90m 554 |[31m
+2026-01-09 22:17:13 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:17:13 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:17:13 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:17:13 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:17:13 -03:00: [33m  568|        </div>
+2026-01-09 22:17:13 -03:00:   569|  
+2026-01-09 22:17:13 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:17:13 -03:00:      |                                        ^
+2026-01-09 22:17:13 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:17:13 -03:00:   572|  [39m
+2026-01-09 22:17:13 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:17:13 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:17:13 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:17:13 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:17:13 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:17:13 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:17:13 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:17:13 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:17:13 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:17:13 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:17:13 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:17:13 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:17:13 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:17:13 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:17:13 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:17:13 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:17:13 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:17:13 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:17:13 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:17:13 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:17:13 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:17:13 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:17:13 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:21:42 -03:00: [2m22:21:42[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:21:42 -03:00: 
+2026-01-09 22:21:42 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:21:42 -03:00:  [90m 552 |[31m
+2026-01-09 22:21:42 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:21:42 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:21:42 -03:00:  [90m 554 |[31m
+2026-01-09 22:21:42 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:21:42 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:21:42 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:21:42 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:21:42 -03:00: [33m  568|        </div>
+2026-01-09 22:21:42 -03:00:   569|  
+2026-01-09 22:21:42 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:21:42 -03:00:      |                                        ^
+2026-01-09 22:21:42 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:21:42 -03:00:   572|  [39m
+2026-01-09 22:21:42 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:21:42 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:21:42 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:21:42 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:21:42 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:21:42 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:21:42 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:21:42 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:21:42 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:21:42 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:21:42 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:21:42 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:21:42 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:21:42 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:21:42 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:21:42 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:21:42 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:21:42 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:21:42 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:21:42 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:21:42 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:21:42 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:21:42 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:22:02 -03:00: [2m22:22:02[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:22:02 -03:00: 
+2026-01-09 22:22:02 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:22:02 -03:00:  [90m 552 |[31m
+2026-01-09 22:22:02 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:22:02 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:22:02 -03:00:  [90m 554 |[31m
+2026-01-09 22:22:02 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:22:02 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:22:02 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:22:02 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:22:02 -03:00: [33m  568|        </div>
+2026-01-09 22:22:02 -03:00:   569|  
+2026-01-09 22:22:02 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:22:02 -03:00:      |                                        ^
+2026-01-09 22:22:02 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:22:02 -03:00:   572|  [39m
+2026-01-09 22:22:02 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:22:02 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:22:02 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:22:02 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:22:02 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:22:02 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:22:02 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:22:02 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:22:02 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:22:02 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:22:02 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:22:02 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:22:02 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:22:02 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:22:02 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:22:02 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:22:02 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:22:02 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:22:02 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:22:02 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:22:02 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:22:02 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:22:02 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:22:27 -03:00: [2m22:22:27[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:22:27 -03:00: 
+2026-01-09 22:22:27 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:22:27 -03:00:  [90m 552 |[31m
+2026-01-09 22:22:27 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:22:27 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:22:27 -03:00:  [90m 554 |[31m
+2026-01-09 22:22:27 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:22:27 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:22:27 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:22:27 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:22:27 -03:00: [33m  568|        </div>
+2026-01-09 22:22:27 -03:00:   569|  
+2026-01-09 22:22:27 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:22:27 -03:00:      |                                        ^
+2026-01-09 22:22:27 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:22:27 -03:00:   572|  [39m
+2026-01-09 22:22:27 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:22:27 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:22:27 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:22:27 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:22:27 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:22:27 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:22:27 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:22:27 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:22:27 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:22:27 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:22:27 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:22:27 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:22:27 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:22:27 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:22:27 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:22:27 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:22:27 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:22:27 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:22:27 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:22:27 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:22:27 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:22:27 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:22:27 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:22:38 -03:00: [2m22:22:38[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:22:38 -03:00: 
+2026-01-09 22:22:38 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:22:38 -03:00:  [90m 552 |[31m
+2026-01-09 22:22:38 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:22:38 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:22:38 -03:00:  [90m 554 |[31m
+2026-01-09 22:22:38 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:22:38 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:22:38 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:22:38 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:22:38 -03:00: [33m  568|        </div>
+2026-01-09 22:22:38 -03:00:   569|  
+2026-01-09 22:22:38 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:22:38 -03:00:      |                                        ^
+2026-01-09 22:22:38 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:22:38 -03:00:   572|  [39m
+2026-01-09 22:22:38 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:22:38 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:22:38 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:22:38 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:22:38 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:22:38 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:22:38 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:22:38 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:22:38 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:22:38 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:22:38 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:22:38 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:22:38 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:22:38 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:22:38 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:22:38 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:22:38 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:22:38 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:22:38 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:22:38 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:22:38 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:22:38 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:22:38 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:24:35 -03:00: [2m22:24:35[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Agenda\agenda-SAAS\frontend\src\pages\AdminAITraining.jsx: Identifier 'confidencePercentage' has already been declared. (553:8)
+2026-01-09 22:24:35 -03:00: 
+2026-01-09 22:24:35 -03:00: [0m [90m 551 |[31m   }[33m;[31m
+2026-01-09 22:24:35 -03:00:  [90m 552 |[31m
+2026-01-09 22:24:35 -03:00: [31m[1m>[22m[31m[90m 553 |[31m   [36mconst[31m confidencePercentage [33m=[31m (autoRespondStatus[33m.[31mai_confidence_score [33m||[31m [35m0[31m) [33m*[31m [35m100[31m[33m;[31m
+2026-01-09 22:24:35 -03:00:  [90m     |[31m         [31m[1m^[22m[31m
+2026-01-09 22:24:35 -03:00:  [90m 554 |[31m
+2026-01-09 22:24:35 -03:00:  [90m 555 |[31m   [36mif[31m ([33m![31mresolvedCompanyId) {
+2026-01-09 22:24:35 -03:00:  [90m 556 |[31m     [36mreturn[31m [33m<[31m[33mdiv[31m className[33m=[31m[32m"ai-training-container"[31m[33m>[31m[33m<[31m[33mp[31m[33m>[31m[33mCarregando[31m contexto da empresa[33m...[31m[33m<[31m[33m/[31m[33mp[31m[33m>[31m[33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[33m;[31m[0m[39m
+2026-01-09 22:24:35 -03:00:   Plugin: [35mvite:react-babel[39m
+2026-01-09 22:24:35 -03:00:   File: [36mD:/Agenda/agenda-SAAS/frontend/src/pages/AdminAITraining.jsx[39m:553:8
+2026-01-09 22:24:35 -03:00: [33m  568|        </div>
+2026-01-09 22:24:35 -03:00:   569|  
+2026-01-09 22:24:35 -03:00:   570|        {error && <div className="error-banner">{error}</div>}
+2026-01-09 22:24:35 -03:00:      |                                        ^
+2026-01-09 22:24:35 -03:00:   571|        {success && <div className="success-banner">{success}</div>}
+2026-01-09 22:24:35 -03:00:   572|  [39m
+2026-01-09 22:24:35 -03:00:       at constructor (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:367:19)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.raise (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:6624:19)
+2026-01-09 22:24:35 -03:00:       at ScopeHandler.checkRedeclarationInScope (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1646:19)
+2026-01-09 22:24:35 -03:00:       at ScopeHandler.declareName (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:1612:12)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.declareNameFromIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7594:16)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.checkIdentifier (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7590:12)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.checkLVal (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:7527:12)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseVarId (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13488:10)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseVar (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13459:12)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseVarStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13306:10)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12927:23)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseStatementListItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12823:17)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:61)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseBlock (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13373:10)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseFunctionBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12174:24)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseFunctionBodyAndFinish (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12160:10)
+2026-01-09 22:24:35 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13521:12
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12477:14)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseFunction (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13520:10)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseFunctionStatement (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13201:17)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseStatementContent (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12867:21)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseStatementLike (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12843:17)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseModuleItem (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12820:17)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseBlockOrModuleBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13392:36)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseBlockBody (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:13385:10)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseProgram (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12698:10)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parseTopLevel (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:12688:25)
+2026-01-09 22:24:35 -03:00:       at JSXParserMixin.parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14568:25)
+2026-01-09 22:24:35 -03:00:       at parse (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\parser\lib\index.js:14602:38)
+2026-01-09 22:24:35 -03:00:       at parser (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+2026-01-09 22:24:35 -03:00:       at parser.next (<anonymous>)
+2026-01-09 22:24:35 -03:00:       at normalizeFile (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+2026-01-09 22:24:35 -03:00:       at normalizeFile.next (<anonymous>)
+2026-01-09 22:24:35 -03:00:       at run (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+2026-01-09 22:24:35 -03:00:       at run.next (<anonymous>)
+2026-01-09 22:24:35 -03:00:       at transform (D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\transform.js:22:33)
+2026-01-09 22:24:35 -03:00:       at transform.next (<anonymous>)
+2026-01-09 22:24:35 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:261:32)
+2026-01-09 22:24:35 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:24:35 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)
+2026-01-09 22:24:35 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:189:28
+2026-01-09 22:24:35 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+2026-01-09 22:24:35 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:113:33
+2026-01-09 22:24:35 -03:00:       at step (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:287:14)
+2026-01-09 22:24:35 -03:00:       at D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:273:13
+2026-01-09 22:24:35 -03:00:       at async.call.result.err.err (D:\Agenda\agenda-SAAS\frontend\node_modules\gensync\index.js:223:11)

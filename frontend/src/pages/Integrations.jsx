@@ -15,6 +15,7 @@ function Integrations() {
   const [scanningConnectionId, setScanningConnectionId] = useState(null);
   const [qrCheckInterval, setQrCheckInterval] = useState(null);
   const [reconnectingId, setReconnectingId] = useState(null);
+  const [disconnectingId, setDisconnectingId] = useState(null);
 
   const connectionTypes = [
     { id: 'email', name: 'Email (IMAP)', icon: '✉️' },
@@ -162,20 +163,43 @@ function Integrations() {
 
     try {
       setError('');
+      setSuccess('');
+      setDisconnectingId(connectionId);
+      console.log(`[DISCONNECT] Desconectando ${connectionId}...`);
+      
       // Chamar microservice para desconectar
       const response = await fetch(`http://localhost:4000/whatsapp/connections/${connectionId}`, {
         method: 'DELETE',
       });
 
+      console.log(`[DISCONNECT] Response status: ${response.status}`);
+
       if (response.ok) {
-        setSuccess('WhatsApp desconectado!');
-        await fetchData();
+        console.log('[DISCONNECT] Desconexão bem-sucedida, atualizando UI...');
+        setSuccess('WhatsApp desconectado! Atualizando...');
+        
+        // Aguardar um pouco e depois recarregar dados
+        setTimeout(async () => {
+          await fetchData();
+          setSuccess('WhatsApp desconectado com sucesso!');
+          setDisconnectingId(null);
+        }, 500);
       } else {
-        setError('Erro ao desconectar WhatsApp');
+        const errorText = await response.text();
+        console.error('[DISCONNECT] Error response:', errorText);
+        
+        try {
+          const errorData = JSON.parse(errorText);
+          setError(errorData.error || 'Erro ao desconectar WhatsApp');
+        } catch {
+          setError(`Erro ao desconectar WhatsApp (${response.status})`);
+        }
+        setDisconnectingId(null);
       }
     } catch (err) {
       console.error('Error disconnecting WhatsApp:', err);
-      setError('Erro ao desconectar WhatsApp');
+      setError(`Erro ao desconectar WhatsApp: ${err.message}`);
+      setDisconnectingId(null);
     }
   };
 
@@ -618,8 +642,9 @@ function Integrations() {
                           <button
                             className="btn-warning"
                             onClick={() => handleDisconnectWhatsApp(conn.config?.connectionId || conn.id)}
+                            disabled={disconnectingId === (conn.config?.connectionId || conn.id)}
                           >
-                            ⛔ Desconectar
+                            {disconnectingId === (conn.config?.connectionId || conn.id) ? '⏳ Desconectando...' : '⛔ Desconectar'}
                           </button>
                         ) : (
                           <button

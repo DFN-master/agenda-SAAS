@@ -118,7 +118,7 @@ const BUSINESS_VOCABULARY = [
   },
   {
     word: 'dúvida',
-    definition: 'Incerteza ou falta de clareza sobre um assunto, dúvida. Sentimento de estar indeciso ou questionador sobre algo.',
+    definition: 'Incerteza ou falta de clareza sobre um assunto. Sentimento de estar indeciso ou questionador sobre algo.',
     synonyms: ['incerteza', 'questionamento', 'pergunta', 'indefinição'],
     examples: [
       'Tenho uma dúvida sobre o serviço',
@@ -225,6 +225,72 @@ const BUSINESS_VOCABULARY = [
       'Qual é a responsabilidade?',
       'É nossa responsabilidade resolver'
     ]
+  },
+  {
+    word: 'cliente',
+    definition: 'Pessoa que compra ou utiliza produtos ou serviços de uma empresa ou profissional.',
+    synonyms: ['consumidor', 'comprador', 'usuário', 'contratante'],
+    examples: [
+      'O cliente é nossa prioridade',
+      'Cada cliente é único',
+      'Satisfação do cliente é tudo',
+      'Quantos clientes vocês têm?'
+    ]
+  },
+  {
+    word: 'empresa',
+    definition: 'Organização constituída para exercer atividade econômica ou comercial. Pode ser pessoa física ou jurídica.',
+    synonyms: ['negócio', 'organização', 'firma', 'companhia'],
+    examples: [
+      'Em que empresa você trabalha?',
+      'Nossa empresa foi fundada em 2020',
+      'A empresa oferece bons benefícios',
+      'Qual é o tamanho da empresa?'
+    ]
+  },
+  {
+    word: 'equipe',
+    definition: 'Grupo de pessoas que trabalham juntas para alcançar um objetivo comum. Colaboradores que trabalham de forma integrada.',
+    synonyms: ['time', 'grupo', 'pessoal', 'staff'],
+    examples: [
+      'Nossa equipe é muito profissional',
+      'A equipe está preparada',
+      'Quantas pessoas na equipe?',
+      'A equipe está sempre disponível'
+    ]
+  },
+  {
+    word: 'profissional',
+    definition: 'Pessoa que exerce uma profissão ou atividade com qualificação, expertise e dedic ação. Especialista em sua área.',
+    synonyms: ['especialista', 'perito', 'técnico', 'qualificado'],
+    examples: [
+      'Temos profissionais capacitados',
+      'O profissional tem 10 anos de experiência',
+      'Qual é a formação do profissional?',
+      'Nossos profissionais são certificados'
+    ]
+  },
+  {
+    word: 'contato',
+    definition: 'Informação de comunicação como telefone, email ou endereço. Ligação ou comunicação entre pessoas.',
+    synonyms: ['telefone', 'email', 'endereço', 'comunicação'],
+    examples: [
+      'Qual é seu contato?',
+      'Deixe seus dados de contato',
+      'Vou entrar em contato com você',
+      'Qual é o melhor contato?'
+    ]
+  },
+  {
+    word: 'informação',
+    definition: 'Dado ou conhecimento comunicado que auxilia na compreensão de algo. Esclarecimento ou explicação sobre um assunto.',
+    synonyms: ['dado', 'conhecimento', 'detalhe', 'explicação'],
+    examples: [
+      'Preciso de mais informações',
+      'Temos informações atualizadas',
+      'Qual é a informação que precisa?',
+      'Essas informações são confidenciais'
+    ]
   }
 ];
 
@@ -294,6 +360,138 @@ const COMMON_VERBS = [
       'Confirmo sua reserva',
       'Precisa confirmar?',
       'Está confirmado?'
+    ]
+  },
+  {
+    word: 'buscar',
+    definition: 'Procurar, tentar encontrar ou obter algo. Ir em busca de um objetivo ou resultado.',
+    synonyms: ['procurar', 'pesquisar', 'investigar', 'perseguir'],
+    examples: [
+      'Vou buscar informações',
+      'Está buscando algo específico?',
+      'Onde posso buscar isto?',
+      'Estou buscando soluções'
+    ]
+  },
+  {
+    word: 'oferecemos',
+    definition: 'Disponibilizar, apresentar ou propor algo a alguém. Colocar à disposição um serviço ou produto.',
+    synonyms: ['disponibilizamos', 'proporcionamos', 'prestamos', 'fornecemos'],
+    examples: [
+      'Oferecemos os melhores preços',
+      'Que serviços vocês oferecem?',
+      'Oferecemos garantia',
+      'Oferecemos atendimento 24h'
+    ]
+  },
+  {
+    word: 'agendar',
+    definition: 'Marcar uma data e hora para um compromisso, consulta ou serviço futuro.',
+    synonyms: ['marcar', 'reservar', 'agendar horário', 'fazer agendamento'],
+    examples: [
+      'Como agendar uma consulta?',
+      'Agendo para que dia?',
+      'Preciso agendar um horário',
+      'Você pode agendar para amanhã?'
+    ]
+  },
+  {
+    word: 'cancelar',
+    definition: 'Anular, rescindir ou suspender um agendamento, compromisso ou serviço.',
+    synonyms: ['anular', 'suspender', 'encerrar', 'rescindir'],
+    examples: [
+      'Como cancelar minha reserva?',
+      'Preciso cancelar o agendamento',
+      'Já foi cancelado?',
+      'Há taxa para cancelar?'
+    ]
+  },
+  {
+    word: 'modificar',
+    definition: 'Alterar, mudar ou ajustar algo que foi previamente estabelecido. Fazer mudanças em um agendamento ou serviço.',
+    synonyms: ['alterar', 'mudar', 'ajustar', 'editar'],
+    examples: [
+      'Posso modificar meu agendamento?',
+      'Preciso modificar os dados',
+      'Como modificar a ordem?',
+      'Já foi modificado?'
+    ]
+  },
+  {
+    word: 'efetuar',
+    definition: 'Realizar, executar ou levar a efeito uma ação. Concretizar algo planejado.',
+    synonyms: ['realizar', 'executar', 'fazer', 'concretizar'],
+    examples: [
+      'Vou efetuar o pagamento',
+      'Como efetuar a compra?',
+      'Já foi efetuado?',
+      'Preciso efetuar uma transferência'
+    ]
+  },
+  {
+    word: 'aceitar',
+    definition: 'Concordar com, receber ou admitir algo. Estar de acordo com proposta ou sugestão.',
+    synonyms: ['concordar', 'receber', 'admitir', 'aprovar'],
+    examples: [
+      'Você aceita cartão?',
+      'Aceito sua proposta',
+      'Não aceitamos cheque',
+      'Você aceita pix?'
+    ]
+  },
+  {
+    word: 'recusar',
+    definition: 'Rejeitar, negar ou não aceitar algo. Expressar discordância ou falta de interesse.',
+    synonyms: ['rejeitar', 'negar', 'rejeitar', 'declinar'],
+    examples: [
+      'Não posso recusar',
+      'Vocês recusam algo?',
+      'Por que recusa ajuda?',
+      'Ele recusou a oferta'
+    ]
+  },
+  {
+    word: 'informar',
+    definition: 'Comunicar, notificar ou passar conhecimento a alguém. Fornecer informações ou explicações.',
+    synonyms: ['comunicar', 'notificar', 'avisar', 'explicar'],
+    examples: [
+      'Vou informá-lo sobre isto',
+      'Pode me informar o preço?',
+      'Já foi informado?',
+      'Me informa quando tiver disponibilidade'
+    ]
+  },
+  {
+    word: 'incluir',
+    definition: 'Adicionar, incorporar ou fazer parte de. Colocar algo no total ou na lista.',
+    synonyms: ['adicionar', 'incorporar', 'acrescentar', 'integrar'],
+    examples: [
+      'Isso inclui imposto?',
+      'Inclui transporte?',
+      'Vou incluir na lista',
+      'O pacote inclui refeição?'
+    ]
+  },
+  {
+    word: 'excluir',
+    definition: 'Remover, tirar ou deixar de fora. Não incluir algo no total ou lista.',
+    synonyms: ['remover', 'tirar', 'eliminar', 'expulsar'],
+    examples: [
+      'Pode excluir isto?',
+      'Gostaria de excluir este item',
+      'Já foi excluído?',
+      'Preciso excluir minha conta'
+    ]
+  },
+  {
+    word: 'verificar',
+    definition: 'Conferir, checar ou examinar algo para ter certeza. Fazer revisão ou inspeção.',
+    synonyms: ['conferir', 'checar', 'examinar', 'revisar'],
+    examples: [
+      'Pode verificar isto para mim?',
+      'Já foi verificado?',
+      'Preciso verificar os dados',
+      'Vou verificar a disponibilidade'
     ]
   }
 ];

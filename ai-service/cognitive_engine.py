@@ -59,6 +59,15 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False  # Allow UTF-8 characters in JSON
+app.config['PREFERRED_ENCODING'] = 'utf-8'
+
+# Configure Flask to handle UTF-8 properly
+import sys
+if sys.stdout.encoding != 'utf-8':
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/agenda')
 DEBUG_VERSION = "semantic-2026-01-09T23:55Z"
@@ -141,15 +150,121 @@ def fetch_approved_word_meanings(company_id: str) -> Dict[str, Dict[str, Any]]:
     return meanings
 
 def tokenize(text: str) -> List[str]:
-    """Tokeniza texto em palavras relevantes (3+ caracteres)."""
-    words = re.findall(r'\b\w{3,}\b', text.lower())
+    """Tokeniza texto em palavras relevantes (2+ caracteres, excluindo números puros)."""
+    # Captura palavras com 2+ caracteres, permitindo apostrofos (contrações pt-br)
+    words = re.findall(r'\b\w{2,}\b', text.lower())
+    # Filtrar palavras que são apenas números
+    words = [w for w in words if not w.isdigit()]
     return words
 
 # Léxico semântico básico (pt-BR): mapeia palavras a conceitos e significados
 # Objetivo: fornecer ao motor cognitivo o "significado das palavras" sem depender
 # de respostas pré-cadastradas no banco.
 SEMANTIC_LEXICON: Dict[str, Dict[str, Any]] = {
-    # Planos e preços
+    # ========== PALAVRAS INTERROGATIVAS (MUITO IMPORTANTES) ==========
+    "como": {"concept": "modo/forma", "definition": "pergunta sobre a maneira de fazer algo, forma ou modo de operação.",
+             "synonyms": ["como", "de que forma", "qual forma", "de que jeito"],
+             "topic": "interrogativa"},
+    "qual": {"concept": "qual", "definition": "pergunta para identificar ou escolher entre opções.",
+             "synonyms": ["qual", "quais", "que tipo"],
+             "topic": "interrogativa"},
+    "onde": {"concept": "localização", "definition": "pergunta sobre o local ou lugar onde algo se encontra.",
+             "synonyms": ["onde", "em qual lugar", "qual endereço"],
+             "topic": "interrogativa"},
+    "quando": {"concept": "tempo", "definition": "pergunta sobre o momento ou hora de algo acontecer.",
+              "synonyms": ["quando", "em que momento", "que hora", "qual data"],
+              "topic": "interrogativa"},
+    "por que": {"concept": "razão/motivo", "definition": "pergunta sobre o motivo ou razão de algo.",
+                "synonyms": ["por que", "qual motivo", "qual razão", "porquê"],
+                "topic": "interrogativa"},
+    "quem": {"concept": "pessoa", "definition": "pergunta para identificar uma pessoa.",
+             "synonyms": ["quem", "qual pessoa"],
+             "topic": "interrogativa"},
+    "quanto": {"concept": "quantidade/preço", "definition": "pergunta sobre quantidade, preço ou valor.",
+               "synonyms": ["quanto", "quanto custa", "qual preço"],
+               "topic": "interrogativa"},
+    
+    # ========== VERBOS AUXILIARES E COMUNS ==========
+    "estar": {"concept": "estado/situação", "definition": "indicar estado, condição ou localização de algo.",
+              "synonyms": ["estar", "estou", "está", "estamos", "estão"],
+              "topic": "verbo"},
+    "ser": {"concept": "identidade/essência", "definition": "indicar identidade, qualidade ou característica.",
+            "synonyms": ["ser", "sou", "é", "somos", "são"],
+            "topic": "verbo"},
+    "fazer": {"concept": "ação", "definition": "indicar uma ação, criação ou realização de algo.",
+              "synonyms": ["fazer", "faço", "faz", "fazemos", "fazem"],
+              "topic": "verbo"},
+    "ir": {"concept": "movimento", "definition": "indicar deslocamento ou movimento para um lugar.",
+           "synonyms": ["ir", "vou", "vai", "vamos", "vão"],
+           "topic": "verbo"},
+    "ter": {"concept": "posse", "definition": "indicar propriedade, existência ou característica.",
+            "synonyms": ["ter", "tenho", "tem", "temos", "têm"],
+            "topic": "verbo"},
+    "pode": {"concept": "capacidade/permissão", "definition": "indicar possibilidade, permissão ou capacidade.",
+             "synonyms": ["pode", "posso", "podemos", "podem", "podes"],
+             "topic": "verbo"},
+    "preciso": {"concept": "necessidade", "definition": "indicar que algo é necessário ou obrigatório.",
+                "synonyms": ["preciso", "precisa", "precisamos", "precisam"],
+                "topic": "verbo"},
+    "gostaria": {"concept": "desejo/preferência", "definition": "expressar um desejo ou preferência de forma educada.",
+                 "synonyms": ["gostaria", "gostaria de", "gostaria que"],
+                 "topic": "verbo"},
+
+    # ========== PRONOMES ==========
+    "eu": {"concept": "primeira pessoa singular", "definition": "pronome que se refere ao falante.",
+           "synonyms": ["eu", "me", "mim", "meu"],
+           "topic": "pronome"},
+    "você": {"concept": "segunda pessoa", "definition": "pronome que se refere ao interlocutor de forma respeitosa.",
+             "synonyms": ["você", "vc", "voce", "vcs", "vocês"],
+             "topic": "pronome"},
+    "ele": {"concept": "terceira pessoa singular masculino", "definition": "pronome que se refere a uma pessoa ou coisa.",
+            "synonyms": ["ele", "o", "lhe", "seu"],
+            "topic": "pronome"},
+    "ela": {"concept": "terceira pessoa singular feminino", "definition": "pronome que se refere a uma pessoa ou coisa feminina.",
+            "synonyms": ["ela", "a", "lhe", "sua"],
+            "topic": "pronome"},
+    "nós": {"concept": "primeira pessoa plural", "definition": "pronome que se refere ao falante e outras pessoas.",
+            "synonyms": ["nós", "nos", "nosso"],
+            "topic": "pronome"},
+
+    # ========== VERBOS DE AÇÃO COMUNS EM ATENDIMENTO ==========
+    "entender": {"concept": "compreensão", "definition": "captar o significado ou compreender algo.",
+                 "synonyms": ["entender", "entendi", "entende", "compreender"],
+                 "topic": "verbo"},
+    "ajudar": {"concept": "assistência", "definition": "oferecer auxílio ou assistência a alguém.",
+               "synonyms": ["ajudar", "ajudo", "ajuda", "socorro", "assistência"],
+               "topic": "verbo"},
+    "resolver": {"concept": "solução", "definition": "encontrar solução para um problema.",
+                 "synonyms": ["resolver", "resolvo", "resolve", "solucionar"],
+                 "topic": "verbo"},
+    "explicar": {"concept": "esclarecimento", "definition": "tornar claro ou compreensível algo.",
+                 "synonyms": ["explicar", "explico", "explica", "esclarecer"],
+                 "topic": "verbo"},
+    "mostrar": {"concept": "demonstração", "definition": "apresentar ou demonstrar algo.",
+                "synonyms": ["mostrar", "mostro", "mostra", "indicar"],
+                "topic": "verbo"},
+    "falar": {"concept": "comunicação", "definition": "expressar-se através de palavras.",
+              "synonyms": ["falar", "falo", "fala", "conversar", "dialogar"],
+              "topic": "verbo"},
+
+    # ========== ADJETIVOS COMUNS ==========
+    "bom": {"concept": "qualidade positiva", "definition": "de boa qualidade ou adequado.",
+            "synonyms": ["bom", "boa", "ótimo", "excelente"],
+            "topic": "adjetivo"},
+    "rápido": {"concept": "velocidade", "definition": "que se move ou acontece em pouco tempo.",
+               "synonyms": ["rápido", "rápida", "veloz", "ágil"],
+               "topic": "adjetivo"},
+    "fácil": {"concept": "simplicidade", "definition": "que não apresenta dificuldade.",
+              "synonyms": ["fácil", "simples", "descomplicado"],
+              "topic": "adjetivo"},
+    "disponível": {"concept": "acessibilidade", "definition": "que está pronto ou acessível.",
+                   "synonyms": ["disponível", "acessível", "livre"],
+                   "topic": "adjetivo"},
+    "novo": {"concept": "modernidade", "definition": "que foi recentemente criado ou adquirido.",
+             "synonyms": ["novo", "nova", "inédito", "recente"],
+             "topic": "adjetivo"},
+
+    # ========== PLANOS E PREÇOS ==========
     "preco": {"concept": "preço", "definition": "valor cobrado por um serviço ou produto.",
                "synonyms": ["preço", "valor", "custo", "quanto", "quanto custa", "valores"],
                "topic": "comercial"},
@@ -175,7 +290,8 @@ SEMANTIC_LEXICON: Dict[str, Dict[str, Any]] = {
 
 STOPWORDS_PT = {
     "de", "da", "do", "das", "dos", "e", "ou", "a", "o", "os", "as", "um", "uma",
-    "para", "por", "com", "sem", "em", "no", "na", "nos", "nas", "que", "qual", "quais",
+    "para", "por", "com", "sem", "em", "no", "na", "nos", "nas", "que",
+    # REMOVIDO: "qual", "quais" - são palavras-chave importantes em português
 }
 
 # Padrões estruturais para detecção de intenção (análise sintática simples)
@@ -198,9 +314,9 @@ INTENT_PATTERNS = {
     },
     "ask_pricing": {
         "patterns": [
-            r"(?:qual|quais?|quanto).*(?:prec|cust|val|tarifas?)",
-            r"(?:prec|cust|val|tarifas?).*(?:de|dos?|da)",
-            r"plano",
+            r"(?:qual|quais?|quanto).+(?:pre[cç]o|cust|val|tarifa|plano)",
+            r"(?:pre[cç]o|cust|val|tarifa).+(?:de|dos?|da)",
+            r"\bplano\b",
         ],
         "response_template": "Temos diferentes planos:\n{plans}\n\nQual interesse você mais?",
         "plans": [
@@ -211,8 +327,9 @@ INTENT_PATTERNS = {
     },
     "ask_how_to": {
         "patterns": [
-            r"como.*(?:fazer|usar|agendar|integrar)",
-            r"(?:como|de que forma|qual a forma).*",
+            r"\bcomo\b.*(?:fazer|usar|agendar|integrar|funciona)",
+            r"(?:como|de que forma|qual a forma).*(?:fazer|usar|agendar)",
+            r"(?:qual|quais?).+(?:passo|etapa|processo|forma|jeito)",
         ],
         "response_template": "Para {action}:\n{steps}\n\nPrecisa de mais detalhes?",
         "steps": [
@@ -221,6 +338,31 @@ INTENT_PATTERNS = {
             "3️⃣ Preencha os dados solicitados",
             "4️⃣ Confirme a ação",
         ]
+    },
+    "ask_status": {
+        "patterns": [
+            r"\bcomo\b.+(?:está|tá|est[aá]|passa|vai|corre|anda)",
+            r"(?:tudo).+(?:bem|ok|certo|bom)",
+            r"(?:está|tá|est[aá]).+(?:funcionando|pronto|disponível)",
+        ],
+        "response_template": "Status atual: {status}\n\nTudo funcionando normalmente!",
+        "status": "✅ Sistema online e operacional"
+    },
+    "ask_location": {
+        "patterns": [
+            r"\bonde\b.+(?:fica|funciona|está)",
+            r"(?:qual|quais?).+(?:endereço|local|filial)",
+        ],
+        "response_template": "Estamos localizados em:\n{location}\n\nComo posso ajudar?",
+        "location": "Consulte nosso endereço no painel"
+    },
+    "ask_time": {
+        "patterns": [
+            r"\bquando\b.+(?:abre|funciona|atende|hor[aá]rio)",
+            r"(?:qual|quais?).+(?:hor[aá]rio|hora|per[ií]odo|expediente)",
+        ],
+        "response_template": "Nosso horário:\n{time}\n\nEm qual dia você prefere?",
+        "time": "Segunda a Sexta: 9h às 18h\nSábado: 9h às 13h"
     },
     "report_issue": {
         "patterns": [
@@ -250,6 +392,9 @@ def detect_intent(text: str) -> Tuple[str, float]:
     - "O que vc faz?" → ("ask_capabilities", 0.95)
     - "Qual o preço?" → ("ask_pricing", 0.9)
     - "Como agendar?" → ("ask_how_to", 0.85)
+    - "Como está?" → ("ask_status", 0.8)
+    - "Onde fica?" → ("ask_location", 0.8)
+    - "Qual horário?" → ("ask_time", 0.8)
     - "Tenho um problema" → ("report_issue", 0.8)
     """
     text_lower = text.lower()
@@ -264,8 +409,21 @@ def detect_intent(text: str) -> Tuple[str, float]:
         for pattern in patterns:
             match = re.search(pattern, text_lower, re.IGNORECASE)
             if match:
-                # Calcular confiança baseado em quantas palavras-chave aparecem
-                confidence = 0.8 + (len(match.group(0)) / len(text)) * 0.15
+                # Calcular confiança baseado em:
+                # 1. Qualidade do match da regex
+                # 2. Tamanho da mensagem (msgs curtas com match são mais precisas)
+                match_text = match.group(0)
+                match_ratio = len(match_text) / max(len(text), 1)
+                
+                # Msgs curtas com padrão claro = alta confiança
+                text_length = len(text.split())
+                if text_length <= 3 and match_ratio > 0.5:
+                    confidence = 0.90
+                elif match_ratio > 0.6:
+                    confidence = 0.85
+                else:
+                    confidence = 0.8 + (match_ratio * 0.15)
+                
                 confidence = min(0.95, confidence)
                 
                 if confidence > best_confidence:
@@ -312,6 +470,27 @@ def compose_intent_response(intent: str, incoming_message: str, semantics: Dict[
         response += "\n\nSiga esses passos e me avise se ficar preso em algum deles."
         return response
     
+    elif intent == "ask_status":
+        response = "Status atual: ✅ Sistema operacional\n\n"
+        response += "Tudo está funcionando normalmente!\n"
+        response += "Em que mais posso ajudá-lo?"
+        return response
+    
+    elif intent == "ask_location":
+        response = "📍 **Nossa Localização**\n\n"
+        response += "Estamos disponíveis online 24/7!\n"
+        response += "Para agendamentos presenciais, consulte nossos horários.\n\n"
+        response += "Precisa de mais informações?"
+        return response
+    
+    elif intent == "ask_time":
+        response = "⏰ **Nosso Horário**\n\n"
+        response += "Segunda a Sexta: 9h às 18h\n"
+        response += "Sábado: 9h às 13h\n"
+        response += "Domingo: Fechado\n\n"
+        response += "Em qual horário você gostaria de agendar?"
+        return response
+    
     elif intent == "report_issue":
         response = "Desculpe pelo problema! Vou te ajudar:\n\n"
         response += "Para identificar melhor a causa, me responda:\n"
@@ -335,7 +514,7 @@ def compose_intent_response(intent: str, incoming_message: str, semantics: Dict[
 def structure_sentence_analysis(text: str) -> Dict[str, Any]:
     """
     Analisa a estrutura sintática simples da frase:
-    - Identifica palavras interrogativas (O que, Qual, Como)
+    - Identifica palavras interrogativas (O que, Qual, Como, Onde, Quando)
     - Detecta o sujeito (geralmente "você/vc" quando pergunta sobre a IA)
     - Identifica o verbo/ação principal
     - Marca pontuação (?, !)
@@ -353,10 +532,11 @@ def structure_sentence_analysis(text: str) -> Dict[str, Any]:
         "structure": ""
     }
     
-    # Detectar interrogativas
-    interrogatives = ["o que", "qual", "quais", "como", "por que", "porquê", "quando", "onde", "quem"]
+    # Detectar interrogativas - CRÍTICO: com limites de palavra (\b)
+    interrogatives = ["como", "qual", "quais", "onde", "quando", "quem", "por que", "porquê", "o que"]
     for interr in interrogatives:
-        if interr in text_lower:
+        # Usar word boundary para evitar falsos positivos
+        if re.search(r'\b' + re.escape(interr) + r'\b', text_lower):
             analysis["interrogatives"].append(interr)
     
     # Detectar sujeito (você/vc na maioria das questões sobre a IA)
@@ -365,9 +545,11 @@ def structure_sentence_analysis(text: str) -> Dict[str, Any]:
         if re.search(r'\b' + subj + r'\b', text_lower):
             analysis["subjects"].append(subj)
     
-    # Detectar verbos comuns em ações/dúvidas
+    # Detectar verbos comuns em ações/dúvidas (EXPANDIDO)
     verbs = ["fazer", "pode", "faz", "fez", "conseguir", "consegue", "sabe", "agendar", 
-             "integrar", "funciona", "funcionar", "ajudar", "ajuda"]
+             "integrar", "funciona", "funcionar", "ajudar", "ajuda", "está", "tá", 
+             "fica", "passa", "abrir", "abre", "atender", "atende", "mudar", "muda",
+             "ir", "vai", "vem", "pagar", "paga", "paguei", "quer", "quero", "preciso"]
     for verb in verbs:
         if re.search(r'\b' + verb + r'\b', text_lower):
             analysis["verbs"].append(verb)
@@ -387,7 +569,10 @@ def structure_sentence_analysis(text: str) -> Dict[str, Any]:
     return analysis
 
 def normalize_token(token: str) -> str:
-    """Normaliza token para aproximação rudimentar (remove acentos comuns e plural)."""
+    """
+    Normaliza token para aproximação rudimentar (remove acentos comuns e plural).
+    Mantém palavras curtas intactas (não aplica singularização a tokens com <4 chars).
+    """
     # Remover acentos básicos
     replacements = {
         "á": "a", "à": "a", "â": "a", "ã": "a",
@@ -400,8 +585,10 @@ def normalize_token(token: str) -> str:
     t = token.lower()
     for k, v in replacements.items():
         t = t.replace(k, v)
+    
     # Singularização simplificada (remove 's' final se parecer plural)
-    if len(t) > 4 and t.endswith("s"):
+    # MAS: não aplicar a palavras com <4 chars (como "é", "é", "ao", etc.)
+    if len(t) >= 4 and t.endswith("s"):
         t = t[:-1]
     return t
 
@@ -734,7 +921,21 @@ def cognitive_response():
     4. Compor resposta dinamicamente baseado em intenção + semântica
     """
     try:
-        data = request.json or {}
+        # Handle encoding issues with Portuguese characters
+        try:
+            data = request.json or {}
+        except Exception as json_error:
+            # If JSON parsing fails, try with force_utf8
+            request.charset = 'utf-8'
+            request.environ['CONTENT_TYPE'] = 'application/json; charset=utf-8'
+            try:
+                raw_data = request.get_data(as_text=True)
+                import json as json_lib
+                data = json_lib.loads(raw_data) if raw_data else {}
+            except Exception as e:
+                logger.error(f"Failed to parse request data: {e}")
+                return jsonify({'error': 'Failed to parse request JSON'}), 400
+        
         incoming_message = data.get('incoming_message', '')
         context_summary = data.get('context_summary', '')
         intent_hint = data.get('intent', 'geral')  # Hint externo (opcional)
@@ -749,7 +950,13 @@ def cognitive_response():
         except ValueError:
             return jsonify({'error': 'company_id inválido (UUID esperado)'}), 400
 
-        logger.debug(f'Received request: company_id={company_id}, message="{incoming_message[:50]}..."')
+        # Normalize incoming message for logging
+        try:
+            message_display = incoming_message.encode('utf-8').decode('utf-8') if incoming_message else "N/A"
+        except:
+            message_display = str(incoming_message)
+        
+        logger.debug(f'Received request: company_id={company_id}, message="{message_display[:80]}..."')
 
         # NOVO: 1. Analisar estrutura da frase
         structural_analysis = structure_sentence_analysis(incoming_message)
